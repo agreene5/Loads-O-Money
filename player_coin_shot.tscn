@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwi0xdbbp20i3"]
+
+[ext_resource type="Texture2D" uid="uid://bttlk4vnwbtsu" path="res://Temp_Assets/Temp_Character_Assets/Temp_Penny_Projectile.png" id="1_tgjn8"]
+
+[node name="Player_Coin_Shot" type="RigidBody2D"]
+
+[node name="Player_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_tgjn8")

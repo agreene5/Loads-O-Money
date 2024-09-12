@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://na1amkbfo47n"]
+
+[ext_resource type="Texture2D" uid="uid://16frs63ik45w" path="res://Temp_Assets/Temp_Character_Assets/Temp_100Check_Projectile.png" id="1_duu2f"]
+
+[node name="Player_Check_Shot" type="RigidBody2D"]
+
+[node name="Player_Check_Shot_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_duu2f")
