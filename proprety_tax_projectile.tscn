@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://syw25mgf7dj4"]
+
+[ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_aa5n6"]
+[ext_resource type="Script" path="res://proprety_tax_projectile.gd" id="1_yqdca"]
+
+[node name="Proprety_Tax_Projectile" type="RigidBody2D"]
+script = ExtResource("1_yqdca")
+
+[node name="Property_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_aa5n6")
