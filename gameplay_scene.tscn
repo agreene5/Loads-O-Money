@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctm6ntaf4whvu"]
+[gd_scene load_steps=12 format=3 uid="uid://ctm6ntaf4whvu"]
 
 [ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
 [ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bmsxa5rw0286l" path="res://sales_tax.tscn" id="4_4i2hk"]
 [ext_resource type="PackedScene" uid="uid://5wf77ibnn851" path="res://income_tax.tscn" id="5_ldiom"]
 [ext_resource type="PackedScene" uid="uid://b3gci2saj8qda" path="res://property_tax.tscn" id="6_eo76i"]
-[ext_resource type="PackedScene" uid="uid://cjfwx8cc8x8mv" path="res://tax_enemy_projectile.tscn" id="7_e78gn"]
 [ext_resource type="PackedScene" uid="uid://bwi0xdbbp20i3" path="res://player_coin_shot.tscn" id="8_6ybx3"]
 [ext_resource type="PackedScene" uid="uid://cpju1pigh4exx" path="res://player_dollar_shot.tscn" id="9_la0fr"]
 [ext_resource type="PackedScene" uid="uid://na1amkbfo47n" path="res://player_check_shot.tscn" id="10_5nx84"]
@@ -492,9 +491,6 @@ position = Vector2(398, 440)
 
 [node name="Property_Tax" parent="." instance=ExtResource("6_eo76i")]
 position = Vector2(300, 441)
-
-[node name="Tax_Enemy_Projectile" parent="." instance=ExtResource("7_e78gn")]
-position = Vector2(474, 367)
 
 [node name="Player_Coin_Shot" parent="." instance=ExtResource("8_6ybx3")]
 position = Vector2(585, 285)

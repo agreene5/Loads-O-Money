@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjfwx8cc8x8mv"]
-
-[ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_s7r3i"]
-
-[node name="Tax_Enemy_Projectile" type="RigidBody2D"]
-
-[node name="Tax_Enemy_Projectile_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_s7r3i")
