@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=6 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Script" path="res://Camera_Movement_Script.gd" id="2_x6mct"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bg7pacq4pfacr" path="res://Temp_Assets/Temp_Character_Assets/Temp_Character.jpg" id="4_23rbx"]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_2pnfp")
 
 [node name="Player_Movement" type="Node2D" parent="."]
 position = Vector2(607, 282)
