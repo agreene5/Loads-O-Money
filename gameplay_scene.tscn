@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bwi0xdbbp20i3" path="res://player_coin_shot.tscn" id="8_6ybx3"]
 [ext_resource type="PackedScene" uid="uid://cpju1pigh4exx" path="res://player_dollar_shot.tscn" id="9_la0fr"]
 [ext_resource type="PackedScene" uid="uid://na1amkbfo47n" path="res://player_check_shot.tscn" id="10_5nx84"]
+[ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvulg"]
 texture = ExtResource("1_eajuk")
