@@ -1,4 +1,5 @@
 [gd_scene load_steps=13 format=3 uid="uid://ctm6ntaf4whvu"]
+[gd_scene load_steps=13 format=3 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
 [ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
