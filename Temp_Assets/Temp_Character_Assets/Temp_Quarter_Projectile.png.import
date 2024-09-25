@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dapd30g1yj2fb"
-path="res://.godot/imported/Temp_Quarter_Projectile.png-5e3958befcd0bdc5e9c396345a7f6651.ctex"
+path="res://.godot/imported/Temp_Quarter_Projectile.png-5a85a973017d4821c64abfe1986f36dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Temp_Assets/Temp_Tax_Assets/Temp_Quarter_Projectile.png"
-dest_files=["res://.godot/imported/Temp_Quarter_Projectile.png-5e3958befcd0bdc5e9c396345a7f6651.ctex"]
+source_file="res://Temp_Assets/Temp_Character_Assets/Temp_Quarter_Projectile.png"
+dest_files=["res://.godot/imported/Temp_Quarter_Projectile.png-5a85a973017d4821c64abfe1986f36dc.ctex"]
 
 [params]
 
