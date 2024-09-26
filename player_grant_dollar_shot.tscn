@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://csowyuhg1tqi"]
+
+[ext_resource type="Script" path="res://Player_Dollar_Shot.gd" id="1_futbe"]
+[ext_resource type="Texture2D" uid="uid://dn7o5nmv8uby6" path="res://Temp_Assets/Temp_Character_Assets/Temp_50Dollar_Projectile.png" id="2_7hnta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5vb3"]
+size = Vector2(52, 22)
+
+[node name="Player_Grant_Dollar_Shot" type="RigidBody2D"]
+script = ExtResource("1_futbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.0809505, 0.0825645)
+texture = ExtResource("2_7hnta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_i5vb3")

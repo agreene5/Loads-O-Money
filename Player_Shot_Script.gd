@@ -9,10 +9,10 @@ var CoinShotNickel = preload("res://player_nickel_coin_shot.tscn")
 var CoinShotDime = preload("res://player_dime_coin_shot.tscn")
 var CoinShotQuarter = preload("res://player_quarter_coin_shot.tscn")
 
-# var DollarShotWashington = preload()
-# var DollarShotLincoln = preload()
-# var DollarShotJackson = preload()
-# var DollarShotGrant = preload()
+var DollarShotWashington = preload("res://player_dollar_shot.tscn")
+var DollarShotLincoln = preload("res://player_lincoln_dollar_shot.tscn")
+var DollarShotJackson = preload("res://player_jackson_dollar_shot.tscn")
+var DollarShotGrant = preload("res://player_grant_dollar_shot.tscn")
 
 # var CheckShot100 = preload()
 # var CheckShot200 = preload()
@@ -22,8 +22,8 @@ var CoinShotQuarter = preload("res://player_quarter_coin_shot.tscn")
 var Coin_Variant = Global_Variables.Coin_Variant
 var coin_costs = [0.01, 0.05, 0.10, 0.01] # Determines the cost per shot of each coin
 
-#var Dollar_Variant
-#var dollar_costs
+var Dollar_Variant = Global_Variables.Dollar_Variant
+var dollar_costs = [1, 10, 20 ,50]
 
 #var Check_Variant
 #var check_costs
@@ -75,11 +75,24 @@ func fire_shot():
 				3:
 					coin_type = CoinShotQuarter
 			_handle_coin_shot(coin_type, cost)
+			
 		ShotType.DOLLAR:
-			# 
-			#
-			#
-			_handle_dollar_shot()
+			var dollar_type
+			var cost = dollar_costs[Dollar_Variant]
+			match Dollar_Variant:
+				0:
+					dollar_type = DollarShotWashington
+				1: 
+					dollar_type = DollarShotLincoln
+				2:
+					dollar_type = DollarShotJackson
+				3:
+					dollar_type = DollarShotGrant
+				
+					
+			_handle_dollar_shot(dollar_type, cost) 
+			
+			
 		ShotType.CHECK:
 			#
 			#
@@ -112,10 +125,22 @@ func _handle_coin_shot(coin_type, cost):
 
 		get_tree().current_scene.add_child(coin_instance)
 
-func _handle_dollar_shot():
-	# Dollar shot code
-	pass
+func _handle_dollar_shot(dollar_type, cost):
+	if money >= cost:
+		money -= cost  # Ensure dollar_type is valid
+		var dollar_instance = dollar_type.instantiate()  #
+		var parent = get_parent()
+		var player_sprite = parent.get_node("Player_Sprite")
+		dollar_instance.global_position = player_sprite.global_position
+		
+		var click_position = get_global_mouse_position()
+		var direction = (click_position - player_sprite.global_position).normalized()
 
+		dollar_instance.rotation = direction.angle()
+		dollar_instance.set_initial_direction(direction)
+
+		get_tree().current_scene.add_child(dollar_instance)
+			
 func _handle_check_shot():
 	# Check shot code
 	pass
