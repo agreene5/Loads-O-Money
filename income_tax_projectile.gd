@@ -2,8 +2,8 @@
 extends RigidBody2D
 
 var initial_velocity = 150
-var deceleration = 5
 var despawn_timer = Timer.new()
+var deceleration = Global_Variables.deceleration
 
 func _ready():
 	# Setup the despawn timer
