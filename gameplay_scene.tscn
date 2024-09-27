@@ -1,17 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://vm8yx62q6wh5"]
+[gd_scene load_steps=6 format=3 uid="uid://vm8yx62q6wh5"]
 
 [ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
 [ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://player.tscn" id="3_lkgqa"]
-[ext_resource type="PackedScene" uid="uid://ct684ok6i8ill" path="res://player_nickel_coin_shot.tscn" id="7_r8t6c"]
-[ext_resource type="PackedScene" uid="uid://gugithma0iqw" path="res://player_penny_coin_shot.tscn" id="8_6ybx3"]
-[ext_resource type="PackedScene" path="res://player_dime_coin_shot.tscn" id="8_cbpif"]
-[ext_resource type="PackedScene" uid="uid://cpju1pigh4exx" path="res://player_dollar_shot.tscn" id="9_la0fr"]
-[ext_resource type="PackedScene" uid="uid://c0n57iajvvms4" path="res://player_quarter_coin_shot.tscn" id="9_xbamm"]
-[ext_resource type="PackedScene" uid="uid://cpvjf3txvtbpg" path="res://player_lincoln_dollar_shot.tscn" id="10_1hsph"]
-[ext_resource type="PackedScene" uid="uid://na1amkbfo47n" path="res://player_check_shot.tscn" id="10_5nx84"]
-[ext_resource type="PackedScene" uid="uid://bgmgvk64bwrhs" path="res://player_jackson_dollar_shot.tscn" id="11_yjfnb"]
-[ext_resource type="PackedScene" uid="uid://csowyuhg1tqi" path="res://player_grant_dollar_shot.tscn" id="12_saat5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvulg"]
 texture = ExtResource("1_eajuk")
@@ -485,27 +476,3 @@ layer_0/tile_data = PackedInt32Array(5308336, 196608, 1, -5242800, 262144, 0, 52
 
 [node name="Player" parent="." instance=ExtResource("3_lkgqa")]
 position = Vector2(666, 321)
-
-[node name="Player_Penny_Coin_Shot" parent="." instance=ExtResource("8_6ybx3")]
-position = Vector2(585, 285)
-
-[node name="Player_Dollar_Shot" parent="." instance=ExtResource("9_la0fr")]
-position = Vector2(586, 313)
-
-[node name="Player_Check_Shot" parent="." instance=ExtResource("10_5nx84")]
-position = Vector2(590, 357)
-
-[node name="Player_Nickel_Coin_Shot" parent="." instance=ExtResource("7_r8t6c")]
-position = Vector2(600.68, 285)
-
-[node name="Player_Dime_Coin_Shot" parent="." instance=ExtResource("8_cbpif")]
-position = Vector2(616, 286)
-
-[node name="Player_Quarter_Coin_Shot" parent="." instance=ExtResource("9_xbamm")]
-position = Vector2(633.395, 286)
-
-[node name="Player_Lincoln_Dollar_Shot" parent="." instance=ExtResource("10_1hsph")]
-
-[node name="Player_Jackson_Dollar_Shot" parent="." instance=ExtResource("11_yjfnb")]
-
-[node name="Player_Grant_Dollar_Shot" parent="." instance=ExtResource("12_saat5")]

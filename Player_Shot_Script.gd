@@ -9,24 +9,24 @@ var CoinShotNickel = preload("res://player_nickel_coin_shot.tscn")
 var CoinShotDime = preload("res://player_dime_coin_shot.tscn")
 var CoinShotQuarter = preload("res://player_quarter_coin_shot.tscn")
 
-var DollarShotWashington = preload("res://player_dollar_shot.tscn")
+var DollarShotWashington = preload("player_washington_dollar_shot.tscn")
 var DollarShotLincoln = preload("res://player_lincoln_dollar_shot.tscn")
 var DollarShotJackson = preload("res://player_jackson_dollar_shot.tscn")
 var DollarShotGrant = preload("res://player_grant_dollar_shot.tscn")
 
-# var CheckShot100 = preload()
-# var CheckShot200 = preload()
-# var CheckShot500 = preload()
-# var CheckShot1000 = preload()
+var CheckShot100 = preload("res://player_100_check_shot.tscn")
+var CheckShot200 = preload("res://player_200_check_shot.tscn")
+var CheckShot500 = preload("res://player_500_check_shot.tscn")
+var CheckShot1000 = preload("res://player_1000_check_shot.tscn")
 
 var Coin_Variant = Global_Variables.Coin_Variant
-var coin_costs = [0.01, 0.05, 0.10, 0.01] # Determines the cost per shot of each coin
+var coin_costs = [0.01, 0.05, 0.10, 0.25] # Determines the cost per shot of each coin
 
 var Dollar_Variant = Global_Variables.Dollar_Variant
-var dollar_costs = [1, 10, 20 ,50]
+var dollar_costs = [1.0, 10.0, 20.0, 50.0]
 
-#var Check_Variant
-#var check_costs
+var Check_Variant = Global_Variables.Check_Variant
+var check_costs = [100.0, 200.0, 500.0, 1000.0]
 
 enum ShotType {COIN, DOLLAR, CHECK}
 var current_shot_type = ShotType.COIN  # Start with coin type as default
@@ -94,10 +94,19 @@ func fire_shot():
 			
 			
 		ShotType.CHECK:
-			#
-			#
-			#
-			_handle_check_shot()
+			var check_type
+			var cost = check_costs[Check_Variant]
+			match Coin_Variant:
+				0:
+					check_type = CheckShot100
+				1:
+					check_type = CheckShot200
+				2:
+					check_type = CheckShot500
+				3:
+					check_type = CheckShot1000
+			_handle_check_shot(check_type, cost)
+
 
 func get_fire_rate():
 	match current_shot_type:
@@ -141,9 +150,22 @@ func _handle_dollar_shot(dollar_type, cost):
 
 		get_tree().current_scene.add_child(dollar_instance)
 			
-func _handle_check_shot():
-	# Check shot code
-	pass
+func _handle_check_shot(check_type, cost):
+	if money >= cost:
+		money -= cost
+		var check_instance = check_type.instantiate()
+		var parent = get_parent()
+		
+		var player_sprite = parent.get_node("Player_Sprite") # Shooting in relation to the player sprite location
+		check_instance.global_position = player_sprite.global_position
+		
+		var click_position = get_global_mouse_position()
+		var direction = (click_position - player_sprite.global_position).normalized()
+		
+		check_instance.rotation = direction.angle()
+		check_instance.set_initial_direction(direction)
+
+		get_tree().current_scene.add_child(check_instance)
 
 func cycle_shot_type():
 	# Cycle through the shot types (Coin, Dollar, Check)

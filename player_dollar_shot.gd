@@ -16,7 +16,7 @@ func _ready():
 	despawn_timer.timeout.connect(_on_despawn_timer_timeout)
 	despawn_timer.start()
 	
-	# Disable gravity
+	# Disable gravityW
 	gravity_scale = 0
 
 func set_initial_direction(initial_direction: Vector2):
