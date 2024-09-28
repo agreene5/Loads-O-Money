@@ -6,6 +6,9 @@ extends RigidBody2D
 var despawn_timer = Timer.new()
 
 func _ready():
+	# Play the coin sound effect
+	play_check_sound()
+	
 	# Setup the despawn timer
 	add_child(despawn_timer)
 	despawn_timer.wait_time = 5 
@@ -22,3 +25,11 @@ func set_initial_direction(direction: Vector2):
 
 func _on_despawn_timer_timeout():
 	queue_free()  # Despawns the coin scene
+
+func play_check_sound():
+		var audio_player = AudioStreamPlayer.new()
+		add_child(audio_player)
+		
+		audio_player.stream = load("res://Finished_Assets/CheckSFX.mp3")
+		audio_player.volume_db = -3  # Subtracting 3 decibles because vine boom is loud
+		audio_player.play()

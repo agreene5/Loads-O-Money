@@ -10,4 +10,3 @@ var Coin_Variant = 3  # Determines the coin variant the user has | 0: Penny, 1: 
 var Dollar_Variant = 3 # Determines the dollar variant the user has | 0: Washington, 1: Lincoln, 2: Jackson, 3: Grant
 
 var Check_Variant = 3 # Determines the check variant the user has | 0: $100 Check, 1: $200 Check, 2: $500 Check, 3: $1000 CHeck
-

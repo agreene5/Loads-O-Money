@@ -8,6 +8,9 @@ var elapsed_time = 0.0
 var main_dir = Vector2.ZERO  # main direction of dollarshot
 
 func _ready():
+	# Play the dollar sound effect
+	play_dollar_sound()
+	
 	# Setup the despawn timer
 	despawn_timer = Timer.new()
 	add_child(despawn_timer)
@@ -44,5 +47,10 @@ func _process(delta):
 
 func _on_despawn_timer_timeout():
 	queue_free()  # despawn dollarshot
-
-
+	
+func play_dollar_sound():
+		var audio_player = AudioStreamPlayer.new()
+		add_child(audio_player)
+		
+		audio_player.stream = load("res://Finished_Assets/DollarSFX.mp3")
+		audio_player.play()

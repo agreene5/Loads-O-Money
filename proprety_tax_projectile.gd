@@ -26,4 +26,3 @@ func _physics_process(delta):
 
 func _on_despawn_timer_timeout():
 	queue_free()  # Despawns the bill shot scene
-
