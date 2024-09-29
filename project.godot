@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Global_Variables="*res://Global_Variables.gd"
 
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Character"
+2d_physics/layer_3="Projectiles"
+
 [rendering]
 
 renderer/rendering_method="mobile"

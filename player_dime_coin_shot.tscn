@@ -10,8 +10,8 @@ bounce = 1.0
 radius = 55.5556
 
 [node name="Player_Dime_Coin_Shot" type="RigidBody2D"]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 5
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_ttk0f")
 linear_damp = 0.08

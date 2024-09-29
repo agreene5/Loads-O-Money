@@ -9,6 +9,8 @@
 size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 
 [node name="Player_Movement" type="Node2D" parent="."]
 position = Vector2(607, 282)

@@ -486,6 +486,7 @@ layer_0/tile_data = PackedInt32Array(5308336, 196608, 1, -5242800, 262144, 0, 52
 
 [node name="Player" parent="." instance=ExtResource("3_lkgqa")]
 position = Vector2(666, 321)
+collision_layer = 2
 
 [node name="Anti-Spawn_Area" type="Area2D" parent="Player"]
 
@@ -495,6 +496,7 @@ shape = SubResource("RectangleShape2D_ll406")
 
 [node name="Spawn_Area" type="Area2D" parent="."]
 visible = false
+collision_mask = 7
 script = ExtResource("10_it5n0")
 
 [node name="Overall_Spawn_Area" type="CollisionShape2D" parent="Spawn_Area"]
