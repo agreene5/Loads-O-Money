@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://qpo1ead7cbp7"]
+[gd_scene load_steps=4 format=3 uid="uid://qpo1ead7cbp7"]
 
 [ext_resource type="Script" path="res://income_tax_projectile.gd" id="1_2xvv4"]
 [ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_wh8bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4npx"]
+size = Vector2(58, 76)
 
 [node name="Income_Tax_Projectile" type="RigidBody2D"]
 script = ExtResource("1_2xvv4")
@@ -9,3 +12,6 @@ script = ExtResource("1_2xvv4")
 [node name="Income_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_wh8bn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r4npx")
