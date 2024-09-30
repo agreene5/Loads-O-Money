@@ -12,12 +12,18 @@ config_version=5
 
 config/name="PantherDev - Loads O' Money"
 run/main_scene="res://gameplay_scene.tscn"
-config/features=PackedStringArray("4.2", "Mobile")
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global_Variables="*res://Global_Variables.gd"
+
+[layer_names]
+
+2d_physics/layer_1="Walls"
+2d_physics/layer_2="Character"
+2d_physics/layer_3="Projectiles"
 
 [rendering]
 
