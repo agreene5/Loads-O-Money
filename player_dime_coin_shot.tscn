@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8yrxl70tl2so"]
+
+[ext_resource type="Script" path="res://Player_Coin_Shot.gd" id="1_85tr4"]
+[ext_resource type="Texture2D" uid="uid://doxph6xksgtn6" path="res://Temp_Assets/Temp_Character_Assets/Temp_Dime_Projectile.png" id="1_n3rld"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ttk0f"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2bob"]
+radius = 55.5556
+
+[node name="Player_Dime_Coin_Shot" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_ttk0f")
+linear_damp = 0.08
+script = ExtResource("1_85tr4")
+
+[node name="Player_Dime_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_n3rld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.09, 0.09)
+shape = SubResource("CircleShape2D_n2bob")
