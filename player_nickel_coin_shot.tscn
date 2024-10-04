@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct684ok6i8ill"]
+[gd_scene load_steps=6 format=3 uid="uid://chr0s4xaterud"]
 
 [ext_resource type="Texture2D" uid="uid://chrx2k5x2rhpu" path="res://Temp_Assets/Temp_Character_Assets/Temp_Nickel_Projectile.png" id="1_17ejp"]
 [ext_resource type="Script" path="res://player_dollar_shot.gd" id="1_mde56"]
@@ -8,6 +8,9 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oh7m"]
 radius = 63.5059
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiwfv"]
+radius = 6.66667
 
 [node name="Player_Nickel_Coin_Shot" type="RigidBody2D"]
 collision_layer = 4
@@ -24,3 +27,9 @@ texture = ExtResource("1_17ejp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_6oh7m")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.05, 1.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aiwfv")

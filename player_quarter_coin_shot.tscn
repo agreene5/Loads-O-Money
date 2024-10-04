@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0n57iajvvms4"]
+[gd_scene load_steps=5 format=3 uid="uid://b313bsbdr4yl8"]
 
 [ext_resource type="Script" path="res://Player_Coin_Shot.gd" id="1_1fsop"]
 [ext_resource type="Texture2D" uid="uid://dapd30g1yj2fb" path="res://Temp_Assets/Temp_Character_Assets/Temp_Quarter_Projectile.png" id="1_qvpkh"]

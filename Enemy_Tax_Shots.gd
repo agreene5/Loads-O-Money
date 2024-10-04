@@ -5,6 +5,7 @@ extends Node2D
 var bullet_scene: PackedScene
 var shoot_timer: Timer
 var sprite: Sprite2D
+var shot_health: int
 
 func _ready():
 	var fire_rate = 0.0

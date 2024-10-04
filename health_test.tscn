@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://covmi45erxck6"]
+
+[ext_resource type="PackedScene" uid="uid://5wf77ibnn851" path="res://income_tax.tscn" id="1_4rtaf"]
+[ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://player.tscn" id="2_m8gtc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Income_Tax" parent="." instance=ExtResource("1_4rtaf")]
+position = Vector2(460, 116)
+
+[node name="Player" parent="." instance=ExtResource("2_m8gtc")]
+position = Vector2(180, 186)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=11 format=3 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
 [ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://player.tscn" id="3_lkgqa"]
+[ext_resource type="PackedScene" uid="uid://5wf77ibnn851" path="res://income_tax.tscn" id="5_d7qir"]
 [ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvulg"]
@@ -266,3 +267,6 @@ shape = SubResource("RectangleShape2D_q3tox")
 [node name="Building_13" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(2064, -2084)
 shape = SubResource("RectangleShape2D_q3tox")
+
+[node name="Income_Tax" parent="." instance=ExtResource("5_d7qir")]
+position = Vector2(913, 360)
