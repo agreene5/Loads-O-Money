@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfkg8f4woeshj"]
+
+[ext_resource type="Script" path="res://Checks/Player_Check_Shot.gd" id="1_1t2cq"]
+[ext_resource type="Texture2D" uid="uid://doi0jq4r1xh8o" path="res://Temp_Assets/Temp_Character_Assets/Temp_1000Check_Projectile.png" id="2_hcrrx"]
+[ext_resource type="Script" path="res://Checks/1000_Check_Health.gd" id="3_w1td3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x6im"]
+
+[node name="Player_1000_Check_Shot" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 30.0
+script = ExtResource("1_1t2cq")
+
+[node name="Player_1000_Check_Shot_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.24, 0.36)
+texture = ExtResource("2_hcrrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(8.72, 5.96)
+shape = SubResource("RectangleShape2D_0x6im")
+
+[node name="1000_Collision_Detector" type="Area2D" parent="."]
+script = ExtResource("3_w1td3")

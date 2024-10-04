@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8yrxl70tl2so"]
+
+[ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_ndrxx"]
+[ext_resource type="Texture2D" uid="uid://doxph6xksgtn6" path="res://Temp_Assets/Temp_Character_Assets/Temp_Dime_Projectile.png" id="2_4n57j"]
+[ext_resource type="Script" path="res://Coins/Dime_Coin_Health.gd" id="3_ah5sr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ttk0f"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n2bob"]
+radius = 55.5556
+
+[node name="Player_Dime_Coin_Shot" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_ttk0f")
+linear_damp = 0.08
+script = ExtResource("1_ndrxx")
+
+[node name="Player_Dime_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_4n57j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.09, 0.09)
+shape = SubResource("CircleShape2D_n2bob")
+
+[node name="Dime_Collision_Detector" type="Area2D" parent="."]
+script = ExtResource("3_ah5sr")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwi0xdbbp20i3"]
+
+[ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_122c1"]
+[ext_resource type="Texture2D" uid="uid://bttlk4vnwbtsu" path="res://Temp_Assets/Temp_Character_Assets/Temp_Penny_Projectile.png" id="2_mmu8e"]
+[ext_resource type="Script" path="res://Coins/Penny_Coin_Health.gd" id="3_ykben"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fs2dq"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_154pm"]
+radius = 5.0
+
+[node name="Player_Penny_Coin_Shot" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+mass = 0.15
+physics_material_override = SubResource("PhysicsMaterial_fs2dq")
+linear_damp = 0.08
+script = ExtResource("1_122c1")
+
+[node name="Player_Penny_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_mmu8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.05, 1.05)
+shape = SubResource("CircleShape2D_154pm")
+
+[node name="Penny_Collision_Detector" type="Area2D" parent="."]
+script = ExtResource("3_ykben")
