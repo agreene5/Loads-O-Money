@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3gci2saj8qda"]
 
 [ext_resource type="Texture2D" uid="uid://c4lidtonhn0d3" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Property_Tax.png" id="1_e0o67"]
-[ext_resource type="Script" path="res://Enemy_Tax_Shots.gd" id="2_7rp2t"]
+[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_7rp2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a4gs"]
 size = Vector2(30, 108)

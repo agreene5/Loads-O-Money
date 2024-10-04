@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpvjf3txvtbpg"]
+[gd_scene load_steps=5 format=3 uid="uid://cpvjf3txvtbpg"]
 
 [ext_resource type="Script" path="res://Player_Dollar_Shot.gd" id="1_rrsk0"]
 [ext_resource type="Texture2D" uid="uid://dmly186oy21j8" path="res://Temp_Assets/Temp_Character_Assets/Temp_5Dollar_Projectile.png" id="2_mp57q"]
+[ext_resource type="Script" path="res://Dollars/Lincoln_Dollar_Health.gd" id="3_helgf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxsml"]
 size = Vector2(52, 22)
@@ -20,3 +21,6 @@ texture = ExtResource("2_mp57q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_uxsml")
+
+[node name="Lincoln_Collision_Detector" type="Area2D" parent="."]
+script = ExtResource("3_helgf")

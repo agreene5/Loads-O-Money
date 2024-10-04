@@ -24,3 +24,4 @@ func receive_value(value):
 
 func get_value(value):
 	return value
+# Shot health calculation function

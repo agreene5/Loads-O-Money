@@ -4,20 +4,20 @@
 
 extends Node2D
 
-var CoinShotPenny = preload("res://player_penny_coin_shot.tscn")
-var CoinShotNickel = preload("res://player_nickel_coin_shot.tscn")
-var CoinShotDime = preload("res://player_dime_coin_shot.tscn")
-var CoinShotQuarter = preload("res://player_quarter_coin_shot.tscn")
+var CoinShotPenny = preload("res://Coins/player_penny_coin_shot.tscn")
+var CoinShotNickel = preload("res://Coins/player_nickel_coin_shot.tscn")
+var CoinShotDime = preload("res://Coins/player_dime_coin_shot.tscn")
+var CoinShotQuarter = preload("res://Coins/player_quarter_coin_shot.tscn")
 
-var DollarShotWashington = preload("player_washington_dollar_shot.tscn")
-var DollarShotLincoln = preload("res://player_lincoln_dollar_shot.tscn")
-var DollarShotJackson = preload("res://player_jackson_dollar_shot.tscn")
-var DollarShotGrant = preload("res://player_grant_dollar_shot.tscn")
+var DollarShotWashington = preload("res://Dollars/player_washington_dollar_shot.tscn")
+var DollarShotLincoln = preload("res://Dollars/player_lincoln_dollar_shot.tscn")
+var DollarShotJackson = preload("res://Dollars/player_jackson_dollar_shot.tscn")
+var DollarShotGrant = preload("res://Dollars/player_grant_dollar_shot.tscn")
 
-var CheckShot100 = preload("res://player_100_check_shot.tscn")
-var CheckShot200 = preload("res://player_200_check_shot.tscn")
-var CheckShot500 = preload("res://player_500_check_shot.tscn")
-var CheckShot1000 = preload("res://player_1000_check_shot.tscn")
+var CheckShot100 = preload("res://Checks/player_100_check_shot.tscn")
+var CheckShot200 = preload("res://Checks/player_200_check_shot.tscn")
+var CheckShot500 = preload("res://Checks/player_500_check_shot.tscn")
+var CheckShot1000 = preload("res://Checks/player_1000_check_shot.tscn")
 
 var Coin_Variant = Global_Variables.Coin_Variant
 var coin_costs = [0.01, 0.05, 0.10, 0.25] # Determines the cost per shot of each coin

@@ -11,15 +11,15 @@ func _ready():
 	var fire_rate = 0.0
 	match name:
 		"Sales_Tax_Shot":
-			bullet_scene = preload("res://sales_tax_projectile.tscn")
+			bullet_scene = preload("res://Bills (Tax Enemy Shots)/sales_tax_projectile.tscn")
 			sprite = get_node("../Sales_Tax_Sprite")
 			fire_rate = 0.8
 		"Property_Tax_Shot":
-			bullet_scene = preload("res://proprety_tax_projectile.tscn")
+			bullet_scene = preload("res://Bills (Tax Enemy Shots)/proprety_tax_projectile.tscn")
 			sprite = get_node("../Property_Tax_Sprite")
 			fire_rate = 1.5
 		"Income_Tax_Shot":
-			bullet_scene = preload("res://income_tax_projectile.tscn")
+			bullet_scene = preload("res://Bills (Tax Enemy Shots)/income_tax_projectile.tscn")
 			sprite = get_node("../Income_Tax_Sprite")
 			fire_rate = 3.0
 

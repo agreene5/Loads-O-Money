@@ -5,9 +5,9 @@ extends Area2D
 
 var rng = RandomNumberGenerator.new()
 var timers = []
-var sales_tax_scene = preload("res://sales_tax.tscn")
-var property_tax_scene = preload("res://property_tax.tscn")
-var income_tax_scene = preload("res://income_tax.tscn")
+var sales_tax_scene = preload("res://Tax Enemies/sales_tax.tscn")
+var property_tax_scene = preload("res://Tax Enemies/property_tax.tscn")
+var income_tax_scene = preload("res://Tax Enemies/income_tax.tscn")
 
 var start_times = [20.0, 33.3, 50.0]
 var end_times = [0.1, 0.2, 0.4]
