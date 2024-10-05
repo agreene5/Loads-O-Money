@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://covmi45erxck6"]
 
-[ext_resource type="PackedScene" uid="uid://5wf77ibnn851" path="res://income_tax.tscn" id="1_4rtaf"]
-[ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://player.tscn" id="2_m8gtc"]
+[ext_resource type="PackedScene" uid="uid://5wf77ibnn851" path="res://Tax Enemies/income_tax.tscn" id="1_4rtaf"]
+[ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="2_m8gtc"]
 
 [node name="Node2D" type="Node2D"]
 

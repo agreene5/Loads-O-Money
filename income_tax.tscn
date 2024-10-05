@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://clkrf0pgnsmoj"]
+
+[ext_resource type="Texture2D" uid="uid://dqumg0thye606" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Income_Tax.png" id="1_lhyq8"]
+[ext_resource type="Script" path="res://income_tax_health.gd" id="2_x6bhw"]
+[ext_resource type="Script" path="res://Enemy_Tax_Shots.gd" id="2_ysgm2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1p01"]
+size = Vector2(94, 107.5)
+
+[node name="Income_Tax" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Income_Tax_Sprite" type="Sprite2D" parent="."]
+position = Vector2(106, 36)
+scale = Vector2(0.12, 0.1)
+texture = ExtResource("1_lhyq8")
+
+[node name="Income_Tax_Shot" type="Node2D" parent="."]
+script = ExtResource("2_ysgm2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_x6bhw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(105, 36.25)
+shape = SubResource("RectangleShape2D_k1p01")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
