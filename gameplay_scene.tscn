@@ -1,16 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=12 format=3 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
 [ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="3_lkgqa"]
-[ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
-
-[gd_scene load_steps=15 format=3 uid="uid://dfgoqbdl5gqm4"]
-
-[ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
-[ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
+[ext_resource type="PackedScene" uid="uid://cl2msxwciwlcb" path="res://pause_menu.tscn" id="8_vlb8l"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="9_31ydy"]
-[ext_resource type="PackedScene" uid="uid://na1amkbfo47n" path="res://player_100_check_shot.tscn" id="10_5nx84"]
 [ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvulg"]
@@ -229,64 +223,59 @@ shape = SubResource("RectangleShape2D_q3tox")
 position = Vector2(1196.5, 2019.5)
 shape = SubResource("RectangleShape2D_q3tox")
 
-
-[node name="Spawn_Area" type="Area2D" parent="."]
-visible = false
-script = ExtResource("10_it5n0")
-
-[node name="Overall_Spawn_Area" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Overall_Spawn_Area2" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(13.5, 16)
 shape = SubResource("RectangleShape2D_ymxev")
 
-[node name="Building_1" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_3" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(1645.38, 962.5)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_2" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_4" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(1196.5, 2019.5)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_3" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_5" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-83, 1444.5)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_4" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_6" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-1270, 1956)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_5" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_7" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-856, 1034)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_6" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_8" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-2042, 507)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_7" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_9" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-782, -1509)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_8" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_10" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-2067, -2169)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_9" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_11" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(-911, -157)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_10" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_12" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(854, -448)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_11" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_13" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(1742, -445)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_12" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_14" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(1295, -1375)
 shape = SubResource("RectangleShape2D_q3tox")
 
-[node name="Building_13" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Building_15" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(2064, -2084)
 shape = SubResource("RectangleShape2D_q3tox")
 

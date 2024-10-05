@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://djkwbce86wiw5"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_6cvw2"]
-[ext_resource type="Texture2D" uid="uid://bb8fpv1loqnnq" path="res://Temp_Assets/Temp_UI_Assets/Logo_1.png" id="2_c5a1i"]
-[ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Temp_Assets/Temp_UI_Assets/Buttons_Theme.tres" id="3_nkwy4"]
+[ext_resource type="Texture2D" uid="uid://bb8fpv1loqnnq" path="res://Temp_Assets/Temp_Tax_Assets/Logo_1.png" id="2_c5a1i"]
+[ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Temp_Assets/Temp_Tax_Assets/Buttons_Theme.tres" id="3_nkwy4"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
