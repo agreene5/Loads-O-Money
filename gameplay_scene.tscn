@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=13 format=3 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
 [ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="3_lkgqa"]
 [ext_resource type="PackedScene" uid="uid://5wf77ibnn851" path="res://Tax Enemies/income_tax.tscn" id="5_p4ema"]
+[ext_resource type="PackedScene" uid="uid://b3gci2saj8qda" path="res://Tax Enemies/property_tax.tscn" id="6_h1a6c"]
+[ext_resource type="PackedScene" uid="uid://bmsxa5rw0286l" path="res://Tax Enemies/sales_tax.tscn" id="7_dhi23"]
 [ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvulg"]
@@ -556,4 +558,10 @@ position = Vector2(2064, -2084)
 shape = SubResource("RectangleShape2D_q3tox")
 
 [node name="Income_Tax" parent="." instance=ExtResource("5_p4ema")]
-position = Vector2(-68, 248)
+position = Vector2(124, 740)
+
+[node name="Property_Tax" parent="." instance=ExtResource("6_h1a6c")]
+position = Vector2(226, 185)
+
+[node name="Sales_Tax" parent="." instance=ExtResource("7_dhi23")]
+position = Vector2(1142, 541)

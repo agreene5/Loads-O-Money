@@ -11,4 +11,5 @@ var Dollar_Variant = 3 # Determines the dollar variant the user has | 0: Washing
 
 var Check_Variant = 3 # Determines the check variant the user has | 0: $100 Check, 1: $200 Check, 2: $500 Check, 3: $1000 CHeck
 
+var player_position #used to let other scripts read player position
 # Shot health calculation function
