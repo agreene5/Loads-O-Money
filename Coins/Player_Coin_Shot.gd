@@ -30,5 +30,5 @@ func play_coin_sound():
 		var audio_player = AudioStreamPlayer.new()
 		add_child(audio_player)
 		
-		audio_player.stream = load("res://Finished_Assets/CoinSFX.mp3")
+		audio_player.stream = load("res://Finished_Assets/SFX_Assets/CoinSFX.mp3")
 		audio_player.play()

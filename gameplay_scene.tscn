@@ -207,6 +207,15 @@ position = Vector2(666, 321)
 position = Vector2(4.5, -1)
 shape = SubResource("RectangleShape2D_ll406")
 
+[node name="PauseMenu" parent="Player" instance=ExtResource("8_vlb8l")]
+visible = false
+offset_left = -120.0
+offset_top = -108.0
+offset_right = -120.0
+offset_bottom = -108.0
+scale = Vector2(3.48, 3.2)
+script = ExtResource("9_31ydy")
+
 [node name="Spawn_Area" type="Area2D" parent="."]
 visible = false
 script = ExtResource("10_it5n0")
@@ -278,12 +287,3 @@ shape = SubResource("RectangleShape2D_q3tox")
 [node name="Building_15" type="CollisionShape2D" parent="Spawn_Area"]
 position = Vector2(2064, -2084)
 shape = SubResource("RectangleShape2D_q3tox")
-
-[node name="PauseMenu" parent="." instance=ExtResource("8_vlb8l")]
-visible = false
-offset_left = 546.0
-offset_top = 213.0
-offset_right = 546.0
-offset_bottom = 213.0
-scale = Vector2(3.48, 3.2)
-script = ExtResource("9_31ydy")

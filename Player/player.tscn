@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
 [ext_resource type="Script" path="res://Player/Player_Shot_Script.gd" id="3_yqww1"]
-[ext_resource type="Texture2D" uid="uid://bg7pacq4pfacr" path="res://Temp_Assets/Temp_Character_Assets/Temp_Character.jpg" id="4_23rbx"]
+[ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="4_mhaun"]
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -21,5 +21,5 @@ position = Vector2(6.10352e-05, 3.05176e-05)
 script = ExtResource("3_yqww1")
 
 [node name="Player_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_23rbx")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_mhaun")

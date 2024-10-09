@@ -52,5 +52,5 @@ func play_dollar_sound():
 		var audio_player = AudioStreamPlayer.new()
 		add_child(audio_player)
 		
-		audio_player.stream = load("res://Finished_Assets/DollarSFX.mp3")
+		audio_player.stream = load("res://Finished_Assets/SFX_Assets/DollarSFX.mp3")
 		audio_player.play()
