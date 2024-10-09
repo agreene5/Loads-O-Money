@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8yrxl70tl2so"]
 
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_ndrxx"]
-[ext_resource type="Texture2D" uid="uid://doxph6xksgtn6" path="res://Temp_Assets/Temp_Character_Assets/Temp_Dime_Projectile.png" id="2_4n57j"]
+[ext_resource type="Texture2D" uid="uid://o25ny8563yco" path="res://Finished_Assets/Player_Shot_Assets/Dime.png" id="2_q4vsr"]
 [ext_resource type="Script" path="res://Coins/Dime_Coin_Health.gd" id="3_ah5sr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ttk0f"]
@@ -19,8 +19,8 @@ linear_damp = 0.08
 script = ExtResource("1_ndrxx")
 
 [node name="Player_Dime_Coin_Shot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.09, 0.09)
-texture = ExtResource("2_4n57j")
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_q4vsr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.09, 0.09)

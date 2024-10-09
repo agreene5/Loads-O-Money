@@ -63,6 +63,7 @@ func attempt_fire():
 func fire_shot():
 	match current_shot_type:
 		ShotType.COIN:
+			Global_Variables.set_Current_Shot(0)
 			var coin_type
 			var cost = coin_costs[Coin_Variant]
 			match Coin_Variant:
@@ -77,6 +78,7 @@ func fire_shot():
 			_handle_coin_shot(coin_type, cost)
 			
 		ShotType.DOLLAR:
+			Global_Variables.set_Current_Shot(1)
 			var dollar_type
 			var cost = dollar_costs[Dollar_Variant]
 			match Dollar_Variant:
@@ -94,6 +96,7 @@ func fire_shot():
 			
 			
 		ShotType.CHECK:
+			Global_Variables.set_Current_Shot(2)
 			var check_type
 			var cost = check_costs[Check_Variant]
 			match Coin_Variant:

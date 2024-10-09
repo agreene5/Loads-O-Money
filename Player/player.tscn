@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=7 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
 [ext_resource type="Script" path="res://Player/Player_Shot_Script.gd" id="3_yqww1"]
 [ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="4_mhaun"]
+[ext_resource type="Texture2D" uid="uid://dkh66hpdpirxg" path="res://Finished_Assets/Player_In_Hand_Assets/Tiny_Moneygun.png" id="5_7x1tx"]
+[ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -23,3 +25,9 @@ script = ExtResource("3_yqww1")
 [node name="Player_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_mhaun")
+
+[node name="Shot_In_Hand_Sprite" type="Sprite2D" parent="."]
+position = Vector2(11, 24)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("5_7x1tx")
+script = ExtResource("6_y3fsq")

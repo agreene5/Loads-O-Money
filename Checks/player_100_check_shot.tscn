@@ -1,10 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://na1amkbfo47n"]
 
 [ext_resource type="Script" path="res://Checks/Player_Check_Shot.gd" id="1_hv3mh"]
-[ext_resource type="Texture2D" uid="uid://16frs63ik45w" path="res://Temp_Assets/Temp_Character_Assets/Temp_100Check_Projectile.png" id="2_avtel"]
+[ext_resource type="Texture2D" uid="uid://tort1q8qxmy" path="res://Finished_Assets/Player_Shot_Assets/Check_100.PNG" id="2_yr6em"]
 [ext_resource type="Script" path="res://Checks/100_Check_Health.gd" id="3_idela"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dga3a"]
+size = Vector2(21.5278, 18.5)
 
 [node name="Player_100_Check_Shot" type="RigidBody2D"]
 collision_layer = 2
@@ -13,10 +14,11 @@ mass = 6.0
 script = ExtResource("1_hv3mh")
 
 [node name="Player_100_Check_Shot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.08, 0.12)
-texture = ExtResource("2_avtel")
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("2_yr6em")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -0.5)
 scale = Vector2(2.88, 2)
 shape = SubResource("RectangleShape2D_dga3a")
 
