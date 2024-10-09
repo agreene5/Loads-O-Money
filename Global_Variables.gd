@@ -28,4 +28,5 @@ func set_Current_Shot(new_value):
 		Current_Shot = new_value
 		emit_signal("Current_Shot_changed")
 
+var player_position #used to let other scripts read player position
 # Shot health calculation function
