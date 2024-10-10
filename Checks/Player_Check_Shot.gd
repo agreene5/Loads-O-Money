@@ -2,7 +2,7 @@
 
 extends RigidBody2D
 
-@export var initial_velocity = 150.0
+var initial_velocity = 150.0
 var despawn_timer = Timer.new()
 
 func _ready():
@@ -22,6 +22,10 @@ func _ready():
 func set_initial_direction(direction: Vector2):
 	# Set the initial velocity based on the direction given
 	linear_velocity = direction * initial_velocity
+
+func set_initial_velocity(velocity: Vector2):
+	# Add the player's velocity to the initial_velocity
+	initial_velocity += velocity.length()
 
 func _on_despawn_timer_timeout():
 	queue_free()  # Despawns the coin scene

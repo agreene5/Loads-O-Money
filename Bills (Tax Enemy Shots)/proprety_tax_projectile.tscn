@@ -10,6 +10,7 @@ size = Vector2(26, 36)
 [node name="Proprety_Tax_Projectile" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
+mass = 2.0
 script = ExtResource("1_yqdca")
 
 [node name="Property_Tax_Projectile_Sprite" type="Sprite2D" parent="."]

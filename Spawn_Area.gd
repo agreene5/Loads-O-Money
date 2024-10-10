@@ -8,9 +8,9 @@ var timers = []
 var sales_tax_scene = preload("res://Tax Enemies/sales_tax.tscn")
 var property_tax_scene = preload("res://Tax Enemies/property_tax.tscn")
 var income_tax_scene = preload("res://Tax Enemies/income_tax.tscn")
-var start_times = [20.0, 33.3, 50.0]
+var start_times = [15.0, 25.0, 37.5]
 var end_times = [0.1, 0.2, 0.4]
-var transition_duration = 900.0  # In 15 minutes the spawning gets pretty much impossible to take on
+var transition_duration = 600.0  # In 10 minutes the spawning gets pretty much impossible to take on
 var transition_start_time = 0.0
 
 func _ready():
@@ -70,14 +70,15 @@ func _on_Timer_timeout(timer_index):
 
 func find_suitable_spawn_point():
 	var spawn_area = $Overall_Spawn_Area
-	var spawn_shape = spawn_area.shape
+	var spawn_shape = spawn_area.polygon
 	var buildings = []
-	for i in range(1, 14):  # Building_1 to Building_13
+	for i in range(1, 20):  # Building_1 to Building_19
 		var building = get_node_or_null("Building_Group_" + str(i))
 		if building and building is CollisionPolygon2D:
 			buildings.append(building)
 	var anti_spawn_area = get_node("../Player/Anti-Spawn_Area/Anti-Spawn_Collision_Area")
-	var random_point = get_random_point_in_shape(spawn_shape, spawn_area.global_position)
+	
+	var random_point = get_random_point_in_polygon(spawn_shape, spawn_area.global_position)
 	
 	# Check if the point is inside a building
 	for building in buildings:
@@ -95,15 +96,22 @@ func find_suitable_spawn_point():
 	
 	return random_point  # Return the point if it's suitable
 
-func get_random_point_in_shape(shape: Shape2D, global_position: Vector2) -> Vector2:
-	if shape is RectangleShape2D:
-		var rect = Rect2(global_position - shape.extents, shape.extents * 2)
-		return Vector2(
-			rng.randf_range(rect.position.x, rect.end.x),
-			rng.randf_range(rect.position.y, rect.end.y)
+func get_random_point_in_polygon(polygon: PackedVector2Array, global_position: Vector2) -> Vector2:
+	var bbox = Rect2()
+	for point in polygon:
+		bbox = bbox.expand(point)
+	
+	var max_attempts = 100  # Prevent infinite loop
+	for i in range(max_attempts):
+		var point = Vector2(
+			rng.randf_range(bbox.position.x, bbox.end.x),
+			rng.randf_range(bbox.position.y, bbox.end.y)
 		)
-	else:
-		return global_position
+		if Geometry2D.is_point_in_polygon(point, polygon):
+			return global_position + point
+	
+	# If we couldn't find a point after max_attempts, return the center of the bounding box
+	return global_position + bbox.get_center()
 
 func is_point_in_polygon(point: Vector2, polygon_node: CollisionPolygon2D) -> bool:
 	if not polygon_node:

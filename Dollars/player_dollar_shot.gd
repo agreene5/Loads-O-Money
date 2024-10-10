@@ -29,6 +29,10 @@ func set_initial_direction(initial_direction: Vector2):
 	# linear velocity will move in direction of main direction
 	linear_velocity = main_dir * initial_velocity
 
+func set_initial_velocity(velocity: Vector2):
+	# Add the player's velocity to the initial_velocity
+	initial_velocity += velocity.length()
+
 func _process(delta):
 	elapsed_time += delta
 	

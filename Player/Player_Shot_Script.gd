@@ -126,21 +126,25 @@ func _handle_coin_shot(coin_type, cost):
 		var coin_instance = coin_type.instantiate()
 		var parent = get_parent()
 		
-		var player_sprite = parent.get_node("Player_Sprite") # Shooting in relation to the player sprite location
+		var player_sprite = parent.get_node("Player_Sprite")
 		coin_instance.global_position = player_sprite.global_position
 		
 		var click_position = get_global_mouse_position()
 		var direction = (click_position - player_sprite.global_position).normalized()
 		
 		coin_instance.rotation = direction.angle()
+		
+		var player_velocity = parent.velocity
+		
+		coin_instance.set_initial_velocity(player_velocity)
 		coin_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(coin_instance)
 
 func _handle_dollar_shot(dollar_type, cost):
 	if money >= cost:
-		money -= cost  # Ensure dollar_type is valid
-		var dollar_instance = dollar_type.instantiate()  #
+		money -= cost
+		var dollar_instance = dollar_type.instantiate()
 		var parent = get_parent()
 		var player_sprite = parent.get_node("Player_Sprite")
 		dollar_instance.global_position = player_sprite.global_position
@@ -149,23 +153,31 @@ func _handle_dollar_shot(dollar_type, cost):
 		var direction = (click_position - player_sprite.global_position).normalized()
 
 		dollar_instance.rotation = direction.angle()
+		
+		var player_velocity = parent.velocity
+		
+		dollar_instance.set_initial_velocity(player_velocity)
 		dollar_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(dollar_instance)
-			
+
 func _handle_check_shot(check_type, cost):
 	if money >= cost:
 		money -= cost
 		var check_instance = check_type.instantiate()
 		var parent = get_parent()
 		
-		var player_sprite = parent.get_node("Player_Sprite") # Shooting in relation to the player sprite location
+		var player_sprite = parent.get_node("Player_Sprite")
 		check_instance.global_position = player_sprite.global_position
 		
 		var click_position = get_global_mouse_position()
 		var direction = (click_position - player_sprite.global_position).normalized()
 		
 		check_instance.rotation = direction.angle()
+		
+		var player_velocity = parent.velocity
+		
+		check_instance.set_initial_velocity(player_velocity)
 		check_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(check_instance)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=44 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="3_lkgqa"]
 [ext_resource type="Shader" path="res://darker_water_shader.gdshader" id="5_s04sb"]
@@ -1771,6 +1771,8 @@ texture_region_size = Vector2i(48, 48)
 
 [sub_resource type="TileSet" id="TileSet_i14ia"]
 tile_size = Vector2i(48, 48)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Water 0"
 terrain_set_0/terrain_0/color = Color(0.711924, 0, 0.294579, 1)
@@ -3537,7 +3539,8 @@ texture_region_size = Vector2i(48, 48)
 
 [sub_resource type="TileSet" id="TileSet_vwmvf"]
 tile_size = Vector2i(48, 48)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Water 0"
 terrain_set_0/terrain_0/color = Color(0.711924, 0, 0.294579, 1)
@@ -11031,9 +11034,6 @@ tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uw4fn")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymxev"]
-size = Vector2(7391, 9629)
-
 [node name="Gameplay_Scene" type="Node2D"]
 
 [node name="Water_Darker_Tilemap_Layer" type="TileMapLayer" parent="."]
@@ -11078,6 +11078,7 @@ position = Vector2(4.5, -1)
 shape = SubResource("RectangleShape2D_ll406")
 
 [node name="Plants" type="Node2D" parent="."]
+z_index = 2
 material = SubResource("ShaderMaterial_6wsux")
 position = Vector2(1248.87, -1792.24)
 rotation = 0.860447
@@ -11203,12 +11204,11 @@ tile_map_data = PackedByteArray("AABOAGIAAAABAAQAAABOAGMAAAABAAUAAABOAGQAAAABAAU
 tile_set = SubResource("TileSet_yfy84")
 
 [node name="Spawn_Area" type="Area2D" parent="."]
-visible = false
 script = ExtResource("10_it5n0")
 
-[node name="Overall_Spawn_Area" type="CollisionShape2D" parent="Spawn_Area"]
+[node name="Overall_Spawn_Area" type="CollisionPolygon2D" parent="Spawn_Area"]
 position = Vector2(-98.5, 114.5)
-shape = SubResource("RectangleShape2D_ymxev")
+polygon = PackedVector2Array(353.5, -4862.5, -1140.5, -4556.5, -1785.5, -3561.5, -2101.5, -2543.5, -3335.5, -1898.5, -3595.5, 341.5, -3323.5, 2253.5, -2294.5, 3000.5, -2045.5, 3871.5, -1072.5, 4494.5, 81.5, 3713.5, 647.5, 2695.5, 1020.5, 3792.5, 1982.5, 4154.5, 2876.5, 3871.5, 3181.5, 1914.5, 3520.5, 409.5, 3249.5, -766.5, 3566.5, -1638.5, 3328.5, -2780.5, 2378.5, -4002.5, 1393.5, -4602.5)
 
 [node name="Building_Group_1" type="CollisionPolygon2D" parent="Spawn_Area"]
 position = Vector2(-98.5, 114.5)

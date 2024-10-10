@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://5wf77ibnn851"]
+[gd_scene load_steps=6 format=3 uid="uid://5wf77ibnn851"]
 
 [ext_resource type="Texture2D" uid="uid://dqumg0thye606" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Income_Tax.png" id="1_lhyq8"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_ysgm2"]
 [ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_6ge8v"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1mv0d"]
+bounce = 0.35
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rmm4"]
 size = Vector2(87, 93)
 
-[node name="Income_Tax" type="CharacterBody2D"]
+[node name="Income_Tax" type="RigidBody2D"]
 collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_1mv0d")
 script = ExtResource("3_6ge8v")
 
 [node name="Income_Tax_Shot" type="Node2D" parent="."]

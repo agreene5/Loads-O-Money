@@ -1,23 +1,28 @@
-extends CharacterBody2D
+# This script determines enemy movement, they move towards the player and aim to keep a 200
+# unit distance, but they're rigid bodies so it's not 100% clean for them to do so
 
-var Speed: float = 100
-var Stop_Distance: float = 200
+extends RigidBody2D
+
+@export var Speed: float = 100
+@export var Stop_Distance: float = 200
 var Player_Pos: Vector2 = Vector2()
 var Distance_To_Player: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body if needed.
+	# Set the gravity scale to 0 to prevent the body from falling
+	gravity_scale = 0
 
 # Called every physics frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _integrate_forces(state):
 	Player_Pos = Global_Variables.player_position # gets reference to player position
 	Distance_To_Player = global_position.distance_to(Player_Pos)
 	
+	var force = Vector2.ZERO
+	
 	if Distance_To_Player > Stop_Distance: # keeps enemies certain distance from player
 		var direction = (Player_Pos - global_position).normalized()
-		velocity = direction * Speed
-	else:
-		velocity = Vector2.ZERO
+		force = direction * Speed
 	
-	move_and_slide()
+	# Apply the force to the RigidBody2D
+	apply_central_force(force)
