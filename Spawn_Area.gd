@@ -8,7 +8,6 @@ var timers = []
 var sales_tax_scene = preload("res://Tax Enemies/sales_tax.tscn")
 var property_tax_scene = preload("res://Tax Enemies/property_tax.tscn")
 var income_tax_scene = preload("res://Tax Enemies/income_tax.tscn")
-
 var start_times = [20.0, 33.3, 50.0]
 var end_times = [0.1, 0.2, 0.4]
 var transition_duration = 900.0  # In 15 minutes the spawning gets pretty much impossible to take on
@@ -28,7 +27,6 @@ func _ready():
 		
 		# Start the timer with the initial wait time
 		timer.wait_time = start_times[i]
-
 	set_process(true)
 
 func _process(delta):
@@ -47,7 +45,6 @@ func update_timers():
 	else:
 		for i in range(3):
 			timers[i].wait_time = end_times[i]
-
 
 func _on_Timer_timeout(timer_index):
 	var point_found = false
@@ -73,26 +70,29 @@ func _on_Timer_timeout(timer_index):
 
 func find_suitable_spawn_point():
 	var spawn_area = $Overall_Spawn_Area
-
 	var spawn_shape = spawn_area.shape
 	var buildings = []
 	for i in range(1, 14):  # Building_1 to Building_13
-		var building = get_node_or_null("Building_" + str(i))
-		if building and building is CollisionShape2D:
+		var building = get_node_or_null("Building_Group_" + str(i))
+		if building and building is CollisionPolygon2D:
 			buildings.append(building)
-
 	var anti_spawn_area = get_node("../Player/Anti-Spawn_Area/Anti-Spawn_Collision_Area")
 	var random_point = get_random_point_in_shape(spawn_shape, spawn_area.global_position)
-
+	
 	# Check if the point is inside a building
 	for building in buildings:
-		if is_point_in_shape(random_point, building):
+		if is_point_in_polygon(random_point, building):
 			return null
-
+	
 	# Check if the point is within the anti-spawn area
-	if anti_spawn_area and is_point_in_shape(random_point, anti_spawn_area):
-		return null
-
+	if anti_spawn_area:
+		if anti_spawn_area is CollisionShape2D:
+			if is_point_in_shape(random_point, anti_spawn_area):
+				return null
+		elif anti_spawn_area is CollisionPolygon2D:
+			if is_point_in_polygon(random_point, anti_spawn_area):
+				return null
+	
 	return random_point  # Return the point if it's suitable
 
 func get_random_point_in_shape(shape: Shape2D, global_position: Vector2) -> Vector2:
@@ -105,9 +105,18 @@ func get_random_point_in_shape(shape: Shape2D, global_position: Vector2) -> Vect
 	else:
 		return global_position
 
+func is_point_in_polygon(point: Vector2, polygon_node: CollisionPolygon2D) -> bool:
+	if not polygon_node:
+		return false
+	
+	var local_point = polygon_node.to_local(point)
+	var polygon = polygon_node.polygon
+	
+	return Geometry2D.is_point_in_polygon(local_point, polygon)
+
 func is_point_in_shape(point: Vector2, shape_node: CollisionShape2D) -> bool:
 	if not shape_node or not shape_node.shape:
 		return false
 	
 	var local_point = shape_node.to_local(point)
-	return shape_node.shape.collide(Transform2D.IDENTITY, RectangleShape2D.new(), Transform2D(0, local_point))
+	return shape_node.shape.collide(Transform2D.IDENTITY, shape_node.shape, Transform2D(0, local_point))
