@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=9 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
@@ -8,11 +8,12 @@
 [ext_resource type="Script" path="res://Player/Player_location.gd" id="5_te5s5"]
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejbv0"]
+radius = 25.0
+height = 62.0
 
-[node name="Player_Movement" type="Node2D" parent="."]
-position = Vector2(607, 282)
-scale = Vector2(0.05, 0.05)
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_hwsdl")
 
 [node name="Camera_Movement" type="Camera2D" parent="."]
@@ -35,3 +36,6 @@ script = ExtResource("6_y3fsq")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("5_te5s5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ejbv0")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgmgvk64bwrhs"]
 
-[ext_resource type="Script" path="res://Player_Dollar_Shot.gd" id="1_du7jk"]
+[ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_pt5up"]
 [ext_resource type="Texture2D" uid="uid://cf13hjjlof7mb" path="res://Finished_Assets/Player_Shot_Assets/Jackson_20Dollar.png" id="2_3347s"]
 [ext_resource type="Script" path="res://Dollars/Jackson_Dollar_Health.gd" id="3_xnbbj"]
 
@@ -11,7 +11,7 @@ size = Vector2(44, 25)
 collision_layer = 2
 collision_mask = 3
 linear_damp = 0.15
-script = ExtResource("1_du7jk")
+script = ExtResource("1_pt5up")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)

@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	current_pos = myself.global_position #gets position of player node
 	Global_Variables.player_position = current_pos #sets the variable as said position
 	
