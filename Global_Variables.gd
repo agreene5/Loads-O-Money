@@ -14,3 +14,9 @@ var Check_Variant = 3 # Determines the check variant the user has | 0: $100 Chec
 func hit(area, my_value):
 	print(my_value)
 	return my_value
+func calculate_difference(broadcast_value,receive_value):
+	var difference = receive_value - broadcast_value
+	if difference >0:
+		return difference
+	else:
+		return receive_value

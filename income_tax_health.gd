@@ -1,5 +1,8 @@
+#Script for income tax enemy's body
 extends Area2D
-var income_tax_health = 50
+
+@export var my_value = 50
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,13 +10,25 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func get_value():
+	return my_value
+
+func receive_value(value):
+	print("ENEMY  health: ", my_value, " New health: ", my_value+value)
 
 func despawn():
-	if income_tax_health <= 0:
 		queue_free()
 
-func _on_area_entered(area) -> void:
-	Global_Variables.hit(area,income_tax_health)
+func _on_area_entered(area):
+	if area.has_method("get_value"):
+		var result = Global_Variables.calculate_difference(my_value, area.get_value())
+		#Play hit sfx 
+		#Have tax enemy die and play explosion animation and sfx if health is less than or equal to 0
+		if self.get_instance_id() < area.get_instance_id():
+			area.receive_value(result)
+			receive_value(-result)
+			my_value = my_value - result
+			if(my_value <= 0):
+				print("Income tax died")
+				despawn()
 	
