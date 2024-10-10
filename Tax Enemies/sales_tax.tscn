@@ -1,8 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmsxa5rw0286l"]
+[gd_scene load_steps=8 format=3 uid="uid://bmsxa5rw0286l"]
 
+[ext_resource type="Shader" path="res://plant_shader.gdshader" id="1_1rmj7"]
 [ext_resource type="Texture2D" uid="uid://b87sgtigahaek" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Sales_Tax.png" id="1_sh2p1"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_eui8e"]
 [ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_qcpnr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7jk7"]
+shader = ExtResource("1_1rmj7")
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.03
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.03
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_28ynq"]
 bounce = 0.35
@@ -11,11 +23,13 @@ bounce = 0.35
 size = Vector2(43, 54)
 
 [node name="Sales_Tax" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_q7jk7")
 collision_layer = 4
 physics_material_override = SubResource("PhysicsMaterial_28ynq")
 script = ExtResource("3_qcpnr")
 
 [node name="Sales_Tax_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_sh2p1")
 

@@ -29,4 +29,9 @@ func set_Current_Shot(new_value):
 		emit_signal("Current_Shot_changed")
 
 var player_position #used to let other scripts read player position
-# Shot health calculation function
+
+func explosion_animation(): #spawns explosion animation on players position
+	var explosion_scene = load("res://explosion_animation.tscn")
+	var explosion_instance = explosion_scene.instantiate()
+	explosion_instance.global_position = player_position
+	get_tree().root.add_child(explosion_instance)

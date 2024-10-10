@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=45 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="3_lkgqa"]
 [ext_resource type="Shader" path="res://darker_water_shader.gdshader" id="5_s04sb"]
@@ -10471,6 +10471,17 @@ terrain_set_0/terrain_0/name = "Light_Stone_top"
 terrain_set_0/terrain_0/color = Color(0, 0.721394, 0.586227, 1)
 sources/0 = SubResource("TileSetAtlasSource_imxqv")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hs6gr"]
+shader = ExtResource("13_hv5xb")
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.03
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.03
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll406"]
 size = Vector2(1167, 670)
 
@@ -11060,6 +11071,7 @@ tile_set = SubResource("TileSet_i3slv")
 
 [node name="Player" parent="." instance=ExtResource("3_lkgqa")]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_hs6gr")
 position = Vector2(397, 354)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("8_vlb8l")]
@@ -11072,6 +11084,7 @@ scale = Vector2(3.48, 3.2)
 script = ExtResource("9_31ydy")
 
 [node name="Anti-Spawn_Area" type="Area2D" parent="Player"]
+visible = false
 
 [node name="Anti-Spawn_Collision_Area" type="CollisionShape2D" parent="Player/Anti-Spawn_Area"]
 position = Vector2(4.5, -1)
@@ -11204,6 +11217,7 @@ tile_map_data = PackedByteArray("AABOAGIAAAABAAQAAABOAGMAAAABAAUAAABOAGQAAAABAAU
 tile_set = SubResource("TileSet_yfy84")
 
 [node name="Spawn_Area" type="Area2D" parent="."]
+visible = false
 script = ExtResource("10_it5n0")
 
 [node name="Overall_Spawn_Area" type="CollisionPolygon2D" parent="Spawn_Area"]
@@ -11267,3 +11281,8 @@ polygon = PackedVector2Array(2153, -820, 2159, 10, 3138, -59, 2764, -547, 3013, 
 
 [node name="Building_Group_19" type="CollisionPolygon2D" parent="Spawn_Area"]
 polygon = PackedVector2Array(1044, -2366, 1748, -1788, 2057, -1009, 3201, -1422, 2680, -2495, 1562, -3046)
+
+[node name="Death_Area2D" type="Area2D" parent="."]
+
+[node name="Death_Plane" type="CollisionPolygon2D" parent="Death_Area2D"]
+polygon = PackedVector2Array(209, -4908, -1148, -4659, -1771, -4206, -2427, -2532, -3615, -1921, -3909, -224, -3705, 2333, -3207, 2978, -2608, 3227, -2291, 4324, -1544, 4788, -469, 4766, 560, 3521, 775, 4155, 1714, 4573, 2823, 4290, 3026, 3804, 3287, 2424, 3649, 738, 3513, -631, 3660, -1898, 3355, -2939, 3026, -3312, 2427, -4319, 390, -4930, 390, -5643, 5663, -5530, 5606, 6372, -6466, 6417, -6432, -5643, 266, -5643)

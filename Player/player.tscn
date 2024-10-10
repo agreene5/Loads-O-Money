@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=14 format=3 uid="uid://by1ubyds8mqk3"]
 
+[ext_resource type="Shader" path="res://plant_shader.gdshader" id="1_c7i1i"]
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
 [ext_resource type="Script" path="res://Player/Player_Shot_Script.gd" id="3_yqww1"]
@@ -7,6 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://dkh66hpdpirxg" path="res://Finished_Assets/Player_In_Hand_Assets/Tiny_Moneygun.png" id="5_7x1tx"]
 [ext_resource type="Script" path="res://Player/Player_location.gd" id="5_te5s5"]
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
+[ext_resource type="Script" path="res://Player/todd_body_signaler.gd" id="8_tlag8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0l58"]
+shader = ExtResource("1_c7i1i")
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.03
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.03
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nj7n6"]
 friction = 0.3
@@ -16,8 +29,13 @@ bounce = 0.35
 radius = 25.0
 height = 62.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bmur"]
+radius = 26.0
+height = 64.0
+
 [node name="Player" type="RigidBody2D"]
 z_index = 1
+material = SubResource("ShaderMaterial_f0l58")
 collision_layer = 4
 physics_material_override = SubResource("PhysicsMaterial_nj7n6")
 script = ExtResource("1_hwsdl")
@@ -31,10 +49,12 @@ position = Vector2(6.10352e-05, 3.05176e-05)
 script = ExtResource("3_yqww1")
 
 [node name="Player_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_mhaun")
 
 [node name="Shot_In_Hand_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(11, 24)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("5_7x1tx")
@@ -45,3 +65,9 @@ script = ExtResource("5_te5s5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ejbv0")
+
+[node name="Todd_Body_Signaler" type="Area2D" parent="."]
+script = ExtResource("8_tlag8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Todd_Body_Signaler"]
+shape = SubResource("CapsuleShape2D_0bmur")
