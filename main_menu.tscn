@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://djkwbce86wiw5"]
+[gd_scene load_steps=5 format=3 uid="uid://djkwbce86wiw5"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_6cvw2"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bb8fpv1loqnnq" path="res://Temp_Assets/Temp_UI_Assets/Logo_1.png" id="2_c5a1i"]
 [ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Temp_Assets/Temp_UI_Assets/Buttons_Theme.tres" id="3_nkwy4"]
+=======
+[ext_resource type="Texture2D" uid="uid://bb8fpv1loqnnq" path="res://Temp_Assets/Temp_Tax_Assets/Logo_1.png" id="2_c5a1i"]
+[ext_resource type="VideoStream" path="res://Temp_Assets/Temp_UI_Assets/Main_Menu_Background_Vid.OGV" id="2_f6obj"]
+[ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Temp_Assets/Temp_Tax_Assets/Buttons_Theme.tres" id="3_nkwy4"]
+>>>>>>> Stashed changes
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -12,6 +18,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6cvw2")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.594)
+stream = ExtResource("2_f6obj")
+autoplay = true
+loop = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(614, 239)

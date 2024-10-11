@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=13 format=3 uid="uid://ctm6ntaf4whvu"]
 =======
 [gd_scene load_steps=15 format=3 uid="uid://dfgoqbdl5gqm4"]
@@ -21,8 +22,19 @@
 [ext_resource type="Script" path="res://pause_menu.gd" id="9_31ydy"]
 [ext_resource type="PackedScene" uid="uid://cpju1pigh4exx" path="res://player_washington_dollar_shot.tscn" id="9_la0fr"]
 [ext_resource type="PackedScene" uid="uid://na1amkbfo47n" path="res://player_100_check_shot.tscn" id="10_5nx84"]
+=======
+[gd_scene load_steps=11 format=3 uid="uid://dfgoqbdl5gqm4"]
+
+[ext_resource type="Texture2D" uid="uid://dj4up8gtgfwbw" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset.png" id="1_eajuk"]
+[ext_resource type="Texture2D" uid="uid://h7eog28ofuyg" path="res://Temp_Assets/Temp_Map_Assets/Temp_Map_Tileset_Ground.jpg" id="1_iiysw"]
+[ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="3_lkgqa"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
 >>>>>>> Stashed changes
+
+[sub_resource type="GDScript" id="GDScript_c80dd"]
+script/source = "extends Node2D
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvulg"]
 texture = ExtResource("1_eajuk")
@@ -189,6 +201,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pvulg")
 
 [node name="Gameplay_Scene" type="Node2D"]
+script = SubResource("GDScript_c80dd")
 
 [node name="TEMP-Tile_Map_Ground" type="TextureRect" parent="."]
 offset_left = -2560.0
@@ -215,6 +228,7 @@ position = Vector2(234, 467)
 [node name="Income_Tax" parent="." instance=ExtResource("5_ldiom")]
 position = Vector2(398, 440)
 
+<<<<<<< Updated upstream
 [node name="Property_Tax" parent="." instance=ExtResource("6_eo76i")]
 position = Vector2(300, 441)
 
@@ -232,6 +246,8 @@ position = Vector2(590, 357)
 <<<<<<< Updated upstream
 =======
 
+=======
+>>>>>>> Stashed changes
 [node name="Spawn_Area" type="Area2D" parent="."]
 visible = false
 script = ExtResource("10_it5n0")
