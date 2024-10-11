@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7782b1bt30vp"]
+
+[ext_resource type="VideoStream" path="res://Temp_Assets/Temp_UI_Assets/RickRoll.ogv" id="1_38cvg"]
+[ext_resource type="Script" path="res://video_stream_player.gd" id="2_pjurb"]
+
+[node name="RickRoll" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.48, 4.52)
+stream = ExtResource("1_38cvg")
+autoplay = true
+loop = true
+script = ExtResource("2_pjurb")
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 607.0
+offset_right = 44.0
+offset_bottom = 638.0
+text = "Exit"
+
+[connection signal="pressed" from="Exit" to="VideoStreamPlayer" method="_on_exit_pressed"]
