@@ -18,7 +18,7 @@ func _ready():
 	linear_damp = 1.0  # Reduce damping to allow for more sliding after boost
 	
 	# Assign the shader material
-	var shader_material = load("res://Player_Enemy_Shader.gdshader")
+	var shader_material = load("res://Shaders/Player_Enemy_Shader.gdshader")
 	material = ShaderMaterial.new()
 	material.shader = shader_material
 

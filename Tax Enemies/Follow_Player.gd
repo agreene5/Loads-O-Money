@@ -14,7 +14,7 @@ func _ready():
 	# Set the gravity scale to 0 to prevent the body from falling
 	gravity_scale = 0
 	# Assign the shader material
-	var shader_material = load("res://Player_Enemy_Shader.gdshader")
+	var shader_material = load("res://Shaders/Player_Enemy_Shader.gdshader")
 	material = ShaderMaterial.new()
 	material.shader = shader_material
 

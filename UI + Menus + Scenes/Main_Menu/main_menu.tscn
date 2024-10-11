@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://djkwbce86wiw5"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu.gd" id="1_6cvw2"]
+[ext_resource type="VideoStream" path="res://Temp_Assets/Temp_UI_Assets/Main_Menu_Background_Vid.OGV" id="2_f6obj"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_rblxm"]
+[ext_resource type="Texture2D" uid="uid://dmyg18xlx0sqk" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_Money_Background.png" id="3_7dmma"]
+[ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="3_nkwy4"]
+[ext_resource type="Texture2D" uid="uid://dkrvyhhpojnlj" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_1.png" id="4_22yna"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo_money_bg.gd" id="4_h10nh"]
+[ext_resource type="Texture2D" uid="uid://dm7cfjmlyoykj" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_2.png" id="5_gbmlq"]
+[ext_resource type="Texture2D" uid="uid://blj4nngqa7qxv" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_3.png" id="6_3a14a"]
+[ext_resource type="Texture2D" uid="uid://efsm3kytifcy" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_Todd_Quarter.png" id="7_nan1p"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo.gd" id="8_wta5e"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo_quarter.gd" id="9_12msn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccaq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_22yna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gbmlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3a14a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cvw2")
+
+[node name="Container" type="Node2D" parent="."]
+script = ExtResource("2_rblxm")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Container"]
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.6, 0.594)
+stream = ExtResource("2_f6obj")
+autoplay = true
+loop = true
+
+[node name="Logo_Money_BG" type="Sprite2D" parent="Container"]
+position = Vector2(575, 250)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_7dmma")
+script = ExtResource("4_h10nh")
+
+[node name="Logo" type="AnimatedSprite2D" parent="Container"]
+position = Vector2(626, 289)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_ccaq5")
+frame = 2
+frame_progress = 0.605232
+script = ExtResource("8_wta5e")
+
+[node name="Logo_Quarter" type="Sprite2D" parent="Container"]
+position = Vector2(869, 228)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("7_nan1p")
+script = ExtResource("9_12msn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+offset_left = 369.0
+offset_top = 447.0
+offset_right = 811.0
+offset_bottom = 581.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nkwy4")
+text = "Play"
+
+[node name="Options" type="Button" parent="Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nkwy4")
+text = "Options"
+
+[node name="Quit" type="Button" parent="Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nkwy4")
+text = "Quit"
+
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

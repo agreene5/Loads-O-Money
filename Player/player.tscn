@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
-[ext_resource type="Shader" path="res://Player_Enemy_Shader.gdshader" id="1_n13bh"]
+[ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
 [ext_resource type="Script" path="res://Player/Player_Shot_Script.gd" id="3_yqww1"]
 [ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="4_mhaun"]
@@ -26,7 +26,7 @@ friction = 0.49
 bounce = 0.49
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejbv0"]
-radius = 25.0
+radius = 22.0
 height = 62.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bmur"]

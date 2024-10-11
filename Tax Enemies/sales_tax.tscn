@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmsxa5rw0286l"]
 
-[ext_resource type="Shader" path="res://Player_Enemy_Shader.gdshader" id="1_x3iag"]
+[ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_x3iag"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_eui8e"]
 [ext_resource type="Texture2D" uid="uid://dfr4xwghfcksd" path="res://Finished_Assets/Tax_Enemy_Assets/Sales_Tax.png" id="3_7jsi5"]
 [ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_qcpnr"]

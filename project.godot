@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="PantherDev - Loads O' Money"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://UI + Menus + Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global_Variables="*res://Global_Variables.gd"
+Global_Variables="*res://Misc/Global_Variables.gd"
 
 [input]
 
