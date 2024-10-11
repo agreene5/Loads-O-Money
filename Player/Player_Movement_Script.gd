@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-var move_speed = 500
+var move_speed = 100
 var rotation_speed = 10.0  # Speed rotating towards cursor
-var boost_force = 500
+var boost_force = 50
 var boost_cooldown = 0.5
 var double_tap_time = 0.2
 var can_boost = true
@@ -11,11 +11,16 @@ var last_tap = {}
 var velocity = Vector2.ZERO
 
 func _ready():
-		for action in ["up", "down", "left", "right"]:
-				last_tap[action] = 0
-		# Set up RigidBody2D properties
-		gravity_scale = 0  # Disable gravity
-		linear_damp = 1.0  # Reduce damping to allow for more sliding after boost
+	for action in ["up", "down", "left", "right"]:
+		last_tap[action] = 0
+	# Set up properties
+	gravity_scale = 0  # Disable gravity
+	linear_damp = 1.0  # Reduce damping to allow for more sliding after boost
+	
+	# Assign the shader material
+	var shader_material = load("res://Player_Enemy_Shader.gdshader")
+	material = ShaderMaterial.new()
+	material.shader = shader_material
 
 func _physics_process(delta):
 		var current_time = Time.get_ticks_msec() / 1000.0

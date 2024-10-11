@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://b3gci2saj8qda"]
 
-[ext_resource type="Texture2D" uid="uid://c4lidtonhn0d3" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Property_Tax.png" id="1_e0o67"]
-[ext_resource type="Shader" path="res://plant_shader.gdshader" id="1_x7a4i"]
+[ext_resource type="Shader" path="res://Player_Enemy_Shader.gdshader" id="1_yc65n"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_7rp2t"]
+[ext_resource type="Texture2D" uid="uid://bfymnmw3e2u7q" path="res://Finished_Assets/Tax_Enemy_Assets/Property_Tax.png" id="3_36gja"]
 [ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_kiuv0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75ake"]
-shader = ExtResource("1_x7a4i")
+shader = ExtResource("1_yc65n")
 shader_parameter/shadow_offset = Vector2(10, 10)
 shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
 shader_parameter/shadow_size = 1.0
@@ -20,18 +20,21 @@ shader_parameter/sprite_skew_end = 0.03
 bounce = 0.35
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4p4m"]
-size = Vector2(28, 107)
+size = Vector2(28, 90)
 
 [node name="Property_Tax" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_75ake")
 collision_layer = 4
+collision_mask = 5
+mass = 0.6
 physics_material_override = SubResource("PhysicsMaterial_ku40y")
 script = ExtResource("3_kiuv0")
 
 [node name="Property_Tax_Sprite" type="Sprite2D" parent="."]
 use_parent_material = true
-scale = Vector2(0.04, 0.11)
-texture = ExtResource("1_e0o67")
+position = Vector2(-3.425, 0)
+scale = Vector2(0.06, 0.09)
+texture = ExtResource("3_36gja")
 
 [node name="Property_Tax_Shot" type="Node2D" parent="."]
 position = Vector2(605, 186)
@@ -39,5 +42,4 @@ scale = Vector2(0.04, 0.11)
 script = ExtResource("2_7rp2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_f4p4m")

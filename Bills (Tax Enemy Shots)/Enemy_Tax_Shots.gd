@@ -31,10 +31,10 @@ func _ready():
 	shoot_timer.start()
 
 func _on_shoot_timer_timeout():
-	if bullet_scene and sprite:
-		var bullet = bullet_scene.instantiate()
-		# Spawning shot at center of sprite
-		var spawn_position = sprite.global_position
-		var sprite_half_height = sprite.texture.get_height() * sprite.scale.y / 2
-		bullet.global_position = spawn_position + Vector2(0, sprite_half_height)
-		get_tree().current_scene.add_child(bullet)
+	if not bullet_scene or not sprite or not get_tree() or not get_tree().current_scene:
+		return  # Exit the function early if any required element is missing
+	var bullet = bullet_scene.instantiate()
+	var spawn_position = sprite.global_position
+	var sprite_half_height = sprite.texture.get_height() * sprite.scale.y / 2
+	bullet.global_position = spawn_position + Vector2(0, sprite_half_height)
+	get_tree().current_scene.add_child(bullet)

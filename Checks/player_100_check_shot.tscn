@@ -10,7 +10,7 @@ size = Vector2(21.5278, 18.5)
 [node name="Player_100_Check_Shot" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
-mass = 6.0
+mass = 10.0
 script = ExtResource("1_hv3mh")
 
 [node name="Player_100_Check_Shot_Sprite" type="Sprite2D" parent="."]

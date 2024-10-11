@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cigmqrbn1u0jq"]
+[gd_scene load_steps=10 format=3 uid="uid://cigmqrbn1u0jq"]
 
 [ext_resource type="Texture2D" uid="uid://dthauw7aon8rm" path="res://Finished_Assets/Explosion_Assets/Final Explosion Pack Frame 1.png" id="1_h3mh5"]
 [ext_resource type="Texture2D" uid="uid://dc6numesrtro3" path="res://Finished_Assets/Explosion_Assets/Final Explosion Pack Frame 2.png" id="2_bocy4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dd4qpbp7de3t0" path="res://Finished_Assets/Explosion_Assets/Final Explosion Pack Frame 5.png" id="5_3ulvb"]
 [ext_resource type="Texture2D" uid="uid://6uap12a4w53r" path="res://Finished_Assets/Explosion_Assets/New Explosion Pack Frame 6.png" id="6_dly7s"]
 [ext_resource type="Script" path="res://explosion_animation.gd" id="7_7tw11"]
+[ext_resource type="AudioStream" uid="uid://5aeodr2gbq1c" path="res://Finished_Assets/SFX_Assets/Explosion_SFX.wav" id="8_emnlr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7d04v"]
 animations = [{
@@ -42,3 +43,7 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_7d04v")
 frame_progress = 0.686147
 script = ExtResource("7_7tw11")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_emnlr")
+autoplay = true

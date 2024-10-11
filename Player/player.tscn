@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://by1ubyds8mqk3"]
 
-[ext_resource type="Shader" path="res://plant_shader.gdshader" id="1_c7i1i"]
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
+[ext_resource type="Shader" path="res://Player_Enemy_Shader.gdshader" id="1_n13bh"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
 [ext_resource type="Script" path="res://Player/Player_Shot_Script.gd" id="3_yqww1"]
 [ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="4_mhaun"]
@@ -10,20 +10,20 @@
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 [ext_resource type="Script" path="res://Player/todd_body_signaler.gd" id="8_tlag8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0l58"]
-shader = ExtResource("1_c7i1i")
-shader_parameter/shadow_offset = Vector2(10, 10)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
+shader = ExtResource("1_n13bh")
+shader_parameter/shadow_offset = Vector2(30, 30)
 shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_size = 1.0
+shader_parameter/shadow_size = 1.2
 shader_parameter/time_scale = 1.0
 shader_parameter/shadow_skew_start = 0.0
-shader_parameter/shadow_skew_end = 0.03
+shader_parameter/shadow_skew_end = 0.66
 shader_parameter/sprite_skew_start = 0.0
-shader_parameter/sprite_skew_end = 0.03
+shader_parameter/sprite_skew_end = 0.66
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nj7n6"]
-friction = 0.3
-bounce = 0.35
+friction = 0.49
+bounce = 0.49
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejbv0"]
 radius = 25.0
@@ -35,8 +35,9 @@ height = 64.0
 
 [node name="Player" type="RigidBody2D"]
 z_index = 1
-material = SubResource("ShaderMaterial_f0l58")
+material = SubResource("ShaderMaterial_y11lk")
 collision_layer = 4
+mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_nj7n6")
 script = ExtResource("1_hwsdl")
 

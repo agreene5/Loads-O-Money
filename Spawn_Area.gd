@@ -17,6 +17,9 @@ func _ready():
 	rng.randomize()
 	transition_start_time = Time.get_ticks_msec() / 1000.0
 	
+	# Remove all RigidBody2D nodes except the Player
+	remove_rigid_bodies()
+	
 	for i in range(3):
 		var timer = Timer.new()
 		add_child(timer)
@@ -28,6 +31,28 @@ func _ready():
 		# Start the timer with the initial wait time
 		timer.wait_time = start_times[i]
 	set_process(true)
+
+func remove_rigid_bodies():
+	# Get the main scene node (parent of this node's parent)
+	var main_scene = get_parent().get_parent()
+		
+		# Use a stack to replace the recursive approach
+	var stack = [main_scene]
+		
+	while stack:
+		var current_node = stack.pop_front()  # Treat the list as a stack
+		
+		# We process all children of the current node
+		for child in current_node.get_children():
+			if child is RigidBody2D and "Tax" in child.name:
+				# Free the node if it's a RigidBody2D (except the Player)
+				child.queue_free()
+			else:
+				# Otherwise, add this child to the stack to process its children
+				stack.append(child)
+
+
+
 
 func _process(delta):
 	update_timers()
@@ -55,18 +80,24 @@ func _on_Timer_timeout(timer_index):
 			point_found = true
 	
 	var scene_to_instantiate
+	var scene_name
 	match timer_index:
 		0:
 			scene_to_instantiate = sales_tax_scene
+			scene_name = "Sales_Tax"
 		1:
 			scene_to_instantiate = property_tax_scene
+			scene_name = "Property_Tax"
 		2:
 			scene_to_instantiate = income_tax_scene
+			scene_name = "Income_Tax"
 	
 	if scene_to_instantiate:
 		var instance = scene_to_instantiate.instantiate()
 		instance.global_position = spawn_position
+		instance.name = scene_name + "_" + str(rng.randi())  # Add a unique identifier
 		get_tree().root.add_child(instance)
+		print("Spawned: ", instance.name)  # Print the name of the spawned instance
 
 func find_suitable_spawn_point():
 	var spawn_area = $Overall_Spawn_Area

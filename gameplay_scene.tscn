@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=52 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="3_lkgqa"]
 [ext_resource type="Shader" path="res://darker_water_shader.gdshader" id="5_s04sb"]
 [ext_resource type="Texture2D" uid="uid://cf3oscjdp4crx" path="res://RPGMakerTilesets/Outside_A2_Godot.png" id="6_cloe1"]
 [ext_resource type="Texture2D" uid="uid://bpfgcb7rclq6h" path="res://RPGMakerTilesets/Outside_A1_Godot.png" id="6_xquxu"]
 [ext_resource type="Shader" path="res://Water_Shader.gdshader" id="7_cfmw8"]
+[ext_resource type="Shader" path="res://Player_Enemy_Shader.gdshader" id="7_pv8h4"]
 [ext_resource type="PackedScene" uid="uid://cl2msxwciwlcb" path="res://pause_menu.tscn" id="8_vlb8l"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="9_31ydy"]
 [ext_resource type="Script" path="res://Spawn_Area.gd" id="10_it5n0"]
@@ -17,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://dsxpo7m8pm0s6" path="res://Temp_Assets/Temp_Map_Assets/bush_1.png" id="16_jm7kc"]
 [ext_resource type="Texture2D" uid="uid://cn3hucdcavo2n" path="res://Temp_Assets/Temp_Map_Assets/Bush_2.png" id="16_x7v6c"]
 [ext_resource type="Texture2D" uid="uid://djwlwovgx0nbp" path="res://Temp_Assets/Temp_Map_Assets/bush_3.png" id="17_xdtn5"]
+[ext_resource type="PackedScene" uid="uid://bbtu2j4l3w4cr" path="res://trash_can.tscn" id="19_amgsb"]
+[ext_resource type="PackedScene" uid="uid://dwy6vtpo3ejnj" path="res://bench.tscn" id="20_p3ay2"]
+[ext_resource type="PackedScene" uid="uid://bgrfevwg3tm7u" path="res://fire_hydrant.tscn" id="21_mxrkc"]
+[ext_resource type="PackedScene" uid="uid://q6qc7bb7813v" path="res://mailbox.tscn" id="21_nmv2i"]
+[ext_resource type="PackedScene" uid="uid://b8xqxtiwxm12c" path="res://traffic_cone.tscn" id="23_85r6b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mie2w"]
 shader = ExtResource("5_s04sb")
@@ -3539,8 +3545,8 @@ texture_region_size = Vector2i(48, 48)
 
 [sub_resource type="TileSet" id="TileSet_vwmvf"]
 tile_size = Vector2i(48, 48)
-physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 4
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Water 0"
 terrain_set_0/terrain_0/color = Color(0.711924, 0, 0.294579, 1)
@@ -10471,16 +10477,16 @@ terrain_set_0/terrain_0/name = "Light_Stone_top"
 terrain_set_0/terrain_0/color = Color(0, 0.721394, 0.586227, 1)
 sources/0 = SubResource("TileSetAtlasSource_imxqv")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hs6gr"]
-shader = ExtResource("13_hv5xb")
-shader_parameter/shadow_offset = Vector2(10, 10)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qh8n"]
+shader = ExtResource("7_pv8h4")
+shader_parameter/shadow_offset = Vector2(30, 30)
 shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_size = 1.0
+shader_parameter/shadow_size = 1.2
 shader_parameter/time_scale = 1.0
 shader_parameter/shadow_skew_start = 0.0
-shader_parameter/shadow_skew_end = 0.03
+shader_parameter/shadow_skew_end = 0.06
 shader_parameter/sprite_skew_start = 0.0
-shader_parameter/sprite_skew_end = 0.03
+shader_parameter/sprite_skew_end = 0.06
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll406"]
 size = Vector2(1167, 670)
@@ -11045,6 +11051,17 @@ tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uw4fn")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ef4ft"]
+shader = ExtResource("7_pv8h4")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.08
+
 [node name="Gameplay_Scene" type="Node2D"]
 
 [node name="Water_Darker_Tilemap_Layer" type="TileMapLayer" parent="."]
@@ -11071,8 +11088,9 @@ tile_set = SubResource("TileSet_i3slv")
 
 [node name="Player" parent="." instance=ExtResource("3_lkgqa")]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_hs6gr")
+material = SubResource("ShaderMaterial_6qh8n")
 position = Vector2(397, 354)
+collision_mask = 5
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("8_vlb8l")]
 visible = false
@@ -11285,4 +11303,38 @@ polygon = PackedVector2Array(1044, -2366, 1748, -1788, 2057, -1009, 3201, -1422,
 [node name="Death_Area2D" type="Area2D" parent="."]
 
 [node name="Death_Plane" type="CollisionPolygon2D" parent="Death_Area2D"]
-polygon = PackedVector2Array(209, -4908, -1148, -4659, -1771, -4206, -2427, -2532, -3615, -1921, -3909, -224, -3705, 2333, -3207, 2978, -2608, 3227, -2291, 4324, -1544, 4788, -469, 4766, 560, 3521, 775, 4155, 1714, 4573, 2823, 4290, 3026, 3804, 3287, 2424, 3649, 738, 3513, -631, 3660, -1898, 3355, -2939, 3026, -3312, 2427, -4319, 390, -4930, 390, -5643, 5663, -5530, 5606, 6372, -6466, 6417, -6432, -5643, 266, -5643)
+polygon = PackedVector2Array(209, -4908, -1148, -4659, -1771, -4206, -2427, -2532, -3615, -1921, -3909, -224, -3705, 2333, -3207, 2978, -2608, 3227, -2291, 4324, -1544, 4788, -469, 4766, 560, 3521, 775, 4155, 1714, 4573, 2823, 4290, 3026, 3804, 3287, 2424, 3649, 738, 3538, -643, 3660, -1898, 3355, -2939, 3026, -3312, 2427, -4319, 390, -4930, 390, -5643, 5663, -5530, 5606, 6372, -6466, 6417, -6432, -5643, 266, -5643)
+
+[node name="Physics_Objects" type="Node2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_ef4ft")
+
+[node name="Trash_Can" parent="Physics_Objects" instance=ExtResource("19_amgsb")]
+z_index = 1
+z_as_relative = false
+use_parent_material = true
+position = Vector2(851, -214)
+
+[node name="Bench" parent="Physics_Objects" instance=ExtResource("20_p3ay2")]
+z_index = 1
+z_as_relative = false
+use_parent_material = true
+position = Vector2(-140, -278)
+
+[node name="Mailbox" parent="Physics_Objects" instance=ExtResource("21_nmv2i")]
+z_index = 1
+z_as_relative = false
+use_parent_material = true
+position = Vector2(232, -312)
+
+[node name="Fire_Hydrant" parent="Physics_Objects" instance=ExtResource("21_mxrkc")]
+z_index = 1
+z_as_relative = false
+use_parent_material = true
+position = Vector2(624, -47)
+
+[node name="Traffic_Cone" parent="Physics_Objects" instance=ExtResource("23_85r6b")]
+z_index = 1
+z_as_relative = false
+use_parent_material = true
+position = Vector2(421, -182)

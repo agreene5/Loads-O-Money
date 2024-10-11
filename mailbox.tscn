@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://q6qc7bb7813v"]
+
+[ext_resource type="Script" path="res://Physics_Objects.gd" id="1_7ql7u"]
+[ext_resource type="Texture2D" uid="uid://5tsdsu6xqixm" path="res://Temp_Assets/Temp_Map_Assets/MailBox.png" id="1_qpafm"]
+[ext_resource type="Shader" path="res://Physics_Objects_Shader.gdshader" id="1_vtoa5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdgfx"]
+shader = ExtResource("1_vtoa5")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hjjie"]
+friction = 0.9
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnppl"]
+size = Vector2(65.4435, 60.7003)
+
+[node name="Mailbox" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_wdgfx")
+collision_layer = 2
+collision_mask = 7
+mass = 60.0
+physics_material_override = SubResource("PhysicsMaterial_hjjie")
+gravity_scale = 0.0
+linear_damp = 2.0
+script = ExtResource("1_7ql7u")
+
+[node name="Mailbox" type="Sprite2D" parent="."]
+rotation = -0.10472
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("1_qpafm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_bnppl")

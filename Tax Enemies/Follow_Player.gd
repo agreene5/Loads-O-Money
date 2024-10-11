@@ -5,6 +5,7 @@ extends RigidBody2D
 
 @export var Speed: float = 100
 @export var Stop_Distance: float = 200
+@export var Upright_Force: float = 5.0  # Force to rotate towards upright position
 var Player_Pos: Vector2 = Vector2()
 var Distance_To_Player: float
 
@@ -12,6 +13,10 @@ var Distance_To_Player: float
 func _ready():
 	# Set the gravity scale to 0 to prevent the body from falling
 	gravity_scale = 0
+	# Assign the shader material
+	var shader_material = load("res://Player_Enemy_Shader.gdshader")
+	material = ShaderMaterial.new()
+	material.shader = shader_material
 
 # Called every physics frame. 'delta' is the elapsed time since the previous frame.
 func _integrate_forces(state):
@@ -26,3 +31,7 @@ func _integrate_forces(state):
 	
 	# Apply the force to the RigidBody2D
 	apply_central_force(force)
+	
+	var current_rotation = state.transform.get_rotation()
+	var torque = sin(-current_rotation) * Upright_Force
+	apply_torque(torque)
