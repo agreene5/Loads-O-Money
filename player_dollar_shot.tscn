@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpju1pigh4exx"]
-
-[ext_resource type="Texture2D" uid="uid://cdfwkrwvfdu15" path="res://Temp_Assets/Temp_Character_Assets/Temp_Dollar_Projectile.png" id="1_l8aa8"]
-
-[node name="Player_Dollar_Shot" type="RigidBody2D"]
-
-[node name="Player_Dollar_Shot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("1_l8aa8")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://5wf77ibnn851"]
+
+[ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_cuglq"]
+[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_ysgm2"]
+[ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_6ge8v"]
+[ext_resource type="Texture2D" uid="uid://2n5qtqdnvdq7" path="res://Finished_Assets/Tax_Enemy_Assets/Income_Tax.png" id="4_0al5i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4hb1"]
+shader = ExtResource("1_cuglq")
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.03
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.03
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1mv0d"]
+bounce = 0.35
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rmm4"]
+size = Vector2(90, 93)
+
+[node name="Income_Tax" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_e4hb1")
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_1mv0d")
+script = ExtResource("3_6ge8v")
+
+[node name="Income_Tax_Shot" type="Node2D" parent="."]
+script = ExtResource("2_ysgm2")
+
+[node name="Income_Tax_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("4_0al5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_2rmm4")

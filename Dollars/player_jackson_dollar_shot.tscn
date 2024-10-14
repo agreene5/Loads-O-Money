@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgmgvk64bwrhs"]
+
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_luu0q"]
+[ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_pt5up"]
+[ext_resource type="Texture2D" uid="uid://cf13hjjlof7mb" path="res://Finished_Assets/Player_Shot_Assets/Jackson_20Dollar.png" id="2_3347s"]
+[ext_resource type="Script" path="res://Dollars/Jackson_Dollar_Health.gd" id="3_xnbbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkr2e"]
+shader = ExtResource("1_luu0q")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fweh3"]
+size = Vector2(44, 25)
+
+[node name="Player_Jackson_Dollar_Shot" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_vkr2e")
+collision_layer = 2
+collision_mask = 3
+linear_damp = 0.15
+script = ExtResource("1_pt5up")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = -1.5708
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("2_3347s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -1.5)
+shape = SubResource("RectangleShape2D_fweh3")
+
+[node name="Jackson_Collision_Detector" type="Area2D" parent="."]
+script = ExtResource("3_xnbbj")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpvjf3txvtbpg"]
+
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_cqbcm"]
+[ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_ua8ds"]
+[ext_resource type="Texture2D" uid="uid://pbb28os88xvh" path="res://Finished_Assets/Player_Shot_Assets/Lincoln_5Dollar.PNG" id="2_akval"]
+[ext_resource type="Script" path="res://Dollars/Lincoln_Dollar_Health.gd" id="3_helgf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3yraa"]
+shader = ExtResource("1_cqbcm")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxsml"]
+size = Vector2(44, 25)
+
+[node name="Player_Lincoln_Dollar_Shot" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_3yraa")
+collision_layer = 2
+collision_mask = 3
+linear_damp = 0.15
+script = ExtResource("1_ua8ds")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = -1.5708
+scale = Vector2(0.018, 0.018)
+texture = ExtResource("2_akval")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -1.5)
+shape = SubResource("RectangleShape2D_uxsml")
+
+[node name="Lincoln_Collision_Detector" type="Area2D" parent="."]
+script = ExtResource("3_helgf")
