@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0n57iajvvms4"]
+[gd_scene load_steps=8 format=3 uid="uid://c0n57iajvvms4"]
 
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_1fsop"]
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_3sgo6"]
 [ext_resource type="Texture2D" uid="uid://cfu37jkjheobh" path="res://Finished_Assets/Player_Shot_Assets/Quarter.png" id="2_amywr"]
 [ext_resource type="Script" path="res://Coins/Quarter_Coin_Health.gd" id="3_iufmc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_23bxa"]
+shader = ExtResource("1_3sgo6")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_63h50"]
 friction = 0.4
@@ -12,6 +22,7 @@ bounce = 1.0
 radius = 66.6667
 
 [node name="Player_Quarter_Coin_Shot" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_23bxa")
 collision_layer = 2
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_63h50")
@@ -19,6 +30,7 @@ linear_damp = 0.08
 script = ExtResource("1_1fsop")
 
 [node name="Player_Quarter_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.023, 0.023)
 texture = ExtResource("2_amywr")
 

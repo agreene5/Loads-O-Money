@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct684ok6i8ill"]
+[gd_scene load_steps=8 format=3 uid="uid://ct684ok6i8ill"]
 
 [ext_resource type="Texture2D" uid="uid://chrx2k5x2rhpu" path="res://Temp_Assets/Temp_Character_Assets/Temp_Nickel_Projectile.png" id="1_17ejp"]
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_llwn7"]
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_mde56"]
 [ext_resource type="Script" path="res://Coins/Nickel_Coin_Health.gd" id="3_41eh5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsgi3"]
+shader = ExtResource("1_llwn7")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y7f1y"]
 bounce = 1.0
@@ -11,6 +21,7 @@ bounce = 1.0
 radius = 63.5059
 
 [node name="Player_Nickel_Coin_Shot" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_lsgi3")
 collision_layer = 2
 collision_mask = 3
 mass = 0.2
@@ -19,6 +30,7 @@ linear_damp = 0.08
 script = ExtResource("1_mde56")
 
 [node name="Player_Nickel_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_17ejp")
 

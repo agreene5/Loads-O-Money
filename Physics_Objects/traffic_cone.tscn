@@ -31,6 +31,7 @@ linear_damp = 0.01
 script = ExtResource("1_gs8i8")
 
 [node name="TrafficCone" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("1_h1wjy")
 

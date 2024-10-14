@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbtu2j4l3w4cr"]
+[gd_scene load_steps=8 format=3 uid="uid://bbtu2j4l3w4cr"]
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_g1wc5"]
 [ext_resource type="Texture2D" uid="uid://c8mv5d3f6rt3x" path="res://Temp_Assets/Temp_Map_Assets/TrashCan.png" id="1_w4dhx"]
@@ -17,6 +17,15 @@ shader_parameter/shadow_skew_end = 0.1
 friction = 0.9
 bounce = 0.2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byhve"]
+shader = ExtResource("1_g1wc5")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ceia0"]
 radius = 31.0161
 
@@ -31,6 +40,7 @@ linear_damp = 0.1
 script = ExtResource("2_w4l3p")
 
 [node name="Trash_Can_Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_byhve")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_w4dhx")
 

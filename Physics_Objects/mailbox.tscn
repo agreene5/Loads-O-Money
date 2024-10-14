@@ -31,6 +31,7 @@ linear_damp = 2.0
 script = ExtResource("1_7ql7u")
 
 [node name="Mailbox" type="Sprite2D" parent="."]
+use_parent_material = true
 rotation = -0.10472
 scale = Vector2(0.17, 0.17)
 texture = ExtResource("1_qpafm")

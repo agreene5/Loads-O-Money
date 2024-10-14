@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=52 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Shader" path="res://Shaders/darker_water_shader.gdshader" id="1_msq8c"]
 [ext_resource type="Texture2D" uid="uid://bpfgcb7rclq6h" path="res://RPGMakerTilesets/Outside_A1_Godot.png" id="2_0tmk6"]
@@ -11051,6 +11051,17 @@ tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uw4fn")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cr77r"]
+shader = ExtResource("7_xdr2x")
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.03
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.03
+
 [node name="Gameplay_Scene" type="Node2D"]
 
 [node name="Water_Darker_Tilemap_Layer" type="TileMapLayer" parent="."]
@@ -11293,6 +11304,7 @@ autoplay = true
 position = Vector2(871, -246)
 
 [node name="Mailbox" parent="." instance=ExtResource("19_31odl")]
+material = SubResource("ShaderMaterial_cr77r")
 position = Vector2(175, 23)
 
 [node name="FireHydrant" parent="." instance=ExtResource("20_3jq66")]

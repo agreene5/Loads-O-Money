@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8yrxl70tl2so"]
+[gd_scene load_steps=8 format=3 uid="uid://b8yrxl70tl2so"]
 
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_0s8ru"]
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_ndrxx"]
 [ext_resource type="Texture2D" uid="uid://o25ny8563yco" path="res://Finished_Assets/Player_Shot_Assets/Dime.png" id="2_q4vsr"]
 [ext_resource type="Script" path="res://Coins/Dime_Coin_Health.gd" id="3_ah5sr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elprq"]
+shader = ExtResource("1_0s8ru")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ttk0f"]
 bounce = 1.0
@@ -11,6 +21,7 @@ bounce = 1.0
 radius = 55.5556
 
 [node name="Player_Dime_Coin_Shot" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_elprq")
 collision_layer = 2
 collision_mask = 3
 mass = 0.1
@@ -19,6 +30,7 @@ linear_damp = 0.08
 script = ExtResource("1_ndrxx")
 
 [node name="Player_Dime_Coin_Shot_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("2_q4vsr")
 

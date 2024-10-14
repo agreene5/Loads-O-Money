@@ -1,7 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgrfevwg3tm7u"]
+[gd_scene load_steps=7 format=3 uid="uid://bgrfevwg3tm7u"]
 
 [ext_resource type="Texture2D" uid="uid://diddy7rj4yy2a" path="res://Temp_Assets/Temp_Map_Assets/FireHydrant.png" id="1_1psle"]
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Objects.gd" id="1_oqkn4"]
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_pckmq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0fxq"]
+shader = ExtResource("1_pckmq")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uxr8p"]
 rough = true
@@ -11,6 +21,7 @@ absorbent = true
 radius = 21.2132
 
 [node name="FireHydrant" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_j0fxq")
 collision_layer = 2
 collision_mask = 7
 mass = 100.0
@@ -22,6 +33,7 @@ angular_damp = 14.813
 script = ExtResource("1_oqkn4")
 
 [node name="FireHydrant" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_1psle")
 

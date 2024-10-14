@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpju1pigh4exx"]
+[gd_scene load_steps=7 format=3 uid="uid://cpju1pigh4exx"]
 
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_lx1ld"]
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_tqc7e"]
 [ext_resource type="Texture2D" uid="uid://dj172u042yl2k" path="res://Finished_Assets/Player_Shot_Assets/Washington_1Dollar.png" id="2_r6hsh"]
 [ext_resource type="Script" path="res://Dollars/Washington_Dollar_Health.gd" id="3_uh5av"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hbny"]
+shader = ExtResource("1_lx1ld")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cnso"]
 size = Vector2(44, 25)
 
 [node name="Player__Washington_Dollar_Shot" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_3hbny")
 collision_layer = 2
 collision_mask = 3
 linear_damp = 0.15
 script = ExtResource("1_tqc7e")
 
 [node name="Player_Washington_Dollar_Shot_Sprite" type="Sprite2D" parent="."]
+use_parent_material = true
 rotation = -1.5708
 scale = Vector2(0.018, 0.018)
 texture = ExtResource("2_r6hsh")

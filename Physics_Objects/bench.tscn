@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_bb7kl"]
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Objects.gd" id="1_kr6hv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ark6d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4ovo"]
 shader = ExtResource("1_bb7kl")
 shader_parameter/shadow_offset = Vector2(30, 30)
 shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
@@ -21,7 +21,7 @@ bounce = 0.3
 size = Vector2(151, 57)
 
 [node name="Bench" type="RigidBody2D"]
-material = SubResource("ShaderMaterial_ark6d")
+material = SubResource("ShaderMaterial_f4ovo")
 collision_layer = 2
 collision_mask = 7
 mass = 40.0
@@ -31,6 +31,7 @@ linear_damp = 0.5
 script = ExtResource("1_kr6hv")
 
 [node name="Bench" type="Sprite2D" parent="."]
+use_parent_material = true
 rotation = -0.122173
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_1mri1")
