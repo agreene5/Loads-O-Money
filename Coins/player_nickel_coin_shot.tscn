@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://ct684ok6i8ill"]
 
-[ext_resource type="Texture2D" uid="uid://chrx2k5x2rhpu" path="res://Temp_Assets/Temp_Character_Assets/Temp_Nickel_Projectile.png" id="1_17ejp"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_llwn7"]
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_mde56"]
 [ext_resource type="Script" path="res://Coins/Nickel_Coin_Health.gd" id="3_41eh5"]
+[ext_resource type="Texture2D" uid="uid://cbsq1f7jujywh" path="res://Finished_Assets/Player_Shot_Assets/Nickel.png" id="3_hnbua"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsgi3"]
 shader = ExtResource("1_llwn7")
@@ -31,8 +31,8 @@ script = ExtResource("1_mde56")
 
 [node name="Player_Nickel_Coin_Shot_Sprite" type="Sprite2D" parent="."]
 use_parent_material = true
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_17ejp")
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_hnbua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.1, 0.1)

@@ -26,7 +26,7 @@ size = Vector2(28, 90)
 material = SubResource("ShaderMaterial_75ake")
 collision_layer = 4
 collision_mask = 5
-mass = 0.6
+mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_ku40y")
 script = ExtResource("3_kiuv0")
 

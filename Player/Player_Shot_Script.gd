@@ -1,6 +1,6 @@
 # This script defines the 3 shot types for the character, which are cycled through by pressing
 # the "E" key. It also subtracts from the money variable an amount determined by the shot type
-# every time you shoot.
+# every time you shoot. Also, shots now give you knockback when you fire
 
 extends Node2D
 
@@ -134,12 +134,14 @@ func _handle_coin_shot(coin_type, cost):
 		
 		coin_instance.rotation = direction.angle()
 		
-		var player_velocity = parent.velocity
+		var player_velocity = parent.linear_velocity
 		
 		coin_instance.set_initial_velocity(player_velocity)
 		coin_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(coin_instance)
+		
+		apply_knockback(50, -direction)
 
 func _handle_dollar_shot(dollar_type, cost):
 	if money >= cost:
@@ -154,12 +156,14 @@ func _handle_dollar_shot(dollar_type, cost):
 
 		dollar_instance.rotation = direction.angle()
 		
-		var player_velocity = parent.velocity
+		var player_velocity = parent.linear_velocity
 		
 		dollar_instance.set_initial_velocity(player_velocity)
 		dollar_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(dollar_instance)
+		
+		apply_knockback(100, -direction)
 
 func _handle_check_shot(check_type, cost):
 	if money >= cost:
@@ -175,13 +179,28 @@ func _handle_check_shot(check_type, cost):
 		
 		check_instance.rotation = direction.angle()
 		
-		var player_velocity = parent.velocity
+		var player_velocity = parent.linear_velocity
 		
 		check_instance.set_initial_velocity(player_velocity)
 		check_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(check_instance)
+		
+		apply_knockback(500, -direction)
+
+func apply_knockback(force, direction): # Does knockback depending on the coin type
+	var parent = get_parent()
+	parent.apply_central_impulse(direction * force)
 
 func cycle_shot_type():
-	# Cycle through the shot types (Coin, Dollar, Check)
-	current_shot_type = (current_shot_type + 1) % len(ShotType)
+		# Cycle through the shot types (Coin, Dollar, Check)
+		current_shot_type = (current_shot_type + 1) % len(ShotType)
+		
+		# Trigger the sprite change by simulating a shot type switch
+		match current_shot_type:
+				ShotType.COIN:
+						Global_Variables.set_Current_Shot(0)
+				ShotType.DOLLAR:
+						Global_Variables.set_Current_Shot(1)
+				ShotType.CHECK:
+						Global_Variables.set_Current_Shot(2)

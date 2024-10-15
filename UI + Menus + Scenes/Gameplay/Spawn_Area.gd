@@ -25,11 +25,14 @@ func _ready():
 		add_child(timer)
 		timer.one_shot = false
 		timer.timeout.connect(_on_Timer_timeout.bind(i))
-		timer.start(start_times[i])
-		timers.append(timer)
 		
-		# Start the timer with the initial wait time
-		timer.wait_time = start_times[i]
+		# Set the initial wait time to the end time (fastest spawn rate)
+		timer.wait_time = end_times[i]
+		
+		# Start the timer immediately
+		timer.start()
+		timers.append(timer)
+	
 	set_process(true)
 
 func remove_rigid_bodies():
