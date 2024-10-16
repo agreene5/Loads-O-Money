@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=53 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Shader" path="res://Shaders/darker_water_shader.gdshader" id="1_msq8c"]
 [ext_resource type="Texture2D" uid="uid://bpfgcb7rclq6h" path="res://RPGMakerTilesets/Outside_A1_Godot.png" id="2_0tmk6"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bgrfevwg3tm7u" path="res://Physics_Objects/fire_hydrant.tscn" id="20_3jq66"]
 [ext_resource type="PackedScene" uid="uid://dwy6vtpo3ejnj" path="res://Physics_Objects/bench.tscn" id="21_j10oj"]
 [ext_resource type="PackedScene" uid="uid://bbtu2j4l3w4cr" path="res://Physics_Objects/trash_can.tscn" id="22_kqrsk"]
+[ext_resource type="PackedScene" uid="uid://6rfrd5wrgsux" path="res://UI + Menus + Scenes/Pause_Menu/pause_menu.tscn" id="23_bhiwm"]
 [ext_resource type="Script" path="res://Misc/timer_.gd" id="23_nsqyu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mie2w"]
@@ -11317,6 +11318,9 @@ position = Vector2(368, -199)
 position = Vector2(559, -42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("23_bhiwm")]
+visible = false
 
 [node name="TimerUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
