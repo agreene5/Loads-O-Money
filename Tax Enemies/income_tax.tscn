@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqumg0thye606" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Income_Tax.png" id="1_lhyq8"]
 [ext_resource type="Script" path="res://income_tax_health.gd" id="2_x6bhw"]
-[ext_resource type="Script" path="res://Enemy_Tax_Shots.gd" id="2_ysgm2"]
+[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/income_tax_projectile.gd" id="2_ysgm2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1p01"]
 size = Vector2(94, 107.5)
