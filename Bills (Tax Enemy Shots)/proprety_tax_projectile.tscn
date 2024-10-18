@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4k01yb4iu7sb"]
+[gd_scene load_steps=2 format=3 uid="uid://d4k01yb4iu7sb"]
 
 [ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_aa5n6"]
-[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/proprety_tax_projectile.gd" id="1_yqdca"]
-[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Property_Bill_Health.gd" id="3_srvbq"]
 
 [node name="Proprety_Tax_Projectile" type="RigidBody2D"]
-script = ExtResource("1_yqdca")
 
 [node name="Property_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("1_aa5n6")
 
 [node name="Property_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_srvbq")
