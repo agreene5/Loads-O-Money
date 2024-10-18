@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=56 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Shader" path="res://Shaders/darker_water_shader.gdshader" id="1_msq8c"]
 [ext_resource type="Texture2D" uid="uid://bpfgcb7rclq6h" path="res://RPGMakerTilesets/Outside_A1_Godot.png" id="2_0tmk6"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://bbtu2j4l3w4cr" path="res://Physics_Objects/trash_can.tscn" id="22_kqrsk"]
 [ext_resource type="PackedScene" uid="uid://6rfrd5wrgsux" path="res://UI + Menus + Scenes/Pause_Menu/pause_menu.tscn" id="23_bhiwm"]
 [ext_resource type="Script" path="res://Misc/timer_.gd" id="23_nsqyu"]
+[ext_resource type="Texture2D" uid="uid://dd4prmckfphg1" path="res://UI + Menus + Scenes/UpgradeMenu/Gameplay_Overlay_Money_1.png" id="25_58xhl"]
+[ext_resource type="PackedScene" uid="uid://dp3x47jd1012d" path="res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.tscn" id="25_r4mwh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mie2w"]
 shader = ExtResource("1_msq8c")
@@ -11063,6 +11065,24 @@ shader_parameter/shadow_skew_end = 0.03
 shader_parameter/sprite_skew_start = 0.0
 shader_parameter/sprite_skew_end = 0.03
 
+[sub_resource type="GDScript" id="GDScript_b3a1r"]
+script/source = "extends Button
+
+@onready var upgrade_menu = $\".\"
+var paused = false
+
+	
+	
+func pause_game():
+	if paused:
+		upgrade_menu.hide()
+		Engine.time_scale =1
+	else:
+		upgrade_menu.show()
+		Engine.time_scale =0
+	paused = !paused
+"
+
 [node name="Gameplay_Scene" type="Node2D"]
 
 [node name="Water_Darker_Tilemap_Layer" type="TileMapLayer" parent="."]
@@ -11331,3 +11351,18 @@ script = ExtResource("23_nsqyu")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("25_r4mwh")]
+visible = false
+
+[node name="UpgradeMenuButton" type="Button" parent="CanvasLayer"]
+offset_left = 1073.0
+offset_top = 578.0
+offset_right = 1324.0
+offset_bottom = 791.0
+scale = Vector2(0.25621, 0.283421)
+icon = ExtResource("25_58xhl")
+script = SubResource("GDScript_b3a1r")
+
+[connection signal="pressed" from="CanvasLayer/UpgradeMenuButton" to="Player" method="_on_upgrade_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UpgradeMenuButton" to="CanvasLayer/UpgradeMenuButton" method="_on_pressed"]

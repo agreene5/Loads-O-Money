@@ -86,3 +86,7 @@ func initiate_boost(action):
 
 func reset_boost():
 		can_boost = true
+
+
+func _on_upgrade_menu_button_pressed() -> void:
+	pass # Replace with function body.

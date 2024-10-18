@@ -43,6 +43,7 @@ script = ExtResource("1_hwsdl")
 
 [node name="Camera_Movement" type="Camera2D" parent="."]
 scale = Vector2(0.05, 0.05)
+zoom = Vector2(1.2, 1.2)
 script = ExtResource("2_x6mct")
 
 [node name="Player_Shot" type="Node2D" parent="."]

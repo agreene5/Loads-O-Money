@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp3x47jd1012d"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.gd" id="1_h65q3"]
+[ext_resource type="Texture2D" uid="uid://cxk5rr44aymkd" path="res://UI + Menus + Scenes/UpgradeMenu/Upgrade_Menu_1.png" id="2_78gvv"]
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h65q3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 321)
+scale = Vector2(0.560002, 0.559999)
+texture = ExtResource("2_78gvv")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 60.0
+offset_right = 1069.0
+offset_bottom = 91.0
+text = "Exit"
+
+[node name="UpgradeCoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 111.0
+offset_right = 494.0
+offset_bottom = 142.0
+text = "Upgrade Coin"
+
+[node name="UpgradeBillButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 302.0
+offset_right = 492.0
+offset_bottom = 333.0
+text = "Upgrade Bill"
+
+[node name="UpgradeCheckButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 511.0
+offset_right = 495.0
+offset_bottom = 542.0
+text = "Upgrade Check"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
