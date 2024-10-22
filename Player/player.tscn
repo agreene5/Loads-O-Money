@@ -72,3 +72,5 @@ script = ExtResource("8_tlag8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Todd_Body_Signaler"]
 shape = SubResource("CapsuleShape2D_0bmur")
+
+[node name="Timer" type="Timer" parent="Todd_Body_Signaler"]

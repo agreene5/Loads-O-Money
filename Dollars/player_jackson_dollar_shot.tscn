@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgmgvk64bwrhs"]
+[gd_scene load_steps=8 format=3 uid="uid://bgmgvk64bwrhs"]
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_luu0q"]
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_pt5up"]
 [ext_resource type="Texture2D" uid="uid://cf13hjjlof7mb" path="res://Finished_Assets/Player_Shot_Assets/Jackson_20Dollar.png" id="2_3347s"]
-[ext_resource type="Script" path="res://Dollars/Jackson_Dollar_Health.gd" id="3_xnbbj"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_cjch5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vkr2e"]
 shader = ExtResource("1_luu0q")
@@ -16,6 +16,9 @@ shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fweh3"]
 size = Vector2(44, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31em5"]
+size = Vector2(46, 27)
 
 [node name="Player_Jackson_Dollar_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_vkr2e")
@@ -36,4 +39,10 @@ position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_fweh3")
 
 [node name="Jackson_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_xnbbj")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_cjch5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jackson_Collision_Detector"]
+position = Vector2(-5, -1.5)
+shape = SubResource("RectangleShape2D_31em5")

@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct684ok6i8ill"]
+[gd_scene load_steps=9 format=3 uid="uid://ct684ok6i8ill"]
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_llwn7"]
-[ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_mde56"]
-[ext_resource type="Script" path="res://Coins/Nickel_Coin_Health.gd" id="3_41eh5"]
+[ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="2_ph6bt"]
 [ext_resource type="Texture2D" uid="uid://cbsq1f7jujywh" path="res://Finished_Assets/Player_Shot_Assets/Nickel.png" id="3_hnbua"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_h6slk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsgi3"]
 shader = ExtResource("1_llwn7")
@@ -20,6 +20,9 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oh7m"]
 radius = 63.5059
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsac3"]
+radius = 7.07107
+
 [node name="Player_Nickel_Coin_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_lsgi3")
 collision_layer = 2
@@ -27,7 +30,7 @@ collision_mask = 3
 mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_y7f1y")
 linear_damp = 0.08
-script = ExtResource("1_mde56")
+script = ExtResource("2_ph6bt")
 
 [node name="Player_Nickel_Coin_Shot_Sprite" type="Sprite2D" parent="."]
 use_parent_material = true
@@ -39,4 +42,9 @@ scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_6oh7m")
 
 [node name="Nickel_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_41eh5")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_h6slk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nickel_Collision_Detector"]
+shape = SubResource("CircleShape2D_bsac3")

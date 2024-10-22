@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwy6vtpo3ejnj"]
+[gd_scene load_steps=9 format=3 uid="uid://dwy6vtpo3ejnj"]
 
 [ext_resource type="Texture2D" uid="uid://c4tuopxbqvfdn" path="res://Temp_Assets/Temp_Map_Assets/Bench.png" id="1_1mri1"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_bb7kl"]
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Objects.gd" id="1_kr6hv"]
+[ext_resource type="Script" path="res://Physics_Objects/Physics_Object_Effect.gd" id="4_fiijr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4ovo"]
 shader = ExtResource("1_bb7kl")
@@ -19,6 +20,9 @@ bounce = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wiwxf"]
 size = Vector2(151, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcm1x"]
+size = Vector2(155, 61)
 
 [node name="Bench" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_f4ovo")
@@ -39,3 +43,12 @@ texture = ExtResource("1_1mri1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_wiwxf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_fiijr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_wcm1x")

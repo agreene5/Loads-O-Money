@@ -16,24 +16,24 @@ float calculate_skew(float start, float end, float time) {
 
 void fragment() {
     vec4 original = texture(TEXTURE, UV);
-    
+
     // Calculate shadow skew
     float shadow_skew = calculate_skew(shadow_skew_start, shadow_skew_end, TIME);
-    
+
     // Calculate shadow position with skew
     vec2 shadow_uv = UV - shadow_offset * TEXTURE_PIXEL_SIZE * shadow_size;
     shadow_uv.x += shadow_uv.y * shadow_skew;
-    
+
     // Sample the texture at the shadow position
     vec4 shadow = texture(TEXTURE, shadow_uv);
-    
+
     // Create the shadow
     vec4 final_shadow = shadow_color;
     final_shadow.a *= shadow.a;
-    
+
     // Blend the shadow with the background
     vec4 color = mix(final_shadow, vec4(0.0), step(shadow_uv.x, 0.0) + step(1.0, shadow_uv.x) + step(shadow_uv.y, 0.0) + step(1.0, shadow_uv.y));
-    
+
     // Only apply the shadow, keep the original sprite unchanged
     COLOR = mix(color, original, original.a);
 }

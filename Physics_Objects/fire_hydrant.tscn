@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgrfevwg3tm7u"]
+[gd_scene load_steps=9 format=3 uid="uid://bgrfevwg3tm7u"]
 
 [ext_resource type="Texture2D" uid="uid://diddy7rj4yy2a" path="res://Temp_Assets/Temp_Map_Assets/FireHydrant.png" id="1_1psle"]
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Objects.gd" id="1_oqkn4"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_pckmq"]
+[ext_resource type="Script" path="res://Physics_Objects/Physics_Object_Effect.gd" id="4_pdy2i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j0fxq"]
 shader = ExtResource("1_pckmq")
@@ -19,6 +20,9 @@ absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epqbh"]
 radius = 21.2132
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dc4a"]
+radius = 22.3607
 
 [node name="FireHydrant" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_j0fxq")
@@ -40,3 +44,12 @@ texture = ExtResource("1_1psle")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_epqbh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_pdy2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8dc4a")

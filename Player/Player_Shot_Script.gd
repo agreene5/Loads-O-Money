@@ -35,8 +35,19 @@ var is_firing = false
 var fire_timer = 0.0
 
 var money = Global_Variables.money
+#----------------
+var replay_mode = false
+
+@onready var player = get_parent()
+
+func set_replay_mode(value: bool):
+	replay_mode = value
 
 func _input(event):
+	if player.is_replaying:
+		print("is_replaying")
+		return
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		is_firing = event.pressed
 		if event.pressed:
@@ -45,7 +56,7 @@ func _input(event):
 	# Press E to cycle through the shot types (Coin, Dollar, Check)
 	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
 		cycle_shot_type()
-
+#-------------------------
 func _process(delta):
 	fire_timer += delta
 	if is_firing:
@@ -163,7 +174,7 @@ func _handle_dollar_shot(dollar_type, cost):
 
 		get_tree().current_scene.add_child(dollar_instance)
 		
-		apply_knockback(100, -direction)
+		apply_knockback(134, -direction)
 
 func _handle_check_shot(check_type, cost):
 	if money >= cost:
@@ -186,7 +197,7 @@ func _handle_check_shot(check_type, cost):
 
 		get_tree().current_scene.add_child(check_instance)
 		
-		apply_knockback(500, -direction)
+		apply_knockback(1212, -direction)
 
 func apply_knockback(force, direction): # Does knockback depending on the coin type
 	var parent = get_parent()
