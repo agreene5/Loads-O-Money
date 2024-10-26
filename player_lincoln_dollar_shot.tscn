@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpvjf3txvtbpg"]
+
+[ext_resource type="Script" path="res://Player_Dollar_Shot.gd" id="1_rrsk0"]
+[ext_resource type="Texture2D" uid="uid://dmly186oy21j8" path="res://Temp_Assets/Temp_Character_Assets/Temp_5Dollar_Projectile.png" id="2_mp57q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxsml"]
+size = Vector2(52, 22)
+
+[node name="Player_Lincoln_Dollar_Shot" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 0.15
+script = ExtResource("1_rrsk0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.0803159, 0.0821167)
+texture = ExtResource("2_mp57q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_uxsml")

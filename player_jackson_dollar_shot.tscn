@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgmgvk64bwrhs"]
+
+[ext_resource type="Script" path="res://Player_Dollar_Shot.gd" id="1_du7jk"]
+[ext_resource type="Texture2D" uid="uid://n8hvfvvdtbbk" path="res://Temp_Assets/Temp_Character_Assets/Temp_20Dollar_Projectile.png" id="2_1m3ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fweh3"]
+size = Vector2(52, 22)
+
+[node name="Player_Jackson_Dollar_Shot" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+linear_damp = 0.15
+script = ExtResource("1_du7jk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.08, 0.0815019)
+texture = ExtResource("2_1m3ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_fweh3")

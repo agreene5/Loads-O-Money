@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmsxa5rw0286l"]
+
+[ext_resource type="Texture2D" uid="uid://b87sgtigahaek" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Sales_Tax.png" id="1_sh2p1"]
+[ext_resource type="Script" path="res://Enemy_Tax_Shots.gd" id="2_eui8e"]
+
+[node name="Sales_Tax" type="CharacterBody2D"]
+
+[node name="Sales_Tax_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_sh2p1")
+
+[node name="Sales_Tax_Shot" type="Node2D" parent="."]
+script = ExtResource("2_eui8e")
