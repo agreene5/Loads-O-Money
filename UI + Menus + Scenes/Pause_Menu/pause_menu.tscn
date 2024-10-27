@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w32yx"]
 shader = ExtResource("2_0l8ay")
 shader_parameter/blur = 0.0
-shader_parameter/brightness = 1.0
+shader_parameter/brightness = 0.764
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
