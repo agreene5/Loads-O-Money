@@ -1,18 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp3x47jd1012d"]
+[gd_scene load_steps=8 format=3 uid="uid://dp3x47jd1012d"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.gd" id="1_h65q3"]
 [ext_resource type="Texture2D" uid="uid://cxk5rr44aymkd" path="res://UI + Menus + Scenes/UpgradeMenu/Upgrade_Menu_1.png" id="2_78gvv"]
-[ext_resource type="Shader" path="res://UI + Menus + Scenes/Pause_Menu/blur.gdshader" id="2_ynie5"]
 [ext_resource type="Theme" uid="uid://b7vo5hptktydk" path="res://UI + Menus + Scenes/Pause_Menu/Buttons_Theme.tres" id="3_07dyh"]
 [ext_resource type="Texture2D" uid="uid://b5jpcy4l1fspq" path="res://Finished_Assets/Player_Shot_Assets/Penny.png" id="4_djvnn"]
 [ext_resource type="Texture2D" uid="uid://dj172u042yl2k" path="res://Finished_Assets/Player_Shot_Assets/Washington_1Dollar.png" id="5_dwqtv"]
 [ext_resource type="Texture2D" uid="uid://tort1q8qxmy" path="res://Finished_Assets/Player_Shot_Assets/Check_100.PNG" id="6_g7oa6"]
 [ext_resource type="FontFile" uid="uid://btrbul8bnjs1y" path="res://Finished_Assets/Comic_Sans_MS_FONT.ttf" id="7_cmigl"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gv2r4"]
-shader = ExtResource("2_ynie5")
-shader_parameter/blur = null
-shader_parameter/brightness = 0.786
 
 [node name="UpgradeMenu" type="Control"]
 layout_mode = 3
@@ -26,17 +20,6 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h65q3")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_gv2r4")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.12, 1.28)
-color = Color(1, 1, 1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 321)

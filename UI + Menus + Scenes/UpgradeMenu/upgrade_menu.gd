@@ -1,6 +1,6 @@
 extends Control
 
-@onready var upgrade_menu = $"../UpgradeMenu"
+
 
 
 func _process(delta: float) -> void:
@@ -11,12 +11,11 @@ func _process(delta: float) -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	upgrade_menu.hide()
-	Engine.time_scale =1
+	pass # Replace with function body.
 
 
 func _on_upgrade_coin_button_pressed() -> void:
-	pass
+	pass # Replace with function body.
 
 
 func _on_upgrade_bill_button_pressed() -> void:

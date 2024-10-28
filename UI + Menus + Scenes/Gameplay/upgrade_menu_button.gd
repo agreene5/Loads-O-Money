@@ -9,8 +9,10 @@ func _on_pressed() -> void:
 	upgradeMenu()
 
 func upgradeMenu():
-	if paused == false:
+	if paused:
+		upgrade_menu.hide()
+		Engine.time_scale =1
+	else:
 		upgrade_menu.show()
 		Engine.time_scale =0
-	
 	paused = !paused

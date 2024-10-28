@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Shaders/Water_Shader.gdshader" id="3_ac5bv"]
 [ext_resource type="Texture2D" uid="uid://cf3oscjdp4crx" path="res://RPGMakerTilesets/Outside_A2_Godot.png" id="4_efpmj"]
 [ext_resource type="Texture2D" uid="uid://dibc54rew36bl" path="res://RPGMakerTilesets/SF_Outside_A5_Godot.png" id="5_1waw3"]
-[ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://player.tscn" id="6_uhgce"]
+[ext_resource type="PackedScene" uid="uid://by1ubyds8mqk3" path="res://Player/player.tscn" id="6_uhgce"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="7_xdr2x"]
 [ext_resource type="Shader" path="res://Shaders/plant_shader.gdshader" id="8_7eaqp"]
 [ext_resource type="Texture2D" uid="uid://bntgaqnqiyi7g" path="res://Temp_Assets/Temp_Map_Assets/Tree_Image_1.webp" id="9_8i66w"]
@@ -11322,19 +11322,8 @@ position = Vector2(559, -42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UpgradeMenuButton" type="Button" parent="CanvasLayer"]
-offset_left = 1073.0
-offset_top = 578.0
-offset_right = 1324.0
-offset_bottom = 791.0
-scale = Vector2(0.25621, 0.283421)
-icon = ExtResource("25_58xhl")
-script = ExtResource("27_gcu6e")
-
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("23_bhiwm")]
 visible = false
-offset_left = 20.0
-offset_right = 20.0
 
 [node name="TimerUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -11348,11 +11337,19 @@ offset_bottom = 23.0
 
 [node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("25_r4mwh")]
 visible = false
-offset_left = -45.0
-offset_top = -4.0
-offset_right = -45.0
-offset_bottom = -4.0
-scale = Vector2(0.96, 1)
+offset_left = -52.0
+offset_top = 9.0
+offset_right = -52.0
+offset_bottom = 9.0
+
+[node name="UpgradeMenuButton" type="Button" parent="CanvasLayer"]
+offset_left = 1073.0
+offset_top = 578.0
+offset_right = 1324.0
+offset_bottom = 791.0
+scale = Vector2(0.25621, 0.283421)
+icon = ExtResource("25_58xhl")
+script = ExtResource("27_gcu6e")
 
 [connection signal="pressed" from="CanvasLayer/UpgradeMenuButton" to="Player" method="_on_upgrade_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UpgradeMenuButton" to="CanvasLayer/UpgradeMenuButton" method="_on_pressed"]
