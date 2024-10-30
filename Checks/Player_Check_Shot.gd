@@ -2,7 +2,7 @@
 
 extends RigidBody2D
 
-@export var initial_velocity = 150.0
+var initial_velocity = 150.0
 var despawn_timer = Timer.new()
 
 func _ready():
@@ -23,6 +23,10 @@ func set_initial_direction(direction: Vector2):
 	# Set the initial velocity based on the direction given
 	linear_velocity = direction * initial_velocity
 
+func set_initial_velocity(velocity: Vector2):
+	# Add the player's velocity to the initial_velocity
+	initial_velocity += velocity.length()
+
 func _on_despawn_timer_timeout():
 	queue_free()  # Despawns the coin scene
 
@@ -30,6 +34,6 @@ func play_check_sound():
 		var audio_player = AudioStreamPlayer.new()
 		add_child(audio_player)
 		
-		audio_player.stream = load("res://Finished_Assets/CheckSFX.mp3")
+		audio_player.stream = load("res://Finished_Assets/SFX_Assets/CheckSFX.mp3")
 		audio_player.volume_db = -3  # Subtracting 3 decibles because vine boom is loud
 		audio_player.play()

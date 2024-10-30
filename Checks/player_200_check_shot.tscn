@@ -1,24 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://da7bawe0c0gb"]
+[gd_scene load_steps=8 format=3 uid="uid://da7bawe0c0gb"]
 
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_hcxag"]
 [ext_resource type="Script" path="res://Checks/Player_Check_Shot.gd" id="1_ugurk"]
-[ext_resource type="Texture2D" uid="uid://6occ53nqk10j" path="res://Temp_Assets/Temp_Character_Assets/Temp_200Check_Projectile.png" id="2_tn67a"]
-[ext_resource type="Script" path="res://Checks/200_Check_Health.gd" id="3_4d6fd"]
+[ext_resource type="Texture2D" uid="uid://b5j2hno6a1arp" path="res://Finished_Assets/Player_Shot_Assets/Check_200.png" id="2_1wmv1"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_3gfhf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unhu4"]
+shader = ExtResource("1_hcxag")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mfun"]
+size = Vector2(22.5, 20.2703)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lbdb"]
+size = Vector2(101, 62)
 
 [node name="Player_200_Check_Shot" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 4
-mass = 10.0
+material = SubResource("ShaderMaterial_unhu4")
+collision_layer = 2
+collision_mask = 2
+mass = 25.0
 script = ExtResource("1_ugurk")
 
 [node name="Player_200_Check_Shot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.12, 0.18)
-texture = ExtResource("2_tn67a")
+use_parent_material = true
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_1wmv1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11.5, -0.999999)
 scale = Vector2(4.4, 2.96)
 shape = SubResource("RectangleShape2D_0mfun")
 
 [node name="200_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_4d6fd")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_3gfhf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="200_Collision_Detector"]
+position = Vector2(-11.5, -1)
+shape = SubResource("RectangleShape2D_8lbdb")

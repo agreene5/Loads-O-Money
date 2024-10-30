@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4b0ajjcf6qfk"]
+
+[ext_resource type="Texture2D" uid="uid://burt5vn6mdam4" path="res://Finished_Assets/Collision_Assets/Collision_1.png" id="1_jwbxi"]
+[ext_resource type="Texture2D" uid="uid://0u1j51o8csit" path="res://Finished_Assets/Collision_Assets/Collision_2.png" id="2_c4aaw"]
+[ext_resource type="AudioStream" uid="uid://ctsjso0r6oors" path="res://Finished_Assets/SFX_Assets/Physics_Objects_Hit_SFX.mp3" id="3_b7pgx"]
+[ext_resource type="Script" path="res://Misc/collision_animation.gd" id="3_p2rxx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbkbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jwbxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c4aaw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_dbkbd")
+frame_progress = 0.942532
+script = ExtResource("3_p2rxx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_b7pgx")
+volume_db = 2.0
+autoplay = true

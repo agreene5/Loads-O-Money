@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lepb1ppmh084"
+path="res://.godot/imported/MLG_Audio.mp3-cdbcb0b7e512b9ab3776213cdd25d2a1.mp3str"
+
+[deps]
+
+source_file="res://UI + Menus + Scenes/MLG_Scene/MLG_Audio.mp3"
+dest_files=["res://.godot/imported/MLG_Audio.mp3-cdbcb0b7e512b9ab3776213cdd25d2a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

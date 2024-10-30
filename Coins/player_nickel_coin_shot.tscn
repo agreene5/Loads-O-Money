@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://chr0s4xaterud"]
+[gd_scene load_steps=9 format=3 uid="uid://ct684ok6i8ill"]
 
-[ext_resource type="Texture2D" uid="uid://chrx2k5x2rhpu" path="res://Temp_Assets/Temp_Character_Assets/Temp_Nickel_Projectile.png" id="1_17ejp"]
-[ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_mde56"]
-[ext_resource type="Script" path="res://Coins/Nickel_Coin_Health.gd" id="3_41eh5"]
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_llwn7"]
+[ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="2_ph6bt"]
+[ext_resource type="Texture2D" uid="uid://cbsq1f7jujywh" path="res://Finished_Assets/Player_Shot_Assets/Nickel.png" id="3_hnbua"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_h6slk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsgi3"]
+shader = ExtResource("1_llwn7")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y7f1y"]
 bounce = 1.0
@@ -10,30 +20,31 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oh7m"]
 radius = 63.5059
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aiwfv"]
-radius = 6.66667
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsac3"]
+radius = 7.07107
 
 [node name="Player_Nickel_Coin_Shot" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 5
+material = SubResource("ShaderMaterial_lsgi3")
+collision_layer = 2
+collision_mask = 3
 mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_y7f1y")
 linear_damp = 0.08
-script = ExtResource("1_mde56")
+script = ExtResource("2_ph6bt")
 
 [node name="Player_Nickel_Coin_Shot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_17ejp")
+use_parent_material = true
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_hnbua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_6oh7m")
 
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(1.05, 1.05)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_aiwfv")
-
 [node name="Nickel_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_41eh5")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_h6slk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nickel_Collision_Detector"]
+shape = SubResource("CircleShape2D_bsac3")

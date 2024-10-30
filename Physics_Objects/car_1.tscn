@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://djuxiyumekhup"]
+
+[ext_resource type="Script" path="res://Physics_Objects/car_movement.gd" id="1_q1jrv"]
+[ext_resource type="Texture2D" uid="uid://5eafg12bu3oh" path="res://Finished_Assets/Misc_Assets/Car.png" id="2_ijmvn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b61fj"]
+radius = 46.0
+height = 218.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ay7e"]
+radius = 28.0
+height = 90.0
+
+[node name="Car_1" type="RigidBody2D"]
+script = ExtResource("1_q1jrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -2.84217e-14)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_ijmvn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_b61fj")
+
+[node name="Car_Death_Box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car_Death_Box"]
+position = Vector2(0, 88)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2ay7e")

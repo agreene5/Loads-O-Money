@@ -4,6 +4,7 @@ extends RigidBody2D
 var initial_velocity = 150
 var despawn_timer = Timer.new()
 var deceleration = Global_Variables.deceleration
+var player_position: Vector2
 
 func _ready():
 	# Setup the despawn timer
@@ -12,8 +13,12 @@ func _ready():
 	despawn_timer.one_shot = true  # Make sure the timer only fires once
 	despawn_timer.timeout.connect(_on_despawn_timer_timeout)
 	despawn_timer.start()
+	
+	player_position = Global_Variables.player_position
+	
+	var direction_to_player = (player_position - global_position).normalized()
 	# Set initial velocity
-	linear_velocity = Vector2(0, initial_velocity)
+	linear_velocity = direction_to_player * initial_velocity
 	# Disable gravity
 	gravity_scale = 0
 

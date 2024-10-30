@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8yrxl70tl2so"]
+[gd_scene load_steps=9 format=3 uid="uid://b8yrxl70tl2so"]
 
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_0s8ru"]
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_ndrxx"]
-[ext_resource type="Texture2D" uid="uid://doxph6xksgtn6" path="res://Temp_Assets/Temp_Character_Assets/Temp_Dime_Projectile.png" id="2_4n57j"]
-[ext_resource type="Script" path="res://Coins/Dime_Coin_Health.gd" id="3_gw2er"]
+[ext_resource type="Texture2D" uid="uid://o25ny8563yco" path="res://Finished_Assets/Player_Shot_Assets/Dime.png" id="2_q4vsr"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_ly4tr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elprq"]
+shader = ExtResource("1_0s8ru")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ttk0f"]
 bounce = 1.0
@@ -10,28 +20,31 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_n2bob"]
 radius = 55.5556
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hxfgt"]
-radius = 6.66667
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojct8"]
+radius = 6.08276
 
 [node name="Player_Dime_Coin_Shot" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 5
+material = SubResource("ShaderMaterial_elprq")
+collision_layer = 2
+collision_mask = 3
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_ttk0f")
 linear_damp = 0.08
 script = ExtResource("1_ndrxx")
 
 [node name="Player_Dime_Coin_Shot_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.09, 0.09)
-texture = ExtResource("2_4n57j")
+use_parent_material = true
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_q4vsr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.09, 0.09)
 shape = SubResource("CircleShape2D_n2bob")
 
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(1.05, 1.05)
-script = ExtResource("3_gw2er")
+[node name="Dime_Collision_Detector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ly4tr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_hxfgt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dime_Collision_Detector"]
+shape = SubResource("CircleShape2D_ojct8")
