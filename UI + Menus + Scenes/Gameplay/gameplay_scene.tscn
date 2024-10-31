@@ -11322,6 +11322,15 @@ position = Vector2(559, -42)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="UpgradeMenuButton" type="Button" parent="CanvasLayer"]
+offset_left = 1073.0
+offset_top = 578.0
+offset_right = 1324.0
+offset_bottom = 791.0
+scale = Vector2(0.25621, 0.283421)
+icon = ExtResource("25_58xhl")
+script = ExtResource("27_gcu6e")
+
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("23_bhiwm")]
 visible = false
 
@@ -11341,15 +11350,6 @@ offset_left = -52.0
 offset_top = 9.0
 offset_right = -52.0
 offset_bottom = 9.0
-
-[node name="UpgradeMenuButton" type="Button" parent="CanvasLayer"]
-offset_left = 1073.0
-offset_top = 578.0
-offset_right = 1324.0
-offset_bottom = 791.0
-scale = Vector2(0.25621, 0.283421)
-icon = ExtResource("25_58xhl")
-script = ExtResource("27_gcu6e")
 
 [connection signal="pressed" from="CanvasLayer/UpgradeMenuButton" to="Player" method="_on_upgrade_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UpgradeMenuButton" to="CanvasLayer/UpgradeMenuButton" method="_on_pressed"]
