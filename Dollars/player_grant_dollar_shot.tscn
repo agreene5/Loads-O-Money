@@ -23,7 +23,7 @@ size = Vector2(46, 27)
 [node name="Player_Grant_Dollar_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_m2v1x")
 collision_layer = 2
-collision_mask = 3
+collision_mask = 8
 linear_damp = 0.15
 script = ExtResource("1_61l5y")
 

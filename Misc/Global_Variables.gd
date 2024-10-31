@@ -104,3 +104,9 @@ func calculate_difference(broadcast_value,receive_value): # For tax enemy health
 		return difference
 	else:
 		return receive_value
+
+func calculate_collision(broadcast_value,receive_value): # For tax enemy health
+	var damage = broadcast_value / 2
+	if damage > receive_value:
+		return receive_value  # Cap the damage at the receiver's health
+	return damage
