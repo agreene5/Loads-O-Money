@@ -40,7 +40,7 @@ shape = SubResource("RectangleShape2D_fweh3")
 
 [node name="Jackson_Collision_Detector" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 8
 script = ExtResource("4_cjch5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jackson_Collision_Detector"]

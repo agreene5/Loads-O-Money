@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var sales_bill_health = 1.0  # Set initial health for SalesBill
+@export var sales_bill_health = 10.0  # Set initial health for SalesBill
 
 func _ready():
 	area_entered.connect(_on_area_entered)
@@ -22,6 +22,7 @@ func receive_value(value: float):
 
 # Reduces health and despawns if health reaches zero
 func apply_damage(damage: float):
+	await get_tree().create_timer(0.1).timeout # Slight delay to allow for physical collision to occur
 	sales_bill_health -= damage
 	if sales_bill_health <= 0:
 		print("SalesBullet despawning due to zero health.")

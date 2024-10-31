@@ -14,7 +14,6 @@ func _ready():
 	# Check if the exact node name exists
 	if SHOT_HEALTH.has(name):
 		current_health = SHOT_HEALTH[name]
-		print("Initialized ", name, " with health: ", current_health)
 	else:
 		push_warning("Shot type not found for node: " + name)
 	

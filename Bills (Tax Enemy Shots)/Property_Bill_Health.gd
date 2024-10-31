@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var property_bill_health = 1.0  # Set initial health for IncomeBill
+@export var property_bill_health = 25.0  # Set initial health for IncomeBill
 
 func _ready():
 	area_entered.connect(_on_area_entered)
@@ -22,6 +22,7 @@ func receive_value(value: float):
 
 # Reduces health and despawns if health reaches zero
 func apply_damage(damage: float):
+	await get_tree().create_timer(0.1).timeout # Slight delay to allow for physical collision to occur
 	property_bill_health -= damage
 	if property_bill_health <= 0:
 		print("PropertyBullet despawning due to zero health.")
