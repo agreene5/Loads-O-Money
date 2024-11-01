@@ -40,6 +40,7 @@ shape = SubResource("RectangleShape2D_0mfun")
 [node name="200_Collision_Detector" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
+
 script = ExtResource("4_3gfhf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="200_Collision_Detector"]
