@@ -1,5 +1,3 @@
 extends Area2D
 
-var income_bill_health = 20.0 # Will progressively increase once finished
-
-# Global Variable script refernece for calculating shot health
+@export var income_bill_health = 1.0  # Set initial health for IncomeBill
