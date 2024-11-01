@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8xqxtiwxm12c"]
+[gd_scene load_steps=9 format=3 uid="uid://b8xqxtiwxm12c"]
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_cj0ek"]
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Objects.gd" id="1_gs8i8"]
 [ext_resource type="Texture2D" uid="uid://0glrd1sdvn78" path="res://Temp_Assets/Temp_Map_Assets/TrafficCone.png" id="1_h1wjy"]
+[ext_resource type="Script" path="res://Physics_Objects/Physics_Object_Effect.gd" id="4_ptdgj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ckf3f"]
 shader = ExtResource("1_cj0ek")
@@ -19,6 +20,9 @@ bounce = 0.9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahg66"]
 size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsio0"]
+size = Vector2(38, 38)
 
 [node name="Traffic_Cone" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_ckf3f")
@@ -37,3 +41,11 @@ texture = ExtResource("1_h1wjy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ahg66")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_ptdgj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qsio0")

@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://csowyuhg1tqi"]
+[gd_scene load_steps=8 format=3 uid="uid://csowyuhg1tqi"]
 
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_61l5y"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_oi8uw"]
 [ext_resource type="Texture2D" uid="uid://bgsa1tbusjxmr" path="res://Finished_Assets/Player_Shot_Assets/Grant_50Dollar.png" id="2_qedpi"]
-[ext_resource type="Script" path="res://Dollars/Grant_Dollar_Health.gd" id="3_ddbv3"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_0olyu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2v1x"]
 shader = ExtResource("1_oi8uw")
@@ -16,6 +16,9 @@ shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5vb3"]
 size = Vector2(44, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnngy"]
+size = Vector2(46, 27)
 
 [node name="Player_Grant_Dollar_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_m2v1x")
@@ -36,4 +39,10 @@ position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_i5vb3")
 
 [node name="Grant_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_ddbv3")
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_0olyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grant_Collision_Detector"]
+position = Vector2(-5, -1.5)
+shape = SubResource("RectangleShape2D_pnngy")

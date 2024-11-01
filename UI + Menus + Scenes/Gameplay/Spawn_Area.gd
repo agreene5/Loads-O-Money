@@ -10,10 +10,11 @@ var property_tax_scene = preload("res://Tax Enemies/property_tax.tscn")
 var income_tax_scene = preload("res://Tax Enemies/income_tax.tscn")
 var start_times = [15.0, 25.0, 37.5]
 var end_times = [0.1, 0.2, 0.4]
-var transition_duration = 600.0  # In 10 minutes the spawning gets pretty much impossible to take on
+var transition_duration
 var transition_start_time = 0.0
 
 func _ready():
+	transition_duration = get_parent().stat_progression_time
 	rng.randomize()
 	transition_start_time = Time.get_ticks_msec() / 1000.0
 	

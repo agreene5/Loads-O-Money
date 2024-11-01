@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://na1amkbfo47n"]
+[gd_scene load_steps=8 format=3 uid="uid://na1amkbfo47n"]
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_6l2qw"]
 [ext_resource type="Script" path="res://Checks/Player_Check_Shot.gd" id="1_hv3mh"]
 [ext_resource type="Texture2D" uid="uid://tort1q8qxmy" path="res://Finished_Assets/Player_Shot_Assets/Check_100.PNG" id="2_yr6em"]
-[ext_resource type="Script" path="res://Checks/100_Check_Health.gd" id="3_idela"]
+[ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_tu7aw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0g7rr"]
 shader = ExtResource("1_6l2qw")
@@ -16,6 +16,9 @@ shader_parameter/shadow_skew_end = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dga3a"]
 size = Vector2(21.5278, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ujv"]
+size = Vector2(64, 39)
 
 [node name="Player_100_Check_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_0g7rr")
@@ -35,4 +38,10 @@ scale = Vector2(2.88, 2)
 shape = SubResource("RectangleShape2D_dga3a")
 
 [node name="100_Collision_Detector" type="Area2D" parent="."]
-script = ExtResource("3_idela")
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_tu7aw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="100_Collision_Detector"]
+position = Vector2(-7, -0.5)
+shape = SubResource("RectangleShape2D_b1ujv")

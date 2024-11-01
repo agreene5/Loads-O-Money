@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=57 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Shader" path="res://Shaders/darker_water_shader.gdshader" id="1_msq8c"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/gameplay_scene.gd" id="1_wb18l"]
 [ext_resource type="Texture2D" uid="uid://bpfgcb7rclq6h" path="res://RPGMakerTilesets/Outside_A1_Godot.png" id="2_0tmk6"]
 [ext_resource type="Shader" path="res://Shaders/Water_Shader.gdshader" id="3_ac5bv"]
 [ext_resource type="Texture2D" uid="uid://cf3oscjdp4crx" path="res://RPGMakerTilesets/Outside_A2_Godot.png" id="4_efpmj"]
@@ -22,7 +23,13 @@
 [ext_resource type="PackedScene" uid="uid://bgrfevwg3tm7u" path="res://Physics_Objects/fire_hydrant.tscn" id="20_3jq66"]
 [ext_resource type="PackedScene" uid="uid://dwy6vtpo3ejnj" path="res://Physics_Objects/bench.tscn" id="21_j10oj"]
 [ext_resource type="PackedScene" uid="uid://bbtu2j4l3w4cr" path="res://Physics_Objects/trash_can.tscn" id="22_kqrsk"]
+[ext_resource type="PackedScene" uid="uid://djuxiyumekhup" path="res://Physics_Objects/car_1.tscn" id="23_d4bkp"]
 [ext_resource type="Script" path="res://Misc/timer_.gd" id="23_nsqyu"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/gameplay_overlay_.gd" id="26_6pgyi"]
+[ext_resource type="Texture2D" uid="uid://dara4bsd6tcwt" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_1.png" id="26_mueak"]
+[ext_resource type="Texture2D" uid="uid://br83xwpscyxk5" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_2.png" id="27_1hl7a"]
+[ext_resource type="Texture2D" uid="uid://ofkuvtdunhw8" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_3.png" id="28_y87pt"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/gameplay_overlay_animation.gd" id="30_f17eu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mie2w"]
 shader = ExtResource("1_msq8c")
@@ -11043,7 +11050,25 @@ tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uw4fn")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tcjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_mueak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1hl7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_y87pt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Gameplay_Scene" type="Node2D"]
+script = ExtResource("1_wb18l")
 
 [node name="Water_Darker_Tilemap_Layer" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_mie2w")
@@ -11284,39 +11309,45 @@ autoplay = true
 [node name="Default_Enemy_Path" type="Line2D" parent="."]
 unique_name_in_owner = true
 visible = false
-points = PackedVector2Array(-1318, -3331, -1713, -2837, -1875, -2326, -3132, -1562, -3402, -844, -3123, 126, -3321, 1536, -3060, 2200, -2791, 2470, -2189, 2685, -1633, 3565, -887, 3978, -331, 3421, 397, 2802, 2076, 2990, 2597, 2685, 3315, 997, 3252, 126, 2992, -557, 3162, -1356, 3109, -2263, 2282, -2730, 1681, -3295, 1376, -4068, 909, -4337, 253, -4265, -349, -4283, -97, -2334, 909, -2281, 1609, -1760, 1941, -907, 1977, 162, 1627, 1051, 1142, 1787, 576, 2272, -169, 2146, -896, 2128, -1372, 2137, -1327, -467, -286, -377, 370, -170, 388, 1114, -3177, 916, -3150, -341, -1453, -368, -1336, -1284, -1848, -2200, -1731, -3134, -1309, -3538, -771, -2029, -16, -2299, 927, -2218, 505, -1257, 406, -63, 1816, -835)
+points = PackedVector2Array(374, -104, 355, 1179, 441, 2752, -143, 3233, -834, 3929, -1391, 3679, -1317, -1385, -730, -2020, -1319, -3326, -1073, -3912, -679, -4271, 169, -4226, 976, -4331, 1477, -3947, 1643, -3452, 907, -2320, 1612, -1725, 1980, -890, 1975, 267, 1684, 1001, 1156, 1782, 2210, 2974, 2603, 2631, 3108, 1606, 3368, 726, 3219, 53, 2968, -560, 3159, -1239, 1881, -884, 398, 6, 356, 1200, 439, 2330, -549, 2136, -2771, 2241, -3181, 2062, -3321, 1604, -3231, 924, -3083, 304, -3230, -327, -2887, -398, -442, -405, 373, -210, 374, -110)
 
 [node name="Physics_Objects" type="Node2D" parent="."]
 
 [node name="Traffic_Cone" parent="Physics_Objects" instance=ExtResource("18_0755k")]
-position = Vector2(871, -246)
+position = Vector2(175, -109)
 collision_layer = 3
 mass = 0.5
 script = null
 
 [node name="Mailbox" parent="Physics_Objects" instance=ExtResource("19_31odl")]
-position = Vector2(175, 23)
+position = Vector2(216, -398)
 collision_layer = 3
 mass = 6.0
 script = null
 
 [node name="FireHydrant" parent="Physics_Objects" instance=ExtResource("20_3jq66")]
-position = Vector2(1235, -427)
+position = Vector2(-368, 818)
 collision_layer = 3
 mass = 10.0
 script = null
 
 [node name="Bench" parent="Physics_Objects" instance=ExtResource("21_j10oj")]
-position = Vector2(368, -199)
+position = Vector2(897, -110)
 collision_layer = 3
 mass = 4.0
 script = null
 
 [node name="Trash_Can" parent="Physics_Objects" instance=ExtResource("22_kqrsk")]
-position = Vector2(559, -42)
+position = Vector2(496, -246)
 collision_layer = 3
 mass = 1.5
 script = null
+
+[node name="Car_1" parent="Physics_Objects" instance=ExtResource("23_d4bkp")]
+position = Vector2(-1324, -398)
+rotation = 1.5708
+
+[node name="Camera_1" type="Camera2D" parent="Physics_Objects/Car_1"]
 
 [node name="Timer" type="CanvasLayer" parent="."]
 
@@ -11324,8 +11355,24 @@ script = null
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("23_nsqyu")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Timer/TimerUI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gameplay_Overlay" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Gameplay_Overlay"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("26_6pgyi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gameplay_Overlay/Control"]
+position = Vector2(398, 355)
+sprite_frames = SubResource("SpriteFrames_2tcjb")
+script = ExtResource("30_f17eu")
