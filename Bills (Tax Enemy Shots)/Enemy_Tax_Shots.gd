@@ -19,7 +19,7 @@ func _ready():
 			sprite = get_node("../Property_Tax_Sprite")
 			fire_rate = 1.5
 		"Income_Tax_Shot":
-			bullet_scene = preload("res://Bills (Tax Enemy Shots)/income_tax_projectile.tscn")
+			bullet_scene = load("res://Bills (Tax Enemy Shots)/income_tax_projectile.tscn")
 			sprite = get_node("../Income_Tax_Sprite")
 			fire_rate = 3.0
 

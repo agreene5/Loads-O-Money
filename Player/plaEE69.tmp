@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=14 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Player/Player_location.gd" id="5_te5s5"]
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 [ext_resource type="Script" path="res://Player/todd_body_signaler.gd" id="8_tlag8"]
-[ext_resource type="Script" path="res://Player/Player_Health_Script.gd" id="10_mt4sy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
 shader = ExtResource("1_n13bh")
@@ -75,9 +74,3 @@ script = ExtResource("8_tlag8")
 shape = SubResource("CapsuleShape2D_0bmur")
 
 [node name="Timer" type="Timer" parent="Todd_Body_Signaler"]
-
-[node name="Todd_Health_signaler" type="Area2D" parent="."]
-script = ExtResource("10_mt4sy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Todd_Health_signaler"]
-shape = SubResource("CapsuleShape2D_0bmur")

@@ -17,7 +17,7 @@ script = ExtResource("1_o43vu")
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_wgti0")
 
-[node name="Sales_Collision_Detector" type="Area2D" parent="."]
+[node name="Sales_Collision_Detector" type="Area2D" parent="." groups=["projectile"]]
 script = ExtResource("3_qltjo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

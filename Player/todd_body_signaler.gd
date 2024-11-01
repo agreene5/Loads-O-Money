@@ -23,6 +23,8 @@ func _on_cooldown_timeout():
 	can_trigger_car_death = true
 
 func _on_area_entered(area):
+	#if area
+	
 	if area.name == "Death_Area2D": # Drowning Death
 		Global_Variables.explosion_animation()
 		get_tree().paused = true

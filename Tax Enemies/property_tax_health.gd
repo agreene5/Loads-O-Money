@@ -1,3 +1,4 @@
+#Script for property tax enemy's body
 extends Area2D
 
 @export var my_value = 75.0

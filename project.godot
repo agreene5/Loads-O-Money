@@ -24,6 +24,10 @@ Global_Variables="*res://Misc/Global_Variables.gd"
 mouse_cursor/custom_image="res://Finished_Assets/UI_Assets/Dollar_Sign_Mouse.png"
 mouse_cursor/custom_image_hotspot=Vector2(4, 0)
 
+[global_group]
+
+projectile="enemy shots"
+
 [input]
 
 up={
