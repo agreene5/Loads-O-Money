@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cbsq1f7jujywh" path="res://Finished_Assets/Player_Shot_Assets/Nickel.png" id="3_hnbua"]
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_h6slk"]
 
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsgi3"]
 shader = ExtResource("1_llwn7")
 shader_parameter/shadow_offset = Vector2(30, 30)

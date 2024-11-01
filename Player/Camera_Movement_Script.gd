@@ -5,6 +5,7 @@ extends Camera2D
 
 @export var max_distance: float = 300.0
 @export var camera_speed_multiplier: float = 0.25
+
 @export var return_speed: float = 2.0
 
 var target_position: Vector2 = Vector2.ZERO

@@ -1,9 +1,13 @@
+
 [gd_scene load_steps=8 format=3 uid="uid://cpju1pigh4exx"]
+
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_lx1ld"]
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_tqc7e"]
 [ext_resource type="Texture2D" uid="uid://dj172u042yl2k" path="res://Finished_Assets/Player_Shot_Assets/Washington_1Dollar.png" id="2_r6hsh"]
+
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_xd601"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3hbny"]
 shader = ExtResource("1_lx1ld")
@@ -17,6 +21,7 @@ shader_parameter/shadow_skew_end = 0.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cnso"]
 size = Vector2(44, 25)
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04ury"]
 size = Vector2(46, 27)
 
@@ -24,6 +29,7 @@ size = Vector2(46, 27)
 material = SubResource("ShaderMaterial_3hbny")
 collision_layer = 2
 collision_mask = 8
+
 linear_damp = 0.15
 script = ExtResource("1_tqc7e")
 
@@ -38,6 +44,7 @@ position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_0cnso")
 
 [node name="Washington_Collision_Detector" type="Area2D" parent="."]
+
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("4_xd601")
@@ -45,3 +52,4 @@ script = ExtResource("4_xd601")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Washington_Collision_Detector"]
 position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_04ury")
+

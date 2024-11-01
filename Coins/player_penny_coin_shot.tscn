@@ -1,8 +1,11 @@
+
 [gd_scene load_steps=9 format=3 uid="uid://bwi0xdbbp20i3"]
+
 
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_122c1"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_ihnnr"]
 [ext_resource type="Texture2D" uid="uid://b5jpcy4l1fspq" path="res://Finished_Assets/Player_Shot_Assets/Penny.png" id="2_vapwh"]
+
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_eapw5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k36de"]
@@ -42,6 +45,7 @@ scale = Vector2(1.05, 1.05)
 shape = SubResource("CircleShape2D_154pm")
 
 [node name="Penny_Collision_Detector" type="Area2D" parent="."]
+
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("4_eapw5")

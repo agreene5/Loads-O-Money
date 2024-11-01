@@ -48,6 +48,7 @@ func _input(event):
 		print("is_replaying")
 		return
 	
+
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		is_firing = event.pressed
 		if event.pressed:
@@ -56,7 +57,9 @@ func _input(event):
 	# Press E to cycle through the shot types (Coin, Dollar, Check)
 	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
 		cycle_shot_type()
+
 #-------------------------
+
 func _process(delta):
 	fire_timer += delta
 	if is_firing:
@@ -144,14 +147,15 @@ func _handle_coin_shot(coin_type, cost):
 		var direction = (click_position - player_sprite.global_position).normalized()
 		
 		coin_instance.rotation = direction.angle()
-		
+
 		var player_velocity = parent.linear_velocity
+
 		
 		coin_instance.set_initial_velocity(player_velocity)
 		coin_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(coin_instance)
-		
+
 		apply_knockback(50, -direction)
 
 func _handle_dollar_shot(dollar_type, cost):
@@ -166,15 +170,17 @@ func _handle_dollar_shot(dollar_type, cost):
 		var direction = (click_position - player_sprite.global_position).normalized()
 
 		dollar_instance.rotation = direction.angle()
-		
+
 		var player_velocity = parent.linear_velocity
+
 		
 		dollar_instance.set_initial_velocity(player_velocity)
 		dollar_instance.set_initial_direction(direction)
 
 		get_tree().current_scene.add_child(dollar_instance)
-		
+
 		apply_knockback(134, -direction)
+
 
 func _handle_check_shot(check_type, cost):
 	if money >= cost:
@@ -189,9 +195,9 @@ func _handle_check_shot(check_type, cost):
 		var direction = (click_position - player_sprite.global_position).normalized()
 		
 		check_instance.rotation = direction.angle()
-		
+
 		var player_velocity = parent.linear_velocity
-		
+
 		check_instance.set_initial_velocity(player_velocity)
 		check_instance.set_initial_direction(direction)
 

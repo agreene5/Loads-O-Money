@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=10 format=3 uid="uid://5wf77ibnn851"]
+
 
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_cuglq"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_ysgm2"]
@@ -31,6 +33,7 @@ material = SubResource("ShaderMaterial_e4hb1")
 collision_layer = 4
 collision_mask = 5
 mass = 5.0
+
 physics_material_override = SubResource("PhysicsMaterial_1mv0d")
 script = ExtResource("3_6ge8v")
 
@@ -56,3 +59,4 @@ position = Vector2(3, -0.5)
 shape = SubResource("RectangleShape2D_kyavf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+

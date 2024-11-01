@@ -1,9 +1,12 @@
+
 [gd_scene load_steps=9 format=3 uid="uid://b8yrxl70tl2so"]
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_0s8ru"]
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_ndrxx"]
 [ext_resource type="Texture2D" uid="uid://o25ny8563yco" path="res://Finished_Assets/Player_Shot_Assets/Dime.png" id="2_q4vsr"]
+
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_ly4tr"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elprq"]
 shader = ExtResource("1_0s8ru")

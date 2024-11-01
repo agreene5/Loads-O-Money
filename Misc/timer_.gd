@@ -21,7 +21,7 @@ func _ready():
 	timer_label.add_theme_color_override("font_color", Color.BLACK)
 	timer_label.add_theme_constant_override("outline_size", 4)
 	timer_label.add_theme_color_override("font_outline_color", Color.WHITE)
-	
+
 	timer = Timer.new()
 	add_child(timer)
 	timer.timeout.connect(_on_Timer_timeout)

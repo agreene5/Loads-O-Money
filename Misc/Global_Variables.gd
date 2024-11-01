@@ -51,6 +51,7 @@ var SHOT_HEALTH = { # The health of all shot types
 signal Coin_Variant_changed
 
 var Coin_Variant = 3 # Determines the coin variant the user has | 0: Penny, 1: Nickel, 2: Dime, 3: Quarter
+
 func set_Coin_Variant(new_value):
 		Coin_Variant = new_value
 		emit_signal("Coin_Variant_changed")
@@ -59,6 +60,7 @@ var Dollar_Variant = 1 # Determines the dollar variant the user has | 0: Washing
 
 signal Check_Variant_changed
 var Check_Variant = 1 # Determines the check variant the user has | 0: $100 Check, 1: $200 Check, 2: $500 Check, 3: $1000 CHeck
+
 func set_Check_Variant(new_value):
 		Check_Variant = new_value
 		emit_signal("Check_Variant_changed")
@@ -72,11 +74,13 @@ func set_Current_Shot(new_value):
 
 var player_position # used to let other scripts read player position
 
+
 func explosion_animation(): #spawns explosion animation on players position
 	var explosion_scene = load("res://Misc/explosion_animation.tscn")
 	var explosion_instance = explosion_scene.instantiate()
 	explosion_instance.global_position = player_position
 	get_tree().root.add_child(explosion_instance)
+
 	await get_tree().create_timer(1.3).timeout # Waiting for sfx to finish before despawning
 	explosion_instance.queue_free()
 

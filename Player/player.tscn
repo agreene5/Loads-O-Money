@@ -1,5 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://by1ubyds8mqk3"]
 
+
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
 [ext_resource type="Script" path="res://Player/Camera_Movement_Script.gd" id="2_x6mct"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://Player/Player_location.gd" id="5_te5s5"]
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 [ext_resource type="Script" path="res://Player/todd_body_signaler.gd" id="8_tlag8"]
+
 [ext_resource type="Texture2D" uid="uid://5a6cgp2yfvcm" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #1 and #9.png" id="10_mko82"]
 [ext_resource type="Texture2D" uid="uid://k2jc5cqr02ww" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #2.png" id="11_onuqj"]
 [ext_resource type="Texture2D" uid="uid://cgt1ytonh1mey" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #3.png" id="12_ckhs6"]
@@ -19,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcar1q5p5yh7" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #8.png" id="17_3xkeh"]
 [ext_resource type="Script" path="res://Player/upgrade_animation.gd" id="18_0yj7a"]
 [ext_resource type="AudioStream" uid="uid://c8ejj2yd7g32t" path="res://Finished_Assets/SFX_Assets/Job_Upgrade_SFX.mp3" id="18_a4sa4"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
 shader = ExtResource("1_n13bh")

@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://6rfrd5wrgsux"]
+[gd_scene load_steps=6 format=3 uid="uid://6rfrd5wrgsux"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Pause_Menu/pause_menu.gd" id="1_71jpv"]
+[ext_resource type="Shader" path="res://UI + Menus + Scenes/blur.gdshader" id="2_7g7dh"]
+[ext_resource type="Texture2D" uid="uid://qnupo31u2uni" path="res://UI + Menus + Scenes/Pause_Menu/Pause_Screen_Todd.png" id="2_xysts"]
+[ext_resource type="Theme" uid="uid://b7vo5hptktydk" path="res://UI + Menus + Scenes/Pause_Menu/Buttons_Theme.tres" id="3_lks4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82lji"]
+shader = ExtResource("2_7g7dh")
+shader_parameter/blur = null
+shader_parameter/brightness = 0.742
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +17,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+script = ExtResource("1_71jpv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_82lji")
+layout_mode = 0
+offset_right = 1249.0
+offset_bottom = 790.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(542, 328)
+scale = Vector2(1.54601, 0.82751)
+texture = ExtResource("2_xysts")
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 202.0
+offset_right = 365.0
+offset_bottom = 244.0
+theme = ExtResource("3_lks4g")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 251.0
+offset_right = 348.0
+offset_bottom = 293.0
+theme = ExtResource("3_lks4g")
+text = "Quit"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

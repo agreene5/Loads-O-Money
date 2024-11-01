@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=6 format=3 uid="uid://d4k01yb4iu7sb"]
 
 [ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_aa5n6"]
@@ -12,6 +13,7 @@ size = Vector2(26, 36)
 
 [node name="Proprety_Tax_Projectile" type="RigidBody2D"]
 collision_layer = 12
+
 collision_mask = 2
 mass = 2.0
 script = ExtResource("1_yqdca")
@@ -21,6 +23,7 @@ scale = Vector2(0.08, 0.08)
 texture = ExtResource("1_aa5n6")
 
 [node name="Property_Collision_Detector" type="Area2D" parent="."]
+
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_srvbq")

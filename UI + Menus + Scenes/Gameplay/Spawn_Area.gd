@@ -15,6 +15,7 @@ var transition_start_time = 0.0
 
 func _ready():
 	transition_duration = get_parent().stat_progression_time
+
 	rng.randomize()
 	transition_start_time = Time.get_ticks_msec() / 1000.0
 	
@@ -33,7 +34,7 @@ func _ready():
 		# Start the timer immediately
 		timer.start()
 		timers.append(timer)
-	
+
 	set_process(true)
 
 func remove_rigid_bodies():

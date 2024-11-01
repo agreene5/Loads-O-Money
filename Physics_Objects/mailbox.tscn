@@ -1,9 +1,13 @@
+
 [gd_scene load_steps=9 format=3 uid="uid://q6qc7bb7813v"]
+
 
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Objects.gd" id="1_7ql7u"]
 [ext_resource type="Texture2D" uid="uid://5tsdsu6xqixm" path="res://Temp_Assets/Temp_Map_Assets/MailBox.png" id="1_qpafm"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_vtoa5"]
+
 [ext_resource type="Script" path="res://Physics_Objects/Physics_Object_Effect.gd" id="4_scgdm"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wdgfx"]
 shader = ExtResource("1_vtoa5")
@@ -20,6 +24,7 @@ bounce = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnppl"]
 size = Vector2(65.4435, 60.7003)
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1uojc"]
 size = Vector2(68, 64)
@@ -44,6 +49,7 @@ texture = ExtResource("1_qpafm")
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_bnppl")
 
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
@@ -52,3 +58,4 @@ script = ExtResource("4_scgdm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1uojc")
+

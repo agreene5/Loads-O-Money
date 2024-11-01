@@ -1,0 +1,291 @@
+[gd_scene load_steps=10 format=3 uid="uid://dp3x47jd1012d"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.gd" id="1_h65q3"]
+[ext_resource type="Texture2D" uid="uid://cxk5rr44aymkd" path="res://UI + Menus + Scenes/UpgradeMenu/Upgrade_Menu_1.png" id="2_78gvv"]
+[ext_resource type="Shader" path="res://UI + Menus + Scenes/blur.gdshader" id="2_qts8f"]
+[ext_resource type="Theme" uid="uid://b7vo5hptktydk" path="res://UI + Menus + Scenes/Pause_Menu/Buttons_Theme.tres" id="3_07dyh"]
+[ext_resource type="Texture2D" uid="uid://b5jpcy4l1fspq" path="res://Finished_Assets/Player_Shot_Assets/Penny.png" id="4_djvnn"]
+[ext_resource type="Texture2D" uid="uid://dj172u042yl2k" path="res://Finished_Assets/Player_Shot_Assets/Washington_1Dollar.png" id="5_dwqtv"]
+[ext_resource type="Texture2D" uid="uid://tort1q8qxmy" path="res://Finished_Assets/Player_Shot_Assets/Check_100.PNG" id="6_g7oa6"]
+[ext_resource type="FontFile" uid="uid://btrbul8bnjs1y" path="res://Finished_Assets/Comic_Sans_MS_FONT.ttf" id="7_cmigl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0krjm"]
+shader = ExtResource("2_qts8f")
+shader_parameter/blur = null
+shader_parameter/brightness = 0.719
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -80.0
+offset_right = -84.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h65q3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0krjm")
+layout_mode = 0
+offset_right = 1487.0
+offset_bottom = 807.0
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 321)
+scale = Vector2(0.560002, 0.559999)
+texture = ExtResource("2_78gvv")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 55.0
+offset_right = 1007.0
+offset_bottom = 97.0
+scale = Vector2(2.2, 1.76)
+theme = ExtResource("3_07dyh")
+text = "Exit"
+
+[node name="UpgradeCoinButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.0
+offset_top = 92.0
+offset_right = 21.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme = ExtResource("3_07dyh")
+text = "$1.00
+Upgrade Coin"
+
+[node name="UpgradeBillButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -59.0
+offset_right = 17.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_07dyh")
+text = "$10.00
+Upgrade Bill"
+
+[node name="UpgradeCheckButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.5
+offset_top = -197.0
+offset_right = 40.5
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_07dyh")
+text = "$500.00
+Upgrade Check"
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(255, 125)
+scale = Vector2(0.261761, 0.239999)
+texture = ExtResource("4_djvnn")
+
+[node name="Bill" type="Sprite2D" parent="."]
+position = Vector2(290, 297)
+rotation = -1.57443
+scale = Vector2(0.0926331, 0.120666)
+texture = ExtResource("5_dwqtv")
+
+[node name="Check" type="Sprite2D" parent="."]
+position = Vector2(304, 483)
+scale = Vector2(0.120001, 0.119998)
+texture = ExtResource("6_g7oa6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 37.0
+offset_top = 71.0
+offset_right = 115.0
+offset_bottom = 120.0
+grow_horizontal = 2
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "   Health
+Cost/Shot"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 250.0
+offset_right = 686.0
+offset_bottom = 299.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "   Health
+Cost/Shot"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 434.0
+offset_right = 706.0
+offset_bottom = 483.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "   Health
+Cost/Shot"
+
+[node name="CurrentCoinHealth" type="Label" parent="."]
+layout_mode = 0
+offset_left = 773.0
+offset_top = 72.0
+offset_right = 851.0
+offset_bottom = 121.0
+scale = Vector2(1.80163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = " 1 -> "
+
+[node name="UpgradedCoinHealth" type="Label" parent="."]
+layout_mode = 0
+offset_left = 839.0
+offset_top = 71.0
+offset_right = 917.0
+offset_bottom = 120.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "3"
+
+[node name="CurrentCoinPrice" type="Label" parent="."]
+layout_mode = 0
+offset_left = 765.0
+offset_top = 112.0
+offset_right = 843.0
+offset_bottom = 161.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "0.01 ->"
+
+[node name="UpgradedCoinPrice" type="Label" parent="."]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 112.0
+offset_right = 926.0
+offset_bottom = 161.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "0.05"
+
+[node name="CurrentBillHealth2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 251.0
+offset_right = 832.0
+offset_bottom = 300.0
+scale = Vector2(1.80163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = " 10 -> "
+
+[node name="UpgradedBillHealth2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 833.0
+offset_top = 251.0
+offset_right = 911.0
+offset_bottom = 300.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "30"
+
+[node name="CurrentBillPrice2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 291.0
+offset_right = 824.0
+offset_bottom = 340.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "1 ->"
+
+[node name="UpgradedBillPrice2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 829.0
+offset_top = 291.0
+offset_right = 907.0
+offset_bottom = 340.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "5"
+
+[node name="CurrentCheckHealth3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 436.0
+offset_right = 859.0
+offset_bottom = 485.0
+scale = Vector2(1.80163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = " 100 -> "
+
+[node name="UpgradedCheckHealth3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 878.0
+offset_top = 437.0
+offset_right = 956.0
+offset_bottom = 486.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "300"
+
+[node name="CurrentCheckPrice3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 773.0
+offset_top = 476.0
+offset_right = 851.0
+offset_bottom = 525.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "100 ->"
+
+[node name="UpgradedCheckPrice3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 476.0
+offset_right = 934.0
+offset_bottom = 525.0
+scale = Vector2(1.60163, 1.68442)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cmigl")
+text = "200.00"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="UpgradeCoinButton" to="." method="_on_upgrade_coin_button_pressed"]
+[connection signal="pressed" from="UpgradeBillButton" to="." method="_on_upgrade_bill_button_pressed"]
+[connection signal="pressed" from="UpgradeCheckButton" to="." method="_on_upgrade_check_button_pressed"]

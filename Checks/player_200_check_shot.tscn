@@ -1,9 +1,13 @@
+
 [gd_scene load_steps=8 format=3 uid="uid://da7bawe0c0gb"]
+
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_hcxag"]
 [ext_resource type="Script" path="res://Checks/Player_Check_Shot.gd" id="1_ugurk"]
 [ext_resource type="Texture2D" uid="uid://b5j2hno6a1arp" path="res://Finished_Assets/Player_Shot_Assets/Check_200.png" id="2_1wmv1"]
+
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_3gfhf"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_unhu4"]
 shader = ExtResource("1_hcxag")
