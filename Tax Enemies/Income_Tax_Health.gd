@@ -23,8 +23,10 @@ func receive_value(value):
 	print("ENEMY  health: ", my_value, " New health: ", my_value+value)
 
 func despawn():
+
 	Global_Variables.player_exp += income_tax_exp
 	print(Global_Variables.player_exp)
+
 	get_parent().queue_free()
 
 func _on_area_entered(area):

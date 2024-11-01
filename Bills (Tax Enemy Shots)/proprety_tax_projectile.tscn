@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4k01yb4iu7sb"]
+[gd_scene load_steps=6 format=3 uid="uid://d4k01yb4iu7sb"]
 
 [ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_aa5n6"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/proprety_tax_projectile.gd" id="1_yqdca"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Property_Bill_Health.gd" id="3_srvbq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfqcv"]
+size = Vector2(33, 43)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cppsl"]
 size = Vector2(26, 36)
 
 [node name="Proprety_Tax_Projectile" type="RigidBody2D"]
-collision_layer = 2
+collision_layer = 12
 collision_mask = 2
 mass = 2.0
 script = ExtResource("1_yqdca")
@@ -18,7 +21,13 @@ scale = Vector2(0.08, 0.08)
 texture = ExtResource("1_aa5n6")
 
 [node name="Property_Collision_Detector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
 script = ExtResource("3_srvbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Property_Collision_Detector"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_dfqcv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cppsl")

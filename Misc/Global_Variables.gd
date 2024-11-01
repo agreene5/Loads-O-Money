@@ -49,7 +49,8 @@ var SHOT_HEALTH = { # The health of all shot types
 }
 
 signal Coin_Variant_changed
-var Coin_Variant = 1  # Determines the coin variant the user has | 0: Penny, 1: Nickel, 2: Dime, 3: Quarter
+
+var Coin_Variant = 3 # Determines the coin variant the user has | 0: Penny, 1: Nickel, 2: Dime, 3: Quarter
 func set_Coin_Variant(new_value):
 		Coin_Variant = new_value
 		emit_signal("Coin_Variant_changed")
@@ -130,3 +131,10 @@ func calculate_difference(broadcast_value,receive_value): # For tax enemy health
 		return difference
 	else:
 		return receive_value
+
+
+func calculate_collision(broadcast_value,receive_value): # For tax enemy health
+	if broadcast_value > receive_value:
+		return broadcast_value/2
+	else:
+		return receive_value/2

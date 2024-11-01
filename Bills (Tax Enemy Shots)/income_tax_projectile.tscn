@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_wh8bn"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Income_Bill_Health.gd" id="3_f33le"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q16ka"]
+size = Vector2(63, 83)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag5rc"]
 size = Vector2(53, 70)
 
@@ -11,7 +14,7 @@ size = Vector2(53, 70)
 size = Vector2(58, 76)
 
 [node name="Income_Tax_Projectile" type="RigidBody2D"]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 2
 mass = 10.0
 script = ExtResource("1_2xvv4")
@@ -19,6 +22,15 @@ script = ExtResource("1_2xvv4")
 [node name="Income_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("1_wh8bn")
+
+[node name="Income_Collision_Detector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_f33le")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Income_Collision_Detector"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_q16ka")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
