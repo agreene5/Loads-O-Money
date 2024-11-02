@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var income_bill_health = 100.0  # Set initial health for IncomeBill
+@export var income_bill_health = Global_Variables.income_tax_shot_health   # Set initial health for IncomeBill
 
 func _ready():
 	area_entered.connect(_on_area_entered)

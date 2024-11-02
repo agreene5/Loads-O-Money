@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://byikokc33d8hx"]
 
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/sales_tax_projectile.gd" id="1_o43vu"]
-[ext_resource type="Texture2D" uid="uid://dmwbvuduc13n1" path="res://Temp_Assets/Temp_Tax_Assets/Temp_Tax_Enemy_Projectile.png" id="1_wgti0"]
+[ext_resource type="Texture2D" uid="uid://ci6uidvl8qte8" path="res://Finished_Assets/Tax_Enemy_Assets/Tax_Form.png" id="2_fuxh1"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Sales_Bill_Health.gd" id="3_qltjo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71elp"]
@@ -17,8 +17,9 @@ mass = 0.6
 script = ExtResource("1_o43vu")
 
 [node name="Sales_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_wgti0")
+position = Vector2(0.5, -0.25)
+scale = Vector2(0.0195313, 0.0179688)
+texture = ExtResource("2_fuxh1")
 
 [node name="Sales_Collision_Detector" type="Area2D" parent="."]
 collision_layer = 8

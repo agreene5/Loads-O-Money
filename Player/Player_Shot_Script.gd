@@ -34,7 +34,6 @@ var current_shot_type = ShotType.COIN  # Start with coin type as default
 var is_firing = false
 var fire_timer = 0.0
 
-var money = Global_Variables.money
 #----------------
 var replay_mode = false
 
@@ -64,9 +63,14 @@ func _process(delta):
 	fire_timer += delta
 	if is_firing:
 		attempt_fire()
+	
+	Coin_Variant = Global_Variables.Coin_Variant
+	Dollar_Variant = Global_Variables.Dollar_Variant
+	Check_Variant = Global_Variables.Check_Variant
+
 
 func attempt_fire():
-	if money <= 0:
+	if Global_Variables.money <= 0:
 		return  # You can't shoot if you don't have money (but you should go bankrupt and lose before this occurs in the final product)
 
 	var fire_rate = get_fire_rate()
@@ -113,7 +117,7 @@ func fire_shot():
 			Global_Variables.set_Current_Shot(2)
 			var check_type
 			var cost = check_costs[Check_Variant]
-			match Coin_Variant:
+			match Check_Variant:
 				0:
 					check_type = CheckShot100
 				1:
@@ -135,8 +139,8 @@ func get_fire_rate():
 			return 0.33
 
 func _handle_coin_shot(coin_type, cost):
-	if money >= cost:
-		money -= cost
+	if Global_Variables.money >= cost:
+		Global_Variables.money -= cost
 		var coin_instance = coin_type.instantiate()
 		var parent = get_parent()
 		
@@ -159,8 +163,8 @@ func _handle_coin_shot(coin_type, cost):
 		apply_knockback(50, -direction)
 
 func _handle_dollar_shot(dollar_type, cost):
-	if money >= cost:
-		money -= cost
+	if Global_Variables.money >= cost:
+		Global_Variables.money -= cost
 		var dollar_instance = dollar_type.instantiate()
 		var parent = get_parent()
 		var player_sprite = parent.get_node("Player_Sprite")
@@ -183,8 +187,8 @@ func _handle_dollar_shot(dollar_type, cost):
 
 
 func _handle_check_shot(check_type, cost):
-	if money >= cost:
-		money -= cost
+	if Global_Variables.money >= cost:
+		Global_Variables.money -= cost
 		var check_instance = check_type.instantiate()
 		var parent = get_parent()
 		

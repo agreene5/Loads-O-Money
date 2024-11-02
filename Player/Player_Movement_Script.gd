@@ -64,6 +64,7 @@ func process_normal_input(delta):
 		
 		if Input.is_action_pressed("space") and can_boost:
 			initiate_boost(input_vector)
+			$Dash_Animation.dash_animation()
 	
 	var target_angle = (get_global_mouse_position() - global_position).angle()
 	rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
@@ -152,3 +153,6 @@ func level_up():
 	$Upgrade_Animation.upgrade_animation()
 	await get_tree().create_timer(0.6).timeout
 	$Player_Sprite.texture = load(Global_Variables.player_job_values[Global_Variables.player_job][6])
+	move_speed = 10 * Global_Variables.player_job_values[Global_Variables.player_job][5]
+	boost_force = Global_Variables.player_job_values[Global_Variables.player_job][3]
+	boost_cooldown = Global_Variables.player_job_values[Global_Variables.player_job][2]

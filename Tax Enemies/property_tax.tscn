@@ -1,13 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://b3gci2saj8qda"]
 
-
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_yc65n"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_7rp2t"]
 [ext_resource type="Texture2D" uid="uid://bfymnmw3e2u7q" path="res://Finished_Assets/Tax_Enemy_Assets/Property_Tax.png" id="3_36gja"]
 [ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_kiuv0"]
-
 [ext_resource type="Script" path="res://Tax Enemies/Property_Tax_Health.gd" id="5_o5my5"]
-
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75ake"]
 shader = ExtResource("1_yc65n")
@@ -33,9 +30,7 @@ size = Vector2(30, 94)
 material = SubResource("ShaderMaterial_75ake")
 collision_layer = 4
 collision_mask = 5
-
 mass = 3.0
-
 physics_material_override = SubResource("PhysicsMaterial_ku40y")
 script = ExtResource("3_kiuv0")
 
@@ -55,7 +50,7 @@ shape = SubResource("RectangleShape2D_f4p4m")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("5_o5my5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

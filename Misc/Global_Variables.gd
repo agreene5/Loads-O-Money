@@ -2,8 +2,8 @@
 extends Node
 
 var deceleration = 5.0 # Defines deceleration of bullets over time (if you're using a rigidbody2D you can use the damp value under the Linear tab instead
-
-var money = 100000.0 # Defines the players money value (default value starts at $10)
+var money = 20.0 # Defines the players money value (default value starts at $20)
+var test_money = 20.0
 
 var sales_tax_health = 10.0 # Base health values for each tax enemy 
 var property_tax_health = 15.0
@@ -13,6 +13,12 @@ var sales_tax_exp = 1.0 # Base exp values for each tax enemy
 var property_tax_exp = 3.0
 var income_tax_exp = 5.0
 
+var sales_tax_shot_health = 2.0
+var property_tax_shot_health = 5.0
+var income_tax_shot_health = 20.0
+
+var is_paused = false
+
 var player_exp = 0.0 # The amount of EXP Todd (the player) has
 var player_job = 0 # Defines the players current job | 0: Unemployed, 1: Fast Food Worker, ... 5: Tech Giant CEO
 var player_job_values = { # Defines player job stat values
@@ -21,15 +27,23 @@ var player_job_values = { # Defines player job stat values
 	1: [20.0, 0.05, 1.5, 400.0, 0.4, 230.0, "res://Finished_Assets/Player_Body_Assets/Fast_Food_Worker_Todd.png"],
 	2: [200.0, 0.50, 1.3, 600.0, 0.3, 267.0, "res://Finished_Assets/Player_Body_Assets/Restaurant_Manager_Todd.png"],
 	3: [1000.0, 5.00, 1.0, 1000.0, 0.2, 300.0, "res://Finished_Assets/Player_Body_Assets/Regional_Operations_Manager_Todd.png"],
-	4: [10000.0, 50.00, 0.8, 1500.0, 0.15, 330.0, "res://Finished_Assets/Player_Body_Assets/CEO_Todd.png"],
+	4: [5000.0, 50.00, 0.8, 1500.0, 0.15, 330.0, "res://Finished_Assets/Player_Body_Assets/CEO_Todd.png"],
 	5: [0.0, 50000000.00, 0.1, 2500.0, 0.1, 500.0, "res://Finished_Assets/Player_Body_Assets/Tech_Giant_CEO_Todd.png"],
 }
 func level_up():
 	player_job += 1
 	var player = get_tree().current_scene.get_node("Player")
 	player.level_up()
+	
 func victory(): # AKA Billionare Status
+	get_tree().paused = true
 	print("YOU WIN WOW YOU'RE A BILLIONARE")
+	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Victory_Scene/victory_scene.tscn")
+	
+func defeat(): # AKA Bankrupcy
+	get_tree().paused = true
+	print("Broke :(")
+	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Bankrupcy_Scene/bankrupcy_scene.tscn")
 
 var SHOT_HEALTH = { # The health of all shot types
 	"Penny_Collision_Detector": 1.0,
@@ -50,16 +64,16 @@ var SHOT_HEALTH = { # The health of all shot types
 
 signal Coin_Variant_changed
 
-var Coin_Variant = 3 # Determines the coin variant the user has | 0: Penny, 1: Nickel, 2: Dime, 3: Quarter
+var Coin_Variant = 0 # Determines the coin variant the user has | 0: Penny, 1: Nickel, 2: Dime, 3: Quarter
 
 func set_Coin_Variant(new_value):
 		Coin_Variant = new_value
 		emit_signal("Coin_Variant_changed")
 
-var Dollar_Variant = 1 # Determines the dollar variant the user has | 0: Washington, 1: Lincoln, 2: Jackson, 3: Grant
+var Dollar_Variant = 0 # Determines the dollar variant the user has | 0: Washington, 1: Lincoln, 2: Jackson, 3: Grant
 
 signal Check_Variant_changed
-var Check_Variant = 1 # Determines the check variant the user has | 0: $100 Check, 1: $200 Check, 2: $500 Check, 3: $1000 CHeck
+var Check_Variant = 0 # Determines the check variant the user has | 0: $100 Check, 1: $200 Check, 2: $500 Check, 3: $1000 CHeck
 
 func set_Check_Variant(new_value):
 		Check_Variant = new_value
@@ -80,7 +94,6 @@ func explosion_animation(): #spawns explosion animation on players position
 	var explosion_instance = explosion_scene.instantiate()
 	explosion_instance.global_position = player_position
 	get_tree().root.add_child(explosion_instance)
-
 	await get_tree().create_timer(1.3).timeout # Waiting for sfx to finish before despawning
 	explosion_instance.queue_free()
 
@@ -136,9 +149,36 @@ func calculate_difference(broadcast_value,receive_value): # For tax enemy health
 	else:
 		return receive_value
 
-
 func calculate_collision(broadcast_value,receive_value): # For tax enemy health
 	if broadcast_value > receive_value:
 		return broadcast_value/2
 	else:
 		return receive_value/2
+
+var hurt_voice_lines = [
+	"res://Finished_Assets/Voice_Line_Assets/Hurt_Voice_Lines/Hurt_Voice_Lines_1.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Hurt_Voice_Lines/Hurt_Voice_Lines_2.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Hurt_Voice_Lines/Hurt_Voice_Lines_3.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Hurt_Voice_Lines/Hurt_Voice_Lines_4.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Hurt_Voice_Lines/Hurt_Voice_Lines_5.wav"
+]
+
+var death_voice_lines = [
+	"res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_1.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_2.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_3.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_4.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_5.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_6.wav"
+]
+
+var bootscreen_voice_lines = [
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_1.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_2.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_3.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_4.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_5.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_6.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_7.wav",
+	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_8.wav"
+]

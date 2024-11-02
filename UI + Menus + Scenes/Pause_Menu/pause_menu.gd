@@ -1,27 +1,19 @@
 extends Control
 
 @onready var pause_menu = $"."
-var paused = false
 
-func _process(delta):
-	if Input.is_action_just_pressed("esc"):
-		pauseMenu()
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("pause") and Global_Variables.is_paused:
+		close_pause_menu()
 
-func pauseMenu():
-	if paused:
-		pause_menu.hide()
-		Engine.time_scale =1
-	else:
-		pause_menu.show()
-		Engine.time_scale =0
-	paused = !paused
-	
-
-
+func close_pause_menu():
+	get_tree().paused = false
+	queue_free()
+	Global_Variables.is_paused = false
 
 func _on_resume_pressed() -> void:
-	pauseMenu()
-
+	close_pause_menu()
 
 func _on_quit_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Main_Menu/main_menu.tscn")
+	Global_Variables.is_paused = false

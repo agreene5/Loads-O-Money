@@ -2,7 +2,7 @@
 extends Area2D
 
 
-@export var sales_tax_health = 50.0
+@export var sales_tax_health = Global_Variables.sales_tax_health
 
 @export var sales_scale = 1.0
 

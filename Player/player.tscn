@@ -1,5 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://by1ubyds8mqk3"]
-
+[gd_scene load_steps=32 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
@@ -10,7 +9,6 @@
 [ext_resource type="Script" path="res://Player/Player_location.gd" id="5_te5s5"]
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 [ext_resource type="Script" path="res://Player/todd_body_signaler.gd" id="8_tlag8"]
-
 [ext_resource type="Texture2D" uid="uid://5a6cgp2yfvcm" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #1 and #9.png" id="10_mko82"]
 [ext_resource type="Texture2D" uid="uid://k2jc5cqr02ww" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #2.png" id="11_onuqj"]
 [ext_resource type="Texture2D" uid="uid://cgt1ytonh1mey" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #3.png" id="12_ckhs6"]
@@ -21,7 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://bxcar1q5p5yh7" path="res://Finished_Assets/Job_Upgrade_Assets/Todd Job Change Animation Frame #8.png" id="17_3xkeh"]
 [ext_resource type="Script" path="res://Player/upgrade_animation.gd" id="18_0yj7a"]
 [ext_resource type="AudioStream" uid="uid://c8ejj2yd7g32t" path="res://Finished_Assets/SFX_Assets/Job_Upgrade_SFX.mp3" id="18_a4sa4"]
-
+[ext_resource type="Texture2D" uid="uid://bgtiutekxseeu" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #1.png" id="20_5bmhb"]
+[ext_resource type="Texture2D" uid="uid://boc128umvvvmm" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #2.png" id="21_ltlog"]
+[ext_resource type="Texture2D" uid="uid://bkj4wr35v15bt" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #3.png" id="22_qi38a"]
+[ext_resource type="Texture2D" uid="uid://la57ykvlv6hh" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #4.png" id="23_ig6ga"]
+[ext_resource type="Script" path="res://Player/dash_animation.gd" id="24_xg3km"]
+[ext_resource type="AudioStream" uid="uid://p4dipvhhnu0j" path="res://Finished_Assets/SFX_Assets/Dash_SFX.mp3" id="25_lk1h0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
 shader = ExtResource("1_n13bh")
@@ -78,6 +81,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi7jf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_5bmhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ltlog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_qi38a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ig6ga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="RigidBody2D"]
 z_index = 1
 material = SubResource("ShaderMaterial_y11lk")
@@ -114,6 +137,7 @@ script = ExtResource("5_te5s5")
 shape = SubResource("CapsuleShape2D_ejbv0")
 
 [node name="Todd_Body_Signaler" type="Area2D" parent="."]
+collision_mask = 9
 script = ExtResource("8_tlag8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Todd_Body_Signaler"]
@@ -121,7 +145,10 @@ shape = SubResource("CapsuleShape2D_0bmur")
 
 [node name="Timer" type="Timer" parent="Todd_Body_Signaler"]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Todd_Body_Signaler"]
+
 [node name="Upgrade_Animation" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(12.315, 0)
 scale = Vector2(6, 6)
@@ -132,3 +159,18 @@ script = ExtResource("18_0yj7a")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Upgrade_Animation"]
 stream = ExtResource("18_a4sa4")
 volume_db = -5.0
+
+[node name="Dash_Animation" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.615686)
+texture_filter = 1
+position = Vector2(-23, 0)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fi7jf")
+frame = 1
+frame_progress = 0.01977
+script = ExtResource("24_xg3km")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash_Animation"]
+stream = ExtResource("25_lk1h0")
+volume_db = -17.0

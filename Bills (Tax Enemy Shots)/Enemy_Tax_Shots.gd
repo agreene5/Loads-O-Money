@@ -21,7 +21,7 @@ func _ready():
 			bullet_scene = preload("res://Bills (Tax Enemy Shots)/income_tax_projectile.tscn")
 			sprite = get_node("../Income_Tax_Sprite")
 			fire_rate = 3.0
-
+	
 	# Fire rate timer
 	shoot_timer = Timer.new()
 	shoot_timer.wait_time = fire_rate
@@ -32,9 +32,15 @@ func _ready():
 
 func _on_shoot_timer_timeout():
 	if not bullet_scene or not sprite or not get_tree() or not get_tree().current_scene:
-		return  # Exit the function early if any required element is missing
+		return  # Exit if any essential component is missing
+	
 	var bullet = bullet_scene.instantiate()
 	var spawn_position = sprite.global_position
 	var sprite_half_height = sprite.texture.get_height() * sprite.scale.y / 2
 	bullet.global_position = spawn_position + Vector2(0, sprite_half_height)
+	
+	# Calculate direction to player using Global_Variables.player_position
+	var direction = (Global_Variables.player_position - bullet.global_position).normalized()
+	bullet.rotation = direction.angle()
+	
 	get_tree().current_scene.add_child(bullet)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d36fu8kje4a3b"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Tax_Evasion_Scene/tax_evasion_scene.gd" id="1_loa2x"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Todd_Tax_Rap.ogv" id="2_gvwk2"]
+
+[node name="Node2D" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_loa2x")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -69.0
+offset_top = -27.0
+offset_right = 1211.0
+offset_bottom = 693.0
+stream = ExtResource("2_gvwk2")
+autoplay = true

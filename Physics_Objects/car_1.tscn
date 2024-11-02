@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://djuxiyumekhup"]
 
 [ext_resource type="Script" path="res://Physics_Objects/car_movement.gd" id="1_q1jrv"]
-[ext_resource type="Texture2D" uid="uid://5eafg12bu3oh" path="res://Finished_Assets/Misc_Assets/Car.png" id="2_ijmvn"]
+[ext_resource type="Texture2D" uid="uid://dv6366eg5fabn" path="res://Finished_Assets/Misc_Assets/Car.png" id="2_ijmvn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b61fj"]
 radius = 46.0

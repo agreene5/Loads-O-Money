@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cbsq1f7jujywh" path="res://Finished_Assets/Player_Shot_Assets/Nickel.png" id="3_hnbua"]
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_h6slk"]
 
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsgi3"]
 shader = ExtResource("1_llwn7")
 shader_parameter/shadow_offset = Vector2(30, 30)
@@ -27,7 +26,7 @@ radius = 7.07107
 [node name="Player_Nickel_Coin_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_lsgi3")
 collision_layer = 2
-collision_mask = 3
+collision_mask = 9
 mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_y7f1y")
 linear_damp = 0.08

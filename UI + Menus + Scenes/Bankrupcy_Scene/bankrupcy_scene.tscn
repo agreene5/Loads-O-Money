@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckdo8q08h4371"]
+
+[ext_resource type="Texture2D" uid="uid://depkdh7q1u6j3" path="res://Temp_Assets/Temp_UI_Assets/BankruptTodd.png" id="1_ckfdp"]
+[ext_resource type="AudioStream" uid="uid://bgfihy1vgjl1q" path="res://Temp_Assets/Temp_SFX_Assets/Bankrupcy_Todd.mp3" id="2_6ryq8"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Bankrupcy_Scene/bankrupcy_scene.gd" id="2_pq140"]
+
+[node name="Bankrupcy" type="Node2D"]
+process_mode = 3
+modulate = Color(1, 1, 0.976471, 0.815686)
+position = Vector2(575.5, 327)
+scale = Vector2(1.91167, 0.715556)
+script = ExtResource("2_pq140")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6ryq8")
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.30774, -1.39752)
+scale = Vector2(1.00436, 0.996894)
+texture = ExtResource("1_ckfdp")

@@ -4,6 +4,7 @@ extends Area2D
 var is_replaying = false
 var can_trigger_car_death = true  # New variable to track cooldown
 var car_death_cooldown_timer: Timer  # New timer for cooldown
+var tax_evasion_timer: Timer
 
 func _ready():
 	area_entered.connect(_on_area_entered)
@@ -19,10 +20,44 @@ func _ready():
 	car_death_cooldown_timer.timeout.connect(_on_cooldown_timeout)
 	add_child(car_death_cooldown_timer)
 
+	tax_evasion_timer = Timer.new()
+	tax_evasion_timer.one_shot = true
+	tax_evasion_timer.wait_time = 60.0  # 60 seconds
+	tax_evasion_timer.timeout.connect(tax_evasion)  # Connect directly to evading
+	add_child(tax_evasion_timer)
+	
+	tax_evasion_timer.start()
+	
 func _on_cooldown_timeout():
 	can_trigger_car_death = true
 
+func tax_evasion():
+	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Tax_Evasion_Scene/tax_evasion_scene.tscn")
+
+
+func receive_value(value):
+	pass
+
 func _on_area_entered(area):
+	if area.name in ["Sales_Collision_Detector", "Property_Collision_Detector", "Income_Collision_Detector"]:
+		tax_evasion_timer.start()
+		
+		var result = Global_Variables.calculate_difference(Global_Variables.money, area.get_value())
+		
+		var random_index = randi() % 5
+		
+		# Play hit sfx
+		$AudioStreamPlayer.stream = load(Global_Variables.hurt_voice_lines[random_index])
+		$AudioStreamPlayer.volume_db = -4
+		$AudioStreamPlayer.play()
+		
+		if self.get_instance_id() < area.get_instance_id():
+			area.receive_value(result)
+			receive_value(-result)
+			Global_Variables.money -= result
+		
+		
+		
 	if area.name == "Death_Area2D": # Drowning Death
 		Global_Variables.explosion_animation()
 		get_tree().paused = true
@@ -35,7 +70,7 @@ func _on_area_entered(area):
 		shot_sprite.visible = false
 		
 		await get_tree().create_timer(0.5).timeout # Wait for explosion animation to finish
-		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines_1.wav")
+		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_1.wav")
 		audio_player.volume_db += 3  # Increase volume by 3 decibels
 		audio_player.play()
 		

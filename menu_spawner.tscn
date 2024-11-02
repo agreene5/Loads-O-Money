@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://4rb77mbwcumk"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/menu_spawner.gd" id="1_kb10l"]
+[ext_resource type="Script" path="res://menu_spawner.gd" id="1_u2hch"]
+[ext_resource type="Texture2D" uid="uid://dara4bsd6tcwt" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_1.png" id="2_6pepn"]
+[ext_resource type="Texture2D" uid="uid://br83xwpscyxk5" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_2.png" id="3_csui3"]
+[ext_resource type="Texture2D" uid="uid://ofkuvtdunhw8" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_3.png" id="4_60j6q"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/gameplay_overlay_animation.gd" id="5_4c0bj"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/upgrade_menu_button.gd" id="7_aci8l"]
+[ext_resource type="Script" path="res://Money_Label.gd" id="8_3v7u1"]
+[ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="8_g01q6"]
+[ext_resource type="Script" path="res://exp_label.gd" id="10_6mj2n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tcjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6pepn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_csui3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_60j6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Menu_Spawner" type="CanvasLayer"]
+script = ExtResource("1_u2hch")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_kb10l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(640, 336)
+scale = Vector2(0.535417, 0.575)
+sprite_frames = SubResource("SpriteFrames_2tcjb")
+script = ExtResource("5_4c0bj")
+
+[node name="UpgradeMenuButton" type="Button" parent="Node2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1056.0
+offset_top = 530.0
+offset_right = 1147.0
+offset_bottom = 646.0
+script = ExtResource("7_aci8l")
+
+[node name="Money_Label" type="Label" parent="Node2D"]
+offset_left = 574.0
+offset_top = 581.0
+offset_right = 788.0
+offset_bottom = 639.0
+theme = ExtResource("8_g01q6")
+script = ExtResource("8_3v7u1")
+
+[node name="Exp_Label" type="HBoxContainer" parent="Node2D"]
+offset_left = 831.0
+offset_top = 564.0
+offset_right = 1052.0
+offset_bottom = 626.0
+script = ExtResource("10_6mj2n")
+
+[connection signal="pressed" from="Node2D/UpgradeMenuButton" to="Node2D" method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/UpgradeMenuButton" to="Node2D/UpgradeMenuButton" method="_on_pressed"]

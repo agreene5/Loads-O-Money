@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d18xlljxosw5i"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Bootscreen/bootscreen.gd" id="1_0j2wu"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Bootscreen_Vid.ogv" id="1_cl7d0"]
+
+[node name="Bootscreen" type="Node2D"]
+script = ExtResource("1_0j2wu")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -57.0
+offset_top = -34.0
+offset_right = 1223.0
+offset_bottom = 686.0
+stream = ExtResource("1_cl7d0")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

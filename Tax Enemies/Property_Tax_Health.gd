@@ -1,7 +1,7 @@
 #Script for property tax enemy's body
 extends Area2D
 
-@export var my_value = 75.0
+@export var property_tax_health = Global_Variables.property_tax_health
 @export var property_scale = 1.5
 
 
@@ -18,10 +18,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func get_value():
-	return my_value
+	return property_tax_health
 
 func receive_value(value):
-	print("ENEMY  health: ", my_value, " New health: ", my_value+value)
+	print("ENEMY  health: ", property_tax_health, " New health: ", property_tax_health+value)
 
 func despawn():
 	Global_Variables.player_exp += property_tax_exp
@@ -30,7 +30,7 @@ func despawn():
 
 func _on_area_entered(area):
 	if area.has_method("get_value"):
-		var result = Global_Variables.calculate_difference(my_value, area.get_value())
+		var result = Global_Variables.calculate_difference(property_tax_health, area.get_value())
 		#Play hit sfx 
 		$AudioStreamPlayer.stream = tax_hit_sfx
 		$AudioStreamPlayer.volume_db = -4
@@ -39,8 +39,8 @@ func _on_area_entered(area):
 		if self.get_instance_id() < area.get_instance_id():
 			area.receive_value(result)
 			receive_value(-result)
-			my_value = my_value - result
-			if(my_value <= 0):
+			property_tax_health = property_tax_health - result
+			if(property_tax_health <= 0):
 				print("Property tax died")
 				tax_position = get_parent().position
 				Global_Variables.explosion_tax_animation(tax_position, property_scale)

@@ -1,13 +1,9 @@
-
 [gd_scene load_steps=9 format=3 uid="uid://c0n57iajvvms4"]
-
 
 [ext_resource type="Script" path="res://Coins/Player_Coin_Shot.gd" id="1_1fsop"]
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_3sgo6"]
 [ext_resource type="Texture2D" uid="uid://cfu37jkjheobh" path="res://Finished_Assets/Player_Shot_Assets/Quarter.png" id="2_amywr"]
-
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="3_iufmc"]
-
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23bxa"]
 shader = ExtResource("1_3sgo6")
@@ -25,17 +21,14 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxsol"]
 radius = 66.6667
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_xchaa"]
 radius = 10.0499
 
 [node name="Player_Quarter_Coin_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_23bxa")
 collision_layer = 2
-collision_mask = 3
-
+collision_mask = 9
 mass = 0.4
-
 physics_material_override = SubResource("PhysicsMaterial_63h50")
 linear_damp = 0.08
 script = ExtResource("1_1fsop")
@@ -50,7 +43,6 @@ scale = Vector2(0.132, 0.132)
 shape = SubResource("CircleShape2D_cxsol")
 
 [node name="Quarter_Collision_Detector" type="Area2D" parent="."]
-
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("3_iufmc")

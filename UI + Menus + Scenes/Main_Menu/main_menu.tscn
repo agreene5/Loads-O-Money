@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dmyg18xlx0sqk" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_Money_Background.png" id="3_7dmma"]
 [ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="3_nkwy4"]
 [ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Main_Menu_Background_Vid.OGV" id="3_tb5e7"]
-
 [ext_resource type="Texture2D" uid="uid://dkrvyhhpojnlj" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_1.png" id="4_22yna"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo_money_bg.gd" id="4_h10nh"]
 [ext_resource type="Texture2D" uid="uid://dm7cfjmlyoykj" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_2.png" id="5_gbmlq"]
@@ -32,6 +31,7 @@ animations = [{
 }]
 
 [node name="Main Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +48,6 @@ offset_right = 1920.0
 offset_bottom = 1088.0
 scale = Vector2(0.6, 0.594)
 stream = ExtResource("3_tb5e7")
-
 autoplay = true
 loop = true
 
@@ -86,10 +85,10 @@ layout_mode = 2
 theme = ExtResource("3_nkwy4")
 text = "Play"
 
-[node name="Options" type="Button" parent="Container/MarginContainer/VBoxContainer"]
+[node name="DLC" type="Button" parent="Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_nkwy4")
-text = "Options"
+text = "DLC"
 
 [node name="Quit" type="Button" parent="Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -97,5 +96,5 @@ theme = ExtResource("3_nkwy4")
 text = "Quit"
 
 [connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/DLC" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

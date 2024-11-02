@@ -1,13 +1,9 @@
-
 [gd_scene load_steps=8 format=3 uid="uid://cpvjf3txvtbpg"]
-
 
 [ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="1_cqbcm"]
 [ext_resource type="Script" path="res://Dollars/player_dollar_shot.gd" id="1_ua8ds"]
 [ext_resource type="Texture2D" uid="uid://pbb28os88xvh" path="res://Finished_Assets/Player_Shot_Assets/Lincoln_5Dollar.PNG" id="2_akval"]
-
 [ext_resource type="Script" path="res://Misc/Shot_Health.gd" id="4_cm2w5"]
-
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3yraa"]
 shader = ExtResource("1_cqbcm")
@@ -21,15 +17,13 @@ shader_parameter/shadow_skew_end = 0.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxsml"]
 size = Vector2(44, 25)
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5l1d"]
 size = Vector2(46, 27)
 
 [node name="Player_Lincoln_Dollar_Shot" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_3yraa")
 collision_layer = 2
-collision_mask = 8
-
+collision_mask = 9
 linear_damp = 0.15
 script = ExtResource("1_ua8ds")
 
@@ -45,7 +39,6 @@ position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_uxsml")
 
 [node name="Lincoln_Collision_Detector" type="Area2D" parent="."]
-
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("4_cm2w5")
@@ -53,4 +46,3 @@ script = ExtResource("4_cm2w5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lincoln_Collision_Detector"]
 position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_b5l1d")
-
