@@ -10,9 +10,10 @@ func _on_play_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Rick_Roll_Options/rick_roll.tscn")
-	#get_tree().change_scene_to_file("res://options_menu.tscn")
+	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Options_Menu/options_menu.tscn")
 
+func _on_dlc_pressed() -> void:
+	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Rick_Roll_Options/rick_roll.tscn")
 
 func _on_quit_pressed() -> void:
 	quit_audio.play()

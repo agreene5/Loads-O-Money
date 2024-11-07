@@ -7,6 +7,7 @@ extends Area2D
 var tax_hit_sfx = preload("res://Finished_Assets/SFX_Assets/FasterTaxPaper.mp3")
 
 var tax_position
+var physics_position
 
 var income_tax_exp = Global_Variables.income_tax_exp
 
@@ -30,6 +31,8 @@ func despawn():
 	get_parent().queue_free()
 
 func _on_area_entered(area):
+	physics_position = area.get_parent().position
+	Global_Variables.collision_animation(physics_position)
 	if area.has_method("get_value"):
 		var result = Global_Variables.calculate_difference(income_tax_health, area.get_value())
 		#Play hit sfx 

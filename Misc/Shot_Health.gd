@@ -27,6 +27,4 @@ func get_value():
 	return current_health
 
 func receive_value(value):
-	var new_health = current_health - value
-	current_health = new_health
-	despawn()
+	pass

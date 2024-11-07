@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="PantherDev - Loads O' Money"
-run/main_scene="res://UI + Menus + Scenes/Bootscreen/bootscreen.tscn"
+run/main_scene="res://UI + Menus + Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

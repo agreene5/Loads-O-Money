@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7782b1bt30vp"]
+[gd_scene load_steps=12 format=3 uid="uid://c7782b1bt30vp"]
 
-[ext_resource type="VideoStream" path="res://Temp_Assets/Temp_UI_Assets/RickRoll.ogv" id="1_sdwnn"]
-[ext_resource type="Script" path="res://UI + Menus + Scenes/Rick_Roll_Options/video_stream_player.gd" id="2_ifwgg"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Todd_Roll.ogv" id="1_fji1c"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Rick_Roll_Options/todd_roll_resizer.gd" id="1_vfxer"]
+[ext_resource type="AudioStream" uid="uid://bvxx40hjjjo7f" path="res://Finished_Assets/Misc_Assets/Todd_Roll_Audio.ogg" id="3_fpwrr"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Rick_Roll_Options/todd_roll_resizer_2.gd" id="4_iumut"]
+[ext_resource type="Texture2D" uid="uid://c08wcsr3eoy1v" path="res://Finished_Assets/Misc_Assets/ToddRoll2.png" id="5_eviqe"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Rick_Roll_Options/moving_exit.gd" id="6_ov2ad"]
+[ext_resource type="Texture2D" uid="uid://b1xoeigpncj8c" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/XButton_1.png" id="7_hhxtc"]
+[ext_resource type="Texture2D" uid="uid://btqetkdgd6fxm" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/XButton_2.png" id="8_m6j5k"]
+[ext_resource type="Texture2D" uid="uid://b0e8kajoqxoey" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/XButton_3.png" id="9_xo3se"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="10_f1i33"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5s2wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_hhxtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m6j5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xo3se")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="RickRoll" type="Control"]
 process_mode = 3
@@ -12,22 +37,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_vfxer")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node2D"]
+offset_right = 257.0
+offset_bottom = 143.0
 scale = Vector2(4.48, 4.52)
-stream = ExtResource("1_sdwnn")
+stream = ExtResource("1_fji1c")
+volume_db = -80.0
 autoplay = true
 loop = true
-script = ExtResource("2_ifwgg")
 
-[node name="Exit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 607.0
-offset_right = 44.0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("3_fpwrr")
+autoplay = true
+
+[node name="Node2D2" type="Node2D" parent="."]
+script = ExtResource("4_iumut")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.288, 0.216)
+texture = ExtResource("5_eviqe")
+
+[node name="Exit" type="Button" parent="Node2D2"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 8.0
+offset_top = 584.0
+offset_right = 64.0
 offset_bottom = 638.0
 text = "Exit"
+script = ExtResource("6_ov2ad")
 
-[connection signal="pressed" from="Exit" to="VideoStreamPlayer" method="_on_exit_pressed"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D2/Exit"]
+position = Vector2(27.875, 27)
+scale = Vector2(0.247778, 0.241228)
+sprite_frames = SubResource("SpriteFrames_5s2wf")
+frame = 1
+frame_progress = 0.170307
+script = ExtResource("10_f1i33")
+
+[connection signal="pressed" from="Node2D2/Exit" to="Node2D/VideoStreamPlayer" method="_on_exit_pressed"]
+[connection signal="pressed" from="Node2D2/Exit" to="Node2D2" method="_on_exit_pressed"]

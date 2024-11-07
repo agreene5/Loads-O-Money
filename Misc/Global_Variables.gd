@@ -18,6 +18,7 @@ var property_tax_shot_health = 5.0
 var income_tax_shot_health = 20.0
 
 var is_paused = false
+var game_just_started = true
 
 var player_exp = 0.0 # The amount of EXP Todd (the player) has
 var player_job = 0 # Defines the players current job | 0: Unemployed, 1: Fast Food Worker, ... 5: Tech Giant CEO

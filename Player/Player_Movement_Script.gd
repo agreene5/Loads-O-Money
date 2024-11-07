@@ -54,6 +54,8 @@ func _physics_process(delta):
 	else:
 		process_normal_input(delta)
 		record_input(delta)
+	if Input.is_action_pressed("upgrade"):
+		%Menu_Spawner.upgrade_menu()
 
 func process_normal_input(delta):
 	velocity = linear_velocity

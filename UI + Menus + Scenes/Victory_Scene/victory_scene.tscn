@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5xiw5hu8t21"]
+[gd_scene load_steps=6 format=3 uid="uid://bu5xiw5hu8t21"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Victory_Scene/victory_scene.gd" id="1_33ef3"]
 [ext_resource type="Texture2D" uid="uid://cay3hf52vito7" path="res://Temp_Assets/Temp_UI_Assets/TEMP_Victory_Screen.png" id="2_cwcy8"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_vanyr"]
 [ext_resource type="AudioStream" uid="uid://bvl1y8yw85bdk" path="res://Temp_Assets/Temp_SFX_Assets/RobloxWinSFX.mp3" id="3_oxwb3"]
-[ext_resource type="VideoStream" path="res://Temp_Assets/Temp_UI_Assets/RickRoll.ogv" id="4_sgoi4"]
 [ext_resource type="AudioStream" uid="uid://dghl04qk3s0mo" path="res://Temp_Assets/Temp_SFX_Assets/Yippee_SFX.mp3" id="6_6t8y6"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -34,7 +33,6 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("4_sgoi4")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("6_6t8y6")

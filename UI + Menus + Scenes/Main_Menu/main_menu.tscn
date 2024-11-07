@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://djkwbce86wiw5"]
+[gd_scene load_steps=51 format=3 uid="uid://djkwbce86wiw5"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu.gd" id="1_6cvw2"]
-[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_rblxm"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu_container.gd" id="2_vlbgf"]
 [ext_resource type="Texture2D" uid="uid://dmyg18xlx0sqk" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_Money_Background.png" id="3_7dmma"]
 [ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="3_nkwy4"]
 [ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Main_Menu_Background_Vid.OGV" id="3_tb5e7"]
@@ -12,6 +12,35 @@
 [ext_resource type="Texture2D" uid="uid://efsm3kytifcy" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_Todd_Quarter.png" id="7_nan1p"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo.gd" id="8_wta5e"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo_quarter.gd" id="9_12msn"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Bootscreen_Vid.ogv" id="13_0a75u"]
+[ext_resource type="Texture2D" uid="uid://dyvfjpgsclj6s" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Long_Button_1_Green.png" id="14_53g7s"]
+[ext_resource type="AudioStream" uid="uid://8xry4f1a00i8" path="res://Finished_Assets/Misc_Assets/Bootscreen_Vid_Audio.ogg" id="14_plc4p"]
+[ext_resource type="Texture2D" uid="uid://bwo3rgj8qhaww" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Long_Button_2_Green.png" id="15_723d2"]
+[ext_resource type="Texture2D" uid="uid://c73eitfihoqym" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Long_Button_3_Green.png" id="16_y45fm"]
+[ext_resource type="Texture2D" uid="uid://bmantknykgtj2" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_1_Yellow.png" id="17_vyqnp"]
+[ext_resource type="Texture2D" uid="uid://c5hhu5m7j38cx" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_2_Yellow.png" id="18_4s47k"]
+[ext_resource type="Texture2D" uid="uid://dxbbcxu0xredp" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_3_Yellow.png" id="19_nb0uq"]
+[ext_resource type="Texture2D" uid="uid://c68tj8neh6f5t" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_1_Grey.png" id="20_ufhcy"]
+[ext_resource type="Texture2D" uid="uid://bux05y25fe6ia" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_2_Grey.png" id="21_g3qcp"]
+[ext_resource type="Texture2D" uid="uid://der8dil50tyf2" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_3_Grey.png" id="22_vuvqn"]
+[ext_resource type="Texture2D" uid="uid://dvtu1iup0omko" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_1_Green.png" id="23_t8kbi"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="25_xdwr4"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/play.gd" id="26_p7suw"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/dlc.gd" id="27_6qlxt"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/quit.gd" id="28_1qbko"]
+[ext_resource type="Texture2D" uid="uid://dng17j0hudwb7" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Play_Text_1.png" id="29_x74pk"]
+[ext_resource type="Texture2D" uid="uid://dr4ttstv0u8tx" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Play_Text_2.png" id="30_luupb"]
+[ext_resource type="Texture2D" uid="uid://no05a6c1t7mi" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Play_Text_3.png" id="31_76nia"]
+[ext_resource type="Texture2D" uid="uid://6rgi2vffnq2c" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Options_Text_1.png" id="32_q6bni"]
+[ext_resource type="Texture2D" uid="uid://bk8py148ej4ba" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Options_Text_2.png" id="33_6p5b2"]
+[ext_resource type="Texture2D" uid="uid://bo4lkesk80eqc" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Options_Text_3.png" id="34_2xsgb"]
+[ext_resource type="Texture2D" uid="uid://ckx4x6p6r4dsn" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/DLC_Text_1.png" id="35_r1uvr"]
+[ext_resource type="Texture2D" uid="uid://0ycajrxkbgkv" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/DLC_Text_2.png" id="36_b3cdv"]
+[ext_resource type="Texture2D" uid="uid://bk0oqtwvfnqm4" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/DLC_Text_3.png" id="37_y6q3h"]
+[ext_resource type="Texture2D" uid="uid://bcygvsdrrqlhy" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_1.png" id="38_2h8xa"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/options.gd" id="38_n7sui"]
+[ext_resource type="Texture2D" uid="uid://dwsns2qpb4rll" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_2.png" id="39_txrgw"]
+[ext_resource type="Texture2D" uid="uid://bsef833wrhr75" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_3.png" id="40_655rh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccaq5"]
 animations = [{
@@ -30,6 +59,142 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymb8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_53g7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_723d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y45fm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwwt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_vyqnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4s47k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nb0uq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yx4rx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_ufhcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_g3qcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vuvqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3iybp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_t8kbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_g3qcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nb0uq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7nfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_x74pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_luupb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_76nia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ghia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_q6bni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_6p5b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_2xsgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncgel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_r1uvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_b3cdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_y6q3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5l5cq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_2h8xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_txrgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_655rh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main Menu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -41,9 +206,9 @@ grow_vertical = 2
 script = ExtResource("1_6cvw2")
 
 [node name="Container" type="Node2D" parent="."]
-script = ExtResource("2_rblxm")
+script = ExtResource("2_vlbgf")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Container"]
+[node name="Main_Menu_Vid" type="VideoStreamPlayer" parent="Container"]
 offset_right = 1920.0
 offset_bottom = 1088.0
 scale = Vector2(0.6, 0.594)
@@ -71,30 +236,126 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("7_nan1p")
 script = ExtResource("9_12msn")
 
-[node name="MarginContainer" type="MarginContainer" parent="Container"]
-offset_left = 369.0
-offset_top = 447.0
-offset_right = 811.0
-offset_bottom = 581.0
+[node name="Button_Sprites" type="Node2D" parent="Container"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer"]
-layout_mode = 2
+[node name="Play_Button_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+unique_name_in_owner = true
+position = Vector2(590, 472)
+scale = Vector2(0.2, 0.318841)
+sprite_frames = SubResource("SpriteFrames_ymb8m")
+frame_progress = 0.805236
+script = ExtResource("25_xdwr4")
 
-[node name="Play" type="Button" parent="Container/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_nkwy4")
+[node name="Options_Button_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+unique_name_in_owner = true
+position = Vector2(480, 547.438)
+scale = Vector2(0.42, 0.25)
+sprite_frames = SubResource("SpriteFrames_nwwt2")
+frame = 2
+frame_progress = 0.133842
+script = ExtResource("25_xdwr4")
+
+[node name="Quit_Button_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+unique_name_in_owner = true
+position = Vector2(596, 610)
+scale = Vector2(0.423092, 0.261943)
+sprite_frames = SubResource("SpriteFrames_yx4rx")
+script = ExtResource("25_xdwr4")
+
+[node name="DLC_Button_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+unique_name_in_owner = true
+position = Vector2(710, 546)
+scale = Vector2(0.42, 0.25)
+sprite_frames = SubResource("SpriteFrames_3iybp")
+frame_progress = 0.286396
+script = ExtResource("25_xdwr4")
+
+[node name="Play_Text_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+position = Vector2(589.75, 475)
+scale = Vector2(0.23, 0.178454)
+sprite_frames = SubResource("SpriteFrames_t7nfl")
+frame_progress = 0.972759
+script = ExtResource("25_xdwr4")
+
+[node name="Options_Text_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(480, 547)
+scale = Vector2(0.165625, 0.148026)
+sprite_frames = SubResource("SpriteFrames_2ghia")
+frame = 2
+frame_progress = 0.316187
+script = ExtResource("25_xdwr4")
+
+[node name="DLC_Text_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+position = Vector2(715, 548)
+scale = Vector2(0.15, 0.143092)
+sprite_frames = SubResource("SpriteFrames_ncgel")
+script = ExtResource("25_xdwr4")
+
+[node name="Exit_Text_Sprite" type="AnimatedSprite2D" parent="Container/Button_Sprites"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(594, 608)
+scale = Vector2(0.161111, 0.149671)
+sprite_frames = SubResource("SpriteFrames_5l5cq")
+script = ExtResource("25_xdwr4")
+
+[node name="Play" type="Button" parent="Container/Button_Sprites"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 366.0
+offset_top = 440.0
+offset_right = 817.0
+offset_bottom = 507.0
 text = "Play"
+script = ExtResource("26_p7suw")
 
-[node name="DLC" type="Button" parent="Container/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="DLC" type="Button" parent="Container/Button_Sprites"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 614.0
+offset_top = 523.0
+offset_right = 809.0
+offset_bottom = 568.0
 theme = ExtResource("3_nkwy4")
 text = "DLC"
+script = ExtResource("27_6qlxt")
 
-[node name="Quit" type="Button" parent="Container/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Options" type="Button" parent="Container/Button_Sprites"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 383.0
+offset_top = 526.0
+offset_right = 575.0
+offset_bottom = 570.0
+script = ExtResource("38_n7sui")
+
+[node name="Quit" type="Button" parent="Container/Button_Sprites"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 497.0
+offset_top = 584.0
+offset_right = 699.0
+offset_bottom = 637.0
 theme = ExtResource("3_nkwy4")
 text = "Quit"
+script = ExtResource("28_1qbko")
 
-[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/DLC" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Container/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="ColorRect" type="ColorRect" parent="Container"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 646.0
+
+[node name="Bootscreen_Vid" type="VideoStreamPlayer" parent="Container"]
+visible = false
+offset_left = -62.0
+offset_top = -32.0
+offset_right = 1218.0
+offset_bottom = 688.0
+stream = ExtResource("13_0a75u")
+volume_db = -80.0
+
+[node name="Bootscreen_Voicelines" type="AudioStreamPlayer" parent="Container"]
+
+[node name="Bootscreen_Vid_SFX" type="AudioStreamPlayer" parent="Container"]
+stream = ExtResource("14_plc4p")
+
+[connection signal="pressed" from="Container/Button_Sprites/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Container/Button_Sprites/DLC" to="." method="_on_dlc_pressed"]
+[connection signal="pressed" from="Container/Button_Sprites/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Container/Button_Sprites/Quit" to="." method="_on_quit_pressed"]
