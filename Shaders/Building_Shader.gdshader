@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform float start_skew = 0.0; // Starting skew value
-uniform float end_skew = 0.01;     // Ending skew value
+uniform float end_skew = 0.02;     // Ending skew value
 uniform float time_cycle = 5.0;   // Time in seconds for one complete cycle
 
 void vertex() {

@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_yc65n"]
 [ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_7rp2t"]
-[ext_resource type="Texture2D" uid="uid://bfymnmw3e2u7q" path="res://Finished_Assets/Tax_Enemy_Assets/Property_Tax.png" id="3_36gja"]
+[ext_resource type="Texture2D" uid="uid://bfymnmw3e2u7q" path="res://Finished_Assets/Tax_Enemy_Assets/Property_Tax_High_Health.png" id="3_36gja"]
 [ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="3_kiuv0"]
 [ext_resource type="Script" path="res://Tax Enemies/Property_Tax_Health.gd" id="5_o5my5"]
 
@@ -35,6 +35,7 @@ physics_material_override = SubResource("PhysicsMaterial_ku40y")
 script = ExtResource("3_kiuv0")
 
 [node name="Property_Tax_Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 use_parent_material = true
 position = Vector2(-3.425, 0)
 scale = Vector2(0.06, 0.09)

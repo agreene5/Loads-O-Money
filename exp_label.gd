@@ -6,11 +6,11 @@ extends HBoxContainer
 @export var font_path: String = "res://Finished_Assets/Comic_Sans_MS_FONT.ttf"
 
 var job_levels = [
-	{"name": "Fast Food", "exp": 3},
+	{"name": "Fast Food", "exp": 2},
 	{"name": "Food Manager", "exp": 20},
 	{"name": "Operations Manager", "exp": 200},
 	{"name": "CEO", "exp": 1000},
-	{"name": "Tech CEO", "exp": 10000},
+	{"name": "Tech CEO", "exp": 5000},
 ]
 
 var exp_label: Label

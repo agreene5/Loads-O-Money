@@ -6,9 +6,9 @@ uniform float shadow_size = 1.1;
 uniform float time_scale = 1.0;  // Controls the speed of the animation
 
 uniform float shadow_skew_start = 0.0;
-uniform float shadow_skew_end = 0.15;
+uniform float shadow_skew_end = 0.2;
 uniform float sprite_skew_start = 0.0;
-uniform float sprite_skew_end = 0.12;
+uniform float sprite_skew_end = 0.17;
 
 float calculate_skew(float start, float end, float time) {
     float mid = (start + end) * 0.5;

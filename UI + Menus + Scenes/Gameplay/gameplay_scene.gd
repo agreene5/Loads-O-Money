@@ -39,7 +39,7 @@ var target_values = {
 func _ready():
 		get_tree().paused = false
 		# Setting Global Variables to Default values
-		Global_Variables.money = 50000.0 # Broke Todd ;(
+		Global_Variables.money = 20.0 # Broke Todd ;(
 		
 		Global_Variables.Coin_Variant = 0
 		Global_Variables.Dollar_Variant = 0

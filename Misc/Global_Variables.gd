@@ -24,7 +24,7 @@ var player_exp = 0.0 # The amount of EXP Todd (the player) has
 var player_job = 0 # Defines the players current job | 0: Unemployed, 1: Fast Food Worker, ... 5: Tech Giant CEO
 var player_job_values = { # Defines player job stat values
 	# [0-Exp needed to move up a job, 1-money you earn/second, 2-dash cooldown, 3-dash speed, 4-dash time, 5-speed, 6-sprite 
-	0: [3.0, 0.00, 2.0, 300.0, 0.5, 200.0, "res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png"],
+	0: [2.0, 0.00, 2.0, 300.0, 0.5, 200.0, "res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png"],
 	1: [20.0, 0.05, 1.5, 400.0, 0.4, 230.0, "res://Finished_Assets/Player_Body_Assets/Fast_Food_Worker_Todd.png"],
 	2: [200.0, 0.50, 1.3, 600.0, 0.3, 267.0, "res://Finished_Assets/Player_Body_Assets/Restaurant_Manager_Todd.png"],
 	3: [1000.0, 5.00, 1.0, 1000.0, 0.2, 300.0, "res://Finished_Assets/Player_Body_Assets/Regional_Operations_Manager_Todd.png"],
@@ -47,20 +47,20 @@ func defeat(): # AKA Bankrupcy
 	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Bankrupcy_Scene/bankrupcy_scene.tscn")
 
 var SHOT_HEALTH = { # The health of all shot types
-	"Penny_Collision_Detector": 1.0,
-	"Nickel_Collision_Detector": 3.0,
-	"Dime_Collision_Detector": 8.0,
-	"Quarter_Collision_Detector": 20.0,
+	"Penny_Collision_Detector": 1.5,
+	"Nickel_Collision_Detector": 4.5,
+	"Dime_Collision_Detector": 12.0,
+	"Quarter_Collision_Detector": 30.0,
 	
-	"Washington_Collision_Detector": 10.0,
-	"Lincoln_Collision_Detector": 30.0,
-	"Jackson_Collision_Detector": 80.0,
-	"Grant_Collision_Detector": 200.0,
+	"Washington_Collision_Detector": 15.0,
+	"Lincoln_Collision_Detector": 45.0,
+	"Jackson_Collision_Detector": 120.0,
+	"Grant_Collision_Detector": 300.0,
 	
-	"100_Collision_Detector": 100.0,
-	"200_Collision_Detector": 300.0,
-	"500_Collision_Detector": 800.0,
-	"1000_Collision_Detector": 2000.0,
+	"100_Collision_Detector": 150.0,
+	"200_Collision_Detector": 450.0,
+	"500_Collision_Detector": 1200.0,
+	"1000_Collision_Detector": 3000.0,
 }
 
 signal Coin_Variant_changed

@@ -18,15 +18,15 @@ extends Control
 @onready var CheckSprite = $Node2D/Check
 
 var money =  Global_Variables.money
-var CurrentCoinPrice = 1
-var CurrentBillPrice = 10
+var CurrentCoinPrice = 2
+var CurrentBillPrice = 15
 var CurrentCheckPrice = 500
 
 func _ready(): # Starting the values off with the Global Variable values
 		get_tree().paused = true
 		# Check Coin Variant
 		if (Global_Variables.Coin_Variant == 1):
-				CurrentCoinPrice = 10
+				CurrentCoinPrice = 20
 				$Node2D/UpgradeCoinButton.text = "$" + str(CurrentCoinPrice) + "\n" + "Upgrade Coin"
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Nickel.png")
 				CurrentCoinHealthLabel.text = "8 -> "
@@ -35,7 +35,7 @@ func _ready(): # Starting the values off with the Global Variable values
 				UpgradedCoinPriceLabel.text = "0.25"
 				CoinSprite.set_texture(texture)
 		elif (Global_Variables.Coin_Variant == 2):
-				CurrentCoinPrice = 100
+				CurrentCoinPrice = 200
 				$Node2D/UpgradeCoinButton.text = "$" + str(CurrentCoinPrice) + "\n" + "Upgrade Coin"
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Dime.png")
 				CoinSprite.set_texture(texture)
@@ -54,7 +54,7 @@ func _ready(): # Starting the values off with the Global Variable values
 
 		# Check Dollar Variant
 		if (Global_Variables.Dollar_Variant == 1):
-				CurrentBillPrice = 50
+				CurrentBillPrice = 75
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Lincoln_5Dollar.PNG")
 				$Node2D/UpgradeBillButton.text = "$" + str(CurrentBillPrice) + "\n" + "Upgrade Bill"
 				BillSprite.set_texture(texture)
@@ -63,7 +63,7 @@ func _ready(): # Starting the values off with the Global Variable values
 				CurrentBillPriceLabel.text = "20 -> "
 				UpgradeBillPriceLabel.text = "50"
 		elif (Global_Variables.Dollar_Variant == 2):
-				CurrentBillPrice = 500
+				CurrentBillPrice = 750
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Jackson_20Dollar.png")
 				$Node2D/UpgradeBillButton.text = "$" + str(CurrentBillPrice) + "\n" + "Upgrade Bill"
 				BillSprite.set_texture(texture)
@@ -91,7 +91,7 @@ func _on_upgrade_coin_button_pressed() -> void:
 		Global_Variables.money = Global_Variables.money - CurrentCoinPrice
 		
 		if (Global_Variables.Coin_Variant == 1):
-			CurrentCoinPrice = 10
+			CurrentCoinPrice = 20
 			$Node2D/UpgradeCoinButton.text = "$" + str(CurrentCoinPrice) + "\n" + "Upgrade Coin"
 			var texture = load("res://Finished_Assets/Player_Shot_Assets/Nickel.png")
 			CurrentCoinHealthLabel.text = "3 -> "
@@ -100,7 +100,7 @@ func _on_upgrade_coin_button_pressed() -> void:
 			UpgradedCoinPriceLabel.text = "0.10"
 			CoinSprite.set_texture(texture)
 		if(Global_Variables.Coin_Variant == 2):
-			CurrentCoinPrice = 100
+			CurrentCoinPrice = 150
 			$Node2D/UpgradeCoinButton.text = "$" + str(CurrentCoinPrice) + "\n" + "Upgrade Coin"
 			var texture = load("res://Finished_Assets/Player_Shot_Assets/Dime.png")
 			CoinSprite.set_texture(texture)
@@ -126,7 +126,7 @@ func _on_upgrade_bill_button_pressed() -> void:
 		Global_Variables.money = Global_Variables.money - CurrentBillPrice
 		Global_Variables.Dollar_Variant = Global_Variables.Dollar_Variant + 1
 		if (Global_Variables.Dollar_Variant == 1):
-			CurrentBillPrice = 50
+			CurrentBillPrice = 75
 			var texture = load("res://Finished_Assets/Player_Shot_Assets/Lincoln_5Dollar.PNG")
 			$Node2D/UpgradeBillButton.text = "$" + str(CurrentBillPrice) + "\n" + "Upgrade Bill"
 			BillSprite.set_texture(texture)
@@ -136,7 +136,7 @@ func _on_upgrade_bill_button_pressed() -> void:
 			UpgradeBillPriceLabel.text = "20"
 			
 		if(Global_Variables.Dollar_Variant == 2):
-			CurrentBillPrice = 500
+			CurrentBillPrice = 750
 			var texture = load("res://Finished_Assets/Player_Shot_Assets/Jackson_20Dollar.png")
 			$Node2D/UpgradeBillButton.text = "$" + str(CurrentBillPrice) + "\n" + "Upgrade Bill"
 			BillSprite.set_texture(texture)

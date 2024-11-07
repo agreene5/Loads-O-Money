@@ -2,16 +2,26 @@ shader_type canvas_item;
 
 uniform vec2 shadow_offset = vec2(30.0, 30.0);
 uniform vec4 shadow_color : source_color = vec4(0.0, 0.0, 0.0, 0.5);
-uniform float shadow_size = 1.0;
+uniform float shadow_size = 1.1;
 uniform float time_scale = 1.0;  // Controls the speed of the animation
 
 uniform float shadow_skew_start = 0.0;
-uniform float shadow_skew_end = 0.13;
+uniform float shadow_skew_end = 0.4;
+uniform float sprite_skew_start = 0.0;
+uniform float sprite_skew_end = 0.4;
 
 float calculate_skew(float start, float end, float time) {
     float mid = (start + end) * 0.5;
     float half_range = (end - start) * 0.5;
     return mid + half_range * sin(time * 2.0 * PI * time_scale / 5.0);
+}
+
+void vertex() {
+    // Calculate the sprite skew value based on time
+    float sprite_skew = calculate_skew(sprite_skew_start, sprite_skew_end, TIME);
+
+    // Apply skew to the sprite
+    VERTEX.x += VERTEX.y * sprite_skew;
 }
 
 void fragment() {
@@ -34,6 +44,6 @@ void fragment() {
     // Blend the shadow with the background
     vec4 color = mix(final_shadow, vec4(0.0), step(shadow_uv.x, 0.0) + step(1.0, shadow_uv.x) + step(shadow_uv.y, 0.0) + step(1.0, shadow_uv.y));
 
-    // Only apply the shadow, keep the original sprite unchanged
+    // Overlay the original sprite
     COLOR = mix(color, original, original.a);
 }

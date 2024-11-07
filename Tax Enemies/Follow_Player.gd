@@ -28,7 +28,7 @@ var velocity_threshold: float = 10.0  # Minimum velocity to consider the enemy a
 
 func _ready():
 	gravity_scale = 0
-	var shader_material = load("res://Shaders/Player_Enemy_Shader.gdshader")
+	var shader_material = load("res://Tax Enemies/enemy_shader.gdshader")
 	material = ShaderMaterial.new()
 	material.shader = shader_material
 	_initialize_path()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfr4xwghfcksd"
-path="res://.godot/imported/Sales_Tax.png-235b4c40260590d7f4e102bd44a19bea.ctex"
+uid="uid://bhfcfitwvybu3"
+path="res://.godot/imported/Income_Tax_Med_Health.png-f5b8f355b58a709dd6b5e7ef3eecbeea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Finished_Assets/Tax_Enemy_Assets/Sales_Tax.png"
-dest_files=["res://.godot/imported/Sales_Tax.png-235b4c40260590d7f4e102bd44a19bea.ctex"]
+source_file="res://Finished_Assets/Tax_Enemy_Assets/Income_Tax_Med_Health.png"
+dest_files=["res://.godot/imported/Income_Tax_Med_Health.png-f5b8f355b58a709dd6b5e7ef3eecbeea.ctex"]
 
 [params]
 
