@@ -18,8 +18,10 @@ func _ready():
 
 		if Global_Variables.game_just_started:
 			_play_bootscreen()
+		else:
+			$Main_Menu_Theme.play()
 		Global_Variables.game_just_started = false
-
+		
 func _play_bootscreen():
 	# Get the AudioStreamPlayer nodes
 	var voice_player = $Bootscreen_Voicelines
@@ -31,7 +33,7 @@ func _play_bootscreen():
 	
 	# Set and play the audio
 	voice_player.stream = load(random_voice_line)
-	voice_player.volume_db = -3  # Set the volume
+	voice_player.volume_db = 2  # Set the volume
 	voice_player.play()
 	video_audio.play()
 	
@@ -41,16 +43,15 @@ func _play_bootscreen():
 	$Bootscreen_Vid.play()
 	
 	# Wait for 4 seconds (or until the video finishes)
-	await get_tree().create_timer(3.8).timeout
-	
-	# Stop the video and hide it
+	await get_tree().create_timer(4.35).timeout
+		
 	$Bootscreen_Vid.visible = false
 	$Bootscreen_Vid.stop()
-	
 	# Fade out the ColorRect over 1 second (from 100% opacity to 0%)
 	var duration = 1.5  # Duration of the fade (1 second)
 	var fade_time = 0.0  # Initialize fade time
-	
+	$Main_Menu_Theme.play()
+
 	# Loop to gradually reduce the alpha value over time
 	while fade_time < duration:
 		fade_time += get_process_delta_time()  # Increment time by the frame time

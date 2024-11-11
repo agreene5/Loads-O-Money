@@ -154,7 +154,30 @@ func reset_boost():
 func level_up():
 	$Upgrade_Animation.upgrade_animation()
 	await get_tree().create_timer(0.6).timeout
-	$Player_Sprite.texture = load(Global_Variables.player_job_values[Global_Variables.player_job][6])
+	$Node2D/Player_Sprite.texture = load(Global_Variables.player_job_values[Global_Variables.player_job][6])
 	move_speed = 10 * Global_Variables.player_job_values[Global_Variables.player_job][5]
 	boost_force = Global_Variables.player_job_values[Global_Variables.player_job][3]
 	boost_cooldown = Global_Variables.player_job_values[Global_Variables.player_job][2]
+
+func exp_amount(exp_gained):
+	$Exp_Up.visible = true
+	$Exp_Up.text = "+%.2f" % exp_gained
+	
+	# Fade in
+	$Exp_Up.modulate.a = 0
+	var tween = create_tween()
+	tween.tween_property($Exp_Up, "modulate:a", 1.0, 0.5)
+	
+	# Update position during the entire duration
+	var time_elapsed = 0.0
+	while time_elapsed < 2.0:
+		$Exp_Up.global_position = global_position + Vector2(-40, -80)
+		await get_tree().process_frame
+		time_elapsed += get_process_delta_time()
+		
+		# Start fade out in the last second
+		if time_elapsed >= 1.5 and $Exp_Up.modulate.a == 1.0:
+			tween = create_tween()
+			tween.tween_property($Exp_Up, "modulate:a", 0.0, 0.5)
+	
+	$Exp_Up.visible = false

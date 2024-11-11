@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://djkwbce86wiw5"]
+[gd_scene load_steps=52 format=3 uid="uid://djkwbce86wiw5"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu.gd" id="1_6cvw2"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu_container.gd" id="2_vlbgf"]
@@ -12,9 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://efsm3kytifcy" path="res://Finished_Assets/UI_Assets/UI_Logo_Assets/Logo_Todd_Quarter.png" id="7_nan1p"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo.gd" id="8_wta5e"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/logo_quarter.gd" id="9_12msn"]
-[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Bootscreen_Vid.ogv" id="13_0a75u"]
 [ext_resource type="Texture2D" uid="uid://dyvfjpgsclj6s" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Long_Button_1_Green.png" id="14_53g7s"]
-[ext_resource type="AudioStream" uid="uid://8xry4f1a00i8" path="res://Finished_Assets/Misc_Assets/Bootscreen_Vid_Audio.ogg" id="14_plc4p"]
 [ext_resource type="Texture2D" uid="uid://bwo3rgj8qhaww" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Long_Button_2_Green.png" id="15_723d2"]
 [ext_resource type="Texture2D" uid="uid://c73eitfihoqym" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Long_Button_3_Green.png" id="16_y45fm"]
 [ext_resource type="Texture2D" uid="uid://bmantknykgtj2" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_1_Yellow.png" id="17_vyqnp"]
@@ -41,6 +39,9 @@
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/options.gd" id="38_n7sui"]
 [ext_resource type="Texture2D" uid="uid://dwsns2qpb4rll" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_2.png" id="39_txrgw"]
 [ext_resource type="Texture2D" uid="uid://bsef833wrhr75" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_3.png" id="40_655rh"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/ResizedFinalLoadsGameIntro.ogv" id="40_law33"]
+[ext_resource type="AudioStream" uid="uid://caq824guemqai" path="res://Finished_Assets/Misc_Assets/LoadsOMoneyNewIntroAudio.ogg" id="41_nuqjo"]
+[ext_resource type="AudioStream" uid="uid://xewrbtsqvl7f" path="res://Finished_Assets/Song_Assets/Main_Menu_Theme.wav" id="42_3d0r0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccaq5"]
 animations = [{
@@ -217,13 +218,13 @@ autoplay = true
 loop = true
 
 [node name="Logo_Money_BG" type="Sprite2D" parent="Container"]
-position = Vector2(575, 250)
+position = Vector2(575, 241)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_7dmma")
 script = ExtResource("4_h10nh")
 
 [node name="Logo" type="AnimatedSprite2D" parent="Container"]
-position = Vector2(626, 289)
+position = Vector2(626, 280)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ccaq5")
 frame = 2
@@ -231,7 +232,7 @@ frame_progress = 0.605232
 script = ExtResource("8_wta5e")
 
 [node name="Logo_Quarter" type="Sprite2D" parent="Container"]
-position = Vector2(869, 228)
+position = Vector2(869, 220)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("7_nan1p")
 script = ExtResource("9_12msn")
@@ -342,18 +343,20 @@ offset_right = 1152.0
 offset_bottom = 646.0
 
 [node name="Bootscreen_Vid" type="VideoStreamPlayer" parent="Container"]
-visible = false
-offset_left = -62.0
-offset_top = -32.0
-offset_right = 1218.0
-offset_bottom = 688.0
-stream = ExtResource("13_0a75u")
+offset_right = 1152.0
+offset_bottom = 656.0
+stream = ExtResource("40_law33")
 volume_db = -80.0
 
 [node name="Bootscreen_Voicelines" type="AudioStreamPlayer" parent="Container"]
 
 [node name="Bootscreen_Vid_SFX" type="AudioStreamPlayer" parent="Container"]
-stream = ExtResource("14_plc4p")
+stream = ExtResource("41_nuqjo")
+volume_db = -3.0
+
+[node name="Main_Menu_Theme" type="AudioStreamPlayer" parent="Container"]
+stream = ExtResource("42_3d0r0")
+volume_db = 2.0
 
 [connection signal="pressed" from="Container/Button_Sprites/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Container/Button_Sprites/DLC" to="." method="_on_dlc_pressed"]

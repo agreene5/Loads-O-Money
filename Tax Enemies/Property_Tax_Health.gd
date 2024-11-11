@@ -28,6 +28,7 @@ func receive_value(value):
 
 func despawn():
 	Global_Variables.player_exp += property_tax_exp
+	Global_Variables.exp_label(property_tax_exp)
 	print(Global_Variables.player_exp)
 	get_parent().queue_free()
 

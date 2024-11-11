@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Pause_Menu/pause_menu_node_2d_animation.gd" id="2_5rw34"]
 [ext_resource type="Shader" path="res://UI + Menus + Scenes/blur.gdshader" id="2_7g7dh"]
 [ext_resource type="Texture2D" uid="uid://qnupo31u2uni" path="res://UI + Menus + Scenes/Pause_Menu/Pause_Screen_Todd.png" id="2_xysts"]
-[ext_resource type="Theme" uid="uid://yp6yfsdmagcm" path="res://UI + Menus + Scenes/Pause_Menu/Buttons_Theme.tres" id="3_lks4g"]
+[ext_resource type="Theme" uid="uid://yp6yfsdmagcm" path="res://UI + Menus + Scenes/Buttons_Theme.tres" id="3_lks4g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82lji"]
 shader = ExtResource("2_7g7dh")

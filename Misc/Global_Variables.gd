@@ -23,19 +23,19 @@ var game_just_started = true
 var player_exp = 0.0 # The amount of EXP Todd (the player) has
 var player_job = 0 # Defines the players current job | 0: Unemployed, 1: Fast Food Worker, ... 5: Tech Giant CEO
 var player_job_values = { # Defines player job stat values
-	# [0-Exp needed to move up a job, 1-money you earn/second, 2-dash cooldown, 3-dash speed, 4-dash time, 5-speed, 6-sprite 
-	0: [2.0, 0.00, 2.0, 300.0, 0.5, 200.0, "res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png"],
-	1: [20.0, 0.05, 1.5, 400.0, 0.4, 230.0, "res://Finished_Assets/Player_Body_Assets/Fast_Food_Worker_Todd.png"],
-	2: [200.0, 0.50, 1.3, 600.0, 0.3, 267.0, "res://Finished_Assets/Player_Body_Assets/Restaurant_Manager_Todd.png"],
-	3: [1000.0, 5.00, 1.0, 1000.0, 0.2, 300.0, "res://Finished_Assets/Player_Body_Assets/Regional_Operations_Manager_Todd.png"],
-	4: [5000.0, 50.00, 0.8, 1500.0, 0.15, 330.0, "res://Finished_Assets/Player_Body_Assets/CEO_Todd.png"],
-	5: [0.0, 50000000.00, 0.1, 2500.0, 0.1, 500.0, "res://Finished_Assets/Player_Body_Assets/Tech_Giant_CEO_Todd.png"],
+	# [0-Exp needed to move up a job, 1-money you earn/second, 2-dash cooldown, 3-dash speed, 4-dash time, 5-speed, 6-sprite, 7-red flash threshold
+	0: [2.0, 0.00, 2.0, 400.0, 0.5, 200.0, "res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png", 1.50],
+	1: [20.0, 0.10, 1.5, 550.0, 0.4, 230.0, "res://Finished_Assets/Player_Body_Assets/Fast_Food_Worker_Todd.png", 1.00],
+	2: [200.0, 0.75, 1.3, 700.0, 0.3, 267.0, "res://Finished_Assets/Player_Body_Assets/Restaurant_Manager_Todd.png", 2.00],
+	3: [1000.0, 5.00, 1.0, 1000.0, 0.2, 300.0, "res://Finished_Assets/Player_Body_Assets/Regional_Operations_Manager_Todd.png", 20.00],
+	4: [5000.0, 50.00, 0.8, 1500.0, 0.15, 330.0, "res://Finished_Assets/Player_Body_Assets/CEO_Todd.png", 200.00],
+	5: [0.0, 50000000.00, 0.1, 2500.0, 0.1, 500.0, "res://Finished_Assets/Player_Body_Assets/Tech_Giant_CEO_Todd.png", 200.00],
 }
 func level_up():
 	player_job += 1
 	var player = get_tree().current_scene.get_node("Player")
 	player.level_up()
-	
+
 func victory(): # AKA Billionare Status
 	get_tree().paused = true
 	print("YOU WIN WOW YOU'RE A BILLIONARE")
@@ -89,7 +89,6 @@ func set_Current_Shot(new_value):
 
 var player_position # used to let other scripts read player position
 
-
 func explosion_animation(): #spawns explosion animation on players position
 	var explosion_scene = load("res://Misc/explosion_animation.tscn")
 	var explosion_instance = explosion_scene.instantiate()
@@ -122,6 +121,11 @@ func MLG_video(): # Plays MLG video for instant replay
 		await get_tree().create_timer(12.0).timeout # Waiting for replay to finish
 		MLG_instance.queue_free()
 		get_tree().reload_current_scene() # Resetting gameplay scene after you die
+
+func exp_label(exp_gained): # Spawns EXP label on player when an enemy is destroyed
+	var current_scene = get_tree().current_scene
+	var player = current_scene.get_node("Player")
+	player.exp_amount(exp_gained)
 
 var Car_Stored_Positions = [] # ALl stored states are for the instant replay
 var Car_Stored_States = []

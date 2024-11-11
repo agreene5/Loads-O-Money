@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=35 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Player/Player_Shot_Script.gd" id="3_yqww1"]
 [ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="4_mhaun"]
 [ext_resource type="Texture2D" uid="uid://dkh66hpdpirxg" path="res://Finished_Assets/Player_In_Hand_Assets/Tiny_Moneygun.png" id="5_7x1tx"]
+[ext_resource type="Script" path="res://Player/flashing_red.gd" id="5_dil2f"]
 [ext_resource type="Script" path="res://Player/Player_location.gd" id="5_te5s5"]
 [ext_resource type="Script" path="res://Player/shot_in_hand.gd" id="6_y3fsq"]
 [ext_resource type="Script" path="res://Player/todd_body_signaler.gd" id="8_tlag8"]
@@ -25,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://la57ykvlv6hh" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #4.png" id="23_ig6ga"]
 [ext_resource type="Script" path="res://Player/dash_animation.gd" id="24_xg3km"]
 [ext_resource type="AudioStream" uid="uid://p4dipvhhnu0j" path="res://Finished_Assets/SFX_Assets/Dash_SFX.mp3" id="25_lk1h0"]
+[ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="27_1r666"]
+[ext_resource type="Script" path="res://Player/exp_up.gd" id="27_6melb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
 shader = ExtResource("1_n13bh")
@@ -118,12 +121,15 @@ script = ExtResource("2_x6mct")
 position = Vector2(6.10352e-05, 3.05176e-05)
 script = ExtResource("3_yqww1")
 
-[node name="Player_Sprite" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("5_dil2f")
+
+[node name="Player_Sprite" type="Sprite2D" parent="Node2D"]
 use_parent_material = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_mhaun")
 
-[node name="Shot_In_Hand_Sprite" type="Sprite2D" parent="."]
+[node name="Shot_In_Hand_Sprite" type="Sprite2D" parent="Node2D"]
 use_parent_material = true
 position = Vector2(11, 24)
 scale = Vector2(0.02, 0.02)
@@ -174,3 +180,15 @@ script = ExtResource("24_xg3km")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash_Animation"]
 stream = ExtResource("25_lk1h0")
 volume_db = -17.0
+
+[node name="Exp_Up" type="Label" parent="."]
+visible = false
+offset_left = -23.0
+offset_top = -80.0
+offset_right = 23.0
+offset_bottom = -37.0
+theme = ExtResource("27_1r666")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "+15"
+script = ExtResource("27_6melb")

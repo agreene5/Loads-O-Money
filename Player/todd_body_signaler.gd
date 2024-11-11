@@ -63,8 +63,8 @@ func _on_area_entered(area):
 		get_tree().paused = true
 		
 		var parent = get_parent()
-		var player_sprite = parent.get_node_or_null("Player_Sprite")
-		var shot_sprite = parent.get_node_or_null("Shot_In_Hand_Sprite")
+		var player_sprite = parent.get_node_or_null("Node2D/Player_Sprite")
+		var shot_sprite = parent.get_node_or_null("Node2D/Shot_In_Hand_Sprite")
 		
 		player_sprite.visible = false
 		shot_sprite.visible = false
@@ -90,8 +90,8 @@ func _on_area_entered(area):
 			get_tree().paused = true
 			
 			var parent = get_parent()
-			var player_sprite = parent.get_node_or_null("Player_Sprite")
-			var shot_sprite = parent.get_node_or_null("Shot_In_Hand_Sprite")
+			var player_sprite = parent.get_node_or_null("Node2D/Player_Sprite")
+			var shot_sprite = parent.get_node_or_null("Node2D/Shot_In_Hand_Sprite")
 			
 			player_sprite.visible = false
 			shot_sprite.visible = false
@@ -110,8 +110,8 @@ func _on_area_entered(area):
 			Global_Variables.explosion_animation()
 			
 			var parent = get_parent()
-			var player_sprite = parent.get_node_or_null("Player_Sprite")
-			var shot_sprite = parent.get_node_or_null("Shot_In_Hand_Sprite")
+			var player_sprite = parent.get_node_or_null("Node2D/Player_Sprite")
+			var shot_sprite = parent.get_node_or_null("Node2D/Shot_In_Hand_Sprite")
 			player_sprite.visible = false
 			shot_sprite.visible = false
 			

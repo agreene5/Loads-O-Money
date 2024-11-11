@@ -144,7 +144,7 @@ func _handle_coin_shot(coin_type, cost):
 		var coin_instance = coin_type.instantiate()
 		var parent = get_parent()
 		
-		var player_sprite = parent.get_node("Player_Sprite")
+		var player_sprite = parent.get_node("Node2D/Player_Sprite")
 		coin_instance.global_position = player_sprite.global_position
 		
 		var click_position = get_global_mouse_position()
@@ -167,7 +167,7 @@ func _handle_dollar_shot(dollar_type, cost):
 		Global_Variables.money -= cost
 		var dollar_instance = dollar_type.instantiate()
 		var parent = get_parent()
-		var player_sprite = parent.get_node("Player_Sprite")
+		var player_sprite = parent.get_node("Node2D/Player_Sprite")
 		dollar_instance.global_position = player_sprite.global_position
 		
 		var click_position = get_global_mouse_position()
@@ -192,7 +192,7 @@ func _handle_check_shot(check_type, cost):
 		var check_instance = check_type.instantiate()
 		var parent = get_parent()
 		
-		var player_sprite = parent.get_node("Player_Sprite")
+		var player_sprite = parent.get_node("Node2D/Player_Sprite")
 		check_instance.global_position = player_sprite.global_position
 		
 		var click_position = get_global_mouse_position()

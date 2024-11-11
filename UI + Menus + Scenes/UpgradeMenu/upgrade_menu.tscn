@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxk5rr44aymkd" path="res://UI + Menus + Scenes/UpgradeMenu/Upgrade_Menu_1.png" id="2_78gvv"]
 [ext_resource type="Shader" path="res://UI + Menus + Scenes/blur.gdshader" id="2_qts8f"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_wb40r"]
-[ext_resource type="Theme" uid="uid://yp6yfsdmagcm" path="res://UI + Menus + Scenes/Pause_Menu/Buttons_Theme.tres" id="3_07dyh"]
+[ext_resource type="Theme" uid="uid://yp6yfsdmagcm" path="res://UI + Menus + Scenes/Buttons_Theme.tres" id="3_07dyh"]
 [ext_resource type="Texture2D" uid="uid://b5jpcy4l1fspq" path="res://Finished_Assets/Player_Shot_Assets/Penny.png" id="4_djvnn"]
 [ext_resource type="Texture2D" uid="uid://dj172u042yl2k" path="res://Finished_Assets/Player_Shot_Assets/Washington_1Dollar.png" id="5_dwqtv"]
 [ext_resource type="Texture2D" uid="uid://tort1q8qxmy" path="res://Finished_Assets/Player_Shot_Assets/Check_100.PNG" id="6_g7oa6"]

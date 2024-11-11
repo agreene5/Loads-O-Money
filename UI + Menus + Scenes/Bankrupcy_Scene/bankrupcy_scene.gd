@@ -24,17 +24,12 @@ func _ready():
 func _on_window_size_changed():
 	var window_size = get_viewport().get_visible_rect().size
 	
-	# Calculate scale factor
-	var scale_factor = min(
-		window_size.x / original_size.x,
-		window_size.y / original_size.y
-	)
+	# Calculate scale factors for both dimensions separately
+	var scale_x = window_size.x / original_size.x
+	var scale_y = window_size.y / original_size.y
 	
-	# Apply the new scale relative to the original scale
-	scale = original_scale * scale_factor
+	# Apply different scaling for each axis
+	scale = Vector2(scale_x, scale_y) * original_scale
 	
-	# Calculate position offset
-	var scaled_offset = (window_size - original_size * scale_factor) / 2
-	
-	# Apply the new position relative to the original position
-	position = original_position * scale_factor + scaled_offset
+	# Update position to center the content
+	position = original_position * Vector2(scale_x, scale_y)

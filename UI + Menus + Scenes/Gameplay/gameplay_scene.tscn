@@ -11276,12 +11276,12 @@ polygon = PackedVector2Array(2153, -820, 2159, 10, 3138, -59, 2764, -547, 3013, 
 polygon = PackedVector2Array(1044, -2366, 1748, -1788, 2057, -1009, 3201, -1422, 2680, -2495, 1562, -3046)
 
 [node name="Death_Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="Death_Plane" type="CollisionPolygon2D" parent="Death_Area2D"]
-polygon = PackedVector2Array(209, -4908, -1148, -4659, -1771, -4206, -2427, -2532, -3615, -1921, -3909, -224, -3705, 2333, -3207, 2978, -2608, 3227, -2291, 4324, -1544, 4788, -469, 4766, 516, 3462, 835, 4105, 1435, 4426, 2847, 4313, 3022, 3837, 3232, 2453, 3679, 732, 3538, -643, 3660, -1898, 3355, -2939, 3026, -3312, 2427, -4319, 390, -4930, 390, -5643, 5663, -5530, 5606, 6372, -6466, 6417, -6432, -5643, 266, -5643)
+polygon = PackedVector2Array(325, -4907, -1148, -4659, -1739, -4169, -2427, -2532, -3615, -1921, -3850, -201, -3753, 2250, -3181, 2923, -2531, 3251, -2291, 4324, -1544, 4788, -469, 4766, 243.592, 3822.63, 535, 3121, 631, 3760, 835, 4105, 1435, 4426, 2804, 4309, 2996, 3816, 3194, 2493, 3679, 732, 3567, 7, 3381, -553, 3593.3, -1211.88, 3660, -1898, 3352, -2908, 3013, -3253, 2553.06, -4047.94, 1746, -4537, 345, -4913, 390, -5643, 5663, -5530, 5606, 6372, -6466, 6417, -6432, -5643, 266, -5643)
 
 [node name="Gameplay_Theme" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("17_s8l16")
 autoplay = true
 
@@ -11346,3 +11346,11 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -4272.0
+offset_top = -4320.0
+offset_right = 4168.0
+offset_bottom = 4952.0
+color = Color(0.74476, 0.418342, 1, 1)

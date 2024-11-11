@@ -135,7 +135,7 @@ func _process(delta):
 			print("opening pause menu   ", Global_Variables.is_paused)
 			%Menu_Spawner.pause_menu()
 			print(Global_Variables.is_paused)
-			
+		
 
 func check_level_up():
 	if Global_Variables.player_job_values[Global_Variables.player_job][0] <= Global_Variables.player_exp and Global_Variables.player_job != 5:
@@ -147,8 +147,8 @@ func check_level_up():
 		Global_Variables.explosion_animation()
 		get_tree().paused = true
 		
-		var player_sprite = $Player.get_node_or_null("Player_Sprite")
-		var shot_sprite = $Player.get_node_or_null("Shot_In_Hand_Sprite")
+		var player_sprite = $Player.get_node_or_null("Node2D/Player_Sprite")
+		var shot_sprite = $Player.get_node_or_null("Node2D/Shot_In_Hand_Sprite")
 		
 		player_sprite.visible = false
 		shot_sprite.visible = false
