@@ -343,6 +343,7 @@ offset_right = 1152.0
 offset_bottom = 646.0
 
 [node name="Bootscreen_Vid" type="VideoStreamPlayer" parent="Container"]
+visible = false
 offset_right = 1152.0
 offset_bottom = 656.0
 stream = ExtResource("40_law33")

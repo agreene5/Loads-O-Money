@@ -163,7 +163,7 @@ func check_level_up():
 		$AudioStreamPlayer.volume_db += 5
 		$AudioStreamPlayer.play()
 			
-		await get_tree().create_timer(4.0).timeout 
+		await get_tree().create_timer(4.0).timeout
 		Global_Variables.defeat()
 		player_sprite.visible = true
 		shot_sprite.visible = true

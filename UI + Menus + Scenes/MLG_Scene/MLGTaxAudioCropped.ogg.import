@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://t2vpg4tvpcee"
+path="res://.godot/imported/MLGTaxAudioCropped.ogg-ee128cfebf35cbf07957bd01505b626d.oggvorbisstr"
+
+[deps]
+
+source_file="res://UI + Menus + Scenes/MLG_Scene/MLGTaxAudioCropped.ogg"
+dest_files=["res://.godot/imported/MLGTaxAudioCropped.ogg-ee128cfebf35cbf07957bd01505b626d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

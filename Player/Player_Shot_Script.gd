@@ -35,18 +35,11 @@ var is_firing = false
 var fire_timer = 0.0
 
 #----------------
-var replay_mode = false
 
 @onready var player = get_parent()
 
-func set_replay_mode(value: bool):
-	replay_mode = value
 
 func _input(event):
-	if player.is_replaying:
-		print("is_replaying")
-		return
-	
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		is_firing = event.pressed

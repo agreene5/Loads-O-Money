@@ -11346,11 +11346,3 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -4272.0
-offset_top = -4320.0
-offset_right = 4168.0
-offset_bottom = 4952.0
-color = Color(0.74476, 0.418342, 1, 1)

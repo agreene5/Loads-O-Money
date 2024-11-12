@@ -114,34 +114,17 @@ func collision_animation(physics_position): #spawns collision animation on physi
 	await get_tree().create_timer(0.4).timeout # Waiting for sfx to finish before despawning
 	collision_instance.queue_free()
 
-func MLG_video(): # Plays MLG video for instant replay
-		var MLG_scene = load("res://UI + Menus + Scenes/MLG_Scene/MLG_Instant_Replay_Video.tscn")
-		var MLG_instance = MLG_scene.instantiate()
-		get_tree().root.add_child(MLG_instance)
-		await get_tree().create_timer(12.0).timeout # Waiting for replay to finish
-		MLG_instance.queue_free()
-		get_tree().reload_current_scene() # Resetting gameplay scene after you die
-
 func exp_label(exp_gained): # Spawns EXP label on player when an enemy is destroyed
 	var current_scene = get_tree().current_scene
 	var player = current_scene.get_node("Player")
 	player.exp_amount(exp_gained)
 
-var Car_Stored_Positions = [] # ALl stored states are for the instant replay
-var Car_Stored_States = []
-var Player_Stored_Inputs = []
-var Player_Stored_States = []
-
-func instant_replay_functions(): # Calls the 3 functions that make the camera switch, the player replay movement, and the car replay movement
-	var current_scene = get_tree().current_scene
-	current_scene.switch_to_instant_replay_camera()
-	current_scene.get_node("Gameplay_Theme").stop()
-
-	var player = current_scene.get_node("Player")
-	player.start_replay()
-
-	var car = current_scene.get_node("Physics_Objects/Car_1")
-	car.start_replay()
+var MLG_videos = ["res://UI + Menus + Scenes/MLG_Scene/UnemployedCropped.ogv",
+"res://UI + Menus + Scenes/MLG_Scene/FastFoodCropped.ogv",
+"res://UI + Menus + Scenes/MLG_Scene/ManagerCropped.ogv",
+"res://UI + Menus + Scenes/MLG_Scene/OperationsCropped.ogv",
+"res://UI + Menus + Scenes/MLG_Scene/CEOMLGDeath_Resized.ogv",
+"res://UI + Menus + Scenes/MLG_Scene/CEOCropped.ogv"]
 
 func hit(area, my_value): # For tax enemy health
 	print(my_value)

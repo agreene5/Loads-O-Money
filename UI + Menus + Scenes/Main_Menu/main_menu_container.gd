@@ -43,7 +43,7 @@ func _play_bootscreen():
 	$Bootscreen_Vid.play()
 	
 	# Wait for 4 seconds (or until the video finishes)
-	await get_tree().create_timer(4.35).timeout
+	await get_tree().create_timer(4.4).timeout
 		
 	$Bootscreen_Vid.visible = false
 	$Bootscreen_Vid.stop()

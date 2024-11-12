@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvfgiemfo8x1c"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/MLG_Scene/mlg_scene.gd" id="1_x20xc"]
+[ext_resource type="AudioStream" uid="uid://t2vpg4tvpcee" path="res://UI + Menus + Scenes/MLG_Scene/MLGTaxAudioCropped.ogg" id="2_pfji2"]
+
+[node name="MLG_Scene" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_x20xc")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1150.0
+offset_bottom = 648.0
+volume_db = -80.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pfji2")
+volume_db = -5.0
+autoplay = true
