@@ -15,21 +15,23 @@ func _ready():
 
 	tax_evasion_timer = Timer.new()
 	tax_evasion_timer.one_shot = true
-	tax_evasion_timer.wait_time = 60.0  # 60 seconds
+	tax_evasion_timer.wait_time = 120.0
 	tax_evasion_timer.timeout.connect(tax_evasion)  # Connect directly to evading
 	add_child(tax_evasion_timer)
 	
 	tax_evasion_timer.start()
-	
+
 func tax_evasion():
-	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Tax_Evasion_Scene/tax_evasion_scene.tscn")
+	print("taxevasion going")
+	Global_Variables.mute_game_theme(true)
+	get_parent().get_parent().tax_evasion_ending_start()
 
 
 func receive_value(value):
 	pass
 
 func _on_area_entered(area):
-	if area.name in ["Sales_Collision_Detector", "Property_Collision_Detector", "Income_Collision_Detector"]:
+	if area.name in ["Sales_Collision_Detector", "Property_Collision_Detector", "Income_Collision_Detector", "Golden_Collision_Detector"]:
 		tax_evasion_timer.start()
 		
 		var result = Global_Variables.calculate_difference(Global_Variables.money, area.get_value())
@@ -48,8 +50,9 @@ func _on_area_entered(area):
 		
 		
 		
-	if area.name == "Death_Area2D": # Drowning Death
-		Global_Variables.explosion_animation()
+	elif area.name == "Death_Area2D": # Drowning Death
+		Global_Variables.mute_game_theme(true)
+		Global_Variables.irs_aligator_death_animation()
 		get_tree().paused = true
 		
 		var parent = get_parent()
@@ -59,7 +62,7 @@ func _on_area_entered(area):
 		player_sprite.visible = false
 		shot_sprite.visible = false
 		
-		await get_tree().create_timer(0.5).timeout # Wait for explosion animation to finish
+		await get_tree().create_timer(0.6).timeout # Wait for explosion animation to finish
 		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_1.wav")
 		audio_player.volume_db += 3  # Increase volume by 3 decibels
 		audio_player.play()
@@ -69,7 +72,8 @@ func _on_area_entered(area):
 		player_sprite.visible = true
 		shot_sprite.visible = true
 		
-	if area.name == "Car_Death_Box": # Car death
+	elif area.name == "Car_Death_Box": # Car death
+		Global_Variables.mute_game_theme(true)
 		Global_Variables.explosion_animation()
 		get_tree().paused = true
 		
@@ -81,7 +85,7 @@ func _on_area_entered(area):
 		shot_sprite.visible = false
 		
 		await get_tree().create_timer(0.5).timeout # Wait for explosion animation to finish
-		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Misc_Voicel_Lines/Todd_Pain.wav")
+		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Pain.wav")
 		audio_player.volume_db += 5 
 		audio_player.play()
 		
@@ -89,3 +93,9 @@ func _on_area_entered(area):
 		get_tree().change_scene_to_file("res://UI + Menus + Scenes/MLG_Scene/mlg_scene.tscn")
 		player_sprite.visible = false
 		shot_sprite.visible = false
+	elif area.name == "Saul_Death": # Saul steals yo money 
+		Global_Variables.money -= Global_Variables.money/3
+	elif area.name == "Polo_Detector": # You able to Rob Polo :OOOO
+		pass
+		
+		

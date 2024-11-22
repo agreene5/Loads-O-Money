@@ -16,7 +16,7 @@ func _ready():
 
 	get_tree().paused = true
 	print("Broke :(")
-	await get_tree().create_timer(5.5).timeout # Waiting for sfx to finish
+	await get_tree().create_timer(5.0).timeout # Waiting for sfx to finish
 	var gameplay_scene = load("res://UI + Menus + Scenes/Gameplay/gameplay_scene.tscn")
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(gameplay_scene)

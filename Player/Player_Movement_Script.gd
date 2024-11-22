@@ -9,7 +9,6 @@ var can_boost = true
 var velocity = Vector2.ZERO
 var pushback_factor = 0.5
 
-
 # Amount of exp Todd (the player) has
 var exp = Global_Variables.player_exp
 
@@ -27,7 +26,6 @@ class InputState:
 		player_velocity = vel
 
 func _ready():
-	
 	gravity_scale = 0
 	linear_damp = 5.0
 	
@@ -36,11 +34,12 @@ func _ready():
 	material = ShaderMaterial.new()
 	material.shader = shader_material
 
-
 func _physics_process(delta):
 	process_normal_input(delta)
 	if Input.is_action_pressed("upgrade"):
 		%Menu_Spawner.upgrade_menu()
+	if Input.is_action_just_pressed("Rob_Polo") and Global_Variables.polo_rob_range:
+		polo_got_robbed()
 
 func process_normal_input(delta):
 	velocity = linear_velocity
@@ -50,14 +49,17 @@ func process_normal_input(delta):
 		apply_movement(input_vector, delta)
 		
 		if Input.is_action_pressed("space") and can_boost:
-			initiate_boost(input_vector)
+			if velocity.length() > 0:
+				initiate_boost(velocity.normalized())
+				$Dash_Animation.rotation = velocity.angle()
 			$Dash_Animation.dash_animation()
 	
 	var target_angle = (get_global_mouse_position() - global_position).angle()
 	rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 
+
+
 func get_input_vector() -> Vector2:
-		
 	var input_vector = Vector2.ZERO
 	if Input.is_action_pressed("up"): input_vector.y -= 1
 	if Input.is_action_pressed("down"): input_vector.y += 1
@@ -65,9 +67,7 @@ func get_input_vector() -> Vector2:
 	if Input.is_action_pressed("right"): input_vector.x += 1
 	return input_vector.normalized() if input_vector.length() > 0 else input_vector
 
-
 func apply_movement(input_vector: Vector2, delta: float):
-	
 	var force = input_vector * move_speed
 	apply_central_force(force)
 
@@ -79,7 +79,10 @@ func initiate_boost(boost_direction):
 
 func reset_boost():
 	can_boost = true
-	
+
+func is_moving() -> bool:
+	return linear_velocity.length() > 200.0  # Using a small threshold to account for floating-point imprecision
+
 func level_up():
 	$Upgrade_Animation.upgrade_animation()
 	await get_tree().create_timer(0.6).timeout
@@ -110,3 +113,29 @@ func exp_amount(exp_gained):
 			tween.tween_property($Exp_Up, "modulate:a", 0.0, 0.5)
 	
 	$Exp_Up.visible = false
+
+func polo_got_robbed():
+	Global_Variables.money += 0.07
+	$AudioStreamPlayer.stream = load("res://Temp_Assets/Temp_SFX_Assets/Cha-Ching-SFX.mp3")
+	$AudioStreamPlayer.play()
+	await get_tree().create_timer(3.0).timeout
+	var mechi_scene = load("res://Misc/mechi.tscn")
+	var mechi_instance = mechi_scene.instantiate()
+	add_child(mechi_instance)
+	await get_tree().create_timer(0.6).timeout
+	
+	$AudioStreamPlayer.stream = load("res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/NOOOOO_Voice_Line.mp3")
+	$AudioStreamPlayer.volume_db += 3  # Increase volume by 3 decibels
+	$AudioStreamPlayer.play()
+	
+	await get_tree().create_timer(0.4).timeout
+	Global_Variables.mute_game_theme(true)
+	get_tree().paused = true
+	Global_Variables.explosion_animation()
+	$Node2D/Player_Sprite.visible = false
+	$Node2D/Shot_In_Hand_Sprite.visible = false
+
+	await get_tree().create_timer(1.6).timeout # Wait for explosion animation to finish
+	get_tree().reload_current_scene()
+	$Node2D/Player_Sprite.visible = true
+	$Node2D/Shot_In_Hand_Sprite.visible = true

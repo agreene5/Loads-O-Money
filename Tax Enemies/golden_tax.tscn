@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqfd1gms6r78v"]
+
+[ext_resource type="Script" path="res://Tax Enemies/Follow_Player.gd" id="1_0jjxj"]
+[ext_resource type="Texture2D" uid="uid://bknycqspvqqx0" path="res://Finished_Assets/Tax_Enemy_Assets/GoldenTax_High_Health.png" id="1_lab72"]
+[ext_resource type="Shader" path="res://Tax Enemies/enemy_shader.gdshader" id="1_mddo2"]
+[ext_resource type="Script" path="res://Tax Enemies/Golden_Tax_Health.gd" id="2_0cyvo"]
+[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/Enemy_Tax_Shots.gd" id="2_yj8ta"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ag2g6"]
+shader = ExtResource("1_mddo2")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.1
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.1
+shader_parameter/sprite_skew_start = 0.0
+shader_parameter/sprite_skew_end = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fex3t"]
+size = Vector2(185, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyecn"]
+size = Vector2(197, 215)
+
+[node name="Golden_Tax" type="RigidBody2D"]
+material = SubResource("ShaderMaterial_ag2g6")
+collision_layer = 4
+collision_mask = 5
+mass = 20.0
+script = ExtResource("1_0jjxj")
+
+[node name="Golden_Tax_Shot" type="Node2D" parent="."]
+script = ExtResource("2_yj8ta")
+
+[node name="Golden_Tax_Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+use_parent_material = true
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("1_lab72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14.5, -6)
+shape = SubResource("RectangleShape2D_fex3t")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_0cyvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(13.5, -6.5)
+shape = SubResource("RectangleShape2D_dyecn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://xqeojr7sc48"]
+
+[ext_resource type="Texture2D" uid="uid://bagoctn6pup83" path="res://Finished_Assets/Map_Assets/Polo_Li_Assets/PoloLi.png" id="1_5u5nd"]
+[ext_resource type="Script" path="res://Misc/polo_li.gd" id="1_l3ga0"]
+[ext_resource type="Texture2D" uid="uid://cjjenhw7oifd3" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Press_E_To_Rob_1.png" id="2_o40qs"]
+[ext_resource type="Texture2D" uid="uid://bqhm3o7vh8wer" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Press_E_To_Rob_2.png" id="3_2ab1u"]
+[ext_resource type="Texture2D" uid="uid://bqg4jtsjsqpaj" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Press_E_To_Rob_3.png" id="4_6s7d0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6fmu"]
+radius = 23.815
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uu1ql"]
+radius = 57.0
+height = 134.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvedx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o40qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ab1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6s7d0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Polo_Li" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_l3ga0")
+
+[node name="PoloLi_Sprite" type="Sprite2D" parent="."]
+position = Vector2(182, 86)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_5u5nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(183.62, 84)
+shape = SubResource("CapsuleShape2D_e6fmu")
+
+[node name="Polo_Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Polo_Detector"]
+position = Vector2(185, 86)
+shape = SubResource("CapsuleShape2D_uu1ql")
+
+[node name="PoloRob_Text" type="AnimatedSprite2D" parent="Polo_Detector"]
+visible = false
+position = Vector2(182, -9)
+scale = Vector2(0.225, 0.225)
+sprite_frames = SubResource("SpriteFrames_lvedx")
+frame = 2
+frame_progress = 0.109737
+
+[connection signal="area_entered" from="Polo_Detector" to="." method="_on_polo_detector_area_entered"]
+[connection signal="area_exited" from="Polo_Detector" to="." method="_on_polo_detector_area_exited"]

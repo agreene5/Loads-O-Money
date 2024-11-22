@@ -8,11 +8,12 @@ var timers = []
 var sales_tax_scene = preload("res://Tax Enemies/sales_tax.tscn")
 var property_tax_scene = preload("res://Tax Enemies/property_tax.tscn")
 var income_tax_scene = preload("res://Tax Enemies/income_tax.tscn")
+var golden_tax_scene = preload("res://Tax Enemies/golden_tax.tscn")
 
 # Modified timing values
-var start_times = [10.0, 25.0, 37.5]  # Initial spawn rates
-var end_times = [1.5, 0.6, 0.25]       # Final spawn rates
-var enemy_unlock_times = [0.0, 60.0, 150.0]  # When each enemy type unlocks
+var start_times = [10.0, 25.0, 37.5, 50.0]  # Initial spawn rates
+var end_times = [1.5, 0.6, 0.25, 0.3]       # Final spawn rates
+var enemy_unlock_times = [100.0, 60.0, 150.0, 300.0]  # When each enemy type unlocks
 var game_start_time = 0.0
 var transition_duration
 var transition_start_time = 0.0
@@ -26,15 +27,17 @@ func _ready():
 		
 		remove_rigid_bodies()
 		
-		# Spawn initial sales tax
-		var spawn_position = find_suitable_spawn_point()
-		if spawn_position:
-				var instance = sales_tax_scene.instantiate()
-				instance.global_position = spawn_position
-				instance.name = "Sales_Tax_" + str(rng.randi())
-				get_tree().root.add_child(instance)
+		for i in range(1): # Spawn initial sales tax
+			var spawn_position = find_suitable_spawn_point()
+			if spawn_position:
+					var instance = sales_tax_scene.instantiate()
+					instance.global_position = spawn_position
+					instance.name = "Sales_Tax_" + str(rng.randi())
+					get_tree().root.add_child(instance)
 		
-		for i in range(3):
+		
+		
+		for i in range(4):
 				var timer = Timer.new()
 				add_child(timer)
 				timer.one_shot = false
@@ -51,7 +54,7 @@ func update_timers():
 		var game_elapsed_time = current_time - game_start_time
 		
 		if elapsed_time < transition_duration:
-				for i in range(3):
+				for i in range(4):
 						# Only update timer if this enemy type is unlocked
 						if game_elapsed_time >= enemy_unlock_times[i]:
 								var progress = elapsed_time / transition_duration
@@ -65,6 +68,8 @@ func update_timers():
 										1:  # Property tax (becomes slightly less common)
 												new_wait_time = lerp(start_times[i], end_times[i] * 1.5, progress)
 										2:  # Income tax (maintains regular progression)
+												new_wait_time = lerp(start_times[i], end_times[i], progress)
+										3:
 												new_wait_time = lerp(start_times[i], end_times[i], progress)
 								
 								timers[i].wait_time = new_wait_time
@@ -96,6 +101,9 @@ func _on_Timer_timeout(timer_index):
 				2:
 						scene_to_instantiate = income_tax_scene
 						scene_name = "Income_Tax"
+				3:
+						scene_to_instantiate = golden_tax_scene
+						scene_name = "Golden_Tax"
 		
 		if scene_to_instantiate:
 				var instance = scene_to_instantiate.instantiate()

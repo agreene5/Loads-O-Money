@@ -8,24 +8,15 @@ func _ready():	# Start the sequence of waiting, playing the video, and crashing 
 
 # Coroutine that handles the game flow
 func start_game_flow() -> void:
-	await wait_for_seconds(3)
+	await wait_for_seconds(10.0)
+	crash_game()
 
-	var video_player = get_node(video_player_node_path) if has_node(video_player_node_path) else null
-	if video_player and video_player is VideoStreamPlayer:
-		video_player.play()
-		print("Video started")
-		await wait_for_seconds(5)
-		video_player.stop()
-		print("Video ended, now crashing the game...")
-		crash_game()
-	else:
-		print("VideoStreamPlayer node not found or not valid!")
 
 # Helper function to wait for a given number of seconds
 func wait_for_seconds(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
-# Function to intentionally crash the game
 func crash_game():
-	# Deliberately crash the game by asserting false
-	assert(false, "GET SCAMMED!!!!")
+	# Intentionally crash the game by accessing invalid memory (null pointer dereference)
+	var invalid_node = null
+	invalid_node.call("non_existent_method")

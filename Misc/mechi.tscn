@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvi8x47di6wi1"]
+
+[ext_resource type="Texture2D" uid="uid://doya40dvslcnl" path="res://Finished_Assets/Map_Assets/Polo_Li_Assets/Mechi.png" id="1_rthlo"]
+[ext_resource type="Script" path="res://Misc/mechi.gd" id="2_undv6"]
+
+[node name="Mechi" type="Sprite2D"]
+process_mode = 3
+position = Vector2(1606, 1300)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_rthlo")
+script = ExtResource("2_undv6")

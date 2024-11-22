@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu5xiw5hu8t21"]
+[gd_scene load_steps=7 format=3 uid="uid://bu5xiw5hu8t21"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Victory_Scene/victory_scene.gd" id="1_33ef3"]
-[ext_resource type="Texture2D" uid="uid://cay3hf52vito7" path="res://Temp_Assets/Temp_UI_Assets/TEMP_Victory_Screen.png" id="2_cwcy8"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_vanyr"]
+[ext_resource type="Texture2D" uid="uid://dvow2ojex3j70" path="res://Finished_Assets/Misc_Assets/Victory_Screen.png" id="3_1rtbr"]
 [ext_resource type="AudioStream" uid="uid://bvl1y8yw85bdk" path="res://Temp_Assets/Temp_SFX_Assets/RobloxWinSFX.mp3" id="3_oxwb3"]
 [ext_resource type="AudioStream" uid="uid://dghl04qk3s0mo" path="res://Temp_Assets/Temp_SFX_Assets/Yippee_SFX.mp3" id="6_6t8y6"]
+[ext_resource type="Texture2D" uid="uid://ybwae6y5wfyp" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/YoureABillionare.png" id="6_fwyv2"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -15,9 +16,9 @@ video_player_node_path = NodePath("Node2D/VideoStreamPlayer")
 script = ExtResource("2_vanyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(576, 321)
-scale = Vector2(1.28035, 1.25048)
-texture = ExtResource("2_cwcy8")
+position = Vector2(577.999, 320)
+scale = Vector2(1.27594, 1.24665)
+texture = ExtResource("3_1rtbr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("3_oxwb3")
@@ -37,4 +38,10 @@ grow_vertical = 2
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("6_6t8y6")
 volume_db = -3.0
+pitch_scale = 0.39
 autoplay = true
+
+[node name="BillionareText" type="Sprite2D" parent="Node2D"]
+position = Vector2(579, 355)
+scale = Vector2(1.61392, 1.85746)
+texture = ExtResource("6_fwyv2")

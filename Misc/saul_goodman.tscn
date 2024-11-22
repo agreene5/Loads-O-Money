@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://du0csgm5lv4gt"]
+
+[ext_resource type="Script" path="res://Misc/saul_goodman.gd" id="1_81a6r"]
+[ext_resource type="Texture2D" uid="uid://beyir0r1poyja" path="res://Finished_Assets/Map_Assets/Saul_Goodman/Rich Man Riding Bicycle Animation Frame #3.5.png" id="1_aemaf"]
+[ext_resource type="Texture2D" uid="uid://dvvjdb00a1gri" path="res://Finished_Assets/Map_Assets/Saul_Goodman/Rich Man Bicycle Crash (1).png" id="2_7fwvx"]
+[ext_resource type="Texture2D" uid="uid://db8adlrsqil0q" path="res://Finished_Assets/Map_Assets/Saul_Goodman/Rich Man Riding Bicycle Animation Frame (#1).png" id="2_behap"]
+[ext_resource type="Texture2D" uid="uid://dygmy0x0m2y47" path="res://Finished_Assets/Map_Assets/Saul_Goodman/Rich Man Riding Bicycle Animation Frame (#2).png" id="3_48fba"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7gm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7fwvx")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aemaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_behap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_48fba")
+}],
+"loop": true,
+"name": &"riding",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfaq0"]
+radius = 35.0
+height = 126.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12f7g"]
+radius = 19.0
+height = 70.0
+
+[node name="Saul_Goodman" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_81a6r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_b7gm4")
+animation = &"riding"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 31)
+shape = SubResource("CapsuleShape2D_lfaq0")
+
+[node name="Saul_Death" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saul_Death"]
+position = Vector2(4, -16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_12f7g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="Saul_Death" to="." method="_on_area_2d_area_entered"]

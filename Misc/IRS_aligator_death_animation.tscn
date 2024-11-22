@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2ks8byxs8i4m"]
+
+[ext_resource type="Texture2D" uid="uid://bobtvb06gbd3i" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Death Animation Frame 1.png" id="1_ffji1"]
+[ext_resource type="Texture2D" uid="uid://djoi7gs51lkju" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Death Animation Frame 3.png" id="2_7m621"]
+[ext_resource type="Texture2D" uid="uid://chya4y373kas3" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Death Animation Frame 4.png" id="3_8py6d"]
+[ext_resource type="Texture2D" uid="uid://b1oe2fkikrske" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Death Animation Frame #2.png" id="4_bwrid"]
+[ext_resource type="AudioStream" uid="uid://bmmbh1hlli6v6" path="res://Finished_Assets/SFX_Assets/Aligator_Crunch_SFX.mp3" id="5_d3bwf"]
+[ext_resource type="Script" path="res://Misc/irs_aligator_death_animation.gd" id="5_uyjvx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5g43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ffji1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7m621")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8py6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bwrid")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+process_mode = 3
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o5g43")
+frame_progress = 0.516652
+script = ExtResource("5_uyjvx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_d3bwf")
+autoplay = true

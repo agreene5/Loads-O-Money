@@ -17,7 +17,6 @@ mass = 10.0
 script = ExtResource("1_2xvv4")
 
 [node name="Income_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
-position = Vector2(1.5, -1.5)
 scale = Vector2(0.0695313, 0.0679688)
 texture = ExtResource("2_b3ag5")
 

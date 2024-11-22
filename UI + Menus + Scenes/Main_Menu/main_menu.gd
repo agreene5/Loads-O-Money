@@ -5,12 +5,14 @@ var play_audio: AudioStreamPlayer
 
 func _on_play_pressed() -> void:
 	play_audio.play()
-	
-	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Gameplay/gameplay_scene.tscn")
+	await get_tree().create_timer(1.5).timeout
+	get_tree().change_scene_to_file("res://UI + Menus + Scenes/How_To_Play_Scene/how_to_play.tscn")
+
 
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Options_Menu/options_menu.tscn")
+	print("open")
+	$Container/Upgrade_Menu_Transition.play("Upgrade_Menu_Open")
 
 func _on_dlc_pressed() -> void:
 	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Rick_Roll_Options/rick_roll.tscn")
@@ -36,3 +38,8 @@ func _ready():
 	# Add the audio players as children of the current node
 	add_child(quit_audio)
 	add_child(play_audio)
+
+
+func _on_back_pressed():
+	print("back")
+	$Container/Upgrade_Menu_Transition.play("Upgrade_Menu_Close")

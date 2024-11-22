@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckdo8q08h4371"]
+[gd_scene load_steps=5 format=3 uid="uid://ckdo8q08h4371"]
 
-[ext_resource type="Texture2D" uid="uid://depkdh7q1u6j3" path="res://Temp_Assets/Temp_UI_Assets/BankruptTodd.png" id="1_ckfdp"]
-[ext_resource type="AudioStream" uid="uid://bgfihy1vgjl1q" path="res://Temp_Assets/Temp_SFX_Assets/Bankrupcy_Todd.mp3" id="2_6ryq8"]
+[ext_resource type="AudioStream" uid="uid://cmipincucoap0" path="res://Temp_Assets/Temp_SFX_Assets/Womp Womp Womp sound effect.mp3" id="2_oofq2"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Bankrupcy_Scene/bankrupcy_scene.gd" id="2_pq140"]
+[ext_resource type="Texture2D" uid="uid://pllubfv7jwgc" path="res://Finished_Assets/Misc_Assets/Game_Over.png" id="3_qvfvi"]
+[ext_resource type="Texture2D" uid="uid://0ifu6tmiv5mu" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/YoureBankrupt.png" id="4_ieq7v"]
 
 [node name="Bankrupcy" type="Node2D"]
 process_mode = 3
@@ -12,10 +13,15 @@ scale = Vector2(1.91167, 0.715556)
 script = ExtResource("2_pq140")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_6ryq8")
+stream = ExtResource("2_oofq2")
 autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.30774, -1.39752)
-scale = Vector2(1.00436, 0.996894)
-texture = ExtResource("1_ckfdp")
+position = Vector2(1.56933, -4.19252)
+scale = Vector2(0.313589, 0.838509)
+texture = ExtResource("3_qvfvi")
+
+[node name="BankruptText" type="Sprite2D" parent="."]
+position = Vector2(-22.755, 60.0931)
+scale = Vector2(0.367998, 0.999482)
+texture = ExtResource("4_ieq7v")

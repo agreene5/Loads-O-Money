@@ -1,7 +1,7 @@
 # This script defines the speed and deceleration of the income tax bill shot
 extends RigidBody2D
 
-var initial_velocity = 150
+var initial_velocity = 200
 var despawn_timer = Timer.new()
 var deceleration = Global_Variables.deceleration
 var player_position: Vector2

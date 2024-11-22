@@ -1,0 +1,776 @@
+[gd_scene load_steps=46 format=3 uid="uid://dq5drjojh4a7h"]
+
+[ext_resource type="Texture2D" uid="uid://bqv3xhvbhenri" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/PointingTodd.png" id="1_44nrv"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/How_To_Play_Scene/tutorial.gd" id="1_hwset"]
+[ext_resource type="Texture2D" uid="uid://dd5sphh4c45xs" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/Controls_BG.png" id="2_cghtm"]
+[ext_resource type="Texture2D" uid="uid://sthw8bmditib" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/HowToPlay_BG.png" id="3_hmn6q"]
+[ext_resource type="Texture2D" uid="uid://bhkpy82xibn5p" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/Controls_1.png" id="4_0vifl"]
+[ext_resource type="Texture2D" uid="uid://ji68m6gipjy5" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/Controls_3.png" id="5_spqfy"]
+[ext_resource type="Texture2D" uid="uid://c3o5hcc38bj0r" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/Controls_2.png" id="5_tyw5x"]
+[ext_resource type="Shader" path="res://UI + Menus + Scenes/How_To_Play_Scene/green_screen.gdshader" id="7_e6m6k"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/HowToShoot.ogv" id="7_l8nd8"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="7_li4la"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_Dash.ogv" id="9_lmbwp"]
+[ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="10_8fqi0"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/How_To_Play_Scene/random_movement.gd" id="11_mgik6"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_Press_E.ogv" id="13_rvvy5"]
+[ext_resource type="Texture2D" uid="uid://c8341dlnamc0c" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/UpgradeMenu.png" id="14_6dakd"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/How_To_Play_Scene/upgrade_menu_appear.gd" id="15_5rp8a"]
+[ext_resource type="Texture2D" uid="uid://6thqneg40ta0" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_Play_1.png" id="16_vee5l"]
+[ext_resource type="Texture2D" uid="uid://dv2x4lqgnwhu8" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_Play_2.png" id="17_dxwsm"]
+[ext_resource type="Texture2D" uid="uid://chu8rkkq0c6yq" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_Play_3.png" id="18_abmij"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_LevelUp.ogv" id="19_13ep1"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/HowToDie.ogv" id="20_fifo5"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/UI_Assets/UI_How_To_Play_Assets/How_To_Win.ogv" id="21_llw7l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6h4r7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0vifl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tyw5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_spqfy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_job12"]
+shader = ExtResource("7_e6m6k")
+shader_parameter/transparent_color = Color(0, 1, 0.0666667, 1)
+shader_parameter/pickup_range = 0.3
+shader_parameter/fade_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iw6je"]
+shader = ExtResource("7_e6m6k")
+shader_parameter/transparent_color = Color(0.976471, 0.141176, 0.109804, 1)
+shader_parameter/pickup_range = 0.3
+shader_parameter/fade_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7idr"]
+shader = ExtResource("7_e6m6k")
+shader_parameter/transparent_color = Color(0.921569, 0, 0.94902, 1)
+shader_parameter/pickup_range = 0.3
+shader_parameter/fade_amount = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8tno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_vee5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dxwsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_abmij")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfqcr"]
+shader = ExtResource("7_e6m6k")
+shader_parameter/transparent_color = Color(0, 1, 0.0666667, 1)
+shader_parameter/pickup_range = 0.3
+shader_parameter/fade_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syxol"]
+shader = ExtResource("7_e6m6k")
+shader_parameter/transparent_color = Color(0, 1, 0.0666667, 1)
+shader_parameter/pickup_range = 0.3
+shader_parameter/fade_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_el0cj"]
+shader = ExtResource("7_e6m6k")
+shader_parameter/transparent_color = Color(0, 1, 0.0666667, 1)
+shader_parameter/pickup_range = 0.3
+shader_parameter/fade_amount = 0.5
+
+[sub_resource type="Animation" id="Animation_wtfjg"]
+resource_name = "Ending"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Todd_Point:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(820, 443), Vector2(820, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Todd_Point:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0.55, 0.035)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Todd_Point:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_270y7"]
+resource_name = "How_To_Play"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Todd_Point:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-330, 443), Vector2(326, 443)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Todd_Point:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.55059, 0.55), Vector2(0.56, 0.55), Vector2(0.55, 0.55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Todd_Point:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8nrba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Todd_Point:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 435)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Todd_Point:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Todd_Point:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="Animation" id="Animation_k5yih"]
+resource_name = "Transition_To_Second"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Todd_Point:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(326, 443), Vector2(820, 443)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Todd_Point:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Todd_Point:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1, 0.966667, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0.57, 0.55), Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sv5jl"]
+_data = {
+"Ending": SubResource("Animation_wtfjg"),
+"How_To_Play": SubResource("Animation_270y7"),
+"RESET": SubResource("Animation_8nrba"),
+"Transition_To_Second": SubResource("Animation_k5yih")
+}
+
+[sub_resource type="Animation" id="Animation_mpouj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sales_Tax_Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(902, 255)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sales_Tax_Control:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Controls:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Controls:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wmcqq"]
+resource_name = "Sales_Tax_BG"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sales_Tax_Control:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(300, -300), Vector2(902, 255)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sales_Tax_Control:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5fa1h"]
+resource_name = "Sales_Tax_Disappear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Controls:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sales_Tax_Control:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(902, 255), Vector2(902, 1000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Controls:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bilh7"]
+resource_name = "Sales_Tax_Text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Controls:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xo6ux"]
+_data = {
+"RESET": SubResource("Animation_mpouj"),
+"Sales_Tax_BG": SubResource("Animation_wmcqq"),
+"Sales_Tax_Disappear": SubResource("Animation_5fa1h"),
+"Sales_Tax_Text": SubResource("Animation_bilh7")
+}
+
+[sub_resource type="Animation" id="Animation_pvtyd"]
+resource_name = "How_To_Play_Text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("How_To_Play:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333334, 0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0322581), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m2r6y"]
+resource_name = "Property_BG"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Property_Tax_How:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(230, 323)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Property_Tax_How:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Property_Tax_How:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Property_Tax_How:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="Animation" id="Animation_jljft"]
+resource_name = "Property_Disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Property_Tax_How:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Property_Tax_How:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.55, 0.55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Property_Tax_How:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(230, 323), Vector2(230, -500)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("How_To_Play:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -800)]
+}
+
+[sub_resource type="Animation" id="Animation_8tq2l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Property_Tax_How:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(230, 323)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Property_Tax_How:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Property_Tax_How:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Property_Tax_How:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("How_To_Play:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("How_To_Play:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ja68a"]
+_data = {
+"How_To_Play_Text": SubResource("Animation_pvtyd"),
+"Property_BG": SubResource("Animation_m2r6y"),
+"Property_Disappear": SubResource("Animation_jljft"),
+"RESET": SubResource("Animation_8tq2l")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hwset")
+
+[node name="Black_BG" type="ColorRect" parent="."]
+offset_left = -96.0
+offset_top = -76.0
+offset_right = 1253.0
+offset_bottom = 722.0
+color = Color(0, 0, 0, 1)
+
+[node name="Todd_Point" type="Sprite2D" parent="."]
+position = Vector2(326, 435)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("1_44nrv")
+
+[node name="Sales_Tax_Control" type="Sprite2D" parent="."]
+position = Vector2(902, 255)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("2_cghtm")
+
+[node name="Property_Tax_How" type="Sprite2D" parent="."]
+position = Vector2(230, 323)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_hmn6q")
+
+[node name="Controls" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Control_Text" type="AnimatedSprite2D" parent="Controls"]
+position = Vector2(616, 272)
+scale = Vector2(0.55, 0.55)
+sprite_frames = SubResource("SpriteFrames_6h4r7")
+frame = 2
+frame_progress = 0.56072
+script = ExtResource("7_li4la")
+
+[node name="Shooting" type="VideoStreamPlayer" parent="Controls"]
+material = SubResource("ShaderMaterial_job12")
+layout_mode = 2
+offset_left = 826.0
+offset_top = 400.0
+offset_right = 1018.0
+offset_bottom = 497.0
+stream = ExtResource("7_l8nd8")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Dash" type="VideoStreamPlayer" parent="Controls"]
+material = SubResource("ShaderMaterial_iw6je")
+layout_mode = 2
+offset_left = 914.0
+offset_top = 244.0
+offset_right = 1054.0
+offset_bottom = 304.0
+rotation = -0.0872665
+stream = ExtResource("9_lmbwp")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Movement" type="Sprite2D" parent="Controls"]
+position = Vector2(985, 185)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("10_8fqi0")
+script = ExtResource("11_mgik6")
+
+[node name="Switch_Shot" type="VideoStreamPlayer" parent="Controls"]
+material = SubResource("ShaderMaterial_b7idr")
+layout_mode = 2
+offset_left = 801.0
+offset_top = 302.0
+offset_right = 923.0
+offset_bottom = 409.0
+stream = ExtResource("13_rvvy5")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Upgrade_Menu" type="Sprite2D" parent="Controls"]
+position = Vector2(1023, 340)
+rotation = -0.0698132
+scale = Vector2(0.0759085, 0.0804209)
+texture = ExtResource("14_6dakd")
+script = ExtResource("15_5rp8a")
+
+[node name="Node2D" type="Node2D" parent="Controls"]
+position = Vector2(902, 255)
+scale = Vector2(0.55, 0.55)
+
+[node name="How_To_Play" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="How_To_Play" type="AnimatedSprite2D" parent="How_To_Play"]
+position = Vector2(544, 328)
+scale = Vector2(0.55, 0.55)
+sprite_frames = SubResource("SpriteFrames_t8tno")
+frame = 2
+frame_progress = 0.439203
+script = ExtResource("7_li4la")
+
+[node name="How_To_LVL" type="VideoStreamPlayer" parent="How_To_Play"]
+material = SubResource("ShaderMaterial_tfqcr")
+layout_mode = 2
+offset_left = 139.0
+offset_top = 122.0
+offset_right = 391.0
+offset_bottom = 225.0
+rotation = 0.174533
+stream = ExtResource("19_13ep1")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="How_To_Die" type="VideoStreamPlayer" parent="How_To_Play"]
+material = SubResource("ShaderMaterial_syxol")
+layout_mode = 2
+offset_left = 113.0
+offset_top = 260.0
+offset_right = 369.0
+offset_bottom = 372.0
+rotation = 0.0523599
+stream = ExtResource("20_fifo5")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="How_To_Win" type="VideoStreamPlayer" parent="How_To_Play"]
+material = SubResource("ShaderMaterial_el0cj")
+layout_mode = 2
+offset_left = 167.0
+offset_top = 391.0
+offset_right = 363.0
+offset_bottom = 573.0
+stream = ExtResource("21_llw7l")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Todd_Animations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sv5jl")
+}
+
+[node name="Sales_BG" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xo6ux")
+}
+
+[node name="Property_BG" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ja68a")
+}
+
+[node name="Comic" type="Sprite2D" parent="."]
+position = Vector2(576.5, 324.5)
+scale = Vector2(0.600521, 0.600926)
+
+[node name="Comic_Voice_Lines" type="AudioStreamPlayer" parent="."]

@@ -13,9 +13,9 @@ shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
 shader_parameter/shadow_size = 1.0
 shader_parameter/time_scale = 1.0
 shader_parameter/shadow_skew_start = 0.0
-shader_parameter/shadow_skew_end = 0.03
+shader_parameter/shadow_skew_end = 0.1
 shader_parameter/sprite_skew_start = 0.0
-shader_parameter/sprite_skew_end = 0.03
+shader_parameter/sprite_skew_end = 0.1
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ku40y"]
 bounce = 0.35

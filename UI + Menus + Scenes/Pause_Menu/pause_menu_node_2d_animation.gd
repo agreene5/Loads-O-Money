@@ -13,6 +13,13 @@ func _ready():
 	)
 	get_tree().root.size_changed.connect(_on_window_size_changed)
 	_on_window_size_changed()
+	$Animated_Buttons.modulate.a = 0
+	$AnimationPlayer.play("Pause_Start")
+	await $AnimationPlayer.animation_finished
+	$Resume.visible = true
+	$Quit.visible = true
+	$AnimationPlayer.play("Button_Visible")
+	
 
 func _on_window_size_changed():
 	var window_size = get_viewport().get_visible_rect().size

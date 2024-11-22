@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://djbffycorbdf1"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Tax_Evasion_Scene/pre_tax_evasion_congrats.gd" id="1_ardc3"]
+[ext_resource type="Texture2D" uid="uid://bt8aw5d8ksixj" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/YouJustCommitedTaxFraudText.png" id="1_j4pos"]
+[ext_resource type="Texture2D" uid="uid://bpa41knqjftr" path="res://Finished_Assets/Misc_Assets/ThumbsUpTodd.png" id="1_mafra"]
+[ext_resource type="AudioStream" uid="uid://bpl1sobb2b2bs" path="res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Thanks.mp3" id="4_tctaq"]
+
+[sub_resource type="Animation" id="Animation_o0fbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Good_Job_text:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.88235, 1.60644)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thumbs_Up_Todd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j40yc"]
+resource_name = "Text_Appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Good_Job_text:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.915, 2.487), Vector2(1.88235, 1.60644)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Thumbs_Up_Todd:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.433333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o45s8"]
+_data = {
+"RESET": SubResource("Animation_o0fbi"),
+"Text_Appear": SubResource("Animation_j40yc")
+}
+
+[node name="Pre-Tax_Evasion_Congrats" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ardc3")
+
+[node name="Thumbs_Up_Todd" type="Sprite2D" parent="."]
+position = Vector2(578, 321)
+scale = Vector2(1.87582, 1.60891)
+texture = ExtResource("1_mafra")
+
+[node name="Good_Job_text" type="Sprite2D" parent="."]
+position = Vector2(577, 323.5)
+scale = Vector2(1.88235, 1.60644)
+texture = ExtResource("1_j4pos")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o45s8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tctaq")
+volume_db = 3.0

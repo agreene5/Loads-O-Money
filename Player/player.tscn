@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=41 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
@@ -28,6 +28,11 @@
 [ext_resource type="AudioStream" uid="uid://p4dipvhhnu0j" path="res://Finished_Assets/SFX_Assets/Dash_SFX.mp3" id="25_lk1h0"]
 [ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="27_1r666"]
 [ext_resource type="Script" path="res://Player/exp_up.gd" id="27_6melb"]
+[ext_resource type="Texture2D" uid="uid://chbafyn4d3p2y" path="res://Finished_Assets/Running_Dust_Assets/Dash Dust Sprite Animation Frame #1.png" id="29_gam1y"]
+[ext_resource type="Texture2D" uid="uid://de3wqql1deqk6" path="res://Finished_Assets/Running_Dust_Assets/Dash Dust Sprite Animation Frame #2.png" id="30_ybkjx"]
+[ext_resource type="Texture2D" uid="uid://bxxe0xh8bwrpr" path="res://Finished_Assets/Running_Dust_Assets/Dash Dust Sprite Animation Frame #3.png" id="31_xevy8"]
+[ext_resource type="Texture2D" uid="uid://b3ubk0ctkqu7k" path="res://Finished_Assets/Running_Dust_Assets/Dash Dust Sprite Animation Frame #4.png" id="32_5xs1n"]
+[ext_resource type="Script" path="res://Player/running_dust.gd" id="33_okwu8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
 shader = ExtResource("1_n13bh")
@@ -104,6 +109,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3joty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_gam1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ybkjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_xevy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_5xs1n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="RigidBody2D"]
 z_index = 1
 material = SubResource("ShaderMaterial_y11lk")
@@ -169,8 +194,9 @@ volume_db = -5.0
 [node name="Dash_Animation" type="AnimatedSprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.615686)
+z_index = 1
 texture_filter = 1
-position = Vector2(-23, 0)
+position = Vector2(6, 0)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_fi7jf")
 frame = 1
@@ -179,7 +205,8 @@ script = ExtResource("24_xg3km")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash_Animation"]
 stream = ExtResource("25_lk1h0")
-volume_db = -17.0
+volume_db = -20.0
+pitch_scale = 0.9
 
 [node name="Exp_Up" type="Label" parent="."]
 visible = false
@@ -192,3 +219,15 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "+15"
 script = ExtResource("27_6melb")
+
+[node name="Running_Dust" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-44.075, 1.59)
+rotation = 1.5708
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3joty")
+frame = 2
+frame_progress = 0.840249
+script = ExtResource("33_okwu8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -8,17 +8,22 @@ var test_money = 20.0
 var sales_tax_health = 10.0 # Base health values for each tax enemy 
 var property_tax_health = 15.0
 var income_tax_health = 50.0
+var golden_tax_health = 1500.0
 
 var sales_tax_exp = 1.0 # Base exp values for each tax enemy
 var property_tax_exp = 3.0
 var income_tax_exp = 5.0
+var golden_tax_exp = 500.0
 
 var sales_tax_shot_health = 2.0
 var property_tax_shot_health = 5.0
 var income_tax_shot_health = 20.0
+var golden_tax_shot_health = 50.0
 
 var is_paused = false
 var game_just_started = true
+
+var polo_rob_range = false
 
 var player_exp = 0.0 # The amount of EXP Todd (the player) has
 var player_job = 0 # Defines the players current job | 0: Unemployed, 1: Fast Food Worker, ... 5: Tech Giant CEO
@@ -114,6 +119,14 @@ func collision_animation(physics_position): #spawns collision animation on physi
 	await get_tree().create_timer(0.4).timeout # Waiting for sfx to finish before despawning
 	collision_instance.queue_free()
 
+func irs_aligator_death_animation(): #spawns explosion animation on players position
+	var aligator_scene = load("res://Misc/IRS_aligator_death_animation.tscn")
+	var aligator_instance = aligator_scene.instantiate()
+	aligator_instance.global_position = player_position
+	get_tree().root.add_child(aligator_instance)
+	await get_tree().create_timer(1.0).timeout # Waiting for sfx to finish before despawning
+	aligator_instance.queue_free()
+
 func exp_label(exp_gained): # Spawns EXP label on player when an enemy is destroyed
 	var current_scene = get_tree().current_scene
 	var player = current_scene.get_node("Player")
@@ -170,3 +183,18 @@ var bootscreen_voice_lines = [
 	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_7.wav",
 	"res://Finished_Assets/Voice_Line_Assets/Bootscreen_Voice_Lines/Bootscreen_Voice_Lines_8.wav"
 ]
+
+var comic_voice_lines = [
+	["res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_1_Line_1.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_1_Line_2.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_1_Line_3.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_1_Line_4.mp3"],
+	["res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_2_Line_1.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_2_Line_2.mp3"],
+	["res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_3_Line_1.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_3_Line_2.mp3"]
+]
+
+signal mute_gameplay_theme(mute)
+func mute_game_theme(mute: bool):
+	emit_signal("mute_gameplay_theme", mute)

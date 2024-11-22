@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgq487nb48uvm"]
+
+[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/golden_tax_projectile.gd" id="1_2t0so"]
+[ext_resource type="Texture2D" uid="uid://ci6uidvl8qte8" path="res://Finished_Assets/Tax_Enemy_Assets/Tax_Form.png" id="2_wx4bh"]
+[ext_resource type="Script" path="res://Bills (Tax Enemy Shots)/golden_bill_heath.gd" id="3_o2d3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv8jg"]
+size = Vector2(81, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3kdo"]
+size = Vector2(74, 101)
+
+[node name="Golden_Tax_Projectile" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_2t0so")
+
+[node name="Golden_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_wx4bh")
+
+[node name="Golden_Collision_Detector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_o2d3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Golden_Collision_Detector"]
+position = Vector2(-2.5, 1)
+shape = SubResource("RectangleShape2D_yv8jg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_a3kdo")

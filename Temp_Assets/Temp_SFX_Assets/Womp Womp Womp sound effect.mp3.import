@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmipincucoap0"
+path="res://.godot/imported/Womp Womp Womp sound effect.mp3-268ef0156a2ccc6c88baea59658c728b.mp3str"
+
+[deps]
+
+source_file="res://Temp_Assets/Temp_SFX_Assets/Womp Womp Womp sound effect.mp3"
+dest_files=["res://.godot/imported/Womp Womp Womp sound effect.mp3-268ef0156a2ccc6c88baea59658c728b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -8,9 +8,10 @@ process_mode = 3
 script = ExtResource("1_loa2x")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_left = -69.0
-offset_top = -27.0
-offset_right = 1211.0
-offset_bottom = 693.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 647.0
 stream = ExtResource("2_gvwk2")
 autoplay = true
+expand = true
