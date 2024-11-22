@@ -4,7 +4,7 @@ var original_scale: Vector2
 var original_position: Vector2
 var original_size: Vector2
 var target_size: Vector2
-
+@onready var animation_player = $"../AnimationPlayer"
 func _ready():
 		original_scale = scale
 		original_position = position
@@ -61,4 +61,8 @@ func _on_window_size_changed():
 	position = original_position * Vector2(scale_x, scale_y)
 
 func _on_exit_pressed() -> void:
+	TransitionScene.transition()
+	animation_player.play("rick_move_left")
+	
+	await get_tree().create_timer(1.5).timeout
 	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Main_Menu/main_menu.tscn")

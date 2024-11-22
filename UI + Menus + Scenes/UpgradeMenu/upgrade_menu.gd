@@ -1,5 +1,5 @@
 extends Control
-
+@onready var animation_player = $AnimationPlayer
 @onready var upgrade_menu = $"../UpgradeMenu"
 @onready var CurrentCoinHealthLabel = $Node2D/CurrentCoinHealth
 @onready var UpgradedCoinHealthLabel =$Node2D/UpgradedCoinHealth
@@ -24,6 +24,9 @@ var CurrentCheckPrice = 500
 
 func _ready(): # Starting the values off with the Global Variable values
 		get_tree().paused = true
+		animation_player.play("fade_in_upgrade")
+		create_tween().tween_property(self,"position:y", position.y-750, 1.5)
+		
 		# Check Coin Variant
 		if (Global_Variables.Coin_Variant == 1):
 				CurrentCoinPrice = 20
@@ -81,6 +84,9 @@ func _ready(): # Starting the values off with the Global Variable values
 
 
 func _on_exit_button_pressed() -> void:
+	create_tween().tween_property(self,"position:y", position.y+750, 1.5)
+	animation_player.play("fade_out_upgrade")
+	await get_tree().create_timer(1.5).timeout
 	get_tree().paused = false
 	queue_free()
 

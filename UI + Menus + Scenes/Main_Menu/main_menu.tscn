@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://djkwbce86wiw5"]
+[gd_scene load_steps=55 format=3 uid="uid://djkwbce86wiw5"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu.gd" id="1_6cvw2"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu_container.gd" id="2_vlbgf"]
@@ -196,6 +196,67 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_s1n6i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Logo_Quarter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(869, 220)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Logo_Quarter:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.18, 0.18)]
+}
+
+[sub_resource type="Animation" id="Animation_jsh80"]
+resource_name = "coin_expand"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Logo_Quarter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(869, 220), Vector2(587, 371)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Logo_Quarter:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.18, 0.18), Vector2(1.836, 1.836)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhumt"]
+_data = {
+"RESET": SubResource("Animation_s1n6i"),
+"coin_expand": SubResource("Animation_jsh80")
+}
+
 [node name="Main Menu" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -358,6 +419,11 @@ volume_db = -3.0
 [node name="Main_Menu_Theme" type="AudioStreamPlayer" parent="Container"]
 stream = ExtResource("42_3d0r0")
 volume_db = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rhumt")
+}
 
 [connection signal="pressed" from="Container/Button_Sprites/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Container/Button_Sprites/DLC" to="." method="_on_dlc_pressed"]
