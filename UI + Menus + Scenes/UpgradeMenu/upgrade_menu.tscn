@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp3x47jd1012d"]
+[gd_scene load_steps=15 format=3 uid="uid://dp3x47jd1012d"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.gd" id="1_h65q3"]
 [ext_resource type="Texture2D" uid="uid://cxk5rr44aymkd" path="res://UI + Menus + Scenes/UpgradeMenu/Upgrade_Menu_1.png" id="2_78gvv"]
@@ -13,7 +13,61 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0krjm"]
 shader = ExtResource("2_qts8f")
 shader_parameter/blur = null
-shader_parameter/brightness = 0.719
+shader_parameter/brightness = 1.0
+
+[sub_resource type="Animation" id="Animation_l1te1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/ColorRect:material:shader_parameter/brightness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6cywl"]
+resource_name = "fade_in_upgrade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/ColorRect:material:shader_parameter/brightness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.547]
+}
+
+[sub_resource type="Animation" id="Animation_vjbsx"]
+resource_name = "fade_out_upgrade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/ColorRect:material:shader_parameter/brightness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.538, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvhvs"]
+_data = {
+"RESET": SubResource("Animation_l1te1"),
+"fade_in_upgrade": SubResource("Animation_6cywl"),
+"fade_out_upgrade": SubResource("Animation_vjbsx")
+}
 
 [node name="UpgradeMenu" type="Control"]
 process_mode = 3
@@ -30,14 +84,16 @@ grow_vertical = 2
 script = ExtResource("1_h65q3")
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(49, 765)
 script = ExtResource("2_wb40r")
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
 material = SubResource("ShaderMaterial_0krjm")
-offset_left = -8.0
-offset_top = 7.0
-offset_right = 1290.0
-offset_bottom = 795.0
+offset_left = -3904.0
+offset_top = -2452.0
+offset_right = -2606.0
+offset_bottom = -1664.0
+scale = Vector2(113.752, 13.24)
 color = Color(1, 1, 1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
@@ -271,6 +327,11 @@ scale = Vector2(1.60163, 1.68442)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "200.00"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hvhvs")
+}
 
 [connection signal="pressed" from="Node2D/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Node2D/UpgradeCoinButton" to="." method="_on_upgrade_coin_button_pressed"]
