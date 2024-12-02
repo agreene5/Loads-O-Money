@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=3 uid="uid://cw0gc28n5m2hg"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/todd_jumpscare.gd" id="1_cwi78"]
+[ext_resource type="Texture2D" uid="uid://drn13n3oue7nh" path="res://Temp_Assets/Temp_Character_Assets/Todd_Real_Life.jpg" id="1_xodcp"]
+[ext_resource type="Shader" path="res://UI + Menus + Scenes/Space_Scene/static.gdshader" id="2_x68dd"]
+[ext_resource type="AudioStream" uid="uid://gj6cjiyfs7px" path="res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Jumpscare_Todd_Voice_Line.wav" id="4_i2j7e"]
+[ext_resource type="AudioStream" uid="uid://pbc5h7vyd2gc" path="res://Temp_Assets/Temp_SFX_Assets/Static_SFX_FNAF.mp3" id="5_5lfth"]
+
+[sub_resource type="Animation" id="Animation_rflf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(594, 376)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Static:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xqlbo"]
+resource_name = "Todd_Jumpscare"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.2, 0.833333, 0.9, 1.5, 1.56667, 2.1, 2.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.865, 0.865), Vector2(1.02, 1.02), Vector2(1.02, 1.02), Vector2(1.02, 1.02), Vector2(1.02, 1.02), Vector2(1.02, 1.02), Vector2(1.02, 1.02), Vector2(1.02, 1.02), Vector2(1.02, 1.02)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.2, 0.266667, 0.3, 0.333333, 0.366667, 0.433333, 0.5, 0.533333, 0.566667, 0.6, 0.666667, 0.733333, 0.766667, 0.833333, 0.9, 0.966667, 1, 1.03333, 1.06667, 1.13333, 1.2, 1.23333, 1.26667, 1.3, 1.36667, 1.43333, 1.46667, 1.5, 1.56667, 1.63333, 1.66667, 1.7, 1.73333, 1.8, 1.86667, 1.9, 1.93333, 1.96667, 2.03333, 2.06667, 2.1, 2.16667, 2.23333, 2.26667, 2.3, 2.33333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(594, 376), Vector2(577, 851), Vector2(567, 936), Vector2(626, 941), Vector2(612, 911), Vector2(502, 942), Vector2(568, 924), Vector2(563, 922), Vector2(649, 922), Vector2(626, 970), Vector2(587, 936), Vector2(601, 927), Vector2(583, 939), Vector2(655, 923), Vector2(637, 920), Vector2(590, 980), Vector2(567, 936), Vector2(626, 941), Vector2(612, 911), Vector2(502, 942), Vector2(568, 924), Vector2(563, 922), Vector2(649, 922), Vector2(626, 970), Vector2(587, 936), Vector2(601, 927), Vector2(583, 939), Vector2(655, 923), Vector2(637, 920), Vector2(590, 980), Vector2(567, 936), Vector2(626, 941), Vector2(612, 911), Vector2(502, 942), Vector2(568, 924), Vector2(563, 922), Vector2(649, 922), Vector2(626, 970), Vector2(587, 936), Vector2(601, 927), Vector2(583, 939), Vector2(637, 920), Vector2(590, 980), Vector2(567, 936), Vector2(626, 941), Vector2(612, 911), Vector2(502, 942), Vector2(568, 924), Vector2(563, 922), Vector2(649, 922)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.2, 0.266667, 0.3, 0.333333, 0.366667, 0.433333, 0.5, 0.533333, 0.566667, 0.6, 0.666667, 0.733333, 0.766667, 0.833333, 0.9, 0.966667, 1, 1.03333, 1.06667, 1.13333, 1.2, 1.23333, 1.26667, 1.3, 1.36667, 1.43333, 1.46667, 1.5, 1.56667, 1.63333, 1.66667, 1.7, 1.73333, 1.8, 1.86667, 1.9, 1.93333, 1.96667, 2.03333, 2.06667, 2.1, 2.16667, 2.23333, 2.26667, 2.3, 2.33333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, 0.00174533, 0.0, 0.127409, -0.125664, 0.00174533, 0.0, 0.0, 0.127409, -0.125664]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.133333, 0.2, 0.266667, 0.3, 0.333333, 0.366667, 0.433333, 0.5, 0.533333, 0.566667, 0.6, 0.666667, 0.733333, 0.766667, 0.833333, 0.9, 0.966667, 1, 1.03333, 1.06667, 1.13333, 1.2, 1.23333, 1.26667, 1.3, 1.36667, 1.43333, 1.46667, 1.5, 1.56667, 1.63333, 1.66667, 1.7, 1.73333, 1.8, 1.86667, 1.9, 1.93333, 1.96667, 2.03333, 2.06667, 2.1, 2.16667, 2.23333, 2.26667, 2.3, 2.33333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0942478, 0.0331613, -0.0610865, 0.137881, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.0, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.137881, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.0, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.137881, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.0, 0.0, -0.0942478, -0.0610865, 0.0, -0.0942478, 0.0331613, -0.0610865, 0.137881, 0.0, -0.0942478, 0.0331613]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Static:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.33333, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vg2up"]
+_data = {
+"RESET": SubResource("Animation_rflf4"),
+"Todd_Jumpscare": SubResource("Animation_xqlbo")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53d6d"]
+shader = ExtResource("2_x68dd")
+shader_parameter/noise_strength = 0.5
+shader_parameter/noise_speed = 1.0
+shader_parameter/resolution = Vector2(164, 164)
+
+[node name="Todd_Jumpscare" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_cwi78")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(594, 376)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_xodcp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vg2up")
+}
+
+[node name="Static" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_53d6d")
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 710.0
+offset_bottom = 324.0
+scale = Vector2(1.60852, 2.01506)
+color = Color(0, 0, 0, 1)
+
+[node name="Todd_Jumpscare_Line" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i2j7e")
+volume_db = 3.0
+autoplay = true
+bus = &"VoiceLines"
+
+[node name="Static_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5lfth")
+volume_db = 11.0
+bus = &"SFX"

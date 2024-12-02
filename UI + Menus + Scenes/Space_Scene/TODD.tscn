@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c65p60n02mn5q"]
+
+[ext_resource type="Texture2D" uid="uid://drn13n3oue7nh" path="res://Temp_Assets/Temp_Character_Assets/Todd_Real_Life.jpg" id="1_vk2tr"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/todd.gd" id="1_x274f"]
+[ext_resource type="AudioStream" uid="uid://bvnabhx5c511e" path="res://Temp_Assets/Temp_SFX_Assets/LoadsemoneScary.wav" id="3_0nsfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enqje"]
+size = Vector2(50, 60)
+
+[node name="TODD" type="Area2D"]
+script = ExtResource("1_x274f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.035)
+texture = ExtResource("1_vk2tr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_enqje")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0nsfw")
+volume_db = 4.0
+bus = &"SFX"

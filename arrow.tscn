@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgd5sq78fstmd"]
+
+[ext_resource type="Texture2D" uid="uid://b5g8f6ps81xt8" path="res://Finished_Assets/Space_Assets/Arrow_1.png" id="1_nvpc3"]
+[ext_resource type="Texture2D" uid="uid://hx0v6c4up0v5" path="res://Finished_Assets/Space_Assets/Arrow_2.png" id="2_eif5x"]
+[ext_resource type="Texture2D" uid="uid://ge266abwmjlw" path="res://Finished_Assets/Space_Assets/Arrow_3.png" id="3_22t47"]
+[ext_resource type="Script" path="res://arrow.gd" id="4_l1soo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn6jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nvpc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eif5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_22t47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xs7b"]
+size = Vector2(4466.67, 3080)
+
+[node name="Arrow" type="AnimatedSprite2D"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_fn6jx")
+frame_progress = 0.188713
+script = ExtResource("4_l1soo")
+
+[node name="Arrow_Enter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow_Enter"]
+position = Vector2(2250, 80.0001)
+shape = SubResource("RectangleShape2D_8xs7b")
+
+[connection signal="area_entered" from="Arrow_Enter" to="." method="_on_arrow_enter_area_entered"]
+[connection signal="area_exited" from="Arrow_Enter" to="." method="_on_arrow_enter_area_exited"]

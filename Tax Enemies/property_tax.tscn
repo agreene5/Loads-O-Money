@@ -57,4 +57,5 @@ script = ExtResource("5_o5my5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_26e3d")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="Area2D"]
+bus = &"SFX"

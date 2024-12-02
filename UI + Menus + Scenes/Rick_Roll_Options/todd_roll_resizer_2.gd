@@ -64,5 +64,5 @@ func _on_exit_pressed() -> void:
 	TransitionScene.transition()
 	animation_player.play("rick_move_left")
 	
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Main_Menu/main_menu.tscn")

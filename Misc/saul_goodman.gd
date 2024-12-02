@@ -102,6 +102,9 @@ func teleport_to_nearest_point():
 func _on_area_2d_area_entered(area):
 	if area.name == "Todd_Body_Signaler":
 		if not is_dead:
+			$AudioStreamPlayer.stream = load("res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Stealing_Hard_Earned_Dollars_Voice_Line.mp3")
+			$AudioStreamPlayer.volume_db = 12
+			$AudioStreamPlayer.play()
 			is_dead = true
 			$AnimatedSprite2D.play("dead")
 			$CollisionShape2D.set_deferred("disabled", true)

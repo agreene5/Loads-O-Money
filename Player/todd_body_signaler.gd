@@ -40,7 +40,7 @@ func _on_area_entered(area):
 		
 		# Play hit sfx
 		$AudioStreamPlayer.stream = load(Global_Variables.hurt_voice_lines[random_index])
-		$AudioStreamPlayer.volume_db = -4
+		$AudioStreamPlayer.volume_db = -3
 		$AudioStreamPlayer.play()
 		
 		if self.get_instance_id() < area.get_instance_id():
@@ -64,7 +64,7 @@ func _on_area_entered(area):
 		
 		await get_tree().create_timer(0.6).timeout # Wait for explosion animation to finish
 		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_1.wav")
-		audio_player.volume_db += 3  # Increase volume by 3 decibels
+		audio_player.volume_db = 5  # Increase volume by 3 decibels
 		audio_player.play()
 		
 		await get_tree().create_timer(3.3).timeout
@@ -86,13 +86,13 @@ func _on_area_entered(area):
 		
 		await get_tree().create_timer(0.5).timeout # Wait for explosion animation to finish
 		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Pain.wav")
-		audio_player.volume_db += 5 
+		audio_player.volume_db = 5
 		audio_player.play()
 		
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_file("res://UI + Menus + Scenes/MLG_Scene/mlg_scene.tscn")
-		player_sprite.visible = false
-		shot_sprite.visible = false
+		player_sprite.visible = true
+		shot_sprite.visible = true
 	elif area.name == "Saul_Death": # Saul steals yo money 
 		Global_Variables.money -= Global_Variables.money/3
 	elif area.name == "Polo_Detector": # You able to Rob Polo :OOOO

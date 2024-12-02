@@ -50,7 +50,8 @@ func _on_area_entered(area):
 			update_sprite()
 			if (golden_tax_health <= 0):
 				print("Golden tax died")
-				$AudioStreamPlayer.stream = "res://Temp_Assets/Temp_SFX_Assets/Yippee_SFX.mp3"
+				var yipeee = preload("res://Temp_Assets/Temp_SFX_Assets/Yippee_SFX.mp3")
+				$AudioStreamPlayer.stream = yipeee
 				$AudioStreamPlayer.pitch_scale = 0.8  # Pitch down to 0.9 scale
 				$AudioStreamPlayer.play()
 				tax_position = get_parent().position

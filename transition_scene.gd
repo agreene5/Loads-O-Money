@@ -20,3 +20,5 @@ func transition():
 	animation_player.play("fade_to_black")
 func fade_to_normal():
 	animation_player.play("fade_to_normal")
+func fade_to_white():
+	animation_player.play("fade_to_white")

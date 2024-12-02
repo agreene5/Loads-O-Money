@@ -17,7 +17,7 @@ var initial_values = {
 		"sales_tax_shot_health": 2.0,
 		"property_tax_shot_health": 5.0,
 		"income_tax_shot_health": 20.0,
-		"golden_tax_shot_health": 200.0,
+		"golden_tax_shot_health": 2000.0,
 		
 		"sales_tax_exp": 1.0,
 		"property_tax_exp": 3.0,
@@ -25,21 +25,22 @@ var initial_values = {
 		"golden_tax_exp": 50.0,
 }
 
+
 var target_values = {
 		"sales_tax_health": 300.0,
 		"property_tax_health": 400.0,
-		"income_tax_health": 700.0,
-		"golden_tax_health": 5000.0,
+		"income_tax_health": 900.0,
+		"golden_tax_health": 10000.0,
 		
-		"sales_tax_shot_health": 10.0,
-		"property_tax_shot_health": 25.0,
-		"income_tax_shot_health": 100.0,
-		"golden_tax_shot_health": 1000.0,
+		"sales_tax_shot_health": 100.0,
+		"property_tax_shot_health": 250.0,
+		"income_tax_shot_health": 1000.0,
+		"golden_tax_shot_health": 20000.0,
 		
 		"sales_tax_exp": 50.0,
 		"property_tax_exp": 150.0,
 		"income_tax_exp": 250.0,
-		"golden_tax_exp": 2000.0,
+		"golden_tax_exp": 1000.0,
 }
 
 func _ready():
@@ -57,13 +58,13 @@ func _ready():
 		
 		Global_Variables.sales_tax_health = 10.0
 		Global_Variables.property_tax_health = 15.0
-		Global_Variables.income_tax_health = 50.0
-		Global_Variables.golden_tax_health = 1500.0
+		Global_Variables.income_tax_health = 250.0
+		Global_Variables.golden_tax_health = 3000.0
 		
 		Global_Variables.sales_tax_shot_health = 1.0
 		Global_Variables.property_tax_shot_health = 3.0
-		Global_Variables.income_tax_shot_health = 5.0
-		Global_Variables.golden_tax_shot_health = 50.0
+		Global_Variables.income_tax_shot_health = 25.0
+		Global_Variables.golden_tax_shot_health = 250.0
 		
 		Global_Variables.sales_tax_exp = 1.0
 		Global_Variables.property_tax_exp = 3.0
@@ -170,7 +171,6 @@ func _process(delta):
 				Global_Variables.is_paused = true
 
 func unpausing():
-		print("closing pause menu   ", Global_Variables.is_paused)
 		
 		# Create tween that processes even when paused
 		var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -180,11 +180,23 @@ func unpausing():
 		# Fade out Pause theme
 		tween.parallel().tween_property(%Pause_Theme, "volume_db", -30.0, 2.0)
 		
-		%Menu_Spawner.pause_menu() # Assuming this function handles both pausing and unpausing
+		print(Global_Variables.is_paused)
+		
+func unupgrading():
+		
+		# Create tween that processes even when paused
+		var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		
+		# Fade in Gameplay theme
+		tween.parallel().tween_property(%Gameplay_Theme, "volume_db", 0.0, 1.0) # Assuming 0.0 is your default volume
+		# Fade out Pause theme
+		tween.parallel().tween_property(%Upgrade_Theme, "volume_db", -30.0, 2.0)
+		
 		print(Global_Variables.is_paused)
 
 func tax_evasion_ending_start():
 	%Menu_Spawner.tax_evasion()
+
 
 func check_level_up():
 	if Global_Variables.player_job_values[Global_Variables.player_job][0] <= Global_Variables.player_exp and Global_Variables.player_job != 5:
@@ -194,6 +206,7 @@ func check_level_up():
 	elif Global_Variables.money <= 0:
 		Global_Variables.mute_game_theme(true)
 		Global_Variables.money = 0
+		await get_tree().create_timer(0.1).timeout
 		Global_Variables.explosion_animation()
 		get_tree().paused = true
 		
@@ -210,7 +223,6 @@ func check_level_up():
 		
 		await get_tree().create_timer(0.5).timeout # Wait for explosion animation to finish
 		$AudioStreamPlayer.stream = load(Global_Variables.death_voice_lines[random_index])
-		$AudioStreamPlayer.volume_db += 5
 		$AudioStreamPlayer.play()
 			
 		await get_tree().create_timer(4.0).timeout

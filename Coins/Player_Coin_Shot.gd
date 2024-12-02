@@ -35,4 +35,7 @@ func play_coin_sound():
 	add_child(audio_player)
 	
 	audio_player.stream = load("res://Finished_Assets/SFX_Assets/CoinSFX.mp3")
+	audio_player.pitch_scale = 0.95
+	audio_player.volume_db = -2
+	audio_player.set_bus("SFX")
 	audio_player.play()

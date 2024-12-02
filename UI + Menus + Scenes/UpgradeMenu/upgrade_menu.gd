@@ -25,7 +25,6 @@ var CurrentCheckPrice = 500
 func _ready(): # Starting the values off with the Global Variable values
 		get_tree().paused = true
 		animation_player.play("fade_in_upgrade")
-		create_tween().tween_property(self,"position:y", position.y-750, 1.5)
 		
 		# Check Coin Variant
 		if (Global_Variables.Coin_Variant == 1):
@@ -82,10 +81,36 @@ func _ready(): # Starting the values off with the Global Variable values
 				UpgradedBillHealthLabel.text = ""
 				CurrentBillPriceLabel.text = "100"
 
+		if (Global_Variables.Check_Variant == 1):
+				CurrentCheckPrice = 1000
+				var texture = load("res://Finished_Assets/Player_Shot_Assets/Check_200.png")
+				$Node2D/UpgradeCheckButton.text = "$" + str(CurrentCheckPrice) + "\n" + "Upgrade Check"
+				CheckSprite.set_texture(texture)
+				CurrentCheckHealthLabel.text = "300 -> "
+				UpgradedCheckHealthLabel.text = "800"
+				CurrentCheckPriceLabel.text = "200 -> "
+				UpgradedCheckPriceLabel.text = "500"
+		elif (Global_Variables.Check_Variant == 2):
+				CurrentCheckPrice = 2000
+				var texture = load("res://Finished_Assets/Player_Shot_Assets/Check_500.PNG")
+				$Node2D/UpgradeCheckButton.text = "$" + str(CurrentCheckPrice) + "\n" + "Upgrade Check"
+				CheckSprite.set_texture(texture)
+				CurrentCheckHealthLabel.text = "800 -> "
+				UpgradedCheckHealthLabel.text = "2000"
+				CurrentCheckPriceLabel.text = "500 -> "
+				UpgradedCheckPriceLabel.text = "1000"
+		elif (Global_Variables.Check_Variant == 3):
+				var texture = load("res://Finished_Assets/Player_Shot_Assets/Check_1000.PNG")
+				CheckSprite.set_texture(texture)
+				$Node2D/UpgradeCheckButton.text = "Fully Upgraded"
+				CurrentCheckHealthLabel.text = "2000"
+				UpgradedCheckHealthLabel.text = ""
+				CurrentCheckPriceLabel.text = "1000"
+				UpgradedCheckPriceLabel.text = ""
 
 func _on_exit_button_pressed() -> void:
-	create_tween().tween_property(self,"position:y", position.y+750, 1.5)
 	animation_player.play("fade_out_upgrade")
+	get_parent().get_parent().unupgrading()
 	await get_tree().create_timer(1.5).timeout
 	get_tree().paused = false
 	queue_free()

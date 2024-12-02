@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4lc1rsp7h6sj"]
+
+[ext_resource type="Texture2D" uid="uid://bmys47n8jv6u6" path="res://Finished_Assets/Space_Assets/Asteroid1.png" id="1_16r6a"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/asteroid.gd" id="1_ngedp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb1oj"]
+radius = 63.0
+height = 160.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8528n"]
+radius = 65.0
+height = 168.0
+
+[node name="Asteroid_1" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ngedp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_16r6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pb1oj")
+
+[node name="Asteroid" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid"]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8528n")

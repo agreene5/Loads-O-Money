@@ -81,7 +81,7 @@ func reset_boost():
 	can_boost = true
 
 func is_moving() -> bool:
-	return linear_velocity.length() > 200.0  # Using a small threshold to account for floating-point imprecision
+	return linear_velocity.length() > 300.0  # Using a small threshold to account for floating-point imprecision
 
 func level_up():
 	$Upgrade_Animation.upgrade_animation()
@@ -92,33 +92,38 @@ func level_up():
 	boost_cooldown = Global_Variables.player_job_values[Global_Variables.player_job][2]
 
 func exp_amount(exp_gained):
-	$Exp_Up.visible = true
-	$Exp_Up.text = "+%.2f" % exp_gained
-	
-	# Fade in
-	$Exp_Up.modulate.a = 0
-	var tween = create_tween()
-	tween.tween_property($Exp_Up, "modulate:a", 1.0, 0.5)
-	
-	# Update position during the entire duration
-	var time_elapsed = 0.0
-	while time_elapsed < 2.0:
-		$Exp_Up.global_position = global_position + Vector2(-40, -80)
-		await get_tree().process_frame
-		time_elapsed += get_process_delta_time()
+		$Exp_Up.visible = true
 		
-		# Start fade out in the last second
-		if time_elapsed >= 1.5 and $Exp_Up.modulate.a == 1.0:
-			tween = create_tween()
-			tween.tween_property($Exp_Up, "modulate:a", 0.0, 0.5)
-	
-	$Exp_Up.visible = false
+		# Handle different input types
+		if exp_gained is String:
+				$Exp_Up.text = exp_gained
+		else:
+				$Exp_Up.text = "+%.2f" % exp_gained
+		
+		# Fade in
+		$Exp_Up.modulate.a = 0
+		var tween = create_tween()
+		tween.tween_property($Exp_Up, "modulate:a", 1.0, 0.5)
+		
+		# Update position during the entire duration
+		var time_elapsed = 0.0
+		while time_elapsed < 2.0:
+				$Exp_Up.global_position = global_position + Vector2(-40, -80)
+				await get_tree().process_frame
+				time_elapsed += get_process_delta_time()
+				
+				# Start fade out in the last second
+				if time_elapsed >= 1.5 and $Exp_Up.modulate.a == 1.0:
+						tween = create_tween()
+						tween.tween_property($Exp_Up, "modulate:a", 0.0, 0.5)
+		
+		$Exp_Up.visible = false
 
 func polo_got_robbed():
 	Global_Variables.money += 0.07
 	$AudioStreamPlayer.stream = load("res://Temp_Assets/Temp_SFX_Assets/Cha-Ching-SFX.mp3")
 	$AudioStreamPlayer.play()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	var mechi_scene = load("res://Misc/mechi.tscn")
 	var mechi_instance = mechi_scene.instantiate()
 	add_child(mechi_instance)
@@ -128,7 +133,7 @@ func polo_got_robbed():
 	$AudioStreamPlayer.volume_db += 3  # Increase volume by 3 decibels
 	$AudioStreamPlayer.play()
 	
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.3).timeout
 	Global_Variables.mute_game_theme(true)
 	get_tree().paused = true
 	Global_Variables.explosion_animation()
@@ -137,5 +142,15 @@ func polo_got_robbed():
 
 	await get_tree().create_timer(1.6).timeout # Wait for explosion animation to finish
 	get_tree().reload_current_scene()
+	$Node2D/Player_Sprite.visible = true
+	$Node2D/Shot_In_Hand_Sprite.visible = true
+	
+func turn_invisible():
+	$Node2D/Player_Sprite.visible = false
+	$Node2D/Shot_In_Hand_Sprite.visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+func turn_visible():
+	process_mode = Node.PROCESS_MODE_INHERIT
 	$Node2D/Player_Sprite.visible = true
 	$Node2D/Shot_In_Hand_Sprite.visible = true

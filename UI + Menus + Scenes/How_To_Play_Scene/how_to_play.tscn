@@ -774,3 +774,5 @@ position = Vector2(576.5, 324.5)
 scale = Vector2(0.600521, 0.600926)
 
 [node name="Comic_Voice_Lines" type="AudioStreamPlayer" parent="."]
+volume_db = 3.0
+bus = &"VoiceLines"

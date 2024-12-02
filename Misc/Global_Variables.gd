@@ -22,6 +22,7 @@ var golden_tax_shot_health = 50.0
 
 var is_paused = false
 var game_just_started = true
+var game_just_just_started = true
 
 var polo_rob_range = false
 
@@ -93,11 +94,22 @@ func set_Current_Shot(new_value):
 		emit_signal("Current_Shot_changed")
 
 var player_position # used to let other scripts read player position
+var player_position_space # used to see space player position
+
+var space_win = true
 
 func explosion_animation(): #spawns explosion animation on players position
 	var explosion_scene = load("res://Misc/explosion_animation.tscn")
 	var explosion_instance = explosion_scene.instantiate()
 	explosion_instance.global_position = player_position
+	get_tree().root.add_child(explosion_instance)
+	await get_tree().create_timer(1.3).timeout # Waiting for sfx to finish before despawning
+	explosion_instance.queue_free()
+	
+func space_explosion_animation(): #spawns explosion animation on space player position
+	var explosion_scene = load("res://Misc/explosion_animation.tscn")
+	var explosion_instance = explosion_scene.instantiate()
+	explosion_instance.global_position = player_position_space
 	get_tree().root.add_child(explosion_instance)
 	await get_tree().create_timer(1.3).timeout # Waiting for sfx to finish before despawning
 	explosion_instance.queue_free()
@@ -195,6 +207,18 @@ var comic_voice_lines = [
 	"res://Finished_Assets/Voice_Line_Assets/Comic_Voice_Lines/Comic_3_Line_2.mp3"]
 ]
 
+var todd_random_voice_lines = [
+	"res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_1.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_2.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_3.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_4.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_5.mp3",
+	"res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_6.mp3"
+]
+
+
 signal mute_gameplay_theme(mute)
 func mute_game_theme(mute: bool):
 	emit_signal("mute_gameplay_theme", mute)
+	
+signal space_abduction_triggered

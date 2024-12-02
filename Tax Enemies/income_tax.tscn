@@ -56,4 +56,5 @@ script = ExtResource("5_y4mqt")
 position = Vector2(3, -0.5)
 shape = SubResource("RectangleShape2D_kyavf")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="Area2D"]
+bus = &"SFX"

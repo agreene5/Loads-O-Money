@@ -22,7 +22,7 @@ texture = ExtResource("3_1rtbr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("3_oxwb3")
-autoplay = true
+bus = &"SFX"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node2D"]
 anchors_preset = 15
@@ -39,9 +39,12 @@ grow_vertical = 2
 stream = ExtResource("6_6t8y6")
 volume_db = -3.0
 pitch_scale = 0.39
-autoplay = true
+bus = &"SFX"
 
 [node name="BillionareText" type="Sprite2D" parent="Node2D"]
 position = Vector2(579, 355)
 scale = Vector2(1.61392, 1.85746)
 texture = ExtResource("6_fwyv2")
+
+[node name="Victory_Theme" type="AudioStreamPlayer" parent="Node2D"]
+bus = &"Music"

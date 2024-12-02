@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://xapqg3ga2lq6"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/asteroid.gd" id="1_3yyha"]
+[ext_resource type="Texture2D" uid="uid://bli25f3sdijht" path="res://Finished_Assets/Space_Assets/Amongus.png" id="1_ta0x7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_guvf3"]
+radius = 13.0
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mn1eg"]
+radius = 14.725
+height = 46.0
+
+[node name="Amongus" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_3yyha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("1_ta0x7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.275, 0)
+shape = SubResource("CapsuleShape2D_guvf3")
+
+[node name="Asteroid" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid"]
+position = Vector2(1.275, 0)
+shape = SubResource("CapsuleShape2D_mn1eg")

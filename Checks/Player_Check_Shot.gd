@@ -36,4 +36,5 @@ func play_check_sound():
 		
 		audio_player.stream = load("res://Finished_Assets/SFX_Assets/CheckSFX.mp3")
 		audio_player.volume_db = -3  # Subtracting 3 decibles because vine boom is loud
+		audio_player.set_bus("SFX")
 		audio_player.play()

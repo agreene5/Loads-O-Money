@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://da326dwj8tcoj"]
+
+[ext_resource type="Texture2D" uid="uid://8vgdyu2r1ebm" path="res://Finished_Assets/Tax_Enemy_Assets/Space_Tax_High_Health.png" id="1_c40at"]
+[ext_resource type="Script" path="res://Tax Enemies/run_away_from_player.gd" id="1_he6oa"]
+[ext_resource type="Shader" path="res://UI + Menus + Scenes/Space_Scene/space_glow.gdshader" id="2_jw0f2"]
+[ext_resource type="Script" path="res://Tax Enemies/Space_Tax_Health.gd" id="3_5rk1v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lxdn"]
+shader = ExtResource("2_jw0f2")
+shader_parameter/glow_spread = 50.0
+shader_parameter/glow_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvrm8"]
+size = Vector2(27, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv0rj"]
+size = Vector2(34, 42)
+
+[node name="Space_Tax" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_he6oa")
+
+[node name="Space_Tax_Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2lxdn")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_c40at")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 1)
+shape = SubResource("RectangleShape2D_rvrm8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("3_5rk1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_cv0rj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="Area2D"]
+volume_db = -10.0
+bus = &"SFX"

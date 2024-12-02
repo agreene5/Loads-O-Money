@@ -1,19 +1,81 @@
-[gd_scene load_steps=15 format=3 uid="uid://dp3x47jd1012d"]
+[gd_scene load_steps=29 format=3 uid="uid://dp3x47jd1012d"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.gd" id="1_h65q3"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/upgrademenunode2d.gd" id="2_6cb8w"]
 [ext_resource type="Texture2D" uid="uid://cxk5rr44aymkd" path="res://UI + Menus + Scenes/UpgradeMenu/Upgrade_Menu_1.png" id="2_78gvv"]
 [ext_resource type="Shader" path="res://UI + Menus + Scenes/blur.gdshader" id="2_qts8f"]
-[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_wb40r"]
 [ext_resource type="Theme" uid="uid://yp6yfsdmagcm" path="res://UI + Menus + Scenes/Buttons_Theme.tres" id="3_07dyh"]
 [ext_resource type="Texture2D" uid="uid://b5jpcy4l1fspq" path="res://Finished_Assets/Player_Shot_Assets/Penny.png" id="4_djvnn"]
 [ext_resource type="Texture2D" uid="uid://dj172u042yl2k" path="res://Finished_Assets/Player_Shot_Assets/Washington_1Dollar.png" id="5_dwqtv"]
+[ext_resource type="Texture2D" uid="uid://c68tj8neh6f5t" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_1_Grey.png" id="5_i8iyt"]
 [ext_resource type="Texture2D" uid="uid://tort1q8qxmy" path="res://Finished_Assets/Player_Shot_Assets/Check_100.PNG" id="6_g7oa6"]
+[ext_resource type="Texture2D" uid="uid://bux05y25fe6ia" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_2_Grey.png" id="6_iscee"]
+[ext_resource type="Texture2D" uid="uid://der8dil50tyf2" path="res://Finished_Assets/UI_Assets/UI_Button_Assets/Small_Button_3_Grey.png" id="7_3f7k2"]
 [ext_resource type="FontFile" uid="uid://btrbul8bnjs1y" path="res://Finished_Assets/Comic_Sans_MS_FONT.ttf" id="7_cmigl"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="8_bq387"]
+[ext_resource type="Texture2D" uid="uid://bcygvsdrrqlhy" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_1.png" id="9_g0jbq"]
+[ext_resource type="Texture2D" uid="uid://dwsns2qpb4rll" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_2.png" id="10_eblbw"]
+[ext_resource type="Texture2D" uid="uid://bsef833wrhr75" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Exit_Text_3.png" id="11_137lt"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/UpgradeMenu/exit_button.gd" id="13_js5os"]
+[ext_resource type="Texture2D" uid="uid://8ugla1p5cobp" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/HealthCostShot_1.png" id="18_6v4qa"]
+[ext_resource type="Texture2D" uid="uid://c63eiedqng4m4" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/HealthCostShot_2.png" id="19_yn5qp"]
+[ext_resource type="Texture2D" uid="uid://r2xw6rtfivxg" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/HealthCostShot_3.png" id="20_7bldp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0krjm"]
 shader = ExtResource("2_qts8f")
 shader_parameter/blur = null
 shader_parameter/brightness = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_641uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i8iyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iscee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3f7k2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gvge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_g0jbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eblbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_137lt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcxyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_6v4qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yn5qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7bldp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_l1te1"]
 length = 0.001
@@ -29,10 +91,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(49, 765)]
+}
 
 [sub_resource type="Animation" id="Animation_6cywl"]
 resource_name = "fade_in_upgrade"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,15 +113,26 @@ tracks/0/path = NodePath("Node2D/ColorRect:material:shader_parameter/brightness"
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.547]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 765), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vjbsx"]
 resource_name = "fade_out_upgrade"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,10 +140,22 @@ tracks/0/path = NodePath("Node2D/ColorRect:material:shader_parameter/brightness"
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.538, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 765)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hvhvs"]
@@ -85,14 +181,14 @@ script = ExtResource("1_h65q3")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(49, 765)
-script = ExtResource("2_wb40r")
+script = ExtResource("2_6cb8w")
 
 [node name="ColorRect" type="ColorRect" parent="Node2D"]
 material = SubResource("ShaderMaterial_0krjm")
-offset_left = -3904.0
-offset_top = -2452.0
-offset_right = -2606.0
-offset_bottom = -1664.0
+offset_left = -3951.0
+offset_top = -2404.0
+offset_right = -2653.0
+offset_bottom = -1616.0
 scale = Vector2(113.752, 13.24)
 color = Color(1, 1, 1, 0)
 
@@ -101,7 +197,22 @@ position = Vector2(642.602, 394.399)
 scale = Vector2(0.560002, 0.559999)
 texture = ExtResource("2_78gvv")
 
+[node name="Quit_Button_Sprite" type="AnimatedSprite2D" parent="Node2D"]
+unique_name_in_owner = true
+position = Vector2(1079, 165.325)
+scale = Vector2(0.246575, 0.321255)
+sprite_frames = SubResource("SpriteFrames_641uo")
+script = ExtResource("8_bq387")
+
+[node name="Exit_Text_Sprite" type="AnimatedSprite2D" parent="Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1080.15, 161)
+scale = Vector2(0.196, 0.178454)
+sprite_frames = SubResource("SpriteFrames_0gvge")
+script = ExtResource("8_bq387")
+
 [node name="ExitButton" type="Button" parent="Node2D"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 1018.6
 offset_top = 128.399
 offset_right = 1073.6
@@ -109,15 +220,16 @@ offset_bottom = 170.399
 scale = Vector2(2.2, 1.76)
 theme = ExtResource("3_07dyh")
 text = "Exit"
+script = ExtResource("13_js5os")
 
 [node name="UpgradeCoinButton" type="Button" parent="Node2D"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 503.602
-offset_top = 165.399
-offset_right = 663.602
-offset_bottom = 243.399
+offset_left = 493.0
+offset_top = 163.0
+offset_right = 674.0
+offset_bottom = 259.0
 grow_horizontal = 2
 theme = ExtResource("3_07dyh")
 text = "$2.00
@@ -129,10 +241,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 511.602
-offset_top = 320.399
-offset_right = 659.602
-offset_bottom = 398.399
+offset_left = 493.0
+offset_top = 317.0
+offset_right = 674.0
+offset_bottom = 413.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_07dyh")
@@ -145,10 +257,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 502.102
-offset_top = 488.399
-offset_right = 683.102
-offset_bottom = 566.399
+offset_left = 493.0
+offset_top = 503.0
+offset_right = 674.0
+offset_bottom = 599.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_07dyh")
@@ -156,8 +268,8 @@ text = "$500.00
 Upgrade Check"
 
 [node name="Coin" type="Sprite2D" parent="Node2D"]
-position = Vector2(321.602, 198.399)
-scale = Vector2(0.261761, 0.239999)
+position = Vector2(328, 208)
+scale = Vector2(0.252, 0.231)
 texture = ExtResource("4_djvnn")
 
 [node name="Bill" type="Sprite2D" parent="Node2D"]
@@ -171,164 +283,155 @@ position = Vector2(370.602, 556.399)
 scale = Vector2(0.120001, 0.119998)
 texture = ExtResource("6_g7oa6")
 
-[node name="Label" type="Label" parent="Node2D"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 679.602
-offset_top = 144.399
-offset_right = 757.602
-offset_bottom = 193.399
-grow_horizontal = 2
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_cmigl")
-text = "   Health
-Cost/Shot"
-
-[node name="Label2" type="Label" parent="Node2D"]
-offset_left = 674.602
-offset_top = 323.399
-offset_right = 752.602
-offset_bottom = 372.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_cmigl")
-text = "   Health
-Cost/Shot"
-
-[node name="Label3" type="Label" parent="Node2D"]
-offset_left = 694.602
-offset_top = 507.399
-offset_right = 772.602
-offset_bottom = 556.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_cmigl")
-text = "   Health
-Cost/Shot"
-
 [node name="CurrentCoinHealth" type="Label" parent="Node2D"]
-offset_left = 839.602
-offset_top = 145.399
-offset_right = 917.602
-offset_bottom = 194.399
-scale = Vector2(1.80163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 877.0
+offset_top = 156.0
+offset_right = 955.0
+offset_bottom = 205.0
+scale = Vector2(2.5, 2.336)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = " 1 -> "
 
 [node name="UpgradedCoinHealth" type="Label" parent="Node2D"]
-offset_left = 905.602
-offset_top = 144.399
-offset_right = 983.602
-offset_bottom = 193.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 959.0
+offset_top = 152.0
+offset_right = 1037.0
+offset_bottom = 201.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "3"
 
 [node name="CurrentCoinPrice" type="Label" parent="Node2D"]
-offset_left = 831.602
-offset_top = 185.399
-offset_right = 909.602
-offset_bottom = 234.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 866.0
+offset_top = 204.0
+offset_right = 944.0
+offset_bottom = 253.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "0.01 ->"
 
 [node name="UpgradedCoinPrice" type="Label" parent="Node2D"]
-offset_left = 914.602
-offset_top = 185.399
-offset_right = 992.602
-offset_bottom = 234.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 999.0
+offset_top = 205.0
+offset_right = 1077.0
+offset_bottom = 254.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "0.05"
 
 [node name="CurrentBillHealth2" type="Label" parent="Node2D"]
-offset_left = 820.602
-offset_top = 324.399
-offset_right = 898.602
-offset_bottom = 373.399
-scale = Vector2(1.80163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 868.0
+offset_top = 326.0
+offset_right = 946.0
+offset_bottom = 375.0
+scale = Vector2(2.5, 2.336)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = " 10 -> "
 
 [node name="UpgradedBillHealth2" type="Label" parent="Node2D"]
-offset_left = 899.602
-offset_top = 324.399
-offset_right = 977.602
-offset_bottom = 373.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 979.0
+offset_top = 322.0
+offset_right = 1057.0
+offset_bottom = 371.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "30"
 
 [node name="CurrentBillPrice2" type="Label" parent="Node2D"]
-offset_left = 812.602
-offset_top = 364.399
-offset_right = 890.602
-offset_bottom = 413.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 889.0
+offset_top = 367.0
+offset_right = 967.0
+offset_bottom = 416.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "1 ->"
 
 [node name="UpgradedBillPrice2" type="Label" parent="Node2D"]
-offset_left = 895.602
-offset_top = 364.399
-offset_right = 973.602
-offset_bottom = 413.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 979.0
+offset_top = 373.0
+offset_right = 1057.0
+offset_bottom = 422.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "5"
 
 [node name="CurrentCheckHealth3" type="Label" parent="Node2D"]
-offset_left = 847.602
-offset_top = 509.399
-offset_right = 925.602
-offset_bottom = 558.399
-scale = Vector2(1.80163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 864.0
+offset_top = 493.0
+offset_right = 942.0
+offset_bottom = 542.0
+scale = Vector2(2.5, 2.336)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = " 100 -> "
 
 [node name="UpgradedCheckHealth3" type="Label" parent="Node2D"]
-offset_left = 944.602
-offset_top = 510.399
-offset_right = 1022.6
-offset_bottom = 559.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 991.0
+offset_top = 491.0
+offset_right = 1069.0
+offset_bottom = 540.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "300"
 
 [node name="CurrentCheckPrice3" type="Label" parent="Node2D"]
-offset_left = 839.602
-offset_top = 549.399
-offset_right = 917.602
-offset_bottom = 598.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 872.0
+offset_top = 537.0
+offset_right = 950.0
+offset_bottom = 586.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "100 ->"
 
 [node name="UpgradedCheckPrice3" type="Label" parent="Node2D"]
-offset_left = 922.602
-offset_top = 549.399
-offset_right = 1000.6
-offset_bottom = 598.399
-scale = Vector2(1.60163, 1.68442)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 991.0
+offset_top = 539.0
+offset_right = 1069.0
+offset_bottom = 588.0
+scale = Vector2(2.5, 2.628)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = "200.00"
+text = "200"
+
+[node name="HealthCostShot" type="AnimatedSprite2D" parent="Node2D"]
+modulate = Color(1, 0.804524, 0.987293, 1)
+position = Vector2(766, 208)
+scale = Vector2(0.28, 0.26)
+sprite_frames = SubResource("SpriteFrames_mcxyy")
+frame = 1
+frame_progress = 0.507645
+script = ExtResource("8_bq387")
+
+[node name="HealthCostShot2" type="AnimatedSprite2D" parent="Node2D"]
+modulate = Color(1, 0.803922, 0.988235, 1)
+position = Vector2(760, 368)
+scale = Vector2(0.28, 0.26)
+sprite_frames = SubResource("SpriteFrames_mcxyy")
+frame = 1
+frame_progress = 0.507645
+script = ExtResource("8_bq387")
+
+[node name="HealthCostShot3" type="AnimatedSprite2D" parent="Node2D"]
+modulate = Color(1, 0.803922, 0.988235, 1)
+position = Vector2(770, 538)
+scale = Vector2(0.28, 0.26)
+sprite_frames = SubResource("SpriteFrames_mcxyy")
+frame = 1
+frame_progress = 0.507645
+script = ExtResource("8_bq387")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_hvhvs")
 }

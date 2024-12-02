@@ -21,7 +21,6 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 texture_filter = 1
-
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_dbkbd")
 frame_progress = 0.942532
@@ -31,3 +30,4 @@ script = ExtResource("3_p2rxx")
 stream = ExtResource("3_b7pgx")
 volume_db = 2.0
 autoplay = true
+bus = &"SFX"

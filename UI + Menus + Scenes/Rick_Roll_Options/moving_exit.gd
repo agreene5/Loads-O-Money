@@ -6,7 +6,7 @@ var target_position = Vector2()
 var movement_time = 0.5
 var current_time = 0.0
 var evasion_distance = 200
-var movement_distance = 2
+var movement_distance = 200
 
 func _ready():
 		mouse_filter = Control.MOUSE_FILTER_PASS

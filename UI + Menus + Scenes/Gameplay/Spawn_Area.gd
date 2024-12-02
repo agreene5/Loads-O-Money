@@ -9,11 +9,12 @@ var sales_tax_scene = preload("res://Tax Enemies/sales_tax.tscn")
 var property_tax_scene = preload("res://Tax Enemies/property_tax.tscn")
 var income_tax_scene = preload("res://Tax Enemies/income_tax.tscn")
 var golden_tax_scene = preload("res://Tax Enemies/golden_tax.tscn")
+var space_tax_scene = preload("res://Tax Enemies/space_tax.tscn")
 
 # Modified timing values
 var start_times = [10.0, 25.0, 37.5, 50.0]  # Initial spawn rates
 var end_times = [1.5, 0.6, 0.25, 0.3]       # Final spawn rates
-var enemy_unlock_times = [100.0, 60.0, 150.0, 300.0]  # When each enemy type unlocks
+var enemy_unlock_times = [0.0, 60.0, 150.0, 300.0, 100.0]  # When each enemy type unlocks
 var game_start_time = 0.0
 var transition_duration
 var transition_start_time = 0.0
@@ -28,14 +29,13 @@ func _ready():
 		remove_rigid_bodies()
 		
 		for i in range(1): # Spawn initial sales tax
+			await get_tree().create_timer(0.1).timeout #To prevent enemy spawning with high stats
 			var spawn_position = find_suitable_spawn_point()
 			if spawn_position:
 					var instance = sales_tax_scene.instantiate()
 					instance.global_position = spawn_position
 					instance.name = "Sales_Tax_" + str(rng.randi())
 					get_tree().root.add_child(instance)
-		
-		
 		
 		for i in range(4):
 				var timer = Timer.new()
@@ -46,6 +46,14 @@ func _ready():
 				timer.start()
 				timers.append(timer)
 
+		# Setup space tax random spawn timer
+		var space_tax_timer = Timer.new()
+		add_child(space_tax_timer)
+		space_tax_timer.one_shot = false
+		space_tax_timer.timeout.connect(_on_space_tax_timer_timeout)
+		space_tax_timer.wait_time = 60.0  # Check every minute
+		space_tax_timer.start()
+
 		set_process(true)
 
 func update_timers():
@@ -55,8 +63,8 @@ func update_timers():
 		
 		if elapsed_time < transition_duration:
 				for i in range(4):
-						# Only update timer if this enemy type is unlocked
-						if game_elapsed_time >= enemy_unlock_times[i]:
+						# Only update timer if this enemy type is unlocked and timer exists
+						if game_elapsed_time >= enemy_unlock_times[i] and i < timers.size():
 								var progress = elapsed_time / transition_duration
 								progress = clamp(progress, 0.0, 1.0)
 								
@@ -72,7 +80,8 @@ func update_timers():
 										3:
 												new_wait_time = lerp(start_times[i], end_times[i], progress)
 								
-								timers[i].wait_time = new_wait_time
+								if timers[i]:  # Additional check to ensure timer exists
+										timers[i].wait_time = new_wait_time
 
 func _on_Timer_timeout(timer_index):
 		var current_time = Time.get_ticks_msec() / 1000.0
@@ -226,6 +235,19 @@ func remove_rigid_bodies():
 						else:
 								# Otherwise, add this child to the stack to process its children
 								stack.append(child)
+func abduct_player():
+	%UFO.abduct_player()
+	
+func _on_space_tax_timer_timeout():
+	# 33% chance to spawn
+	if rng.randf() <= 0.33:
+		var spawn_position = find_suitable_spawn_point()
+		if spawn_position:
+			var instance = space_tax_scene.instantiate()
+			instance.global_position = spawn_position
+			instance.name = "Space_Tax_" + str(rng.randi())
+			get_tree().root.add_child(instance)
+			print("Spawned: ", instance.name)
 
 func _process(delta):
 		update_timers()

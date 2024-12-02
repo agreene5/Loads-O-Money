@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://dfgoqbdl5gqm4"]
+[gd_scene load_steps=109 format=4 uid="uid://dfgoqbdl5gqm4"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/gameplay_scene.gd" id="1_wb18l"]
 [ext_resource type="Texture2D" uid="uid://bpfgcb7rclq6h" path="res://RPGMakerTilesets/Outside_A1_Godot.png" id="2_0tmk6"]
@@ -49,13 +49,21 @@
 [ext_resource type="Texture2D" uid="uid://btang6pjeu1pk" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Swimming Animation Frame #1.2.png" id="32_brfcl"]
 [ext_resource type="Texture2D" uid="uid://va3ot5xxd8mj" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Swimming Animation Frame #2.2.png" id="33_122qn"]
 [ext_resource type="Texture2D" uid="uid://dxgcbd12vvps0" path="res://Finished_Assets/Map_Assets/IRS_Aligator_Assets/Alligator Swimming Animation Frame #3.2.png" id="34_0lqj5"]
+[ext_resource type="AudioStream" uid="uid://dt61d3piyejoe" path="res://Finished_Assets/Song_Assets/Upgrade_Menu_Theme.mp3" id="34_lofgu"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/irs_aligator.gd" id="35_hsog0"]
 [ext_resource type="PackedScene" uid="uid://du0csgm5lv4gt" path="res://Misc/saul_goodman.tscn" id="39_svrev"]
+[ext_resource type="Texture2D" uid="uid://bnmkrl83h0swn" path="res://Temp_Assets/Temp_Misc/Tim.png" id="43_ob1gn"]
 [ext_resource type="Texture2D" uid="uid://58eg0rded8b1" path="res://Finished_Assets/Map_Assets/Capybara_Assets/HeChillLikeThat2.png" id="44_vex38"]
 [ext_resource type="Texture2D" uid="uid://c2r43cc4w15l8" path="res://Finished_Assets/Map_Assets/Capybara_Assets/HeChillLikeThat1.png" id="45_o7gcq"]
 [ext_resource type="Texture2D" uid="uid://bb1onhvek21m3" path="res://Finished_Assets/Map_Assets/Capybara_Assets/HeChillLikeThat3.png" id="46_3w64v"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="47_1eoj2"]
 [ext_resource type="PackedScene" uid="uid://xqeojr7sc48" path="res://Misc/polo_li.tscn" id="48_oc0qr"]
+[ext_resource type="Shader" path="res://Shaders/Physics_Objects_Shader.gdshader" id="55_p2dkl"]
+[ext_resource type="Texture2D" uid="uid://b1kwadpgu4roh" path="res://Finished_Assets/Space_Assets/UFO_1.png" id="61_cra86"]
+[ext_resource type="Texture2D" uid="uid://c82ych88s824r" path="res://Finished_Assets/Space_Assets/UFO_2.png" id="62_crfk8"]
+[ext_resource type="Texture2D" uid="uid://dskxcewcm0504" path="res://Finished_Assets/Space_Assets/UFO_1_Alternate.png" id="63_2negj"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/ufo.gd" id="64_r6lu7"]
+[ext_resource type="Texture2D" uid="uid://dx7yi8fecpg7e" path="res://Finished_Assets/Space_Assets/Green_Abduction_Light.png" id="65_keeou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7cb2"]
 shader = ExtResource("3_ac5bv")
@@ -11228,6 +11236,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44s8i"]
+shader = ExtResource("55_p2dkl")
+shader_parameter/shadow_offset = Vector2(30, 30)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_size = 1.0
+shader_parameter/time_scale = 1.0
+shader_parameter/shadow_skew_start = 0.0
+shader_parameter/shadow_skew_end = 0.13
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ekc0e"]
 animations = [{
 "frames": [{
@@ -11247,6 +11264,29 @@ animations = [{
 "name": &"default",
 "speed": 3.0
 }]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ia8ni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("61_cra86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_crfk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_2negj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_crfk8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqvmk"]
+radius = 50.6745
 
 [node name="Gameplay_Scene" type="Node2D"]
 script = ExtResource("1_wb18l")
@@ -11326,6 +11366,8 @@ texture = ExtResource("15_3g5xt")
 
 [node name="Bush_1" type="Sprite2D" parent="Plants"]
 use_parent_material = true
+position = Vector2(302.344, 184.552)
+rotation = 1.25664
 texture = ExtResource("16_ge77p")
 
 [node name="Bush_2" type="Sprite2D" parent="Plants"]
@@ -11420,6 +11462,7 @@ tile_map_data = PackedByteArray("AABOAGIAAAABAAQAAABOAGMAAAABAAUAAABOAGQAAAABAAU
 tile_set = SubResource("TileSet_yfy84")
 
 [node name="Spawn_Area" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 script = ExtResource("16_twh6y")
 
@@ -11496,6 +11539,7 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("18_rlshv")
 autoplay = true
+bus = &"Music"
 script = ExtResource("19_hogjb")
 
 [node name="Pause_Theme" type="AudioStreamPlayer" parent="."]
@@ -11504,6 +11548,15 @@ process_mode = 3
 stream = ExtResource("19_c6o3i")
 volume_db = -80.0
 autoplay = true
+bus = &"Music"
+
+[node name="Upgrade_Theme" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("34_lofgu")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
 
 [node name="Default_Enemy_Path" type="Line2D" parent="."]
 unique_name_in_owner = true
@@ -11513,7 +11566,7 @@ points = PackedVector2Array(374, -104, 355, 1179, 441, 2752, -143, 3233, -834, 3
 [node name="Physics_Objects" type="Node2D" parent="."]
 
 [node name="Traffic_Cone" parent="Physics_Objects" instance=ExtResource("18_0755k")]
-position = Vector2(175, -109)
+position = Vector2(210, 1095)
 collision_layer = 3
 mass = 0.5
 script = null
@@ -11531,7 +11584,7 @@ mass = 10.0
 script = null
 
 [node name="Bench" parent="Physics_Objects" instance=ExtResource("21_j10oj")]
-position = Vector2(897, -110)
+position = Vector2(2403, -836)
 collision_layer = 3
 mass = 4.0
 script = null
@@ -11543,10 +11596,92 @@ mass = 1.5
 script = null
 
 [node name="Car_1" parent="Physics_Objects" instance=ExtResource("23_d4bkp")]
-position = Vector2(-1324, -398)
+position = Vector2(-2365, -403)
 rotation = 1.5708
 
 [node name="Camera_1" type="Camera2D" parent="Physics_Objects/Car_1"]
+
+[node name="Traffic_Cone2" parent="Physics_Objects" instance=ExtResource("18_0755k")]
+position = Vector2(1773, -863)
+collision_layer = 3
+mass = 0.5
+script = null
+
+[node name="Traffic_Cone3" parent="Physics_Objects" instance=ExtResource("18_0755k")]
+position = Vector2(1181, 1803)
+collision_layer = 3
+mass = 0.5
+script = null
+
+[node name="Traffic_Cone4" parent="Physics_Objects" instance=ExtResource("18_0755k")]
+position = Vector2(-3194, -343)
+collision_layer = 3
+mass = 0.5
+script = null
+
+[node name="Bench2" parent="Physics_Objects" instance=ExtResource("21_j10oj")]
+position = Vector2(-3140, 1740)
+rotation = -1.5708
+collision_layer = 3
+mass = 4.0
+script = null
+
+[node name="Bench3" parent="Physics_Objects" instance=ExtResource("21_j10oj")]
+position = Vector2(-3156, 1281)
+rotation = -1.5708
+collision_layer = 3
+mass = 4.0
+script = null
+
+[node name="Bench4" parent="Physics_Objects" instance=ExtResource("21_j10oj")]
+position = Vector2(-892, -205)
+collision_layer = 3
+mass = 4.0
+script = null
+
+[node name="Mailbox2" parent="Physics_Objects" instance=ExtResource("19_31odl")]
+position = Vector2(1904, -2029)
+rotation = 0.741765
+collision_layer = 3
+mass = 6.0
+script = null
+
+[node name="Mailbox3" parent="Physics_Objects" instance=ExtResource("19_31odl")]
+position = Vector2(-2348, 2021)
+collision_layer = 3
+mass = 6.0
+script = null
+
+[node name="Mailbox4" parent="Physics_Objects" instance=ExtResource("19_31odl")]
+position = Vector2(2351, 248)
+rotation = 3.14159
+collision_layer = 3
+mass = 6.0
+script = null
+
+[node name="Trash_Can2" parent="Physics_Objects" instance=ExtResource("22_kqrsk")]
+position = Vector2(1991, -1949)
+collision_layer = 3
+mass = 1.5
+script = null
+
+[node name="Trash_Can3" parent="Physics_Objects" instance=ExtResource("22_kqrsk")]
+position = Vector2(838, 2317)
+collision_layer = 3
+mass = 1.5
+script = null
+
+[node name="Trash_Can4" parent="Physics_Objects" instance=ExtResource("22_kqrsk")]
+position = Vector2(-2061, 2509)
+collision_layer = 3
+mass = 1.5
+script = null
+
+[node name="Trash_Can5" parent="Physics_Objects" instance=ExtResource("22_kqrsk")]
+position = Vector2(-651, -3536)
+collision_layer = 3
+mass = 1.5
+script = null
 
 [node name="Timer" type="CanvasLayer" parent="."]
 
@@ -11565,18 +11700,37 @@ metadata/_edit_use_anchors_ = true
 [node name="Menu_Spawner" parent="." instance=ExtResource("27_754da")]
 unique_name_in_owner = true
 
+[node name="Black_Screen" type="ColorRect" parent="Menu_Spawner"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+z_as_relative = false
+offset_left = -1441.0
+offset_top = -1009.0
+offset_right = 2533.0
+offset_bottom = 1954.0
+color = Color(0, 0, 0, 1)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 3.0
+bus = &"VoiceLines"
 
 [node name="Map_Animals" type="Node2D" parent="."]
 
+[node name="Tem" type="Sprite2D" parent="Map_Animals"]
+position = Vector2(4212, -3136)
+scale = Vector2(0.41, 0.132)
+texture = ExtResource("43_ob1gn")
+
 [node name="Polo_Li" parent="Map_Animals" instance=ExtResource("48_oc0qr")]
-position = Vector2(-64, -28)
+position = Vector2(-139, 1614)
 
 [node name="Pigeon" type="AnimatedSprite2D" parent="Map_Animals"]
 physics_interpolation_mode = 2
 texture_filter = 1
 material = SubResource("ShaderMaterial_rwuod")
-position = Vector2(-1, 0)
+position = Vector2(-994, 782)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_m7fco")
 frame = 11
@@ -11590,9 +11744,11 @@ sprite_frames = SubResource("SpriteFrames_lh4if")
 script = ExtResource("35_hsog0")
 
 [node name="Aligator_Path" type="Line2D" parent="Map_Animals"]
+visible = false
 points = PackedVector2Array(-3950, -309, -3870, -1633, -3463, -2164, -2547, -2594, -1981, -3952, -1461, -4574, -352, -4925, 598, -4959, 1594, -4676, 2228, -4405, 2884, -3805, 3133, -3194, 3529, -2640, 3710, -1859, 3710, -1124, 3574, -547, 3744, 223, 3744, 845, 4566, 1391, 4532, 2987, 3169, 2947, 3020, 4205, 2352, 4511, 1379, 4477, 632, 4137, 485, 3447, 101, 4262, -476, 4816, -1200, 4850, -2038, 4567, -2535, 3979, -2671, 3357, -3305, 2983, -3746, 2350, -3904, 1694, -3950, -286)
 
 [node name="Saul_Goodman" parent="Map_Animals" instance=ExtResource("39_svrev")]
+material = SubResource("ShaderMaterial_44s8i")
 position = Vector2(-1364, 2129)
 
 [node name="Saul_Path" type="Line2D" parent="Map_Animals"]
@@ -11604,3 +11760,29 @@ position = Vector2(555, 3202)
 scale = Vector2(0.205, 0.205)
 sprite_frames = SubResource("SpriteFrames_ekc0e")
 script = ExtResource("47_1eoj2")
+
+[node name="UFO" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 3
+position = Vector2(876, -6338)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_ia8ni")
+frame = 2
+frame_progress = 0.794066
+script = ExtResource("64_r6lu7")
+
+[node name="UFO_Light" type="Sprite2D" parent="UFO"]
+z_as_relative = false
+texture = ExtResource("65_keeou")
+
+[node name="Area2D" type="Area2D" parent="UFO"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UFO/Area2D"]
+shape = SubResource("CircleShape2D_yqvmk")
+
+[node name="UFO_Audio" type="AudioStreamPlayer" parent="UFO"]
+unique_name_in_owner = true
+volume_db = 5.0
+bus = &"VoiceLines"
+
+[connection signal="area_entered" from="UFO/Area2D" to="UFO" method="_on_area_2d_area_entered"]

@@ -1,0 +1,311 @@
+[gd_scene load_steps=41 format=3 uid="uid://cy7gqemlek426"]
+
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/space_scene.gd" id="1_73511"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/space_bg.gd" id="2_57e7v"]
+[ext_resource type="Texture2D" uid="uid://blf6h80mfc033" path="res://Finished_Assets/Space_Assets/Milkway_BG_1.png" id="2_ukbft"]
+[ext_resource type="PackedScene" uid="uid://byv2tc7jl1pyp" path="res://Player/player_space.tscn" id="3_krscb"]
+[ext_resource type="Texture2D" uid="uid://0r7eo7hf754v" path="res://Finished_Assets/Space_Assets/Milkway_BG_2.png" id="3_l4wyb"]
+[ext_resource type="PackedScene" uid="uid://b4lc1rsp7h6sj" path="res://UI + Menus + Scenes/Space_Scene/asteroid_1.tscn" id="4_c47xr"]
+[ext_resource type="Texture2D" uid="uid://db7fveb18iy8v" path="res://Finished_Assets/Space_Assets/Milkway_BG_3.png" id="4_s4mtg"]
+[ext_resource type="Texture2D" uid="uid://blvtlg8ew657h" path="res://Finished_Assets/Space_Assets/Milkway_BG_4.png" id="5_elhwd"]
+[ext_resource type="PackedScene" uid="uid://ctislqic3b57w" path="res://UI + Menus + Scenes/Space_Scene/asteroid_2.tscn" id="5_ueo1w"]
+[ext_resource type="PackedScene" uid="uid://ccnrljkon0wcx" path="res://UI + Menus + Scenes/Space_Scene/asteroid_3.tscn" id="6_cqcid"]
+[ext_resource type="PackedScene" uid="uid://xapqg3ga2lq6" path="res://UI + Menus + Scenes/Space_Scene/amongus.tscn" id="7_wrlc3"]
+[ext_resource type="PackedScene" uid="uid://dnpgg418xkylf" path="res://UI + Menus + Scenes/Space_Scene/enyo_poster.tscn" id="8_bg5nb"]
+[ext_resource type="AudioStream" uid="uid://b30xqjtoaxeny" path="res://Finished_Assets/Song_Assets/Space_Gameplay_Theme.mp3" id="13_t1n1x"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/space_tax_spawner.gd" id="13_vqbbs"]
+[ext_resource type="PackedScene" uid="uid://c65p60n02mn5q" path="res://UI + Menus + Scenes/Space_Scene/TODD.tscn" id="15_6shsj"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/jumpscare_spawner.gd" id="16_63a6q"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/space_theme_stopper.gd" id="17_4ro3i"]
+[ext_resource type="Texture2D" uid="uid://b1kwadpgu4roh" path="res://Finished_Assets/Space_Assets/UFO_1.png" id="18_psmld"]
+[ext_resource type="Texture2D" uid="uid://c82ych88s824r" path="res://Finished_Assets/Space_Assets/UFO_2.png" id="19_wmn5f"]
+[ext_resource type="Texture2D" uid="uid://dskxcewcm0504" path="res://Finished_Assets/Space_Assets/UFO_1_Alternate.png" id="20_me6y4"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Space_Scene/ufo_space_scene.gd" id="21_si08i"]
+[ext_resource type="Texture2D" uid="uid://pqmjhtbmm1og" path="res://Finished_Assets/Space_Assets/Earth_2.png" id="22_g518y"]
+[ext_resource type="Texture2D" uid="uid://c5i1gavpc2tcv" path="res://Finished_Assets/Space_Assets/Earth_3.png" id="23_5ahy0"]
+[ext_resource type="Texture2D" uid="uid://kqobqpeip28a" path="res://Finished_Assets/Space_Assets/Earth_4.png" id="24_7yi1a"]
+[ext_resource type="Texture2D" uid="uid://cy40qbd4udrqu" path="res://Finished_Assets/Space_Assets/Earth_5.png" id="25_gpsvt"]
+[ext_resource type="Texture2D" uid="uid://bn70t0ril1kw5" path="res://Finished_Assets/Space_Assets/Earth_6.png" id="26_u40q0"]
+[ext_resource type="Texture2D" uid="uid://cqs7fx4lobs3o" path="res://Finished_Assets/Space_Assets/Earth_7.png" id="27_1bimt"]
+[ext_resource type="Texture2D" uid="uid://csj5vb55bygvd" path="res://Finished_Assets/Space_Assets/Earth_8.png" id="28_rg8ef"]
+[ext_resource type="Texture2D" uid="uid://bjswegjltcvuj" path="res://Finished_Assets/Space_Assets/Earth_9.png" id="29_0upwf"]
+[ext_resource type="Texture2D" uid="uid://dl60gt4hbbuvs" path="res://Finished_Assets/Space_Assets/Earth_10.png" id="30_phs4e"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="31_lmini"]
+[ext_resource type="PackedScene" uid="uid://dgd5sq78fstmd" path="res://arrow.tscn" id="32_n0hln"]
+
+[sub_resource type="Animation" id="Animation_h6i0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xwfto"]
+resource_name = "fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqiyo"]
+_data = {
+"RESET": SubResource("Animation_h6i0j"),
+"fade_out": SubResource("Animation_xwfto")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptqdn"]
+size = Vector2(2560, 8071)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gynj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_psmld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wmn5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_me6y4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wmn5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_us05i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_g518y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_5ahy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7yi1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gpsvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_u40q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1bimt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rg8ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0upwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_phs4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e53dd"]
+radius = 692.001
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ameud"]
+radius = 927.005
+
+[node name="Space_Scene" type="Node2D"]
+script = ExtResource("1_73511")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -679.0
+offset_top = 2783.0
+offset_right = 1885.0
+offset_bottom = 50008.0
+color = Color(0, 0, 0, 1)
+
+[node name="Space_BG" type="Node2D" parent="."]
+position = Vector2(0, 20)
+script = ExtResource("2_57e7v")
+
+[node name="BG_Space_1" type="Sprite2D" parent="Space_BG"]
+position = Vector2(570, 0)
+rotation = 1.5708
+texture = ExtResource("2_ukbft")
+
+[node name="BG_Space_2" type="Sprite2D" parent="Space_BG"]
+position = Vector2(570, -9474.33)
+rotation = 1.5708
+texture = ExtResource("3_l4wyb")
+
+[node name="BG_Space_3" type="Sprite2D" parent="Space_BG"]
+position = Vector2(570, -23769.9)
+rotation = 1.5708
+texture = ExtResource("4_s4mtg")
+
+[node name="BG_Space_4" type="Sprite2D" parent="Space_BG"]
+position = Vector2(570, -39286.1)
+rotation = 1.5708
+texture = ExtResource("5_elhwd")
+
+[node name="Space_Player" parent="." instance=ExtResource("3_krscb")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(557, -909)
+
+[node name="Right_Side" type="ColorRect" parent="."]
+z_index = 2
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 1384.0
+offset_top = -50234.0
+offset_right = 1424.0
+offset_bottom = -47921.0
+grow_vertical = 2
+scale = Vector2(50, 50)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Left_Side" type="ColorRect" parent="."]
+z_index = 2
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -2271.43
+offset_top = -50000.5
+offset_right = -2231.43
+offset_bottom = -47708.6
+grow_vertical = 2
+scale = Vector2(50, 50)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Asteroid_1" parent="." instance=ExtResource("4_c47xr")]
+
+[node name="Asteroid_2" parent="." instance=ExtResource("5_ueo1w")]
+
+[node name="Asteroid_3" parent="." instance=ExtResource("6_cqcid")]
+position = Vector2(424, -185)
+
+[node name="Asteroid_4" parent="." instance=ExtResource("4_c47xr")]
+
+[node name="Asteroid_5" parent="." instance=ExtResource("5_ueo1w")]
+
+[node name="Amongus" parent="." instance=ExtResource("7_wrlc3")]
+
+[node name="Enyo_Poster" parent="." instance=ExtResource("8_bg5nb")]
+
+[node name="Space_Tax_Spawner" type="Node2D" parent="."]
+script = ExtResource("13_vqbbs")
+point1 = Vector2(-487, -46)
+point2 = Vector2(1700, 143)
+
+[node name="Space_Theme" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_t1n1x")
+autoplay = true
+bus = &"Music"
+
+[node name="TODD" parent="." instance=ExtResource("15_6shsj")]
+position = Vector2(640, 10240)
+
+[node name="Jumpscare_Spawner" type="CanvasLayer" parent="."]
+script = ExtResource("16_63a6q")
+
+[node name="ColorRect" type="ColorRect" parent="Jumpscare_Spawner"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -6222.0
+offset_top = -4955.0
+offset_right = 8186.0
+offset_bottom = 4498.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jumpscare_Spawner"]
+libraries = {
+"": SubResource("AnimationLibrary_nqiyo")
+}
+
+[node name="Space_Theme_Stopper" type="Area2D" parent="."]
+position = Vector2(-64, 2960)
+script = ExtResource("17_4ro3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space_Theme_Stopper"]
+position = Vector2(482, 4025.5)
+shape = SubResource("RectangleShape2D_ptqdn")
+
+[node name="UFO" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+z_index = 3
+position = Vector2(-2244, -909)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_4gynj")
+script = ExtResource("21_si08i")
+
+[node name="UFO_Audio" type="AudioStreamPlayer" parent="UFO"]
+unique_name_in_owner = true
+bus = &"SFX"
+
+[node name="Earth" type="StaticBody2D" parent="."]
+
+[node name="Earth" type="AnimatedSprite2D" parent="Earth"]
+texture_filter = 1
+position = Vector2(564.86, -45731)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_us05i")
+frame = 1
+frame_progress = 0.320774
+script = ExtResource("31_lmini")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earth"]
+position = Vector2(568, -45720)
+shape = SubResource("CircleShape2D_e53dd")
+
+[node name="Enter_Earth" type="Area2D" parent="Earth"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earth/Enter_Earth"]
+position = Vector2(563, -45708)
+shape = SubResource("CircleShape2D_ameud")
+
+[node name="Arrows" type="Node2D" parent="."]
+
+[node name="Arrow" parent="Arrows" instance=ExtResource("32_n0hln")]
+position = Vector2(472, -1452)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+
+[node name="Arrow2" parent="Arrows" instance=ExtResource("32_n0hln")]
+position = Vector2(578, -13261)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+
+[node name="Arrow3" parent="Arrows" instance=ExtResource("32_n0hln")]
+position = Vector2(642, -24333)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+
+[node name="Arrow4" parent="Arrows" instance=ExtResource("32_n0hln")]
+position = Vector2(578, -35853)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+
+[connection signal="area_entered" from="Space_Theme_Stopper" to="Space_Theme_Stopper" method="_on_area_entered"]
+[connection signal="area_exited" from="Space_Theme_Stopper" to="Space_Theme_Stopper" method="_on_area_exited"]

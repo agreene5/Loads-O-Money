@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://46owog0onc8d"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://46owog0onc8d"]
 
 [ext_resource type="FontFile" uid="uid://dn0v4f02uxpo7" path="res://Finished_Assets/UI_Assets/Comic_Sans_MS_FONT.ttf" id="1_yixfv"]
 
@@ -50,6 +50,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ik65"]
+bg_color = Color(0.884393, 0.816249, 0, 1)
+
 [resource]
 default_base_scale = 1.0
 default_font = ExtResource("1_yixfv")
@@ -61,3 +64,5 @@ Button/styles/disabled = SubResource("StyleBoxFlat_4a8w5")
 Button/styles/focus = SubResource("StyleBoxFlat_tueoc")
 Button/styles/hover = SubResource("StyleBoxFlat_ma5fn")
 Button/styles/normal = SubResource("StyleBoxFlat_ukter")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_0ik65")
+HSlider/styles/slider = null

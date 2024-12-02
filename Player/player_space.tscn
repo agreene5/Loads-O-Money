@@ -1,0 +1,109 @@
+[gd_scene load_steps=19 format=3 uid="uid://byv2tc7jl1pyp"]
+
+[ext_resource type="Script" path="res://Player/Space_Movement_Script.gd" id="1_rrqfc"]
+[ext_resource type="Texture2D" uid="uid://cc6iiav4emb1f" path="res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png" id="1_w1bs7"]
+[ext_resource type="Texture2D" uid="uid://dkh66hpdpirxg" path="res://Finished_Assets/Player_In_Hand_Assets/Tiny_Moneygun.png" id="2_8wjr4"]
+[ext_resource type="Script" path="res://Player/wraparound_script.gd" id="2_f8od1"]
+[ext_resource type="Script" path="res://Player/Space_Shot_Script.gd" id="2_sljh8"]
+[ext_resource type="Script" path="res://Player/space_shot_in_hand_sprite.gd" id="5_1url3"]
+[ext_resource type="Script" path="res://Player/space_body_signaler.gd" id="7_1amet"]
+[ext_resource type="Script" path="res://Player/player_location_space.gd" id="7_utke7"]
+[ext_resource type="Texture2D" uid="uid://bgtiutekxseeu" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #1.png" id="8_o2egm"]
+[ext_resource type="Script" path="res://Player/space_dash_animation.gd" id="8_sb5da"]
+[ext_resource type="Texture2D" uid="uid://boc128umvvvmm" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #2.png" id="9_jhtob"]
+[ext_resource type="Texture2D" uid="uid://bkj4wr35v15bt" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #3.png" id="10_kcbc4"]
+[ext_resource type="Texture2D" uid="uid://la57ykvlv6hh" path="res://Finished_Assets/Dash_Assets/Todd Boost Animation Frame #4.png" id="11_qwu4e"]
+[ext_resource type="Script" path="res://Player/camera_2d.gd" id="14_48mjn"]
+[ext_resource type="AudioStream" uid="uid://p4dipvhhnu0j" path="res://Finished_Assets/SFX_Assets/Dash_SFX.mp3" id="14_imyyq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wjul"]
+radius = 20.0
+height = 62.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbx8f"]
+radius = 26.0
+height = 64.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87ut6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_o2egm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jhtob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kcbc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qwu4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Space_Player" type="RigidBody2D"]
+z_index = 1
+collision_layer = 4
+script = ExtResource("1_rrqfc")
+
+[node name="Wraparound_Script" type="Node2D" parent="."]
+script = ExtResource("2_f8od1")
+
+[node name="Space_Shot" type="Node2D" parent="."]
+script = ExtResource("2_sljh8")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Player_Sprite" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_w1bs7")
+
+[node name="Shot_In_Hand_Sprite" type="Sprite2D" parent="Node2D"]
+position = Vector2(11, 24)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_8wjr4")
+script = ExtResource("5_1url3")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("7_utke7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1wjul")
+
+[node name="Space_Body_Signaler" type="Area2D" parent="."]
+collision_mask = 9
+script = ExtResource("7_1amet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Space_Body_Signaler"]
+shape = SubResource("CapsuleShape2D_gbx8f")
+
+[node name="Timer" type="Timer" parent="Space_Body_Signaler"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Space_Body_Signaler"]
+bus = &"VoiceLines"
+
+[node name="Dash_Animation" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(6, 0)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_87ut6")
+script = ExtResource("8_sb5da")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash_Animation"]
+stream = ExtResource("14_imyyq")
+volume_db = -20.0
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"VoiceLines"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+zoom = Vector2(0.9, 0.9)
+script = ExtResource("14_48mjn")

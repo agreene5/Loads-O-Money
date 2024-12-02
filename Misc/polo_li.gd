@@ -12,13 +12,14 @@ func _ready():
 
 func start_random_rotation():
 	var random_delay = randf_range(0.5, 2.0)
-	var timer = get_tree().create_timer(random_delay)
-	await timer.timeout
-	# Set new target rotation
-	target_rotation = deg_to_rad(randf_range(-3.0, 3.0))
-	is_rotating = true
-	# Start the next random rotation
-	start_random_rotation()
+	if get_tree():
+		var timer = get_tree().create_timer(random_delay)
+		await timer.timeout
+		# Set new target rotation
+		target_rotation = deg_to_rad(randf_range(-3.0, 3.0))
+		is_rotating = true
+		# Start the next random rotation
+		start_random_rotation()
 
 func _physics_process(delta):
 	# Handle smooth rotation

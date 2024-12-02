@@ -5,21 +5,30 @@ var original_position: Vector2
 var original_size: Vector2
 
 func _ready():
-		# Original window sizing code
+		# Original window sizing code setup
 		original_scale = scale
 		original_position = position
 		original_size = Vector2(
-				ProjectSettings.get_setting("display/window/size/viewport_width"),
-				ProjectSettings.get_setting("display/window/size/viewport_height")
+			ProjectSettings.get_setting("display/window/size/viewport_width"),
+			ProjectSettings.get_setting("display/window/size/viewport_height")
 		)
+		
+		# Store initial positions BEFORE connecting the size changed signal
+		store_initial_positions("Upgrade_Menu_Open")
+		store_initial_positions("Upgrade_Menu_Close")
+		
+		# Now connect the signal and do initial scaling
 		get_tree().root.size_changed.connect(_on_window_size_changed)
-		_on_window_size_changed()
+		# Call this after storing positions
+		call_deferred("_on_window_size_changed")
+	
+	# Rest of your ready function...
 
-		if Global_Variables.game_just_started:
+		if Global_Variables.game_just_just_started:
 			_play_bootscreen()
 		else:
 			$Main_Menu_Theme.play()
-		
+		Global_Variables.game_just_just_started = false
 		store_initial_positions("Upgrade_Menu_Open")
 		store_initial_positions("Upgrade_Menu_Close")
 		

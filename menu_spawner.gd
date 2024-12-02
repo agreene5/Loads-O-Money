@@ -3,6 +3,14 @@ extends CanvasLayer
 var pause_menu_instance = null # placeholder so Godot doesn't get angry
 
 func upgrade_menu():
+		# Create tween that processes even when paused
+	var tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	
+	# Fade out Gameplay theme
+	tween.parallel().tween_property(%Gameplay_Theme, "volume_db", -30.0, 2.0)
+	# Fade in Pause theme
+	tween.parallel().tween_property(%Upgrade_Theme, "volume_db", 0.0, 1.0)
+	
 	var upgrade_menu_scene = load("res://UI + Menus + Scenes/UpgradeMenu/upgrade_menu.tscn")
 	var upgrade_menu_instance = upgrade_menu_scene.instantiate()
 	add_child(upgrade_menu_instance)
