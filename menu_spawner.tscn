@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4rb77mbwcumk"]
+[gd_scene load_steps=22 format=3 uid="uid://4rb77mbwcumk"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Gameplay/menu_spawner.gd" id="1_kb10l"]
 [ext_resource type="Script" path="res://menu_spawner.gd" id="1_u2hch"]
@@ -10,6 +10,14 @@
 [ext_resource type="Script" path="res://Money_Label.gd" id="8_3v7u1"]
 [ext_resource type="Theme" uid="uid://46owog0onc8d" path="res://Finished_Assets/UI_Assets/Buttons_Theme.tres" id="8_g01q6"]
 [ext_resource type="Script" path="res://exp_label.gd" id="10_6mj2n"]
+[ext_resource type="Texture2D" uid="uid://bub535deykmjv" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_Money_1.png" id="11_1s8pw"]
+[ext_resource type="Texture2D" uid="uid://d0875ymh5b8xi" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_Money_2.png" id="12_clsam"]
+[ext_resource type="Texture2D" uid="uid://1valhvhsncoq" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Gameplay_Overlay_Money_3.png" id="13_kwu7o"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/autoplay.gd" id="14_kl73b"]
+[ext_resource type="Texture2D" uid="uid://catj4fxs2o50n" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Controls_Overlay_1.png" id="15_1r454"]
+[ext_resource type="Texture2D" uid="uid://b7qh3dgbkup6i" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Controls_Overlay_2.png" id="16_rg3gh"]
+[ext_resource type="Texture2D" uid="uid://bs4rveica1gcy" path="res://Finished_Assets/UI_Assets/UI_Gameplay_Overlay/Controls_Overlay_3.png" id="17_s0103"]
+[ext_resource type="Script" path="res://animated_controls_overlay.gd" id="18_knii5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2tcjb"]
 animations = [{
@@ -28,6 +36,40 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehbil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_1s8pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_clsam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kwu7o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kde5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_1r454")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rg3gh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_s0103")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Menu_Spawner" type="CanvasLayer"]
 script = ExtResource("1_u2hch")
 
@@ -36,33 +78,46 @@ script = ExtResource("1_kb10l")
 
 [node name="Animated_Overlay" type="AnimatedSprite2D" parent="Node2D"]
 unique_name_in_owner = true
-position = Vector2(640, 336)
+position = Vector2(635, 336.5)
 scale = Vector2(0.535417, 0.575)
 sprite_frames = SubResource("SpriteFrames_2tcjb")
 script = ExtResource("5_4c0bj")
 
 [node name="UpgradeMenuButton" type="Button" parent="Node2D"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 1056.0
-offset_top = 530.0
-offset_right = 1147.0
-offset_bottom = 646.0
+offset_left = 1055.98
+offset_top = 539.5
+offset_right = 1148.98
+offset_bottom = 648.5
 script = ExtResource("7_aci8l")
 
 [node name="Money_Label" type="Label" parent="Node2D"]
-offset_left = 505.0
-offset_top = 576.0
-offset_right = 719.0
-offset_bottom = 634.0
+offset_left = 448.0
+offset_top = 575.5
+offset_right = 662.0
+offset_bottom = 633.5
 theme = ExtResource("8_g01q6")
 script = ExtResource("8_3v7u1")
 
 [node name="Exp_Label" type="HBoxContainer" parent="Node2D"]
-offset_left = 768.0
-offset_top = 565.0
-offset_right = 1001.0
-offset_bottom = 627.0
+offset_left = 711.0
+offset_top = 564.5
+offset_right = 944.0
+offset_bottom = 626.5
 script = ExtResource("10_6mj2n")
+
+[node name="Animated_MoneyBag" type="AnimatedSprite2D" parent="Node2D"]
+unique_name_in_owner = true
+position = Vector2(648, 362.5)
+scale = Vector2(0.525, 0.525)
+sprite_frames = SubResource("SpriteFrames_ehbil")
+script = ExtResource("14_kl73b")
+
+[node name="Animated_Controls_Overlay" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(708, 269)
+scale = Vector2(0.7375, 0.701852)
+sprite_frames = SubResource("SpriteFrames_0kde5")
+script = ExtResource("18_knii5")
 
 [connection signal="pressed" from="Node2D/UpgradeMenuButton" to="Node2D" method="_on_button_pressed"]
 [connection signal="pressed" from="Node2D/UpgradeMenuButton" to="Node2D/UpgradeMenuButton" method="_on_pressed"]

@@ -225,14 +225,12 @@ script = ExtResource("27_6melb")
 
 [node name="Running_Dust" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-44.075, 1.59)
+texture_filter = 1
 rotation = 1.5708
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3joty")
-frame = 2
-frame_progress = 0.840249
 script = ExtResource("33_okwu8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 3.0
+volume_db = 1.0
 bus = &"VoiceLines"

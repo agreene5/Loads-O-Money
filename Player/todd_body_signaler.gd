@@ -62,7 +62,9 @@ func _on_area_entered(area):
 		player_sprite.visible = false
 		shot_sprite.visible = false
 		
-		await get_tree().create_timer(0.6).timeout # Wait for explosion animation to finish
+		await get_tree().create_timer(0.8).timeout
+		Global_Variables.explosion_animation()
+		await get_tree().create_timer(0.5).timeout
 		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_1.wav")
 		audio_player.volume_db = 5  # Increase volume by 3 decibels
 		audio_player.play()

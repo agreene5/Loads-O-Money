@@ -10,9 +10,9 @@ func _on_pressed() -> void:
 
 func _on_button_hover():
 		# Tint the sprite 50% black when hovered
-		%Animated_Overlay.modulate = Color(0.5, 0.5, 0.5, 1.0)
+		%Animated_MoneyBag.modulate = Color(0.5, 0.5, 0.5, 1.0)
 
 
 func _on_button_unhover():
 		# Return sprite to normal color
-		%Animated_Overlay.modulate = Color(1, 1, 1, 1)
+		%Animated_MoneyBag.modulate = Color(1, 1, 1, 1)

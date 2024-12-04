@@ -47,6 +47,7 @@ func process_normal_input(delta):
 	
 	if input_vector.length() > 0:
 		apply_movement(input_vector, delta)
+		$Running_Dust.rotation = velocity.angle() + PI/2
 		
 		if Input.is_action_pressed("space") and can_boost:
 			if velocity.length() > 0:
@@ -81,7 +82,7 @@ func reset_boost():
 	can_boost = true
 
 func is_moving() -> bool:
-	return linear_velocity.length() > 300.0  # Using a small threshold to account for floating-point imprecision
+	return linear_velocity.length() > 350.0  # Using a small threshold to account for floating-point imprecision
 
 func level_up():
 	$Upgrade_Animation.upgrade_animation()

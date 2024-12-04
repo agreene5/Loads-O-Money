@@ -11,20 +11,20 @@ float random(vec2 uv) {
 void fragment() {
     // Scale UV to create larger "pixels"
     vec2 scaled_uv = floor(SCREEN_UV * resolution) / resolution;
-    
+
     // Add time-based offset for animation
     scaled_uv += TIME * noise_speed * 0.01;
-    
+
     // Generate noise
     float noise = random(scaled_uv);
-    
+
     // Apply noise strength
     noise = mix(0.5, noise, noise_strength);
-    
+
     // Add some vertical scanlines
     float scanline = sin(SCREEN_UV.y * resolution.y * 2.0) * 0.1;
     noise -= scanline;
-    
+
     // Convert to black and white
     COLOR = vec4(vec3(noise), 1.0);
 }

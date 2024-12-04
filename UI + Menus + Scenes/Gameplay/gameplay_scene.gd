@@ -13,7 +13,6 @@ var initial_values = {
 		"property_tax_health": 100.0,
 		"income_tax_health": 300.0,
 		"golden_tax_health": 1500.0,
-		
 		"sales_tax_shot_health": 2.0,
 		"property_tax_shot_health": 5.0,
 		"income_tax_shot_health": 20.0,

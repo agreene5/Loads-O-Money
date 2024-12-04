@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Global_Variables="*res://Misc/Global_Variables.gd"
 TransitionScene="*res://transition_scene.tscn"
+MouseCursor="*res://UI + Menus + Scenes/Main_Menu/mouse_cursor.gd"
 
 [display]
 
