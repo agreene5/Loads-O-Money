@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Pause_Menu_Theme.mp3-286b7b237c58ff668f21f87d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

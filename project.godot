@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="PantherDev - Loads O' Money"
+config/name="Loads O' Money"
 run/main_scene="res://UI + Menus + Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://Finished_Assets/Misc_Assets/LoadsOMoneyIcon.png"
 
 [autoload]
 
@@ -24,6 +24,7 @@ MouseCursor="*res://UI + Menus + Scenes/Main_Menu/mouse_cursor.gd"
 
 [display]
 
+window/size/mode=3
 mouse_cursor/custom_image="res://Finished_Assets/UI_Assets/Dollar_Sign_Mouse.png"
 mouse_cursor/custom_image_hotspot=Vector2(4, 0)
 
