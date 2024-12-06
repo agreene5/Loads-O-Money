@@ -35,6 +35,9 @@ func _ready():
 	var shader_material = load("res://Shaders/Player_Enemy_Shader.gdshader")
 	material = ShaderMaterial.new()
 	material.shader = shader_material
+	
+	await get_tree().create_timer(0.1).timeout 
+	move_speed = 10 * Global_Variables.player_job_values[Global_Variables.player_job][5]
 
 func _physics_process(delta):
 	process_normal_input(delta)

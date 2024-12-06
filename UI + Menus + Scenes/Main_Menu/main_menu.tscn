@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://djkwbce86wiw5"]
+[gd_scene load_steps=82 format=3 uid="uid://djkwbce86wiw5"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu.gd" id="1_6cvw2"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/main_menu_container.gd" id="2_vlbgf"]
@@ -56,6 +56,11 @@
 [ext_resource type="Texture2D" uid="uid://dskvhbbw08hyh" path="res://Finished_Assets/UI_Assets/UI_Star_Assets/Star_Empty_1.png" id="53_sorvr"]
 [ext_resource type="Texture2D" uid="uid://ct23wowvd3g8n" path="res://Finished_Assets/UI_Assets/UI_Star_Assets/Star_Empty_2.png" id="54_rvwvt"]
 [ext_resource type="Texture2D" uid="uid://b38sj052yrejq" path="res://Finished_Assets/UI_Assets/UI_Star_Assets/Star_Empty_3.png" id="55_ylc7t"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/check_button.gd" id="57_s5nvc"]
+[ext_resource type="Texture2D" uid="uid://b8ttxjtfa20aa" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Real_Life_Mode_1.png" id="58_bihth"]
+[ext_resource type="Texture2D" uid="uid://psmglqfsov6w" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Real_Life_Mode_2.png" id="59_mflov"]
+[ext_resource type="Texture2D" uid="uid://b4v4rka8d2al2" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/Real_Life_Mode_3.png" id="60_1mecb"]
+[ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/real_life_text.gd" id="61_htyap"]
 
 [sub_resource type="Animation" id="Animation_h7bng"]
 length = 0.001
@@ -307,6 +312,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("40_655rh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jheyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_bihth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_mflov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_1mecb")
 }],
 "loop": true,
 "name": &"default",
@@ -698,6 +720,29 @@ unique_name_in_owner = true
 volume_db = 8.0
 bus = &"VoiceLines"
 
+[node name="ColorRect" type="ColorRect" parent="Container/Upgrade_Menu"]
+offset_left = -1128.0
+offset_top = 570.0
+offset_right = -839.0
+offset_bottom = 631.0
+color = Color(0, 0, 0, 1)
+
+[node name="Real_Life_Text" type="AnimatedSprite2D" parent="Container/Upgrade_Menu"]
+position = Vector2(-1005, 599)
+scale = Vector2(0.310446, 0.357735)
+sprite_frames = SubResource("SpriteFrames_jheyu")
+frame = 2
+frame_progress = 0.992934
+script = ExtResource("61_htyap")
+
+[node name="CheckButton" type="CheckButton" parent="Container/Upgrade_Menu"]
+modulate = Color(0.731394, 0.765906, 1, 1)
+offset_left = -994.0
+offset_top = 562.0
+offset_right = -945.0
+offset_bottom = 634.0
+script = ExtResource("57_s5nvc")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rhumt")
@@ -708,3 +753,5 @@ libraries = {
 [connection signal="pressed" from="Container/Button_Sprites/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Container/Button_Sprites/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Container/Upgrade_Menu/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Container/Upgrade_Menu/CheckButton" to="Container/Upgrade_Menu/CheckButton" method="_on_pressed"]
+[connection signal="toggled" from="Container/Upgrade_Menu/CheckButton" to="Container/Upgrade_Menu/CheckButton" method="_on_toggled"]

@@ -113,7 +113,7 @@ func player_caught():
 		
 		await get_tree().create_timer(0.6).timeout # Wait for explosion animation to finish
 		audio_player.stream = load("res://Finished_Assets/Voice_Line_Assets/Death_Voice_Lines/Death_Voice_Lines_1.wav")
-		audio_player.volume_db = 5
+		audio_player.volume_db = 10
 		audio_player.play()
 		await get_tree().create_timer(1.3).timeout
 		fade_out_light()

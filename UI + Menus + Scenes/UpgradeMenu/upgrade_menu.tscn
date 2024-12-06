@@ -292,17 +292,17 @@ offset_bottom = 237.0
 scale = Vector2(2.5, 2.336)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = " 1 -> "
+text = " 1.5 -> "
 
 [node name="UpgradedCoinHealth" type="Label" parent="Node2D"]
-offset_left = 960.0
+offset_left = 996.0
 offset_top = 184.0
-offset_right = 1038.0
+offset_right = 1074.0
 offset_bottom = 233.0
 scale = Vector2(2.5, 2.628)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = "3"
+text = "6"
 
 [node name="CurrentCoinPrice" type="Label" parent="Node2D"]
 offset_left = 867.0
@@ -332,17 +332,17 @@ offset_bottom = 399.0
 scale = Vector2(2.5, 2.336)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = " 10 -> "
+text = " 30 -> "
 
 [node name="UpgradedBillHealth2" type="Label" parent="Node2D"]
-offset_left = 984.0
-offset_top = 346.0
-offset_right = 1062.0
-offset_bottom = 395.0
+offset_left = 987.0
+offset_top = 347.0
+offset_right = 1065.0
+offset_bottom = 396.0
 scale = Vector2(2.5, 2.628)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = "30"
+text = "180"
 
 [node name="CurrentBillPrice2" type="Label" parent="Node2D"]
 offset_left = 894.0
@@ -355,50 +355,50 @@ theme_override_fonts/font = ExtResource("7_cmigl")
 text = "1 ->"
 
 [node name="UpgradedBillPrice2" type="Label" parent="Node2D"]
-offset_left = 985.0
-offset_top = 391.0
-offset_right = 1063.0
-offset_bottom = 440.0
+offset_left = 986.0
+offset_top = 392.0
+offset_right = 1064.0
+offset_bottom = 441.0
 scale = Vector2(2.5, 2.628)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "5"
 
 [node name="CurrentCheckHealth3" type="Label" parent="Node2D"]
-offset_left = 866.0
+offset_left = 856.0
 offset_top = 505.0
-offset_right = 944.0
+offset_right = 934.0
 offset_bottom = 554.0
 scale = Vector2(2.5, 2.336)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = " 100 -> "
+text = " 500 -> "
 
 [node name="UpgradedCheckHealth3" type="Label" parent="Node2D"]
-offset_left = 993.0
-offset_top = 503.0
-offset_right = 1071.0
-offset_bottom = 552.0
+offset_left = 989.0
+offset_top = 502.0
+offset_right = 1067.0
+offset_bottom = 551.0
 scale = Vector2(2.5, 2.628)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
-text = "300"
+text = "2000"
 
 [node name="CurrentCheckPrice3" type="Label" parent="Node2D"]
-offset_left = 874.0
-offset_top = 549.0
-offset_right = 952.0
-offset_bottom = 598.0
+offset_left = 867.0
+offset_top = 551.0
+offset_right = 945.0
+offset_bottom = 600.0
 scale = Vector2(2.5, 2.628)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")
 text = "100 ->"
 
 [node name="UpgradedCheckPrice3" type="Label" parent="Node2D"]
-offset_left = 993.0
-offset_top = 551.0
-offset_right = 1071.0
-offset_bottom = 600.0
+offset_left = 986.0
+offset_top = 553.0
+offset_right = 1064.0
+offset_bottom = 602.0
 scale = Vector2(2.5, 2.628)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_cmigl")

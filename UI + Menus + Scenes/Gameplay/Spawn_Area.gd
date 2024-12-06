@@ -15,6 +15,11 @@ var space_tax_scene = preload("res://Tax Enemies/space_tax.tscn")
 var start_times = [4.0, 16.0, 30.0, 37.5]  # Initial spawn rates
 var end_times = [1.0, 0.6, 0.25, 5.0]       # Final spawn rates
 var enemy_unlock_times = [0.0, 60.0, 150.0, 300.0, 100.0]  # When each enemy type unlocks
+
+var real_life_start_times = [0.1, 0.1, 0.1, 0.1]
+var real_life_end_times = [0.1, 0.1, 0.1, 0.1]
+var real_life_unlock_times = [0.0, 0.0, 0.0, 0.0, 0.0]
+
 var game_start_time = 0.0
 var transition_duration
 var transition_start_time = 0.0
@@ -23,19 +28,25 @@ func _ready():
 		transition_duration = get_parent().stat_progression_time
 		game_start_time = Time.get_ticks_msec() / 1000.0
 		
+		# Set the appropriate times based on Global_Variables.real_life
+		if Global_Variables.real_life:
+				start_times = real_life_start_times
+				end_times = real_life_end_times
+				enemy_unlock_times = real_life_unlock_times
+		
 		rng.randomize()
 		transition_start_time = game_start_time
 		
 		remove_rigid_bodies()
 		
 		for i in range(1): # Spawn initial sales tax
-			await get_tree().create_timer(0.1).timeout #To prevent enemy spawning with high stats
-			var spawn_position = find_suitable_spawn_point()
-			if spawn_position:
-					var instance = sales_tax_scene.instantiate()
-					instance.global_position = spawn_position
-					instance.name = "Sales_Tax_" + str(rng.randi())
-					get_tree().root.add_child(instance)
+				await get_tree().create_timer(0.1).timeout #To prevent enemy spawning with high stats
+				var spawn_position = find_suitable_spawn_point()
+				if spawn_position:
+						var instance = sales_tax_scene.instantiate()
+						instance.global_position = spawn_position
+						instance.name = "Sales_Tax_" + str(rng.randi())
+						get_tree().root.add_child(instance)
 		
 		for i in range(4):
 				var timer = Timer.new()

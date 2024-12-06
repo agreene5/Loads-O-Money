@@ -4844,7 +4844,7 @@ shape = SubResource("CircleShape2D_yqvmk")
 
 [node name="UFO_Audio" type="AudioStreamPlayer" parent="UFO"]
 unique_name_in_owner = true
-volume_db = 5.0
+volume_db = 10.0
 bus = &"VoiceLines"
 
 [connection signal="area_entered" from="UFO/UFO_Area" to="UFO" method="_on_ufo_area_area_entered"]
