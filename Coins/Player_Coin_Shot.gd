@@ -31,11 +31,11 @@ func _on_despawn_timer_timeout():
 	queue_free()  # Despawns the coin scene
 
 func play_coin_sound():
-	var audio_player = AudioStreamPlayer.new()
+	var audio_player = AudioStreamPlayer2D.new()
 	add_child(audio_player)
 	
 	audio_player.stream = load("res://Finished_Assets/SFX_Assets/CoinSFX.mp3")
-	audio_player.pitch_scale = 0.95
-	audio_player.volume_db = -2
+	audio_player.pitch_scale = 0.93
+	audio_player.volume_db = -4
 	audio_player.set_bus("SFX")
 	audio_player.play()

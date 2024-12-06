@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://by1ubyds8mqk3"]
+[gd_scene load_steps=42 format=3 uid="uid://by1ubyds8mqk3"]
 
 [ext_resource type="Script" path="res://Player/Player_Movement_Script.gd" id="1_hwsdl"]
 [ext_resource type="Shader" path="res://Shaders/Player_Enemy_Shader.gdshader" id="1_n13bh"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bxxe0xh8bwrpr" path="res://Finished_Assets/Running_Dust_Assets/Dash Dust Sprite Animation Frame #3.png" id="31_xevy8"]
 [ext_resource type="Texture2D" uid="uid://b3ubk0ctkqu7k" path="res://Finished_Assets/Running_Dust_Assets/Dash Dust Sprite Animation Frame #4.png" id="32_5xs1n"]
 [ext_resource type="Script" path="res://Player/running_dust.gd" id="33_okwu8"]
+[ext_resource type="AudioStream" uid="uid://cltpn6aetqijt" path="res://Temp_Assets/Temp_SFX_Assets/Wrong_Buzzer_SFX.mp3" id="34_xt0sx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y11lk"]
 shader = ExtResource("1_n13bh")
@@ -177,6 +178,7 @@ shape = SubResource("CapsuleShape2D_0bmur")
 [node name="Timer" type="Timer" parent="Todd_Body_Signaler"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Todd_Body_Signaler"]
+volume_db = -5.0
 bus = &"VoiceLines"
 
 [node name="Upgrade_Animation" type="AnimatedSprite2D" parent="."]
@@ -207,7 +209,7 @@ script = ExtResource("24_xg3km")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash_Animation"]
 stream = ExtResource("25_lk1h0")
-volume_db = -20.0
+volume_db = -25.0
 pitch_scale = 0.9
 bus = &"SFX"
 
@@ -232,5 +234,14 @@ sprite_frames = SubResource("SpriteFrames_3joty")
 script = ExtResource("33_okwu8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = 1.0
 bus = &"VoiceLines"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = 5.0
+bus = &"VoiceLines"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("34_xt0sx")
+bus = &"SFX"

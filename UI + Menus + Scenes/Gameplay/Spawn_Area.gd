@@ -12,8 +12,8 @@ var golden_tax_scene = preload("res://Tax Enemies/golden_tax.tscn")
 var space_tax_scene = preload("res://Tax Enemies/space_tax.tscn")
 
 # Modified timing values
-var start_times = [10.0, 25.0, 37.5, 50.0]  # Initial spawn rates
-var end_times = [1.5, 0.6, 0.25, 0.3]       # Final spawn rates
+var start_times = [4.0, 16.0, 30.0, 37.5]  # Initial spawn rates
+var end_times = [1.0, 0.6, 0.25, 5.0]       # Final spawn rates
 var enemy_unlock_times = [0.0, 60.0, 150.0, 300.0, 100.0]  # When each enemy type unlocks
 var game_start_time = 0.0
 var transition_duration

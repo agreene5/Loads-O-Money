@@ -12,6 +12,8 @@ var pushback_factor = 0.5
 # Amount of exp Todd (the player) has
 var exp = Global_Variables.player_exp
 
+var camera_set = true # Variable to deteremine if camera can't do weird stuff or if it can
+
 # Structure for storing input state
 class InputState:
 	var timestamp: float
@@ -57,8 +59,6 @@ func process_normal_input(delta):
 	
 	var target_angle = (get_global_mouse_position() - global_position).angle()
 	rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
-
-
 
 func get_input_vector() -> Vector2:
 	var input_vector = Vector2.ZERO
@@ -155,3 +155,13 @@ func turn_visible():
 	process_mode = Node.PROCESS_MODE_INHERIT
 	$Node2D/Player_Sprite.visible = true
 	$Node2D/Shot_In_Hand_Sprite.visible = true
+
+func camera_zoom_out():
+		camera_set = false
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_CUBIC) # You can change the transition type
+		tween.set_ease(Tween.EASE_IN_OUT)  # You can change the ease type
+		
+		# Assuming the camera starts at 1.0 zoom
+		# Tween from current zoom to 0.3 over 2 seconds
+		tween.tween_property($Camera_Movement, "zoom", Vector2(0.3, 0.3), 5.0)

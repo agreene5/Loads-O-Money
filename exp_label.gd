@@ -6,11 +6,11 @@ extends HBoxContainer
 @export var font_path: String = "res://Finished_Assets/Comic_Sans_MS_FONT.ttf"
 
 var job_levels = [
-		{"name": "Fast Food", "exp": 2},
-		{"name": "Food Manager", "exp": 20},
-		{"name": "Operations Manager", "exp": 200},
-		{"name": "CEO", "exp": 1000},
-		{"name": "Tech CEO", "exp": 5000},
+		{"name": "Fast Food", "exp": 3.0},
+		{"name": "Food Manager", "exp": 50.0},
+		{"name": "Operations Manager", "exp": 500.0},
+		{"name": "CEO", "exp": 2000.0},
+		{"name": "Tech CEO", "exp": 5000.0},
 ]
 
 var exp_title_label: Label  # New label for "EXP"
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 		var next_job_name = next_level["name"] if next_level else "Max Level"
 		
 		exp_title_label.text = "EXP "  # Set the text for the new label
-		exp_label.text = str(int(current_exp)) + "\n" + str(next_level["exp"] if next_level else current_level["exp"])
+		exp_label.text = (str(int(current_exp)) if abs(current_exp - round(current_exp)) < 0.1 else "%.1f" % current_exp) + "\n" + str(next_level["exp"] if next_level else current_level["exp"])
 		next_label.text = "  Next:"  # Changed from "   Next:" to "  Next:"
 		job_label.text = format_job_name(next_job_name)
 

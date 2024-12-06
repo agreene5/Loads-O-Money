@@ -17,8 +17,8 @@ var is_caught_moving = false
 
 func _ready():
 		# Get the Area2D child and connect its signal
-		var area = $Area2D
-		area.body_entered.connect(_on_area_2d_area_entered)
+		var area = $UFO_Area
+		area.body_entered.connect(_on_ufo_area_area_entered)
 		# Initialize UFO_Light to be fully transparent
 		$UFO_Light.modulate.a = 0
 		play()
@@ -97,7 +97,8 @@ func abduct_player():
 		abduction_timer = 0
 		target_position = Global_Variables.player_position
 
-func _on_area_2d_area_entered(area):
+
+func _on_ufo_area_area_entered(area):
 		if area.name == "Todd_Body_Signaler":
 				if is_abducting:
 						player_caught()

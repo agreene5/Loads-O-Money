@@ -13,11 +13,17 @@ var property_tax_exp = Global_Variables.property_tax_exp
 
 @onready var sprite = %Property_Tax_Sprite
 
+var last_health_value = 0
+var health_unchanged_timer = 0.0
+const DESPAWN_TIME = 60.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	update_sprite()
 
+	last_health_value = property_tax_health  # (or whatever your health variable is named)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func get_value():
 	return property_tax_health
@@ -39,7 +45,7 @@ func _on_area_entered(area):
 		var result = Global_Variables.calculate_difference(property_tax_health, area.get_value())
 		#Play hit sfx 
 		$AudioStreamPlayer.stream = tax_hit_sfx
-		$AudioStreamPlayer.volume_db = -4
+		$AudioStreamPlayer.volume_db = -7
 		$AudioStreamPlayer.play()
 		
 		if self.get_instance_id() < area.get_instance_id():
@@ -62,3 +68,12 @@ func update_sprite():
 		sprite.texture = load("res://Finished_Assets/Tax_Enemy_Assets/Property_Tax_Med_Health.png")
 	else:
 		sprite.texture = load("res://Finished_Assets/Tax_Enemy_Assets/Property_Tax_Low_Health.png")
+
+func _process(delta):
+		if property_tax_health == last_health_value:  # (use your health variable name)
+				health_unchanged_timer += delta
+				if health_unchanged_timer >= DESPAWN_TIME:
+						get_parent().queue_free()
+		else:
+				health_unchanged_timer = 0.0
+				last_health_value = property_tax_health  # (use your health variable name)

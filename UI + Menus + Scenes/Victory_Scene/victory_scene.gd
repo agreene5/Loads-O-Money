@@ -1,32 +1,24 @@
 extends CanvasLayer
 
-# Exported NodePath to the VideoStreamPlayer
-@export var video_player_node_path: NodePath = "VideoStreamPlayer"
+var input_allowed = false
 
-const VICTORY_THEME = preload("res://Finished_Assets/Song_Assets/Space_Victory_Theme.wav")
+func _ready():	
+	Global_Variables.star_1 = true
+	get_tree().paused = true
+	await get_tree().create_timer(3.03).timeout
+	$Node2D/BillionareText.visible = false
+	input_allowed = true
+	var timer = get_tree().create_timer(150.0)
+	timer.timeout.connect(_on_timer_timeout)
 
-func _ready():	# Start the sequence of waiting, playing the video, and crashing the game.
-	if Global_Variables.space_win:
-		$Node2D/Victory_Theme.stream = VICTORY_THEME
-		$Node2D/Victory_Theme.play()
-	else:
-		$Node2D/AudioStreamPlayer.play()
-		$Node2D/AudioStreamPlayer.play()
-	start_game_flow()
+func _input(event):
+	if input_allowed:
+		if event is InputEventMouseButton and event.pressed:
+				_change_to_victory_scene()
 
-# Coroutine that handles the game flow
-func start_game_flow() -> void:
-	await wait_for_seconds(10.0)
-	get_tree().change_scene_to_file("res://UI + Menus + Scenes/Gameplay/gameplay_scene.tscn")
-	
-	#crash_game() # doesn't work yet
+func _change_to_victory_scene():
+		var victory_scene = load("res://UI + Menus + Scenes/Main_Menu/main_menu.tscn")
+		get_tree().change_scene_to_packed(victory_scene)
 
-
-# Helper function to wait for a given number of seconds
-func wait_for_seconds(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
-
-func crash_game():
-	# Intentionally crash the game by accessing invalid memory (null pointer dereference)
-	var invalid_node = null
-	invalid_node.call("non_existent_method")
+func _on_timer_timeout():
+		_change_to_victory_scene()

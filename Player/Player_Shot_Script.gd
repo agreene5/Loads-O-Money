@@ -23,7 +23,7 @@ var Coin_Variant = Global_Variables.Coin_Variant
 var coin_costs = [0.01, 0.05, 0.10, 0.25] # Determines the cost per shot of each coin
 
 var Dollar_Variant = Global_Variables.Dollar_Variant
-var dollar_costs = [1.0, 10.0, 20.0, 50.0]
+var dollar_costs = [1.0, 5.0, 20.0, 50.0]
 
 var Check_Variant = Global_Variables.Check_Variant
 var check_costs = [100.0, 200.0, 500.0, 1000.0]
@@ -37,7 +37,8 @@ var fire_timer = 0.0
 #----------------
 
 @onready var player = get_parent()
-
+@onready var no_money_sound = %AudioStreamPlayer2
+var sound_playing = false
 
 func _input(event):
 
@@ -63,7 +64,7 @@ func _process(delta):
 
 
 func attempt_fire():
-	if Global_Variables.money <= 0:
+	if Global_Variables.money <= 0 or Global_Variables.button_hovered == true:
 		return  # You can't shoot if you don't have money (but you should go bankrupt and lose before this occurs in the final product)
 
 	var fire_rate = get_fire_rate()
@@ -154,6 +155,8 @@ func _handle_coin_shot(coin_type, cost):
 		get_tree().current_scene.add_child(coin_instance)
 
 		apply_knockback(50, -direction)
+	else:
+		play_no_money_sound()
 
 func _handle_dollar_shot(dollar_type, cost):
 	if Global_Variables.money >= cost:
@@ -177,6 +180,8 @@ func _handle_dollar_shot(dollar_type, cost):
 		get_tree().current_scene.add_child(dollar_instance)
 
 		apply_knockback(134, -direction)
+	else:
+		play_no_money_sound()
 
 
 func _handle_check_shot(check_type, cost):
@@ -201,6 +206,8 @@ func _handle_check_shot(check_type, cost):
 		get_tree().current_scene.add_child(check_instance)
 		
 		apply_knockback(1212, -direction)
+	else:
+		play_no_money_sound()
 
 func apply_knockback(force, direction): # Does knockback depending on the coin type
 	var parent = get_parent()
@@ -218,3 +225,13 @@ func cycle_shot_type():
 						Global_Variables.set_Current_Shot(1)
 				ShotType.CHECK:
 						Global_Variables.set_Current_Shot(2)
+
+func play_no_money_sound():
+	if not sound_playing:
+		sound_playing = true
+		%AudioStreamPlayer3.play()
+		await get_tree().create_timer(1.15).timeout
+		no_money_sound.stream = load("res://Finished_Assets/Voice_Line_Assets/Misc_Voice_Lines/Todd_Random_Voice_2.mp3")
+		no_money_sound.play()
+		await get_tree().create_timer(2.5).timeout
+		sound_playing = false

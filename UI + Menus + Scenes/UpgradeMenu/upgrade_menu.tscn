@@ -233,7 +233,7 @@ offset_right = 674.0
 offset_bottom = 296.0
 grow_horizontal = 2
 theme = ExtResource("3_07dyh")
-text = "$2.00
+text = "$5.00
 Upgrade Coin"
 
 [node name="UpgradeBillButton" type="Button" parent="Node2D"]
@@ -249,7 +249,7 @@ offset_bottom = 446.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_07dyh")
-text = "$15.00
+text = "$20.00
 Upgrade Bill"
 
 [node name="UpgradeCheckButton" type="Button" parent="Node2D"]
@@ -265,7 +265,7 @@ offset_bottom = 599.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_07dyh")
-text = "$500.00
+text = "$300.00
 Upgrade Check"
 
 [node name="Coin" type="Sprite2D" parent="Node2D"]

@@ -7,48 +7,59 @@ var menu_default_cursor: Texture2D = preload("res://Finished_Assets/UI_Assets/UI
 var menu_click_cursor: Texture2D = preload("res://Finished_Assets/UI_Assets/UI_Cursor_Assets/Dollar_Sign_Mouse_2.png")
 
 var is_mouse_pressed = false
+var gameplay_scenes = [
+		"res://UI + Menus + Scenes/Gameplay/gameplay_scene.tscn",
+		"res://UI + Menus + Scenes/Space_Scene/space_scene.tscn"
+]
 
 func _ready():
-	# Ensure the mouse is visible but custom
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	# Connect to the scene changed signal
-	get_tree().connect("node_added", Callable(self, "_on_Scene_Changed"))
-	set_initial_cursor()
+		print("Mouse Controller Ready")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().connect("node_added", Callable(self, "_on_Scene_Changed"))
+		set_initial_cursor()
+		# Set this to ensure we get input first
+		process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			is_mouse_pressed = event.pressed
-			print("Mouse pressed: ", is_mouse_pressed)
-			update_cursor()
+		if event is InputEventMouseButton:
+				print("Mouse input detected in _input")
+				if event.button_index == MOUSE_BUTTON_LEFT:
+						is_mouse_pressed = event.pressed
+						update_cursor()
+						# Optionally, prevent the event from propagating
+						# get_viewport().set_input_as_handled()
 
 func _on_Scene_Changed(node):
-	# Only react if the node added is not this script or not in a persistent group
-	if node != self and (not node.is_in_group("persist")):
-		set_initial_cursor()
+		if node != self and (not node.is_in_group("persist")):
+				set_initial_cursor()
 
 func set_initial_cursor():
-	update_cursor()
+		update_cursor()
 
 func update_cursor():
-	var scene_name = get_tree().current_scene.name if get_tree().current_scene else ""
-	print("Updating cursor for scene: ", scene_name, " Mouse state: ", is_mouse_pressed)
-	var cursor
-	var hotspot = Vector2.ZERO
-	
-	if scene_name == "Gameplay_Scene":
-		cursor = gameplay_click_cursor if is_mouse_pressed else gameplay_default_cursor
-		hotspot = Vector2(15, 15)
-	else:
-		cursor = menu_click_cursor if is_mouse_pressed else menu_default_cursor
-		hotspot = Vector2(4, 0)
-	
-	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, hotspot)
-	print("Cursor set to: ", cursor.resource_path, " for scene: ", scene_name)
+		# Wait until current_scene is available and has a valid scene_file_path
+		while get_tree().current_scene == null or get_tree().current_scene.scene_file_path == null:
+				await get_tree().process_frame
+		
+		var current_scene_path = get_tree().current_scene.scene_file_path
+		
+		var cursor
+		var hotspot = Vector2.ZERO
+		
+		# Check if current scene is in the gameplay_scenes array
+		var is_gameplay_scene = gameplay_scenes.has(current_scene_path)
+		
+		if is_gameplay_scene:
+				cursor = gameplay_click_cursor if is_mouse_pressed else gameplay_default_cursor
+				hotspot = Vector2(15, 15)
+		else:
+				cursor = menu_click_cursor if is_mouse_pressed else menu_default_cursor
+				hotspot = Vector2(4, 0)
+		
+		Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, hotspot)
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			is_mouse_pressed = event.pressed
-			print("Mouse button event captured: ", is_mouse_pressed)
-			update_cursor()
+		if event is InputEventMouseButton:
+				if event.button_index == MOUSE_BUTTON_LEFT:
+						is_mouse_pressed = event.pressed
+						update_cursor()

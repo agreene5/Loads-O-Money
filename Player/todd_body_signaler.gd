@@ -40,7 +40,7 @@ func _on_area_entered(area):
 		
 		# Play hit sfx
 		$AudioStreamPlayer.stream = load(Global_Variables.hurt_voice_lines[random_index])
-		$AudioStreamPlayer.volume_db = -3
+		$AudioStreamPlayer.volume_db = -5
 		$AudioStreamPlayer.play()
 		
 		if self.get_instance_id() < area.get_instance_id():
@@ -97,7 +97,21 @@ func _on_area_entered(area):
 		shot_sprite.visible = true
 	elif area.name == "Saul_Death": # Saul steals yo money 
 		Global_Variables.money -= Global_Variables.money/3
+		audio_player.stream = load("res://Temp_Assets/Temp_SFX_Assets/Car_Crash_SFX.wav")
+		audio_player.volume_db = -1
+		audio_player.play()
+		var tween = create_tween()
+		tween.tween_property(self, "modulate", Color(1, 0, 0, 1), 0.1)
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
+		tween.tween_property(self, "modulate", Color(1, 0, 0, 1), 0.1)
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
+		tween.tween_property(self, "modulate", Color(1, 0, 0, 1), 0.1)
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.3)
 	elif area.name == "Polo_Detector": # You able to Rob Polo :OOOO
 		pass
+	elif area.name =="UFO_Area": # Abducted!!
+		get_parent().camera_zoom_out()
+	
 		
 		

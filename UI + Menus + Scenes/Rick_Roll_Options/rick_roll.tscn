@@ -210,8 +210,8 @@ script = ExtResource("4_iumut")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
 visible = false
-position = Vector2(576, 324)
-scale = Vector2(0.288, 0.216)
+position = Vector2(580, 323)
+scale = Vector2(0.595833, 0.448611)
 texture = ExtResource("5_eviqe")
 
 [node name="Exit" type="Button" parent="Node2D2"]

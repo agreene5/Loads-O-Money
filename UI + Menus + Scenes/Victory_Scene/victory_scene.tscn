@@ -1,45 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5xiw5hu8t21"]
+[gd_scene load_steps=6 format=3 uid="uid://bu5xiw5hu8t21"]
 
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Victory_Scene/victory_scene.gd" id="1_33ef3"]
 [ext_resource type="Script" path="res://UI + Menus + Scenes/Main_Menu/container_node2d.gd" id="2_vanyr"]
-[ext_resource type="Texture2D" uid="uid://dvow2ojex3j70" path="res://Finished_Assets/Misc_Assets/Victory_Screen.png" id="3_1rtbr"]
-[ext_resource type="AudioStream" uid="uid://bvl1y8yw85bdk" path="res://Temp_Assets/Temp_SFX_Assets/RobloxWinSFX.mp3" id="3_oxwb3"]
-[ext_resource type="AudioStream" uid="uid://dghl04qk3s0mo" path="res://Temp_Assets/Temp_SFX_Assets/Yippee_SFX.mp3" id="6_6t8y6"]
+[ext_resource type="VideoStream" path="res://Finished_Assets/Misc_Assets/Credits_Victory.ogv" id="4_4p2fh"]
 [ext_resource type="Texture2D" uid="uid://ybwae6y5wfyp" path="res://Finished_Assets/UI_Assets/UI_Text_Assets/YoureABillionare.png" id="6_fwyv2"]
+[ext_resource type="AudioStream" uid="uid://giley45luqfy" path="res://Finished_Assets/Misc_Assets/Victory_Audio.mp3" id="7_wpuiw"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_33ef3")
-video_player_node_path = NodePath("Node2D/VideoStreamPlayer")
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("2_vanyr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(577.999, 320)
-scale = Vector2(1.27594, 1.24665)
-texture = ExtResource("3_1rtbr")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
-stream = ExtResource("3_oxwb3")
-bus = &"SFX"
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node2D"]
+[node name="Victory_Credits" type="VideoStreamPlayer" parent="Node2D"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -3.0
 offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node2D"]
-stream = ExtResource("6_6t8y6")
-volume_db = -3.0
-pitch_scale = 0.39
-bus = &"SFX"
+stream = ExtResource("4_4p2fh")
+volume_db = -80.0
+autoplay = true
+expand = true
 
 [node name="BillionareText" type="Sprite2D" parent="Node2D"]
 position = Vector2(579, 355)
@@ -47,4 +32,6 @@ scale = Vector2(1.61392, 1.85746)
 texture = ExtResource("6_fwyv2")
 
 [node name="Victory_Theme" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("7_wpuiw")
+autoplay = true
 bus = &"Music"

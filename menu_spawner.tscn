@@ -93,9 +93,9 @@ script = ExtResource("7_aci8l")
 
 [node name="Money_Label" type="Label" parent="Node2D"]
 offset_left = 448.0
-offset_top = 575.5
+offset_top = 576.0
 offset_right = 662.0
-offset_bottom = 633.5
+offset_bottom = 636.0
 theme = ExtResource("8_g01q6")
 script = ExtResource("8_3v7u1")
 

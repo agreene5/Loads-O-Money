@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var sales_tax_health = Global_Variables.sales_tax_health/3
+@export var sales_tax_health = Global_Variables.sales_tax_health
 @export var sales_scale = 0.8
 
 var tax_hit_sfx = preload("res://Temp_Assets/Temp_SFX_Assets/LaserGunSFX.mp3")
@@ -73,7 +73,7 @@ func _on_area_entered(area):
 								space_despawn_event()
 
 func update_sprite():
-		var health_percentage = (sales_tax_health / (Global_Variables.sales_tax_health/3)) * 100
+		var health_percentage = (sales_tax_health / (Global_Variables.sales_tax_health)) * 100
 		
 		if health_percentage >= 50:
 				sprite.texture = load("res://Finished_Assets/Tax_Enemy_Assets/Space_Tax_High_Health.png")

@@ -26,15 +26,17 @@ var game_just_just_started = true
 
 var polo_rob_range = false
 
+var button_hovered = false
+
 var player_exp = 0.0 # The amount of EXP Todd (the player) has
 var player_job = 0 # Defines the players current job | 0: Unemployed, 1: Fast Food Worker, ... 5: Tech Giant CEO
 var player_job_values = { # Defines player job stat values
 	# [0-Exp needed to move up a job, 1-money you earn/second, 2-dash cooldown, 3-dash speed, 4-dash time, 5-speed, 6-sprite, 7-red flash threshold
-	0: [2.0, 0.00, 2.0, 400.0, 0.5, 200.0, "res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png", 1.50],
-	1: [20.0, 0.10, 1.5, 550.0, 0.4, 230.0, "res://Finished_Assets/Player_Body_Assets/Fast_Food_Worker_Todd.png", 1.00],
-	2: [200.0, 0.75, 1.3, 700.0, 0.3, 267.0, "res://Finished_Assets/Player_Body_Assets/Restaurant_Manager_Todd.png", 2.00],
-	3: [1000.0, 5.00, 1.0, 1000.0, 0.2, 300.0, "res://Finished_Assets/Player_Body_Assets/Regional_Operations_Manager_Todd.png", 20.00],
-	4: [5000.0, 50.00, 0.8, 1500.0, 0.15, 330.0, "res://Finished_Assets/Player_Body_Assets/CEO_Todd.png", 200.00],
+	0: [3.0, 0.00, 2.0, 400.0, 0.5, 200.0, "res://Finished_Assets/Player_Body_Assets/Unemployed_Todd.png", 1.50],
+	1: [50.0, 0.30, 1.5, 550.0, 0.4, 230.0, "res://Finished_Assets/Player_Body_Assets/Fast_Food_Worker_Todd.png", 1.00],
+	2: [500.0, 6.00, 1.3, 700.0, 0.3, 267.0, "res://Finished_Assets/Player_Body_Assets/Restaurant_Manager_Todd.png", 2.00],
+	3: [2000.0, 50.00, 1.0, 1000.0, 0.2, 300.0, "res://Finished_Assets/Player_Body_Assets/Regional_Operations_Manager_Todd.png", 20.00],
+	4: [5000.0, 200.00, 0.8, 1500.0, 0.15, 330.0, "res://Finished_Assets/Player_Body_Assets/CEO_Todd.png", 200.00],
 	5: [0.0, 50000000.00, 0.1, 2500.0, 0.1, 500.0, "res://Finished_Assets/Player_Body_Assets/Tech_Giant_CEO_Todd.png", 200.00],
 }
 func level_up():
@@ -54,19 +56,19 @@ func defeat(): # AKA Bankrupcy
 
 var SHOT_HEALTH = { # The health of all shot types
 	"Penny_Collision_Detector": 1.5,
-	"Nickel_Collision_Detector": 4.5,
-	"Dime_Collision_Detector": 12.0,
-	"Quarter_Collision_Detector": 30.0,
+	"Nickel_Collision_Detector": 6.0,
+	"Dime_Collision_Detector": 9.0,
+	"Quarter_Collision_Detector": 17.5,
 	
-	"Washington_Collision_Detector": 15.0,
-	"Lincoln_Collision_Detector": 45.0,
-	"Jackson_Collision_Detector": 120.0,
-	"Grant_Collision_Detector": 300.0,
+	"Washington_Collision_Detector": 30.0,
+	"Lincoln_Collision_Detector": 180.0,
+	"Jackson_Collision_Detector": 500.0,
+	"Grant_Collision_Detector": 1000.0,
 	
-	"100_Collision_Detector": 150.0,
-	"200_Collision_Detector": 450.0,
-	"500_Collision_Detector": 1200.0,
-	"1000_Collision_Detector": 3000.0,
+	"100_Collision_Detector": 500.0,
+	"200_Collision_Detector": 2000.0,
+	"500_Collision_Detector": 4000.0,
+	"1000_Collision_Detector": 7000.0,
 }
 
 signal Coin_Variant_changed
@@ -97,6 +99,10 @@ var player_position # used to let other scripts read player position
 var player_position_space # used to see space player position
 
 var space_win = true
+
+var star_1 = false # Billionare ending
+var star_2 = false # Tax fraud ending
+var star_3 = false # Space ending
 
 func explosion_animation(): #spawns explosion animation on players position
 	var explosion_scene = load("res://Misc/explosion_animation.tscn")

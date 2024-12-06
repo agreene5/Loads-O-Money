@@ -4,7 +4,10 @@ var original_scale: Vector2
 var original_position: Vector2
 var original_size: Vector2
 
+var input_allowed = false
+
 func _ready():
+		Global_Variables.star_2 = true
 		original_scale = scale
 		original_position = position
 		original_size = Vector2(
@@ -15,16 +18,20 @@ func _ready():
 		_on_window_size_changed()
 		get_tree().paused = true
 		
+		await get_tree().create_timer(3.0).timeout
+		input_allowed = true
+		
 		# Create timer but don't await it immediately
-		var timer = get_tree().create_timer(90.0)
+		var timer = get_tree().create_timer(87.0)
 		timer.timeout.connect(_on_timer_timeout)
 
 func _input(event):
-		if event is InputEventMouseButton and event.pressed:
-				_change_to_victory_scene()
+		if input_allowed:
+			if event is InputEventMouseButton and event.pressed:
+					_change_to_victory_scene()
 
 func _change_to_victory_scene():
-		var victory_scene = load("res://UI + Menus + Scenes/Victory_Scene/victory_scene.tscn")
+		var victory_scene = load("res://UI + Menus + Scenes/Main_Menu/main_menu.tscn")
 		get_tree().change_scene_to_packed(victory_scene)
 
 func _on_timer_timeout():

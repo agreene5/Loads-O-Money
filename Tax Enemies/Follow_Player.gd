@@ -7,7 +7,7 @@ extends RigidBody2D
 
 enum State {FOLLOW_PATH, CHASE_PLAYER, RETURN_TO_PATH}
 
-@export var Speed: float = 600
+@export var Speed: float = 400
 @export var Chase_Distance: float = 1000
 @export var Upright_Force: float = 5.0
 @export var Path_Follow_Distance: float = 10.0

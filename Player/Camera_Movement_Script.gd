@@ -16,21 +16,22 @@ func _ready():
 		set_as_top_level(true)
 
 func _physics_process(delta):
-		var player = get_parent()
+		if get_parent().camera_set:
+			var player = get_parent()
 
-		var player_velocity = player.linear_velocity
-		var player_position = player.global_position
+			var player_velocity = player.linear_velocity
+			var player_position = player.global_position
 
-		if player_velocity.length() > 0:
-				# Calculate new position based on player's velocity
-				var offset = player_velocity.normalized() * min(player_velocity.length() * camera_speed_multiplier, max_distance)
-				target_position = player_position + offset
-		else:
-				# Return to player's position when player is not moving
-				target_position = player_position
+			if player_velocity.length() > 0:
+					# Calculate new position based on player's velocity
+					var offset = player_velocity.normalized() * min(player_velocity.length() * camera_speed_multiplier, max_distance)
+					target_position = player_position + offset
+			else:
+					# Return to player's position when player is not moving
+					target_position = player_position
 
-		# Smoothly move camera to target position
-		move_camera_smoothly(target_position)
+			# Smoothly move camera to target position
+			move_camera_smoothly(target_position)
 
 func move_camera_smoothly(target: Vector2):
 		if tween and tween.is_valid():

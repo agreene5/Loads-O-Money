@@ -13,6 +13,7 @@ size = Vector2(74, 101)
 [node name="Golden_Tax_Projectile" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 2
+mass = 50.0
 script = ExtResource("1_2t0so")
 
 [node name="Golden_Tax_Projectile_Sprite" type="Sprite2D" parent="."]
@@ -25,7 +26,7 @@ collision_mask = 2
 script = ExtResource("3_o2d3x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Golden_Collision_Detector"]
-position = Vector2(-2.5, 1)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_yv8jg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -18,9 +18,9 @@ extends Control
 @onready var CheckSprite = $Node2D/Check
 
 var money =  Global_Variables.money
-var CurrentCoinPrice = 2
-var CurrentBillPrice = 15
-var CurrentCheckPrice = 500
+var CurrentCoinPrice = 5
+var CurrentBillPrice = 20
+var CurrentCheckPrice = 300
 
 func _ready(): # Starting the values off with the Global Variable values
 		get_tree().paused = true
@@ -56,7 +56,7 @@ func _ready(): # Starting the values off with the Global Variable values
 
 		# Check Dollar Variant
 		if (Global_Variables.Dollar_Variant == 1):
-				CurrentBillPrice = 75
+				CurrentBillPrice = 200
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Lincoln_5Dollar.PNG")
 				$Node2D/UpgradeBillButton.text = "$" + str(CurrentBillPrice) + "\n" + "Upgrade Bill"
 				BillSprite.set_texture(texture)
@@ -82,7 +82,7 @@ func _ready(): # Starting the values off with the Global Variable values
 				CurrentBillPriceLabel.text = "100"
 
 		if (Global_Variables.Check_Variant == 1):
-				CurrentCheckPrice = 1000
+				CurrentCheckPrice = 750
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Check_200.png")
 				$Node2D/UpgradeCheckButton.text = "$" + str(CurrentCheckPrice) + "\n" + "Upgrade Check"
 				CheckSprite.set_texture(texture)
@@ -91,7 +91,7 @@ func _ready(): # Starting the values off with the Global Variable values
 				CurrentCheckPriceLabel.text = "200 -> "
 				UpgradedCheckPriceLabel.text = "500"
 		elif (Global_Variables.Check_Variant == 2):
-				CurrentCheckPrice = 2000
+				CurrentCheckPrice = 1500
 				var texture = load("res://Finished_Assets/Player_Shot_Assets/Check_500.PNG")
 				$Node2D/UpgradeCheckButton.text = "$" + str(CurrentCheckPrice) + "\n" + "Upgrade Check"
 				CheckSprite.set_texture(texture)
